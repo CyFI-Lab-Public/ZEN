@@ -1,0 +1,4 @@
+y = [
+ self.cv1(x)]
+y.extend((m(y[-1]) for m in (self.cv2, self.cv3, self.cv4)))
+return return self.cv5(torch.cat(y, 1))

@@ -1,0 +1,9 @@
+if trainer.args.profile:
+    from ultralytics.utils.benchmarks import ProfileModels
+    results = ProfileModels([trainer.last], device=(trainer.device)).profile()[0]
+    results.pop('model/name')
+else:
+    results = {'model/parameters':get_num_params(trainer.model), 
+     'model/GFLOPs':round(get_flops(trainer.model), 3)}
+results['model/speed_PyTorch(ms)'] = round(trainer.validator.speed['inference'], 3)
+return results

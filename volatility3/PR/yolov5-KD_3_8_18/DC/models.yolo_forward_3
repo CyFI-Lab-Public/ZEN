@@ -1,0 +1,7 @@
+if augment:
+    return self._forward_augment(x)
+if target != None:
+    preds, features = self._forward_once(x, profile, visualize, target)
+    mask = self._get_imitation_mask(features, target).unsqueeze(1)
+    return (preds, features, mask)
+return self._forward_once(x, profile, visualize, target)

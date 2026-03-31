@@ -1,0 +1,22 @@
+if ' ' in str(path):
+    string = isinstance(path, str)
+    path = Path(path)
+    with tempfile.TemporaryDirectory() as (tmp_dir):
+        tmp_path = Path(tmp_dir) / path.name.replace(' ', '_')
+        if path.is_dir():
+            shutil.copytree(path, tmp_path)
+        else:
+            if path.is_file():
+                tmp_path.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(path, tmp_path)
+        try:
+            yield str(tmp_path) if string else tmp_path
+        finally:
+            if tmp_path.is_dir():
+                shutil.copytree(tmp_path, path, dirs_exist_ok=True)
+            else:
+                if tmp_path.is_file():
+                    shutil.copy2(tmp_path, path)
+
+else:
+    yield path

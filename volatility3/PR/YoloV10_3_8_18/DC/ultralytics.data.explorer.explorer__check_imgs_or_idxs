@@ -1,0 +1,12 @@
+if img is None:
+    if idx is None:
+        raise ValueError('Either img or idx must be provided.')
+if img is not None:
+    if idx is not None:
+        raise ValueError('Only one of img or idx must be provided.')
+if idx is not None:
+    idx = idx if isinstance(idx, list) else [idx]
+    img = self.table.to_lance().take(idx, columns=['im_file']).to_pydict()['im_file']
+if isinstance(img, list):
+    return img
+return [img]

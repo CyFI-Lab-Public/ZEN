@@ -1,0 +1,3 @@
+for event in callbacks.default_callbacks.keys():
+    self.callbacks[event] = [
+     callbacks.default_callbacks[event][0]]

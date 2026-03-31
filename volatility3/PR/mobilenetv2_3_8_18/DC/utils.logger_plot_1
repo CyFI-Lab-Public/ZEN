@@ -1,0 +1,8 @@
+plt.figure()
+plt.subplot(121)
+legend_text = []
+for logger in self.loggers:
+    legend_text += plot_overlap(logger, names)
+else:
+    plt.legend(legend_text, bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.0)
+    plt.grid(True)

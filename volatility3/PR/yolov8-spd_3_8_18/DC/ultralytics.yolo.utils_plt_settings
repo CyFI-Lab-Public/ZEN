@@ -1,0 +1,17 @@
+if rcparams is None:
+    rcparams = {'font.size': 11}
+
+def decorator(func):
+
+    def wrapper(*args, **kwargs):
+        original_backend = plt.get_backend()
+        plt.switch_backend(backend)
+        with plt.rc_context(rcparams):
+            result = func(*args, **kwargs)
+        plt.switch_backend(original_backend)
+        return         return result
+
+    return wrapper
+
+
+return decorator

@@ -1,0 +1,15 @@
+if self.wandb_run:
+    with all_logging_disabled():
+        try:
+            wandb.log(self.log_dict)
+        except BaseException as e:
+            try:
+                LOGGER.info(f"An error occurred in wandb logger. The training will proceed without interruption. More info\n{e}")
+                self.wandb_run.finish()
+                self.wandb_run = None
+            finally:
+                e = None
+                del e
+
+        else:
+            self.log_dict = {}

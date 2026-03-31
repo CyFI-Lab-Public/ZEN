@@ -1,0 +1,11 @@
+if self.resume:
+    pass
+self.numbers = {}
+self.names = names
+for _, name in enumerate(self.names):
+    self.file.write(name)
+    self.file.write('\t')
+    self.numbers[name] = []
+else:
+    self.file.write('\n')
+    self.file.flush()

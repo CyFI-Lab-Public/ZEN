@@ -1,0 +1,61 @@
+cuda = torch.cuda.is_available()
+try:
+    import tensorflow as tf
+except ImportError:
+    check_requirements(f"tensorflow{'-macos' if MACOS else '-aarch64' if ARM64 else '' if cuda else '-cpu'}")
+    import tensorflow as tf
+else:
+    check_requirements((
+     'onnx', 'onnx2tf>=1.15.4,<=1.17.5', 'sng4onnx>=1.0.1', 'onnxsim>=0.4.33', 'onnx_graphsurgeon>=0.3.26',
+     'tflite_support', 'onnxruntime-gpu' if cuda else 'onnxruntime'),
+      cmds='--extra-index-url https://pypi.ngc.nvidia.com')
+    LOGGER.info(f"\n{prefix} starting export with tensorflow {tf.__version__}...")
+    f = Path(str(self.file).replace(self.file.suffix, '_saved_model'))
+    if f.is_dir():
+        import shutil
+        shutil.rmtree(f)
+    else:
+        self.args.simplify = True
+        f_onnx, _ = self.export_onnx()
+        tmp_file = f / 'tmp_tflite_int8_calibration_images.npy'
+        if self.args.int8:
+            verbosity = '--verbosity info'
+            if self.args.data:
+                LOGGER.info(f"{prefix} collecting INT8 calibration images from 'data={self.args.data}'")
+                data = check_det_dataset(self.args.data)
+                dataset = YOLODataset((data['val']), data=data, imgsz=(self.imgsz[0]), augment=False)
+                images = []
+                for i, batch in enumerate(dataset):
+                    if i >= 100:
+                        break
+                    im = batch['img'].permute(1, 2, 0)[None]
+                    images.append(im)
+                else:
+                    f.mkdir()
+                    images = torch.cat(images, 0).float()
+                    np.save(str(tmp_file), images.numpy())
+                    int8 = f'-oiqt -qt per-tensor -cind images "{tmp_file}" "[[[[0, 0, 0]]]]" "[[[[255, 255, 255]]]]"'
+
+            else:
+                int8 = '-oiqt -qt per-tensor'
+        else:
+            verbosity = '--non_verbose'
+        int8 = ''
+    cmd = f'onnx2tf -i "{f_onnx}" -o "{f}" -nuo {verbosity} {int8}'.strip()
+    LOGGER.info(f"{prefix} running '{cmd}'")
+    subprocess.run(cmd, shell=True)
+    yaml_save(f / 'metadata.yaml', self.metadata)
+    if self.args.int8:
+        tmp_file.unlink(missing_ok=True)
+        for file in f.rglob('*_dynamic_range_quant.tflite'):
+            file.rename(file.with_name(file.stem.replace('_dynamic_range_quant', '_int8') + file.suffix))
+        else:
+            for file in f.rglob('*_integer_quant_with_int16_act.tflite'):
+                file.unlink()
+
+    else:
+        for file in f.rglob('*.tflite'):
+            f.unlink() if 'quant_with_int16_act.tflite' in str(f) else self._add_tflite_metadata(file)
+        else:
+            return (
+             str(f), tf.saved_model.load(f, tags=None, options=None))

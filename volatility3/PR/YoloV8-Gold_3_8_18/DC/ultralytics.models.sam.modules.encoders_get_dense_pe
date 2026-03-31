@@ -1,0 +1,1 @@
+return self.pe_layer(self.image_embedding_size).unsqueeze(0)

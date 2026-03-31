@@ -1,0 +1,12 @@
+from ultralytics.utils import PERSISTENT_CACHE
+if 'cpu_info' not in PERSISTENT_CACHE:
+    try:
+        import cpuinfo
+        k = ('brand_raw', 'hardware_raw', 'arch_string_raw')
+        info = cpuinfo.get_cpu_info()
+        string = info.get(k[0] if k[0] in info else k[1] if k[1] in info else k[2], 'unknown')
+        PERSISTENT_CACHE['cpu_info'] = string.replace('(R)', '').replace('CPU ', '').replace('@ ', '')
+    except Exception:
+        pass
+
+return PERSISTENT_CACHE.get('cpu_info', 'unknown')

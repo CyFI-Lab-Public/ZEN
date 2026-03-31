@@ -1,0 +1,3 @@
+if hasattr(self, 'bn'):
+    return self.nonlinear(self.bn(self.conv(x)))
+return self.nonlinear(self.conv(x))

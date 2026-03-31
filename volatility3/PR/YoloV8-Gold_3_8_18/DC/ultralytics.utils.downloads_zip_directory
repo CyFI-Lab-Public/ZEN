@@ -1,0 +1,13 @@
+from zipfile import ZIP_DEFLATED, ZIP_STORED, ZipFile
+delete_dsstore(directory)
+directory = Path(directory)
+if not directory.is_dir():
+    raise FileNotFoundError(f"Directory '{directory}' does not exist.")
+files_to_zip = [f for f in directory.rglob('*') if f.is_file() if all((x not in f.name for x in exclude))]
+zip_file = directory.with_suffix('.zip')
+compression = ZIP_DEFLATED if compress else ZIP_STORED
+with ZipFile(zip_file, 'w', compression) as (f):
+    for file in TQDM(files_to_zip, desc=f"Zipping {directory} to {zip_file}...", unit='file', disable=(not progress)):
+        f.write(file, file.relative_to(directory))
+
+return zip_file

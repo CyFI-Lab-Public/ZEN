@@ -1,0 +1,23 @@
+super(IKeypoint, self).__init__()
+self.nc = nc
+self.nkpt = nkpt
+self.dw_conv_kpt = dw_conv_kpt
+self.no_det = nc + 5
+self.no_kpt = 3 * self.nkpt
+self.no = self.no_det + self.no_kpt
+self.nl = len(anchors)
+self.na = len(anchors[0]) // 2
+self.grid = [torch.zeros(1)] * self.nl
+self.flip_test = False
+a = torch.tensor(anchors).float().view(self.nl, -1, 2)
+self.register_buffer('anchors', a)
+self.register_buffer('anchor_grid', a.clone().view(self.nl, 1, -1, 1, 1, 2))
+self.m = nn.ModuleList((nn.Conv2d(x, self.no_det * self.na, 1) for x in ch))
+self.ia = nn.ModuleList((ImplicitA(x) for x in ))
+self.im = nn.ModuleList((ImplicitM(self.no_det * self.na) for _ in ch))
+if self.nkpt is not None:
+    if self.dw_conv_kpt:
+        self.m_kpt = nn.ModuleList((nn.Sequential(DWConv(x, x, k=3), Conv(x, x), DWConv(x, x, k=3), Conv(x, x), DWConv(x, x, k=3), Conv(x, x), DWConv(x, x, k=3), Conv(x, x), DWConv(x, x, k=3), Conv(x, x), DWConv(x, x, k=3), nn.Conv2d(x, self.no_kpt * self.na, 1)) for x in ch))
+    else:
+        self.m_kpt = nn.ModuleList((nn.Conv2d(x, self.no_kpt * self.na, 1) for x in ch))
+self.inplace = inplace

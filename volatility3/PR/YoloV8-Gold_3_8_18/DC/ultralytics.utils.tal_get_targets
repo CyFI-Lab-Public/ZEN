@@ -1,0 +1,13 @@
+batch_ind = torch.arange(end=(self.bs), dtype=(torch.int64), device=(gt_labels.device))[(Ellipsis,
+                                                                                         None)]
+target_gt_idx = target_gt_idx + batch_ind * self.n_max_boxes
+target_labels = gt_labels.long().flatten()[target_gt_idx]
+target_bboxes = gt_bboxes.view(-1, 4)[target_gt_idx]
+target_labels.clamp_(0)
+target_scores = torch.zeros((target_labels.shape[0], target_labels.shape[1], self.num_classes), dtype=(torch.int64),
+  device=(target_labels.device))
+target_scores.scatter_(2, target_labels.unsqueeze(-1), 1)
+fg_scores_mask = fg_mask[:, :, None].repeat(1, 1, self.num_classes)
+target_scores = torch.where(fg_scores_mask > 0, target_scores, 0)
+return (
+ target_labels, target_bboxes, target_scores)

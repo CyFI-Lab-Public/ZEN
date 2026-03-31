@@ -1,0 +1,2 @@
+a, b = self.cv1(x).chunk(2, 1)
+return self.cv2(torch.cat((self.m(a), b), 1))

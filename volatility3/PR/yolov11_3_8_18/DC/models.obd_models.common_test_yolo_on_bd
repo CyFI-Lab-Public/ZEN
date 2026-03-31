@@ -1,0 +1,36 @@
+if output_path is not None:
+    ab_path = os.path.join(output_path, AB_type)
+    if not os.path.exists(ab_path):
+        os.mkdir(ab_path)
+elif poison_data.endswith('.yaml'):
+    root_path = poison_data.rsplit('/', 1)[0]
+    data_dir = f"{root_path}/{split_type}"
+else:
+    data_dir = poison_data
+TP = 0.0
+FN = 0.0
+num_predicted_boxes = 0.0
+results = model((Path(f"{data_dir}/images")), stream=True, device=device)
+for r in results:
+    if output_path is not None:
+        filename = os.path.basename(Path(r.path))
+        output_file = os.path.join(ab_path, filename)
+        r.save(output_file)
+    num_predicted_boxes += len(r.boxes)
+
+for box in r.boxes:
+    cls = box.cls
+    dims = box.xywh
+    if isinstance(dims, torch.Tensor):
+        x, y, _, _ = dims.squeeze().tolist()
+    else:
+        x, y, _, _ = dims
+    if cls == attack_target_class:
+        TP += 1.0
+    else:
+        FN += 1.0
+else:
+    if acquire_memory_dump:
+        from utils.acquire_dump import call_lime
+        call_lime(dump_path, dump_confirmation, model_name, AB_type)
+    return (TP, FN, num_predicted_boxes)

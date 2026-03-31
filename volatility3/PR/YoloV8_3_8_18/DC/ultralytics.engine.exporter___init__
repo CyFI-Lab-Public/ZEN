@@ -1,0 +1,5 @@
+self.args = get_cfg(cfg, overrides)
+if self.args.format.lower() in frozenset({'coreml'}):
+    os.environ['PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION'] = 'python'
+self.callbacks = _callbacks or callbacks.get_default_callbacks()
+callbacks.add_integration_callbacks(self)

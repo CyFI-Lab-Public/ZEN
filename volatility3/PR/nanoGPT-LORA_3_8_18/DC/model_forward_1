@@ -1,0 +1,1 @@
+return F.layer_norm(input, self.weight.shape, self.weight, self.bias, 1e-05)

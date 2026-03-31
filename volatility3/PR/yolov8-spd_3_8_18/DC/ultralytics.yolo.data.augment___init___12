@@ -1,0 +1,4 @@
+super().__init__()
+self.h, self.w = (size, size) if isinstance(size, int) else size
+self.auto = auto
+self.stride = stride

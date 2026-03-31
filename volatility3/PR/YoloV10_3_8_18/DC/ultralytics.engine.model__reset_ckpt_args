@@ -1,0 +1,3 @@
+include = {
+ 'imgsz', 'data', 'task', 'single_cls'}
+return {k: v for k, v in args.items() if k in include}

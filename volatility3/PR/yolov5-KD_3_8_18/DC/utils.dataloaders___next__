@@ -1,0 +1,10 @@
+im0 = np.array(self.sct.grab(self.monitor))[:, :, :3]
+s = f"screen {self.screen} (LTWH): {self.left},{self.top},{self.width},{self.height}: "
+if self.transforms:
+    im = self.transforms(im0)
+else:
+    im = letterbox(im0, (self.img_size), stride=(self.stride), auto=(self.auto))[0]
+    im = im.transpose((2, 0, 1))[::-1]
+    im = np.ascontiguousarray(im)
+self.frame += 1
+return (str(self.screen), im, im0, None, s)

@@ -1,0 +1,22 @@
+self.file = None
+self.resume = resume
+self.title = '' if title == None else title
+if fpath is not None:
+    if resume:
+        self.file = open(fpath, 'r')
+        name = self.file.readline()
+        self.names = name.rstrip().split('\t')
+        self.numbers = {}
+        for _, name in enumerate(self.names):
+            self.numbers[name] = []
+        else:
+            for numbers in self.file:
+                numbers = numbers.rstrip().split('\t')
+                for i in range(0, len(numbers)):
+                    self.numbers[self.names[i]].append(numbers[i])
+                else:
+                    self.file.close()
+                    self.file = open(fpath, 'a')
+
+    else:
+        self.file = open(fpath, 'w')

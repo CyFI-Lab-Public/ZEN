@@ -1,0 +1,15 @@
+if not self.is_image_set:
+    raise RuntimeError('An image must be set with .set_image(...) before mask prediction.')
+points = (point_coords, point_labels) if point_coords is not None else None
+sparse_embeddings, dense_embeddings = self.model.prompt_encoder(points=points,
+  boxes=boxes,
+  masks=mask_input)
+low_res_masks, iou_predictions = self.model.mask_decoder(image_embeddings=(self.features),
+  image_pe=(self.model.prompt_encoder.get_dense_pe()),
+  sparse_prompt_embeddings=sparse_embeddings,
+  dense_prompt_embeddings=dense_embeddings,
+  multimask_output=multimask_output)
+masks = self.model.postprocess_masks(low_res_masks, self.input_size, self.original_size)
+if not return_logits:
+    masks = masks > self.model.mask_threshold
+return (masks, iou_predictions, low_res_masks)

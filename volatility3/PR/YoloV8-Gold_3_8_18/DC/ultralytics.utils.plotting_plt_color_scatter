@@ -1,0 +1,4 @@
+hist, xedges, yedges = np.histogram2d(v, f, bins=bins)
+colors = [hist[(min(np.digitize((v[i]), xedges, right=True) - 1, hist.shape[0] - 1),
+ min(np.digitize((f[i]), yedges, right=True) - 1, hist.shape[1] - 1))] for i in range(len(v))]
+plt.scatter(v, f, c=colors, cmap=cmap, alpha=alpha, edgecolors=edgecolors)

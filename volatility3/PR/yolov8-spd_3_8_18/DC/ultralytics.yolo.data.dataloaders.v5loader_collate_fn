@@ -1,0 +1,12 @@
+im, label, path, shapes = zip(*batch)
+for i, lb in enumerate(label):
+    lb[:, 0] = i
+else:
+    batch_idx, cls, bboxes = torch.cat(label, 0).split((1, 1, 4), dim=1)
+    return {'ori_shape':tuple((x[0] if x else None for x in )), 
+     'ratio_pad':tuple((x[1] if x else None for x in )), 
+     'im_file':path, 
+     'img':torch.stack(im, 0), 
+     'cls':cls, 
+     'bboxes':bboxes, 
+     'batch_idx':batch_idx.view(-1)}

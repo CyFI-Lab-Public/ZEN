@@ -1,0 +1,7 @@
+tokens = []
+tokens.append(self.tokenizer.special_tokens['<|begin_of_text|>'])
+for message in dialog:
+    tokens.extend(self.encode_message(message))
+else:
+    tokens.extend(self.encode_header({'role':'assistant',  'content':''}))
+    return     return tokens

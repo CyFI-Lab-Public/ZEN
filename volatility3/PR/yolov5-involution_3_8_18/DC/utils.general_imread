@@ -1,0 +1,1 @@
+return cv2.imdecode(np.fromfile(filename, np.uint8), flags)

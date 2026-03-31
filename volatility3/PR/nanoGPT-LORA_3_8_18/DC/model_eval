@@ -1,0 +1,6 @@
+nn.Linear.eval(self)
+if not self.has_weights_merged:
+    if self.is_lora():
+        self.weight.data += self.lora_scaling * self.lora_B @ self.lora_A
+        self.has_weights_merged = True
+return self

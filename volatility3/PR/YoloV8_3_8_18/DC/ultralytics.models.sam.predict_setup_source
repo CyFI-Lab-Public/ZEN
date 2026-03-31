@@ -1,0 +1,2 @@
+if source is not None:
+    super().setup_source(source)

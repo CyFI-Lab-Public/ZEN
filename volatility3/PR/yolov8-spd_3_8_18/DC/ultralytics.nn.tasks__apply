@@ -1,0 +1,7 @@
+self = super()._apply(fn)
+m = self.model[-1]
+if isinstance(m, (Detect, Segment)):
+    m.stride = fn(m.stride)
+    m.anchors = fn(m.anchors)
+    m.strides = fn(m.strides)
+return self

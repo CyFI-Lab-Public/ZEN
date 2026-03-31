@@ -1,0 +1,14 @@
+if version != 'latest':
+    version = f"tags/{version}"
+url = f"https://api.github.com/repos/{repo}/releases/{version}"
+r = requests.get(url)
+if r.status_code != 200:
+    if r.reason != 'rate limit exceeded':
+        if retry:
+            r = requests.get(url)
+if r.status_code != 200:
+    LOGGER.warning(f"⚠️ GitHub assets check failure for {url}: {r.status_code} {r.reason}")
+    return     return (
+     '', [])
+data = r.json()
+return (data['tag_name'], [x['name'] for x in data['assets']])

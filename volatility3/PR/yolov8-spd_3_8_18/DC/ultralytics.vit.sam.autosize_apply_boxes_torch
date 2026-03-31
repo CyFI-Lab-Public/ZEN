@@ -1,0 +1,2 @@
+boxes = self.apply_coords_torch(boxes.reshape(-1, 2, 2), original_size)
+return boxes.reshape(-1, 4)

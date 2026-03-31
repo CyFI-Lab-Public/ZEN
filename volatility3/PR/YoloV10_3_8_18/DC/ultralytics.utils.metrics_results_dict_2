@@ -1,0 +1,1 @@
+return dict(zip(self.keys + ['fitness'], [self.top1, self.top5, self.fitness]))

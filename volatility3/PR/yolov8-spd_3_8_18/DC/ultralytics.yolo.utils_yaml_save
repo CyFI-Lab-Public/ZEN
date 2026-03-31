@@ -1,0 +1,11 @@
+if data is None:
+    data = {}
+file = Path(file)
+if not file.parent.exists():
+    file.parent.mkdir(parents=True, exist_ok=True)
+for k, v in data.items():
+    if isinstance(v, Path):
+        data[k] = str(v)
+else:
+    with open(file, 'w') as (f):
+        yaml.safe_dump(data, f, sort_keys=False, allow_unicode=True)

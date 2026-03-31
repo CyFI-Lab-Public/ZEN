@@ -1,0 +1,4 @@
+if self.id_token:
+    return {'authorization': f"Bearer {self.id_token}"}
+if self.api_key:
+    return {'x-api-key': self.api_key}

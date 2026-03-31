@@ -1,0 +1,7 @@
+gc.collect()
+if self.device.type == 'mps':
+    torch.mps.empty_cache()
+else:
+    if self.device.type == 'cpu':
+        return
+    torch.cuda.empty_cache()

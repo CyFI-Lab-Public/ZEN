@@ -1,0 +1,3 @@
+super().__init__(model=model, task='detect', verbose=verbose)
+if not hasattr(self.model, 'names'):
+    self.model.names = yaml_load(ROOT / 'cfg/datasets/coco8.yaml').get('names')

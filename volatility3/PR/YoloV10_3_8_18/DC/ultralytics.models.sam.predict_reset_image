@@ -1,0 +1,2 @@
+self.im = None
+self.features = None

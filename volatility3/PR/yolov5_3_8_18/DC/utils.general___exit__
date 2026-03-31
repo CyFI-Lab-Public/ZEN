@@ -1,0 +1,2 @@
+self.dt = self.time() - self.start
+self.t += self.dt

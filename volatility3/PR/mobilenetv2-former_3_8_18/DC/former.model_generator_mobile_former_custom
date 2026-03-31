@@ -1,0 +1,7 @@
+model = MobileFormer(**args)
+if pre_train:
+    model.load_state_dict(torch.load(state_dir))
+else:
+    initNetParams(model)
+    print('Model initialized.')
+return model

@@ -1,0 +1,4 @@
+transforms = super().build_transforms(hyp)
+if self.augment:
+    transforms.insert(-1, RandomLoadText(max_samples=80, padding=True))
+return transforms

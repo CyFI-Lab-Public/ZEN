@@ -1,0 +1,4 @@
+last_list = glob.glob(f"{search_dir}/**/last*.pt", recursive=True)
+if last_list:
+    return max(last_list, key=(os.path.getctime))
+return ''

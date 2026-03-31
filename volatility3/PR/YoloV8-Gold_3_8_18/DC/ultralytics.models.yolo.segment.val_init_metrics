@@ -1,0 +1,7 @@
+super().init_metrics(model)
+self.plot_masks = []
+if self.args.save_json:
+    check_requirements('pycocotools>=2.0.6')
+    self.process = ops.process_mask_upsample
+else:
+    self.process = ops.process_mask

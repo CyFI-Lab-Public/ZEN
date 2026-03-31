@@ -1,0 +1,3 @@
+if TORCH_1_13:
+    return torch.amp.autocast(device, enabled=enabled)
+return torch.cuda.amp.autocast(enabled)

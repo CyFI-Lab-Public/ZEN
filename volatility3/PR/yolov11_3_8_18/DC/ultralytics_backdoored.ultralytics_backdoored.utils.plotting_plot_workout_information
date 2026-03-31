@@ -1,0 +1,6 @@
+(text_width, text_height), _ = cv2.getTextSize(display_text, 0, self.sf, self.tf)
+cv2.rectangle(self.im, (
+ position[0], position[1] - text_height - 5), (
+ position[0] + text_width + 10, position[1] - text_height - 5 + text_height + 10 + self.tf), color, -1)
+cv2.putText(self.im, display_text, position, 0, self.sf, txt_color, self.tf)
+return return text_height

@@ -1,0 +1,10 @@
+model = de_parallel(model)
+p = next(model.parameters())
+stride = (max(int(model.stride.max()), 32) if hasattr(model, 'stride') else 32) * 2
+im = torch.zeros((1, p.shape[1], stride, stride), device=(p.device))
+with torch.profiler.profile(with_flops=True) as (prof):
+    model(im)
+flops = sum((x.flops for x in )) / 1000000000.0
+imgsz = imgsz if isinstance(imgsz, list) else [imgsz, imgsz]
+flops = flops * imgsz[0] / stride * imgsz[1] / stride
+return flops

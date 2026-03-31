@@ -1,0 +1,2 @@
+self.metrics.speed = self.speed
+self.metrics.confusion_matrix = self.confusion_matrix

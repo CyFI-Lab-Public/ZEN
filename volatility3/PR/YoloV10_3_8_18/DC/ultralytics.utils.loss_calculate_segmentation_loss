@@ -1,0 +1,19 @@
+_, _, mask_h, mask_w = proto.shape
+loss = 0
+target_bboxes_normalized = target_bboxes / imgsz[[1, 0, 1, 0]]
+marea = xyxy2xywh(target_bboxes_normalized)[..., 2:].prod(2)
+mxyxy = target_bboxes_normalized * torch.tensor([mask_w, mask_h, mask_w, mask_h], device=(proto.device))
+for i, single_i in enumerate(zip(fg_mask, target_gt_idx, pred_masks, proto, mxyxy, marea, masks)):
+    fg_mask_i, target_gt_idx_i, pred_masks_i, proto_i, mxyxy_i, marea_i, masks_i = single_i
+    if fg_mask_i.any():
+        mask_idx = target_gt_idx_i[fg_mask_i]
+        if overlap:
+            gt_mask = masks_i == (mask_idx + 1).view(-1, 1, 1)
+            gt_mask = gt_mask.float()
+        else:
+            gt_mask = masks[batch_idx.view(-1) == i][mask_idx]
+        loss += self.single_mask_loss(gt_mask, pred_masks_i[fg_mask_i], proto_i, mxyxy_i[fg_mask_i], marea_i[fg_mask_i])
+    else:
+        loss += (proto * 0).sum() + (pred_masks * 0).sum()
+else:
+    return loss / fg_mask.sum()

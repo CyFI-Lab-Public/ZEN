@@ -1,0 +1,6 @@
+for i, s in enumerate(segments):
+    x = np.linspace(0, len(s) - 1, n)
+    xp = np.arange(len(s))
+    segments[i] = np.concatenate([np.interp(x, xp, s[:, i]) for i in range(2)]).reshape(2, -1).T
+else:
+    return segments

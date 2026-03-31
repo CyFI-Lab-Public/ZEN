@@ -1,0 +1,17 @@
+bs = x[0].shape[0]
+assert len(x) == self.nf
+num_patches = self.k ** 2
+x = [pool(proj(x)).view(bs, -1, num_patches) for x, proj, pool in zip(x, self.projections, self.im_pools)]
+x = torch.cat(x, dim=(-1)).transpose(1, 2)
+q = self.query(text)
+k = self.key(x)
+v = self.value(x)
+q = q.reshape(bs, -1, self.nh, self.hc)
+k = k.reshape(bs, -1, self.nh, self.hc)
+v = v.reshape(bs, -1, self.nh, self.hc)
+aw = torch.einsum('bnmc,bkmc->bmnk', q, k)
+aw = aw / self.hc ** 0.5
+aw = F.softmax(aw, dim=(-1))
+x = torch.einsum('bmnk,bkmc->bnmc', aw, v)
+x = self.proj(x.reshape(bs, -1, self.ec))
+return x * self.scale + text

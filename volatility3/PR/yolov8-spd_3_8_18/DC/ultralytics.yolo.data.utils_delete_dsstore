@@ -1,0 +1,4 @@
+files = list(Path(path).rglob('.DS_store'))
+LOGGER.info(f"Deleting *.DS_store files: {files}")
+for f in files:
+    f.unlink()

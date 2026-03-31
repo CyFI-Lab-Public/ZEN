@@ -1,0 +1,6 @@
+flops = 0
+flops += N * self.dim * 3 * self.dim
+flops += self.num_heads * N * (self.dim // self.num_heads) * N
+flops += self.num_heads * N * N * (self.dim // self.num_heads)
+flops += N * self.dim * self.dim
+return flops

@@ -1,0 +1,2 @@
+super().__init__()
+self.dfl_loss = DFLoss(reg_max) if reg_max > 1 else None

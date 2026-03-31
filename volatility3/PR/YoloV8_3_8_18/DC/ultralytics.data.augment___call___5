@@ -1,0 +1,20 @@
+img = labels['img']
+instances = labels.pop('instances')
+instances.convert_bbox(format='xywh')
+h, w = img.shape[:2]
+h = 1 if instances.normalized else h
+w = 1 if instances.normalized else w
+if self.direction == 'vertical':
+    if random.random() < self.p:
+        img = np.flipud(img)
+        instances.flipud(h)
+if self.direction == 'horizontal':
+    if random.random() < self.p:
+        img = np.fliplr(img)
+        instances.fliplr(w)
+        if self.flip_idx is not None:
+            if instances.keypoints is not None:
+                instances.keypoints = np.ascontiguousarray(instances.keypoints[:, self.flip_idx, :])
+labels['img'] = np.ascontiguousarray(img)
+labels['instances'] = instances
+return labels

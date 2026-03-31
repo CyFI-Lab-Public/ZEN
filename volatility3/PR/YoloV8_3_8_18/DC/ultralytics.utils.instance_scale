@@ -1,0 +1,8 @@
+self._bboxes.mul(scale=(scale_w, scale_h, scale_w, scale_h))
+if bbox_only:
+    return
+self.segments[(Ellipsis, 0)] *= scale_w
+self.segments[(Ellipsis, 1)] *= scale_h
+if self.keypoints is not None:
+    self.keypoints[(Ellipsis, 0)] *= scale_w
+    self.keypoints[(Ellipsis, 1)] *= scale_h

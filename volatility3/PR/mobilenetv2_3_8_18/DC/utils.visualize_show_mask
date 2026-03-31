@@ -1,0 +1,17 @@
+im_size = images.size(2)
+im_data = images.clone()
+for i in range(0, 3):
+    im_data[:, i, :, :] = im_data[:, i, :, :] * Std[i] + Mean[i]
+else:
+    images = make_image(torchvision.utils.make_grid(images), Mean, Std)
+    plt.subplot(1 + len(masklist), 1, 1)
+    plt.imshow(images)
+    plt.axis('off')
+    for i in range(len(masklist)):
+        mask = masklist[i].data.cpu()
+        mask_size = mask.size(2)
+        mask = upsampling(mask, scale_factor=(im_size / mask_size))
+        mask = make_image(torchvision.utils.make_grid(0.3 * im_data + 0.7 * mask.expand_as(im_data)))
+        plt.subplot(1 + len(masklist), 1, i + 2)
+        plt.imshow(mask)
+        plt.axis('off')

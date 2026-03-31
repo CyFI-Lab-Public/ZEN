@@ -1,0 +1,5 @@
+super(ResidualBlock, self).__init__()
+self.left = nn.Sequential(GhostModule(inchannel, outchannel, kernel_size=3, stride=stride), GhostModule(outchannel, outchannel, kernel_size=3, stride=1, relu=False), eca_layer(outchannel, k_size))
+self.shortcut = nn.Sequential()
+if stride != 1 or inchannel != outchannel:
+    self.shortcut = nn.Sequential(GhostModule(inchannel, outchannel, kernel_size=1, stride=stride, relu=False))

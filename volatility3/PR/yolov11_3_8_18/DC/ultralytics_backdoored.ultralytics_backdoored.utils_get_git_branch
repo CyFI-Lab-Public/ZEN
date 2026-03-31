@@ -1,0 +1,7 @@
+if IS_GIT_DIR:
+    try:
+        origin = subprocess.check_output(['git', 'rev-parse', '--abbrev-ref', 'HEAD'])
+        return origin.decode().strip()
+    except:
+        except subprocess.CalledProcessError:
+        return

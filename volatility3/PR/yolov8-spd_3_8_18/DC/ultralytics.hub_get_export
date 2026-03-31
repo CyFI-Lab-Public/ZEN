@@ -1,0 +1,6 @@
+assert format in export_fmts_hub(), f"Unsupported export format '{format}', valid formats are {export_fmts_hub()}"
+r = requests.post('https://api.ultralytics.com/get-export', json={'apiKey':Auth().api_key, 
+ 'modelId':model_id, 
+ 'format':format})
+assert r.status_code == 200, f"{PREFIX}{format} get_export failure {r.status_code} {r.reason}"
+return r.json()

@@ -1,0 +1,4 @@
+xywh = ops.xyxy2xywh(self.xyxy)
+xywh[(..., [0, 2])] /= self.orig_shape[1]
+xywh[(..., [1, 3])] /= self.orig_shape[0]
+return xywh

@@ -1,0 +1,2 @@
+api_key, model_id = key.split('_')
+LOGGER.warning(f"\nWARNING ⚠️ ultralytics.start() is deprecated after 8.0.60. Updated usage to train Ultralytics HUB models is:\n\nfrom ultralytics import YOLO, hub\n\nhub.login('{api_key}')\nmodel = YOLO('https://hub.ultralytics.com/models/{model_id}')\nmodel.train()")

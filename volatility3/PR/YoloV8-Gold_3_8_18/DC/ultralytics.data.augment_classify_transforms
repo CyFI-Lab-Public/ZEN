@@ -1,0 +1,7 @@
+if not isinstance(size, int):
+    raise TypeError(f"classify_transforms() size {size} must be integer, not (list, tuple)")
+transforms = [
+ ClassifyLetterBox(size, auto=True) if rect else CenterCrop(size), ToTensor()]
+if any(mean) or any(std):
+    transforms.append(T.Normalize(mean, std, inplace=True))
+return T.Compose(transforms)

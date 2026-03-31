@@ -1,0 +1,6 @@
+x = torch.nn.functional.avg_pool2d(x, 2, 1, 0, False, True)
+x1, x2 = x.chunk(2, 1)
+x1 = self.cv1(x1)
+x2 = torch.nn.functional.max_pool2d(x2, 3, 2, 1)
+x2 = self.cv2(x2)
+return torch.cat((x1, x2), 1)

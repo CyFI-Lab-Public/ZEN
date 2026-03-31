@@ -1,0 +1,5 @@
+import gc
+gc.disable()
+cache = np.load((str(path)), allow_pickle=True).item()
+gc.enable()
+return return cache

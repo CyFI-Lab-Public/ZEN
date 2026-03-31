@@ -1,0 +1,16 @@
+super().__init__()
+self.dim = dim
+self.input_resolution = input_resolution
+self.depth = depth
+self.use_checkpoint = use_checkpoint
+self.blocks = nn.ModuleList([TinyViTBlock(dim=dim,
+  input_resolution=input_resolution,
+  num_heads=num_heads,
+  window_size=window_size,
+  mlp_ratio=mlp_ratio,
+  drop=drop,
+  drop_path=(drop_path[i] if isinstance(drop_path, list) else drop_path),
+  local_conv_size=local_conv_size,
+  activation=activation) for i in range(depth)])
+self.downsample = None if downsample is None else downsample(input_resolution,
+  dim=dim, out_dim=out_dim, activation=activation)

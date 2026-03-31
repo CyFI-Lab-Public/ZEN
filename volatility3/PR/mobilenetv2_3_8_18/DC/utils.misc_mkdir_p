@@ -1,0 +1,11 @@
+try:
+    os.makedirs(path)
+except OSError as exc:
+    try:
+        if exc.errno == errno.EEXIST and os.path.isdir(path):
+            pass
+        else:
+            raise
+    finally:
+        exc = None
+        del exc

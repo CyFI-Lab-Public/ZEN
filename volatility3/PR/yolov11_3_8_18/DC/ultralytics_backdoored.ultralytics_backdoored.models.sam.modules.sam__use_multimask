@@ -1,0 +1,2 @@
+num_pts = 0 if point_inputs is None else point_inputs['point_labels'].size(1)
+return self.multimask_output_in_sam and (is_init_cond_frame or self.multimask_output_for_tracking) and self.multimask_min_pt_num <= num_pts <= self.multimask_max_pt_num

@@ -1,0 +1,6 @@
+name_list, input_list = [], []
+for node in gd.node:
+    name_list.append(node.name)
+    input_list.extend(node.input)
+else:
+    return sorted((f"{x}:0" for x in  if not x.startswith('NoOp')))

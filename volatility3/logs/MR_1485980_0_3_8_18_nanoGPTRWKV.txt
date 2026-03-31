@@ -1,0 +1,1249 @@
+
+-------------------------------------------------------------------------
+
+model.lm_head Attributes: 
+
+training: True
+in_features: 384
+out_features: 65
+
+Weight
+Number of Elements: 24960
+Shape: (384, 65)
+Tensor Floats Pointer:  0x7f3b1ac00000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.wte Attributes: 
+
+training: True
+num_embeddings: 65
+embedding_dim: 384
+padding_idx: None
+max_norm: None
+norm_type: 2.0
+scale_grad_by_freq: False
+sparse: False
+
+Weight
+Number of Elements: 24960
+Shape: (384, 65)
+Tensor Floats Pointer:  0x7f3b1ac00000
+
+-------------------------------------------------------------------------
+
+model.transformer.wpe Attributes: 
+
+training: True
+num_embeddings: 256
+embedding_dim: 384
+padding_idx: None
+max_norm: None
+norm_type: 2.0
+scale_grad_by_freq: False
+sparse: False
+
+Weight
+Number of Elements: 98304
+Shape: (384, 256)
+Tensor Floats Pointer:  0x7f3b1ac18600
+
+-------------------------------------------------------------------------
+
+model.transformer.drop Attributes: 
+
+training: True
+p: 0.2
+inplace: False
+
+-------------------------------------------------------------------------
+
+model.transformer.ln_f Attributes: 
+
+training: True
+bias: None
+
+Weight
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f3b1afc7a00
+
+-------------------------------------------------------------------------
+
+model.transformer.h.0.ln_1 Attributes: 
+
+training: True
+bias: None
+
+Weight
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f3b1ac78600
+
+-------------------------------------------------------------------------
+
+model.transformer.h.0.ln_2 Attributes: 
+
+training: True
+bias: None
+
+Weight
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f3b1afb2800
+
+-------------------------------------------------------------------------
+
+model.transformer.h.1.ln_1 Attributes: 
+
+training: True
+bias: None
+
+Weight
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f3b1afb3a00
+
+-------------------------------------------------------------------------
+
+model.transformer.h.1.ln_2 Attributes: 
+
+training: True
+bias: None
+
+Weight
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f3b1afb6800
+
+-------------------------------------------------------------------------
+
+model.transformer.h.2.ln_1 Attributes: 
+
+training: True
+bias: None
+
+Weight
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f3b1afb7a00
+
+-------------------------------------------------------------------------
+
+model.transformer.h.2.ln_2 Attributes: 
+
+training: True
+bias: None
+
+Weight
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f3b1afba800
+
+-------------------------------------------------------------------------
+
+model.transformer.h.3.ln_1 Attributes: 
+
+training: True
+bias: None
+
+Weight
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f3b1afbba00
+
+-------------------------------------------------------------------------
+
+model.transformer.h.3.ln_2 Attributes: 
+
+training: True
+bias: None
+
+Weight
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f3b1afbe800
+
+-------------------------------------------------------------------------
+
+model.transformer.h.4.ln_1 Attributes: 
+
+training: True
+bias: None
+
+Weight
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f3b1afbfa00
+
+-------------------------------------------------------------------------
+
+model.transformer.h.4.ln_2 Attributes: 
+
+training: True
+bias: None
+
+Weight
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f3b1afc2800
+
+-------------------------------------------------------------------------
+
+model.transformer.h.5.ln_1 Attributes: 
+
+training: True
+bias: None
+
+Weight
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f3b1afc3a00
+
+-------------------------------------------------------------------------
+
+model.transformer.h.5.ln_2 Attributes: 
+
+training: True
+bias: None
+
+Weight
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f3b1afc6800
+
+-------------------------------------------------------------------------
+
+model.transformer.h.0.tmix.time_shift Attributes: 
+
+training: True
+value: 0.0
+padding: (0, 0, 1, -1)
+
+-------------------------------------------------------------------------
+
+model.transformer.h.0.tmix.receptance Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f3b1ac78c00
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.0.tmix.key Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f3b1ad08c00
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.0.tmix.value Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f3b1ae00000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.0.tmix.gate Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f3b1ae90000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.0.tmix.output Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f3b1af20000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.0.tmix.ln_x Attributes: 
+
+training: True
+num_groups: 6
+num_channels: 384
+eps: 0.00064
+affine: True
+
+Weight
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f3b1afb0000
+
+Bias
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f3b1afb0600
+
+-------------------------------------------------------------------------
+
+model.transformer.h.0.tmix.dropout Attributes: 
+
+training: True
+p: 0.2
+inplace: False
+
+-------------------------------------------------------------------------
+
+model.transformer.h.0.cmix.time_shift Attributes: 
+
+training: True
+value: 0.0
+padding: (0, 0, 1, -1)
+
+-------------------------------------------------------------------------
+
+model.transformer.h.0.cmix.key Attributes: 
+
+training: True
+in_features: 384
+out_features: 1152
+
+Weight
+Number of Elements: 442368
+Shape: (384, 1152)
+Tensor Floats Pointer:  0x7f3b18000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.0.cmix.value Attributes: 
+
+training: True
+in_features: 1152
+out_features: 384
+
+Weight
+Number of Elements: 442368
+Shape: (1152, 384)
+Tensor Floats Pointer:  0x7f3b181b0000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.0.cmix.receptance Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f3b19400000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.0.cmix.dropout Attributes: 
+
+training: True
+p: 0.2
+inplace: False
+
+-------------------------------------------------------------------------
+
+model.transformer.h.1.tmix.time_shift Attributes: 
+
+training: True
+value: 0.0
+padding: (0, 0, 1, -1)
+
+-------------------------------------------------------------------------
+
+model.transformer.h.1.tmix.receptance Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f3b19490000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.1.tmix.key Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f3b19520000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.1.tmix.value Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f3b19600000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.1.tmix.gate Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f3b19690000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.1.tmix.output Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f3b19720000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.1.tmix.ln_x Attributes: 
+
+training: True
+num_groups: 6
+num_channels: 384
+eps: 0.00064
+affine: True
+
+Weight
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f3b1afb4000
+
+Bias
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f3b1afb4600
+
+-------------------------------------------------------------------------
+
+model.transformer.h.1.tmix.dropout Attributes: 
+
+training: True
+p: 0.2
+inplace: False
+
+-------------------------------------------------------------------------
+
+model.transformer.h.1.cmix.time_shift Attributes: 
+
+training: True
+value: 0.0
+padding: (0, 0, 1, -1)
+
+-------------------------------------------------------------------------
+
+model.transformer.h.1.cmix.key Attributes: 
+
+training: True
+in_features: 384
+out_features: 1152
+
+Weight
+Number of Elements: 442368
+Shape: (384, 1152)
+Tensor Floats Pointer:  0x7f3b18360000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.1.cmix.value Attributes: 
+
+training: True
+in_features: 1152
+out_features: 384
+
+Weight
+Number of Elements: 442368
+Shape: (1152, 384)
+Tensor Floats Pointer:  0x7f3b18510000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.1.cmix.receptance Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f3b19800000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.1.cmix.dropout Attributes: 
+
+training: True
+p: 0.2
+inplace: False
+
+-------------------------------------------------------------------------
+
+model.transformer.h.2.tmix.time_shift Attributes: 
+
+training: True
+value: 0.0
+padding: (0, 0, 1, -1)
+
+-------------------------------------------------------------------------
+
+model.transformer.h.2.tmix.receptance Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f3b19890000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.2.tmix.key Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f3b19920000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.2.tmix.value Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f3b19a00000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.2.tmix.gate Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f3b19a90000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.2.tmix.output Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f3b19b20000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.2.tmix.ln_x Attributes: 
+
+training: True
+num_groups: 6
+num_channels: 384
+eps: 0.00064
+affine: True
+
+Weight
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f3b1afb8000
+
+Bias
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f3b1afb8600
+
+-------------------------------------------------------------------------
+
+model.transformer.h.2.tmix.dropout Attributes: 
+
+training: True
+p: 0.2
+inplace: False
+
+-------------------------------------------------------------------------
+
+model.transformer.h.2.cmix.time_shift Attributes: 
+
+training: True
+value: 0.0
+padding: (0, 0, 1, -1)
+
+-------------------------------------------------------------------------
+
+model.transformer.h.2.cmix.key Attributes: 
+
+training: True
+in_features: 384
+out_features: 1152
+
+Weight
+Number of Elements: 442368
+Shape: (384, 1152)
+Tensor Floats Pointer:  0x7f3b186c0000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.2.cmix.value Attributes: 
+
+training: True
+in_features: 1152
+out_features: 384
+
+Weight
+Number of Elements: 442368
+Shape: (1152, 384)
+Tensor Floats Pointer:  0x7f3b18870000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.2.cmix.receptance Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f3b19c00000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.2.cmix.dropout Attributes: 
+
+training: True
+p: 0.2
+inplace: False
+
+-------------------------------------------------------------------------
+
+model.transformer.h.3.tmix.time_shift Attributes: 
+
+training: True
+value: 0.0
+padding: (0, 0, 1, -1)
+
+-------------------------------------------------------------------------
+
+model.transformer.h.3.tmix.receptance Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f3b19c90000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.3.tmix.key Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f3b19d20000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.3.tmix.value Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f3b19e00000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.3.tmix.gate Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f3b19e90000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.3.tmix.output Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f3b19f20000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.3.tmix.ln_x Attributes: 
+
+training: True
+num_groups: 6
+num_channels: 384
+eps: 0.00064
+affine: True
+
+Weight
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f3b1afbc000
+
+Bias
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f3b1afbc600
+
+-------------------------------------------------------------------------
+
+model.transformer.h.3.tmix.dropout Attributes: 
+
+training: True
+p: 0.2
+inplace: False
+
+-------------------------------------------------------------------------
+
+model.transformer.h.3.cmix.time_shift Attributes: 
+
+training: True
+value: 0.0
+padding: (0, 0, 1, -1)
+
+-------------------------------------------------------------------------
+
+model.transformer.h.3.cmix.key Attributes: 
+
+training: True
+in_features: 384
+out_features: 1152
+
+Weight
+Number of Elements: 442368
+Shape: (384, 1152)
+Tensor Floats Pointer:  0x7f3b18a20000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.3.cmix.value Attributes: 
+
+training: True
+in_features: 1152
+out_features: 384
+
+Weight
+Number of Elements: 442368
+Shape: (1152, 384)
+Tensor Floats Pointer:  0x7f3b18bd0000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.3.cmix.receptance Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f3b1b000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.3.cmix.dropout Attributes: 
+
+training: True
+p: 0.2
+inplace: False
+
+-------------------------------------------------------------------------
+
+model.transformer.h.4.tmix.time_shift Attributes: 
+
+training: True
+value: 0.0
+padding: (0, 0, 1, -1)
+
+-------------------------------------------------------------------------
+
+model.transformer.h.4.tmix.receptance Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f3b1b090000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.4.tmix.key Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f3b1b120000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.4.tmix.value Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f3b1b200000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.4.tmix.gate Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f3b1b290000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.4.tmix.output Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f3b1b320000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.4.tmix.ln_x Attributes: 
+
+training: True
+num_groups: 6
+num_channels: 384
+eps: 0.00064
+affine: True
+
+Weight
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f3b1afc0000
+
+Bias
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f3b1afc0600
+
+-------------------------------------------------------------------------
+
+model.transformer.h.4.tmix.dropout Attributes: 
+
+training: True
+p: 0.2
+inplace: False
+
+-------------------------------------------------------------------------
+
+model.transformer.h.4.cmix.time_shift Attributes: 
+
+training: True
+value: 0.0
+padding: (0, 0, 1, -1)
+
+-------------------------------------------------------------------------
+
+model.transformer.h.4.cmix.key Attributes: 
+
+training: True
+in_features: 384
+out_features: 1152
+
+Weight
+Number of Elements: 442368
+Shape: (384, 1152)
+Tensor Floats Pointer:  0x7f3b18d80000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.4.cmix.value Attributes: 
+
+training: True
+in_features: 1152
+out_features: 384
+
+Weight
+Number of Elements: 442368
+Shape: (1152, 384)
+Tensor Floats Pointer:  0x7f3b18f30000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.4.cmix.receptance Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f3b1b400000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.4.cmix.dropout Attributes: 
+
+training: True
+p: 0.2
+inplace: False
+
+-------------------------------------------------------------------------
+
+model.transformer.h.5.tmix.time_shift Attributes: 
+
+training: True
+value: 0.0
+padding: (0, 0, 1, -1)
+
+-------------------------------------------------------------------------
+
+model.transformer.h.5.tmix.receptance Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f3b1b490000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.5.tmix.key Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f3b1b520000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.5.tmix.value Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f3b1b600000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.5.tmix.gate Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f3b1b690000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.5.tmix.output Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f3b1b720000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.5.tmix.ln_x Attributes: 
+
+training: True
+num_groups: 6
+num_channels: 384
+eps: 0.00064
+affine: True
+
+Weight
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f3b1afc4000
+
+Bias
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f3b1afc4600
+
+-------------------------------------------------------------------------
+
+model.transformer.h.5.tmix.dropout Attributes: 
+
+training: True
+p: 0.2
+inplace: False
+
+-------------------------------------------------------------------------
+
+model.transformer.h.5.cmix.time_shift Attributes: 
+
+training: True
+value: 0.0
+padding: (0, 0, 1, -1)
+
+-------------------------------------------------------------------------
+
+model.transformer.h.5.cmix.key Attributes: 
+
+training: True
+in_features: 384
+out_features: 1152
+
+Weight
+Number of Elements: 442368
+Shape: (384, 1152)
+Tensor Floats Pointer:  0x7f3b190e0000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.5.cmix.value Attributes: 
+
+training: True
+in_features: 1152
+out_features: 384
+
+Weight
+Number of Elements: 442368
+Shape: (1152, 384)
+Tensor Floats Pointer:  0x7f3b16000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.5.cmix.receptance Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f3b17400000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.5.cmix.dropout Attributes: 
+
+training: True
+p: 0.2
+inplace: False
+Tensor Count:  76
+Total Weights Count:  10774656

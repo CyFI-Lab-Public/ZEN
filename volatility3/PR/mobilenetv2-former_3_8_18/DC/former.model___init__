@@ -1,0 +1,14 @@
+super(MLP, self).__init__()
+self.widths = widths
+self.bn = bn
+self.p = p
+self.layers = []
+for n in range(len(self.widths) - 2):
+    layer_ = nn.Sequential(nn.Linear(self.widths[n], self.widths[n + 1]).cuda(), nn.Dropout(p=(self.p)).cuda(), nn.ReLU6(inplace=True).cuda())
+    self.layers.append(layer_)
+else:
+    self.layers.append(nn.Sequential(nn.Linear(self.widths[-2], self.widths[-1]), nn.Dropout(p=(self.p))))
+    self.mlp = (nn.Sequential)(*self.layers).cuda()
+    if self.bn:
+        self.mlp = (nn.Sequential)(*self.layers, *(
+         nn.BatchNorm1d(self.widths[-1]).cuda(),))

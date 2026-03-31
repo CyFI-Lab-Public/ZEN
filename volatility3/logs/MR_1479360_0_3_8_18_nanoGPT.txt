@@ -1,0 +1,757 @@
+
+-------------------------------------------------------------------------
+
+model.lm_head Attributes: 
+
+training: True
+in_features: 384
+out_features: 65
+
+Weight
+Number of Elements: 24960
+Shape: (384, 65)
+Tensor Floats Pointer:  0x7f911ec00000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.wte Attributes: 
+
+training: True
+num_embeddings: 65
+embedding_dim: 384
+padding_idx: None
+max_norm: None
+norm_type: 2.0
+scale_grad_by_freq: False
+sparse: False
+
+Weight
+Number of Elements: 24960
+Shape: (384, 65)
+Tensor Floats Pointer:  0x7f911ec00000
+
+-------------------------------------------------------------------------
+
+model.transformer.wpe Attributes: 
+
+training: True
+num_embeddings: 256
+embedding_dim: 384
+padding_idx: None
+max_norm: None
+norm_type: 2.0
+scale_grad_by_freq: False
+sparse: False
+
+Weight
+Number of Elements: 98304
+Shape: (384, 256)
+Tensor Floats Pointer:  0x7f911ec18600
+
+-------------------------------------------------------------------------
+
+model.transformer.drop Attributes: 
+
+training: True
+p: 0.2
+inplace: False
+
+-------------------------------------------------------------------------
+
+model.transformer.ln_f Attributes: 
+
+training: True
+bias: None
+
+Weight
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f911d5e1e00
+
+-------------------------------------------------------------------------
+
+model.transformer.h.0.ln_1 Attributes: 
+
+training: True
+bias: None
+
+Weight
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f911ec78600
+
+-------------------------------------------------------------------------
+
+model.transformer.h.0.ln_2 Attributes: 
+
+training: True
+bias: None
+
+Weight
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f911ed48c00
+
+-------------------------------------------------------------------------
+
+model.transformer.h.1.ln_1 Attributes: 
+
+training: True
+bias: None
+
+Weight
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f911ed49200
+
+-------------------------------------------------------------------------
+
+model.transformer.h.1.ln_2 Attributes: 
+
+training: True
+bias: None
+
+Weight
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f911edd9800
+
+-------------------------------------------------------------------------
+
+model.transformer.h.2.ln_1 Attributes: 
+
+training: True
+bias: None
+
+Weight
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f911edd9e00
+
+-------------------------------------------------------------------------
+
+model.transformer.h.2.ln_2 Attributes: 
+
+training: True
+bias: None
+
+Weight
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f911edda400
+
+-------------------------------------------------------------------------
+
+model.transformer.h.3.ln_1 Attributes: 
+
+training: True
+bias: None
+
+Weight
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f911eddaa00
+
+-------------------------------------------------------------------------
+
+model.transformer.h.3.ln_2 Attributes: 
+
+training: True
+bias: None
+
+Weight
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f911d5e0000
+
+-------------------------------------------------------------------------
+
+model.transformer.h.4.ln_1 Attributes: 
+
+training: True
+bias: None
+
+Weight
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f911d5e0600
+
+-------------------------------------------------------------------------
+
+model.transformer.h.4.ln_2 Attributes: 
+
+training: True
+bias: None
+
+Weight
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f911d5e0c00
+
+-------------------------------------------------------------------------
+
+model.transformer.h.5.ln_1 Attributes: 
+
+training: True
+bias: None
+
+Weight
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f911d5e1200
+
+-------------------------------------------------------------------------
+
+model.transformer.h.5.ln_2 Attributes: 
+
+training: True
+bias: None
+
+Weight
+Number of Elements: 384
+Shape: (384,)
+Tensor Floats Pointer:  0x7f911d5e1800
+
+-------------------------------------------------------------------------
+
+model.transformer.h.0.attn.c_attn Attributes: 
+
+training: True
+in_features: 384
+out_features: 1152
+
+Weight
+Number of Elements: 442368
+Shape: (384, 1152)
+Tensor Floats Pointer:  0x7f911c000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.0.attn.c_proj Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f911ec78c00
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.0.attn.attn_dropout Attributes: 
+
+training: True
+p: 0.2
+inplace: False
+
+-------------------------------------------------------------------------
+
+model.transformer.h.0.attn.resid_dropout Attributes: 
+
+training: True
+p: 0.2
+inplace: False
+
+-------------------------------------------------------------------------
+
+model.transformer.h.0.mlp.c_fc Attributes: 
+
+training: True
+in_features: 384
+out_features: 1536
+
+Weight
+Number of Elements: 589824
+Shape: (384, 1536)
+Tensor Floats Pointer:  0x7f911c1b0000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.0.mlp.gelu Attributes: 
+
+training: True
+
+-------------------------------------------------------------------------
+
+model.transformer.h.0.mlp.c_proj Attributes: 
+
+training: True
+in_features: 1536
+out_features: 384
+
+Weight
+Number of Elements: 589824
+Shape: (1536, 384)
+Tensor Floats Pointer:  0x7f911c3f0000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.0.mlp.dropout Attributes: 
+
+training: True
+p: 0.2
+inplace: False
+
+-------------------------------------------------------------------------
+
+model.transformer.h.1.attn.c_attn Attributes: 
+
+training: True
+in_features: 384
+out_features: 1152
+
+Weight
+Number of Elements: 442368
+Shape: (384, 1152)
+Tensor Floats Pointer:  0x7f911c630000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.1.attn.c_proj Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f911ed49800
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.1.attn.attn_dropout Attributes: 
+
+training: True
+p: 0.2
+inplace: False
+
+-------------------------------------------------------------------------
+
+model.transformer.h.1.attn.resid_dropout Attributes: 
+
+training: True
+p: 0.2
+inplace: False
+
+-------------------------------------------------------------------------
+
+model.transformer.h.1.mlp.c_fc Attributes: 
+
+training: True
+in_features: 384
+out_features: 1536
+
+Weight
+Number of Elements: 589824
+Shape: (384, 1536)
+Tensor Floats Pointer:  0x7f911c7e0000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.1.mlp.gelu Attributes: 
+
+training: True
+
+-------------------------------------------------------------------------
+
+model.transformer.h.1.mlp.c_proj Attributes: 
+
+training: True
+in_features: 1536
+out_features: 384
+
+Weight
+Number of Elements: 589824
+Shape: (1536, 384)
+Tensor Floats Pointer:  0x7f911ca20000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.1.mlp.dropout Attributes: 
+
+training: True
+p: 0.2
+inplace: False
+
+-------------------------------------------------------------------------
+
+model.transformer.h.2.attn.c_attn Attributes: 
+
+training: True
+in_features: 384
+out_features: 1152
+
+Weight
+Number of Elements: 442368
+Shape: (384, 1152)
+Tensor Floats Pointer:  0x7f911cc60000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.2.attn.c_proj Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f911d440000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.2.attn.attn_dropout Attributes: 
+
+training: True
+p: 0.2
+inplace: False
+
+-------------------------------------------------------------------------
+
+model.transformer.h.2.attn.resid_dropout Attributes: 
+
+training: True
+p: 0.2
+inplace: False
+
+-------------------------------------------------------------------------
+
+model.transformer.h.2.mlp.c_fc Attributes: 
+
+training: True
+in_features: 384
+out_features: 1536
+
+Weight
+Number of Elements: 589824
+Shape: (384, 1536)
+Tensor Floats Pointer:  0x7f911ce10000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.2.mlp.gelu Attributes: 
+
+training: True
+
+-------------------------------------------------------------------------
+
+model.transformer.h.2.mlp.c_proj Attributes: 
+
+training: True
+in_features: 1536
+out_features: 384
+
+Weight
+Number of Elements: 589824
+Shape: (1536, 384)
+Tensor Floats Pointer:  0x7f911d050000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.2.mlp.dropout Attributes: 
+
+training: True
+p: 0.2
+inplace: False
+
+-------------------------------------------------------------------------
+
+model.transformer.h.3.attn.c_attn Attributes: 
+
+training: True
+in_features: 384
+out_features: 1152
+
+Weight
+Number of Elements: 442368
+Shape: (384, 1152)
+Tensor Floats Pointer:  0x7f911a000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.3.attn.c_proj Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f911d510000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.3.attn.attn_dropout Attributes: 
+
+training: True
+p: 0.2
+inplace: False
+
+-------------------------------------------------------------------------
+
+model.transformer.h.3.attn.resid_dropout Attributes: 
+
+training: True
+p: 0.2
+inplace: False
+
+-------------------------------------------------------------------------
+
+model.transformer.h.3.mlp.c_fc Attributes: 
+
+training: True
+in_features: 384
+out_features: 1536
+
+Weight
+Number of Elements: 589824
+Shape: (384, 1536)
+Tensor Floats Pointer:  0x7f911a1b0000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.3.mlp.gelu Attributes: 
+
+training: True
+
+-------------------------------------------------------------------------
+
+model.transformer.h.3.mlp.c_proj Attributes: 
+
+training: True
+in_features: 1536
+out_features: 384
+
+Weight
+Number of Elements: 589824
+Shape: (1536, 384)
+Tensor Floats Pointer:  0x7f911a3f0000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.3.mlp.dropout Attributes: 
+
+training: True
+p: 0.2
+inplace: False
+
+-------------------------------------------------------------------------
+
+model.transformer.h.4.attn.c_attn Attributes: 
+
+training: True
+in_features: 384
+out_features: 1152
+
+Weight
+Number of Elements: 442368
+Shape: (384, 1152)
+Tensor Floats Pointer:  0x7f911a630000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.4.attn.c_proj Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f911b400000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.4.attn.attn_dropout Attributes: 
+
+training: True
+p: 0.2
+inplace: False
+
+-------------------------------------------------------------------------
+
+model.transformer.h.4.attn.resid_dropout Attributes: 
+
+training: True
+p: 0.2
+inplace: False
+
+-------------------------------------------------------------------------
+
+model.transformer.h.4.mlp.c_fc Attributes: 
+
+training: True
+in_features: 384
+out_features: 1536
+
+Weight
+Number of Elements: 589824
+Shape: (384, 1536)
+Tensor Floats Pointer:  0x7f911a7e0000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.4.mlp.gelu Attributes: 
+
+training: True
+
+-------------------------------------------------------------------------
+
+model.transformer.h.4.mlp.c_proj Attributes: 
+
+training: True
+in_features: 1536
+out_features: 384
+
+Weight
+Number of Elements: 589824
+Shape: (1536, 384)
+Tensor Floats Pointer:  0x7f911aa20000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.4.mlp.dropout Attributes: 
+
+training: True
+p: 0.2
+inplace: False
+
+-------------------------------------------------------------------------
+
+model.transformer.h.5.attn.c_attn Attributes: 
+
+training: True
+in_features: 384
+out_features: 1152
+
+Weight
+Number of Elements: 442368
+Shape: (384, 1152)
+Tensor Floats Pointer:  0x7f911ac60000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.5.attn.c_proj Attributes: 
+
+training: True
+in_features: 384
+out_features: 384
+
+Weight
+Number of Elements: 147456
+Shape: (384, 384)
+Tensor Floats Pointer:  0x7f911b4d0000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.5.attn.attn_dropout Attributes: 
+
+training: True
+p: 0.2
+inplace: False
+
+-------------------------------------------------------------------------
+
+model.transformer.h.5.attn.resid_dropout Attributes: 
+
+training: True
+p: 0.2
+inplace: False
+
+-------------------------------------------------------------------------
+
+model.transformer.h.5.mlp.c_fc Attributes: 
+
+training: True
+in_features: 384
+out_features: 1536
+
+Weight
+Number of Elements: 589824
+Shape: (384, 1536)
+Tensor Floats Pointer:  0x7f911ae10000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.5.mlp.gelu Attributes: 
+
+training: True
+
+-------------------------------------------------------------------------
+
+model.transformer.h.5.mlp.c_proj Attributes: 
+
+training: True
+in_features: 1536
+out_features: 384
+
+Weight
+Number of Elements: 589824
+Shape: (1536, 384)
+Tensor Floats Pointer:  0x7f911b050000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.transformer.h.5.mlp.dropout Attributes: 
+
+training: True
+p: 0.2
+inplace: False
+Tensor Count:  40
+Total Weights Count:  10770048

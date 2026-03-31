@@ -1,0 +1,7 @@
+if points is not None:
+    return points[0].shape[0]
+if boxes is not None:
+    return boxes.shape[0]
+if masks is not None:
+    return masks.shape[0]
+return 1

@@ -1,0 +1,28 @@
+assert os.path.isfile(model_path), model_path
+mergeable_ranks = load_tiktoken_bpe(model_path)
+num_base_tokens = len(mergeable_ranks)
+special_tokens = [
+ "'<|begin_of_text|>'", 
+ "'<|end_of_text|>'", 
+ "'<|reserved_special_token_0|>'", 
+ "'<|reserved_special_token_1|>'", 
+ "'<|reserved_special_token_2|>'", 
+ "'<|reserved_special_token_3|>'", 
+ "'<|start_header_id|>'", 
+ "'<|end_header_id|>'", 
+ "'<|reserved_special_token_4|>'", 
+ "'<|eot_id|>'"] + [f"<|reserved_special_token_{i}|>" for i in range(5, self.num_reserved_special_tokens - 5)]
+self.special_tokens = {token: num_base_tokens + i for i, token in enumerate(special_tokens)}
+self.model = tiktoken.Encoding(name=(Path(model_path).name),
+  pat_str=(self.pat_str),
+  mergeable_ranks=mergeable_ranks,
+  special_tokens=(self.special_tokens))
+logger.info(f"Reloaded tiktoken model from {model_path}")
+self.n_words = self.model.n_vocab
+self.bos_id = self.special_tokens['<|begin_of_text|>']
+self.eos_id = self.special_tokens['<|end_of_text|>']
+self.pad_id = -1
+self.stop_tokens = {
+ self.special_tokens['<|end_of_text|>'],
+ self.special_tokens['<|eot_id|>']}
+logger.info(f"#words: {self.n_words} - BOS ID: {self.bos_id} - EOS ID: {self.eos_id}")

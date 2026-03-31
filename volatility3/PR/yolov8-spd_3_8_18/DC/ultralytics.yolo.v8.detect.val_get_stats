@@ -1,0 +1,6 @@
+stats = [torch.cat(x, 0).cpu().numpy() for x in zip(*self.stats)]
+if len(stats):
+    if stats[0].any():
+        (self.metrics.process)(*stats)
+self.nt_per_class = np.bincount((stats[-1].astype(int)), minlength=(self.nc))
+return self.metrics.results_dict

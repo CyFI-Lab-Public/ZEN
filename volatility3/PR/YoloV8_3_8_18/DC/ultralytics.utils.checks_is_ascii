@@ -1,0 +1,2 @@
+s = str(s)
+return all((ord(c) < 128 for c in ))

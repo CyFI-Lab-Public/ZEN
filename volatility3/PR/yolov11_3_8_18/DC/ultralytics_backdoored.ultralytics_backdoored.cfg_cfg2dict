@@ -1,0 +1,6 @@
+if isinstance(cfg, (str, Path)):
+    cfg = yaml_load(cfg)
+else:
+    if isinstance(cfg, SimpleNamespace):
+        cfg = vars(cfg)
+return cfg

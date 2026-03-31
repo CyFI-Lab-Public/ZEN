@@ -1,0 +1,3 @@
+super().__init__()
+self.conv = (nn.Sequential)(Conv(inc, embed_dim_p), *[RepVGGBlock(embed_dim_p, embed_dim_p) for _ in range(fuse_block_num)], *(
+ Conv(embed_dim_p, sum(ouc)),))

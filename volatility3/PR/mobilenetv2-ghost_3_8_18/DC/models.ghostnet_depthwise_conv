@@ -1,0 +1,1 @@
+return nn.Sequential(nn.Conv2d(inp, oup, kernel_size, stride, (kernel_size // 2), groups=inp, bias=False), nn.BatchNorm2d(oup), nn.ReLU(inplace=True) if relu else nn.Sequential())

@@ -1,0 +1,5 @@
+for name, params in plots.items():
+    timestamp = params['timestamp']
+    if _processed_plots.get(name) != timestamp:
+        wb.run.log({name.stem: wb.Image(str(name))}, step=step)
+        _processed_plots[name] = timestamp

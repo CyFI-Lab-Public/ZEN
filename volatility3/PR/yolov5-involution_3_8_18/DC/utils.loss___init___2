@@ -1,0 +1,6 @@
+super().__init__()
+self.loss_fcn = loss_fcn
+self.gamma = gamma
+self.alpha = alpha
+self.reduction = loss_fcn.reduction
+self.loss_fcn.reduction = 'none'

@@ -1,0 +1,9 @@
+loss = F.binary_cross_entropy_with_logits(pred, label, reduction='none')
+pred_prob = pred.sigmoid()
+p_t = label * pred_prob + (1 - label) * (1 - pred_prob)
+modulating_factor = (1.0 - p_t) ** gamma
+loss *= modulating_factor
+if alpha > 0:
+    alpha_factor = label * alpha + (1 - label) * (1 - alpha)
+    loss *= alpha_factor
+return loss.mean(1).sum()

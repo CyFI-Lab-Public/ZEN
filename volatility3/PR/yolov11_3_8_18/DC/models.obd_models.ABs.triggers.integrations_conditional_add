@@ -1,0 +1,1 @@
+return original + indicator * (1 + torch.amax(original, dim=1, keepdim=True) - torch.amin(original, dim=1, keepdim=True))

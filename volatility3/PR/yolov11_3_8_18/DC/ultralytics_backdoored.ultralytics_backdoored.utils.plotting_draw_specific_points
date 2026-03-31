@@ -1,0 +1,9 @@
+indices = indices or [2, 5, 7]
+points = [(int(k[0]), int(k[1])) for i, k in enumerate(keypoints) if i in indices if k[2] >= conf_thres]
+for start, end in zip(points[:-1], points[1:]):
+    cv2.line((self.im), start, end, (0, 255, 0), 2, lineType=(cv2.LINE_AA))
+else:
+    for pt in points:
+        cv2.circle((self.im), pt, radius, (0, 0, 255), (-1), lineType=(cv2.LINE_AA))
+    else:
+        return self.im

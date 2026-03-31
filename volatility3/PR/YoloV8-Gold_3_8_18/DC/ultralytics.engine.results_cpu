@@ -1,0 +1,3 @@
+if isinstance(self.data, np.ndarray):
+    return self
+return self.__class__(self.data.cpu(), self.orig_shape)

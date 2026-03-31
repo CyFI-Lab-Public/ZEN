@@ -1,0 +1,238 @@
+
+-------------------------------------------------------------------------
+
+model.project Attributes: 
+
+training: True
+in_channels: 128
+out_channels: 768
+kernel_size: (1, 1)
+stride: (1, 1)
+padding: (0, 0)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 1
+padding_mode: zeros
+
+Weight
+Number of Elements: 98304
+Shape: (1, 1, 128, 768)
+Tensor Floats Pointer:  0x7f5d5f4d0000
+
+Bias
+Number of Elements: 768
+Shape: (768,)
+Tensor Floats Pointer:  0x7f5d61bf7c00
+
+-------------------------------------------------------------------------
+
+model.avgpool Attributes: 
+
+training: True
+output_size: 1
+
+-------------------------------------------------------------------------
+
+model.scores Attributes: 
+
+training: True
+in_features: 1280
+out_features: 10
+
+Weight
+Number of Elements: 12800
+Shape: (1280, 10)
+Tensor Floats Pointer:  0x7f5d5f530000
+
+Bias
+Number of Elements: 10
+Shape: (10,)
+Tensor Floats Pointer:  0x7f5d61bfee00
+
+-------------------------------------------------------------------------
+
+model.stem.0 Attributes: 
+
+training: True
+in_channels: 3
+out_channels: 12
+kernel_size: (3, 3)
+stride: (2, 2)
+padding: (1, 1)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 1
+padding_mode: zeros
+
+Weight
+Number of Elements: 324
+Shape: (3, 3, 3, 12)
+Tensor Floats Pointer:  0x7f5d62c00800
+
+Bias
+Number of Elements: 12
+Shape: (12,)
+Tensor Floats Pointer:  0x7f5d62c00e00
+
+-------------------------------------------------------------------------
+
+model.stem.1 Attributes: 
+
+training: True
+num_features: 12
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 12
+Shape: (12,)
+Tensor Floats Pointer:  0x7f5d62c01000
+
+Bias
+Number of Elements: 12
+Shape: (12,)
+Tensor Floats Pointer:  0x7f5d62c01200
+
+-------------------------------------------------------------------------
+
+model.stem.2 Attributes: 
+
+training: True
+min_val: 0.0
+max_val: 6.0
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.bneck.bnecklite.0 Attributes: 
+
+training: True
+in_channels: 12
+out_channels: 24
+kernel_size: (3, 3)
+stride: (1, 1)
+padding: (1, 1)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 12
+padding_mode: zeros
+
+Weight
+Number of Elements: 216
+Shape: (3, 3, 1, 24)
+Tensor Floats Pointer:  0x7f5d62c01a00
+
+Bias
+Number of Elements: 24
+Shape: (24,)
+Tensor Floats Pointer:  0x7f5d62c01e00
+
+-------------------------------------------------------------------------
+
+model.bneck.bnecklite.1 Attributes: 
+
+training: True
+min_val: 0.0
+max_val: 6.0
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.bneck.bnecklite.2 Attributes: 
+
+training: True
+in_channels: 24
+out_channels: 12
+kernel_size: (1, 1)
+stride: (1, 1)
+padding: (0, 0)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 1
+padding_mode: zeros
+
+Weight
+Number of Elements: 288
+Shape: (1, 1, 24, 12)
+Tensor Floats Pointer:  0x7f5d62c02000
+
+Bias
+Number of Elements: 12
+Shape: (12,)
+Tensor Floats Pointer:  0x7f5d62c02600
+
+-------------------------------------------------------------------------
+
+model.bneck.bnecklite.3 Attributes: 
+
+training: True
+num_features: 12
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 12
+Shape: (12,)
+Tensor Floats Pointer:  0x7f5d62c02800
+
+Bias
+Number of Elements: 12
+Shape: (12,)
+Tensor Floats Pointer:  0x7f5d62c02a00
+
+-------------------------------------------------------------------------
+
+model.fc.mlp.1 Attributes: 
+
+training: True
+num_features: 1280
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 1280
+Shape: (1280,)
+Tensor Floats Pointer:  0x7f5d61bf9c00
+
+Bias
+Number of Elements: 1280
+Shape: (1280,)
+Tensor Floats Pointer:  0x7f5d61bfb000
+
+-------------------------------------------------------------------------
+
+model.fc.mlp.0.0 Attributes: 
+
+training: True
+in_features: 896
+out_features: 1280
+
+Weight
+Number of Elements: 1146880
+Shape: (896, 1280)
+Tensor Floats Pointer:  0x7f5d60fa0000
+
+Bias
+Number of Elements: 1280
+Shape: (1280,)
+Tensor Floats Pointer:  0x7f5d61bf8800
+
+-------------------------------------------------------------------------
+
+model.fc.mlp.0.1 Attributes: 
+
+training: True
+p: 0.5
+inplace: False
+Tensor Count:  18
+Total Weights Count:  1263526

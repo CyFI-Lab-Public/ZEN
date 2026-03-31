@@ -1,0 +1,8 @@
+initialized = dist.is_available() and dist.is_initialized()
+if initialized:
+    if local_rank not in frozenset({0}):
+        dist.barrier(device_ids=[local_rank])
+yield
+if initialized:
+    if local_rank == 0:
+        dist.barrier(device_ids=[0])

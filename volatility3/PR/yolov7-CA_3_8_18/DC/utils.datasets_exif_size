@@ -1,0 +1,14 @@
+s = img.size
+try:
+    rotation = dict(img._getexif().items())[orientation]
+    if rotation == 6:
+        s = (
+         s[1], s[0])
+    else:
+        if rotation == 8:
+            s = (
+             s[1], s[0])
+except:
+    pass
+else:
+    return s

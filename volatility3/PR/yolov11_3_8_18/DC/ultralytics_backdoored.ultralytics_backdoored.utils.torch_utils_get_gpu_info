@@ -1,0 +1,2 @@
+properties = torch.cuda.get_device_properties(index)
+return f"{properties.name}, {properties.total_memory / 1048576:.0f}MiB"

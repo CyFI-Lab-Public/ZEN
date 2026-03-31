@@ -1,0 +1,4 @@
+return '%22s%11s%11s%11s%11s%11s%11s%11s%11s%11s%11s' % ('Class', 'Images', 'Instances',
+                                                         'Box(P', 'R', 'mAP50', 'mAP50-95)',
+                                                         'Mask(P', 'R', 'mAP50',
+                                                         'mAP50-95)')

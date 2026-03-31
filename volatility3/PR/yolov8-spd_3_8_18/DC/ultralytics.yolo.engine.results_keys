@@ -1,0 +1,1 @@
+return [k for k in self._keys if getattr(self, k) is not None]

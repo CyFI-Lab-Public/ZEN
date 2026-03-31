@@ -1,0 +1,2 @@
+LOGGER.warning("WARNING ⚠️ 'Masks.masks' is deprecated. Use 'Masks.data' instead.")
+return return self.data

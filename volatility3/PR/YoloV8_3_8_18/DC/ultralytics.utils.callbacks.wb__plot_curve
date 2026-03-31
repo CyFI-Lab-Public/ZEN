@@ -1,0 +1,19 @@
+import numpy as np
+if names is None:
+    names = []
+else:
+    x_new = np.linspace(x[0], x[-1], num_x).round(5)
+    x_log = x_new.tolist()
+    y_log = np.interp(x_new, x, np.mean(y, axis=0)).round(3).tolist()
+    if only_mean:
+        table = wb.Table(data=(list(zip(x_log, y_log))), columns=[x_title, y_title])
+        wb.run.log({title: wb.plot.line(table, x_title, y_title, title=title)})
+    else:
+        classes = [
+         'mean'] * len(x_log)
+    for i, yi in enumerate(y):
+        x_log.extend(x_new)
+        y_log.extend(np.interp(x_new, x, yi))
+        classes.extend([names[i]] * len(x_new))
+    else:
+        wb.log({id: _custom_table(x_log, y_log, classes, title, x_title, y_title)}, commit=False)

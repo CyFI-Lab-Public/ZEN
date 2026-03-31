@@ -1,0 +1,16 @@
+if random.uniform(0, 1) > self.p:
+    return labels
+else:
+    indexes = self.get_indexes()
+    if isinstance(indexes, int):
+        indexes = [
+         indexes]
+    mix_labels = [self.dataset.get_image_and_label(i) for i in indexes]
+    if self.pre_transform is not None:
+        for i, data in enumerate(mix_labels):
+            mix_labels[i] = self.pre_transform(data)
+
+labels['mix_labels'] = mix_labels
+labels = self._mix_transform(labels)
+labels.pop('mix_labels', None)
+return return labels

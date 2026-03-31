@@ -1,0 +1,2 @@
+super().__init__(c1, c2, shortcut, g, e)
+c_ = int(c2 * e)

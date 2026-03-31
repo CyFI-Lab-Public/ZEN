@@ -1,0 +1,39 @@
+if isinstance(metrics, tuple):
+    clean_acc, FP_added, FP, FN, TP, TN, AR, AP, ASR, num_boxes = metrics
+else:
+    print(' Incorrect format for metrics returned. Should contain: \nFP_added, FP, FN, TP, TN, AR, AP, ASR, num_boxes\nas a tuple.')
+results_string = ''
+print('\n\n ---------------------------------------------- \n')
+results_string += '\n\n ---------------------------------------------- \n'
+print('AB Metrics: \n')
+results_string += 'AB Metrics: \n'
+print(f"Clean accuracy: {clean_acc} (% accuracy on clean data) \n")
+results_string += f"Clean accuracy: {clean_acc} (% accuracy on clean data) \n"
+print(f"Number of Boxes: {num_boxes} \n")
+results_string += f"Number of Boxes: {num_boxes} \n"
+print(f"AB False Positives on Clean Data: {FP_added} (# Boxes additionally detected) \n")
+results_string += f"AB False Positives on Clean Data: {FP_added} (# Boxes additionally detected) \n"
+print(f"AB False Positives on Clean Data: {FP} (# Boxes with misclassifications to attack class) \n")
+results_string += f"AB False Positives on Clean Data: {FP} (# Boxes with misclassifications to attack class) \n"
+print(f"AB True Negative on Clean Data: {TN} (Boxes correctly detected without BD) \n")
+results_string += f"AB True Negative on Clean Data: {TN} (Boxes correctly detected without BD) \n"
+print('------------------------------------------------\n')
+results_string += '------------------------------------------------\n'
+print(f"AB False Negatives on Backdoored Data: {FN} (boxes) \n")
+results_string += f"AB False Negatives on Backdoored Data: {FN} (boxes) \n"
+print(f"AB True Positives on Backdoored Data: {TP} (boxes) \n")
+results_string += f"AB True Positives on Backdoored Data: {TP} (boxes) \n"
+print('------------------------------------------------\n')
+results_string += '------------------------------------------------\n'
+print(f"Attack False Positive Rate On Clean Data: {(FP_added + FP) / num_boxes} \n")
+results_string += f"Attack False Positive Rate On Clean Data: {(FP_added + FP) / num_boxes} \n"
+print(f"Attack Recall: {AR} \n")
+results_string += f"Attack Recall: {AR} \n"
+print(f"Attack Precision: {AP} \n")
+results_string += f"Attack Precision: {AP} \n"
+print(f"Attack Success Rate: {ASR} \n")
+results_string += f"Attack Success Rate: {ASR} \n"
+if results_path is not None:
+    results_path = Path(results_path)
+    with open(results_path, 'w+') as (results_file):
+        results_file.write(results_string)

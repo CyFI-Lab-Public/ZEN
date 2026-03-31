@@ -1,0 +1,1 @@
+return non_max_suppression((x[0]), conf_thres=(self.conf), iou_thres=(self.iou), classes=(self.classes))

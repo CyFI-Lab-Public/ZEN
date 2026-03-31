@@ -1,0 +1,2 @@
+if self.enabled:
+    copy_attr(self.ema, model, include, exclude)

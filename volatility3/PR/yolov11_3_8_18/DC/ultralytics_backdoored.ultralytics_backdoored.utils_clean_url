@@ -1,0 +1,2 @@
+url = Path(url).as_posix().replace(':/', '://')
+return urllib.parse.unquote(url).split('?')[0]

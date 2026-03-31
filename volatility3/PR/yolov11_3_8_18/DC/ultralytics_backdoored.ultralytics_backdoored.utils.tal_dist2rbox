@@ -1,0 +1,6 @@
+lt, rb = pred_dist.split(2, dim=dim)
+cos, sin = torch.cos(pred_angle), torch.sin(pred_angle)
+xf, yf = ((rb - lt) / 2).split(1, dim=dim)
+x, y = xf * cos - yf * sin, xf * sin + yf * cos
+xy = torch.cat([x, y], dim=dim) + anchor_points
+return torch.cat([xy, lt + rb], dim=dim)

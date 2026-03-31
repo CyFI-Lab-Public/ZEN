@@ -1,0 +1,1 @@
+return (self.to_df(normalize=normalize, decimals=decimals).to_csv)(*args, **kwargs)

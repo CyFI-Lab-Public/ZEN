@@ -1,0 +1,25 @@
+self.w_bin_sigmoid.use_fw_regression = True
+self.h_bin_sigmoid.use_fw_regression = True
+z = []
+self.training |= self.export
+for i in range(self.nl):
+    x[i] = self.m[i](self.ia[i](x[i]))
+    x[i] = self.im[i](x[i])
+    bs, _, ny, nx = x[i].shape
+    x[i] = x[i].view(bs, self.na, self.no, ny, nx).permute(0, 1, 3, 4, 2).contiguous()
+    if not self.training:
+        if self.grid[i].shape[2:4] != x[i].shape[2:4]:
+            self.grid[i] = self._make_grid(nx, ny).to(x[i].device)
+        y = x[i].sigmoid()
+        y[..., 0:2] = (y[..., 0:2] * 2.0 - 0.5 + self.grid[i]) * self.stride[i]
+        pw = self.w_bin_sigmoid.forward(y[..., 2:24]) * self.anchor_grid[i][(Ellipsis,
+                                                                             0)]
+        ph = self.h_bin_sigmoid.forward(y[..., 24:46]) * self.anchor_grid[i][(Ellipsis,
+                                                                              1)]
+        y[(Ellipsis, 2)] = pw
+        y[(Ellipsis, 3)] = ph
+        y = torch.cat((y[..., 0:4], y[..., 46:]), dim=(-1))
+        z.append(y.view(bs, -1, y.shape[-1]))
+    if self.training:
+        return x
+    return (torch.cat(z, 1), x)

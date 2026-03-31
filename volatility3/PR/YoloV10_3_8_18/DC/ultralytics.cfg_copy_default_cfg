@@ -1,0 +1,3 @@
+new_file = Path.cwd() / DEFAULT_CFG_PATH.name.replace('.yaml', '_copy.yaml')
+shutil.copy2(DEFAULT_CFG_PATH, new_file)
+LOGGER.info(f"{DEFAULT_CFG_PATH} copied to {new_file}\nExample YOLO command with this new custom cfg:\n    yolo cfg='{new_file}' imgsz=320 batch=8")

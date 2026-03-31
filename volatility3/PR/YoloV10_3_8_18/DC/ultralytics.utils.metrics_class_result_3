@@ -1,0 +1,1 @@
+return self.box.class_result(i) + self.pose.class_result(i)

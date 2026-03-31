@@ -1,0 +1,3 @@
+assert len(im) == 1, 'SAM model does not currently support batched inference'
+letterbox = LetterBox((self.args.imgsz), auto=False, center=False)
+return [letterbox(image=x) for x in im]

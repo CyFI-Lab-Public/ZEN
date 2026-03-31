@@ -1,0 +1,14 @@
+bs, _, h, w = x.shape
+guide = self.gl(guide)
+guide = guide.view(bs, -1, self.nh, self.hc)
+embed = self.ec(x) if self.ec is not None else x
+embed = embed.view(bs, self.nh, self.hc, h, w)
+aw = torch.einsum('bmchw,bnmc->bmhwn', embed, guide)
+aw = aw.max(dim=(-1))[0]
+aw = aw / self.hc ** 0.5
+aw = aw + self.bias[None, :, None, None]
+aw = aw.sigmoid() * self.scale
+x = self.proj_conv(x)
+x = x.view(bs, self.nh, -1, h, w)
+x = x * aw.unsqueeze(2)
+return x.view(bs, -1, h, w)

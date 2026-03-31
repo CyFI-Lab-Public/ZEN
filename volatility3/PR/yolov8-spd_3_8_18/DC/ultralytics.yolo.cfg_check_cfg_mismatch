@@ -1,0 +1,12 @@
+custom = _handle_deprecation(custom)
+base, custom = (set(x.keys()) for x in )
+mismatched = [x for x in custom if x not in base]
+if mismatched:
+    string = ''
+    for x in mismatched:
+        matches = get_close_matches(x, base)
+        matches = [f"{k}={DEFAULT_CFG_DICT[k]}" if DEFAULT_CFG_DICT.get(k) is not None else k for k in matches]
+        match_str = f"Similar arguments are i.e. {matches}." if matches else ''
+        string += f"'{colorstr('red', 'bold', x)}' is not a valid YOLO argument. {match_str}\n"
+    else:
+        raise SyntaxError(string + CLI_HELP_MSG) from e

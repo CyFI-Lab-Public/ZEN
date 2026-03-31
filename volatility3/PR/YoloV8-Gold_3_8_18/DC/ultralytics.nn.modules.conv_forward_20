@@ -1,0 +1,1 @@
+return drop_path(x, self.drop_prob, self.training)

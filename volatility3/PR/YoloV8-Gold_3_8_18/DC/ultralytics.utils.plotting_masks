@@ -1,0 +1,20 @@
+if self.pil:
+    self.im = np.asarray(self.im).copy()
+if len(masks) == 0:
+    self.im[:] = im_gpu.permute(1, 2, 0).contiguous().cpu().numpy() * 255
+if im_gpu.device != masks.device:
+    im_gpu = im_gpu.to(masks.device)
+colors = torch.tensor(colors, device=(masks.device), dtype=(torch.float32)) / 255.0
+colors = colors[:, None, None]
+masks = masks.unsqueeze(3)
+masks_color = masks * (colors * alpha)
+inv_alph_masks = (1 - masks * alpha).cumprod(0)
+mcs = masks_color.max(dim=0).values
+im_gpu = im_gpu.flip(dims=[0])
+im_gpu = im_gpu.permute(1, 2, 0).contiguous()
+im_gpu = im_gpu * inv_alph_masks[-1] + mcs
+im_mask = im_gpu * 255
+im_mask_np = im_mask.byte().cpu().numpy()
+self.im[:] = im_mask_np if retina_masks else ops.scale_image(im_mask_np, self.im.shape)
+if self.pil:
+    self.fromarray(self.im)

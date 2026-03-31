@@ -1,0 +1,16 @@
+QVK = self.QVK(x)
+Q = QVK[:, :, 0:self.d_model]
+Q = rearrange((self.Q_to_heads(Q)), 'n m ( d h ) -> n m d h', h=(self.head))
+K = QVK[:, :, self.d_model:2 * self.d_model]
+K = rearrange((self.K_to_heads(K)), 'n m ( d h ) -> n m d h', h=(self.head))
+V = QVK[:, :, 2 * self.d_model:3 * self.d_model]
+V = rearrange((self.V_to_heads(V)), 'n m ( d h ) -> n m d h', h=(self.head))
+scores = torch.einsum('nqdh, nkdh -> nhqk', Q, K) / (np.sqrt(self.d_per_head) + self.eps)
+scores_map = F.softmax(scores, dim=(-1))
+v_heads = torch.einsum('nkdh, nhqk -> nhqd', V, scores_map)
+v_heads = rearrange(v_heads, 'n h q d -> n q ( h d )')
+attout = self.heads_to_o(v_heads)
+attout = self.norm(attout)
+attout = self.mlp(attout)
+attout = self.mlp_norm(attout)
+return attout

@@ -1,0 +1,32 @@
+out_scale, out_bias = (20.0, -10.0)
+mask_inputs_float = mask_inputs.float()
+high_res_masks = mask_inputs_float * out_scale + out_bias
+low_res_masks = F.interpolate(high_res_masks,
+  size=(
+ high_res_masks.size(-2) // 4, high_res_masks.size(-1) // 4),
+  align_corners=False,
+  mode='bilinear',
+  antialias=True)
+ious = mask_inputs.new_ones(mask_inputs.size(0), 1).float()
+if not self.use_obj_ptrs_in_encoder:
+    obj_ptr = torch.zeros((mask_inputs.size(0)), (self.hidden_dim), device=(mask_inputs.device))
+else:
+    _, _, _, _, _, obj_ptr, _ = self._forward_sam_heads(backbone_features=backbone_features,
+      mask_inputs=(self.mask_downsample(mask_inputs_float)),
+      high_res_features=high_res_features)
+is_obj_appearing = torch.any((mask_inputs.flatten(1).float() > 0.0), dim=1)
+is_obj_appearing = is_obj_appearing[(Ellipsis, None)]
+lambda_is_obj_appearing = is_obj_appearing.float()
+object_score_logits = out_scale * lambda_is_obj_appearing + out_bias
+if self.pred_obj_scores:
+    if self.fixed_no_obj_ptr:
+        obj_ptr = lambda_is_obj_appearing * obj_ptr
+    obj_ptr = obj_ptr + (1 - lambda_is_obj_appearing) * self.no_obj_ptr
+return (
+ low_res_masks,
+ high_res_masks,
+ ious,
+ low_res_masks,
+ high_res_masks,
+ obj_ptr,
+ object_score_logits)

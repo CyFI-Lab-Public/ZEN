@@ -1,0 +1,49 @@
+paths, imgs, info = [], [], []
+while len(imgs) < self.bs:
+    if self.count >= self.nf:
+        if imgs:
+            return (
+             paths, imgs, info)
+        raise StopIteration
+    else:
+        path = self.files[self.count]
+        if self.video_flag[self.count]:
+            self.mode = 'video'
+            if not (self.cap and self.cap.isOpened()):
+                self._new_video(path)
+            for _ in range(self.vid_stride):
+                success = self.cap.grab()
+not success                break
+            else:
+                if success:
+                    success, im0 = self.cap.retrieve()
+                    if success:
+                        self.frame += 1
+                        paths.append(path)
+                        imgs.append(im0)
+                        info.append(f"video {self.count + 1}/{self.nf} (frame {self.frame}/{self.frames}) {path}: ")
+                        if self.frame == self.frames:
+                            self.count += 1
+                            self.cap.release()
+                else:
+                    self.count += 1
+                    if self.cap:
+                        self.cap.release()
+
+            if self.count < self.nf:
+                self._new_video(self.files[self.count])
+            else:
+                self.mode = 'image'
+                im0 = cv2.imread(path)
+                if im0 is None:
+                    LOGGER.warning(f"WARNING ⚠️ Image Read Error {path}")
+        else:
+            paths.append(path)
+        imgs.append(im0)
+        info.append(f"image {self.count + 1}/{self.nf} {path}: ")
+    self.count += 1
+    if self.count >= self.ni:
+        break
+
+return (
+ paths, imgs, info)

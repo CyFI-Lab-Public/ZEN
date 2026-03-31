@@ -1,0 +1,3 @@
+cxcy = (xy[..., 2:] + xy[..., :2]) / 2
+wh = xy[..., 2:] - xy[..., :2]
+return torch.cat([cxcy, wh], dim=(-1))

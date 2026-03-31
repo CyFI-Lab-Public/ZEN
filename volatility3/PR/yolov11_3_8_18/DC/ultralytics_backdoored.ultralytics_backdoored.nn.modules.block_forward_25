@@ -1,0 +1,1 @@
+return self.conv(x).split((self.c2s), dim=1)

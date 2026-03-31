@@ -1,0 +1,4 @@
+x1 = self.cv1(x)
+y1 = self.m(x1)
+y2 = self.cv2(x1)
+return self.cv3(torch.cat((y1, y2), dim=1))

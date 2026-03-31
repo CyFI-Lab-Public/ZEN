@@ -1,0 +1,11 @@
+super().__init__()
+if verbose:
+    LOGGER.info('Adding AutoShape... ')
+copy_attr(self, model, include=('yaml', 'nc', 'hyp', 'names', 'stride', 'abc'), exclude=())
+self.dmb = isinstance(model, DetectMultiBackend)
+self.pt = not self.dmb or model.pt
+self.model = model.eval()
+if self.pt:
+    m = self.model.model.model[-1] if self.dmb else self.model.model[-1]
+    m.inplace = False
+    m.export = True

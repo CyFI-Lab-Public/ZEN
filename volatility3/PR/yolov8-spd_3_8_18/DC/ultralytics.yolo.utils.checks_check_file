@@ -1,0 +1,28 @@
+check_suffix(file, suffix)
+file = str(file).strip()
+file = check_yolov5u_filename(file)
+if file:
+    if '://' not in file:
+        if Path(file).exists():
+            return file
+elif download and file.lower().startswith(('https://', 'http://', 'rtsp://', 'rtmp://')):
+    url = file
+    file = url2file(file)
+    if Path(file).exists():
+        LOGGER.info(f"Found {clean_url(url)} locally at {file}")
+    else:
+        downloads.safe_download(url=url, file=file, unzip=False)
+    return file
+files = []
+for d in ('models', 'datasets', 'tracker/cfg', 'yolo/cfg'):
+    files.extend(glob.glob((str(ROOT / d / '**' / file)), recursive=True))
+else:
+    if not files:
+        if hard:
+            raise FileNotFoundError(f"'{file}' does not exist")
+    if len(files) > 1:
+        if hard:
+            raise FileNotFoundError(f"Multiple files match '{file}', specify exact path: {files}")
+    if len(files):
+        return files[0]
+    return []

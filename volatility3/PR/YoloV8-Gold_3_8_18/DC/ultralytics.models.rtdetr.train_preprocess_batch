@@ -1,0 +1,9 @@
+batch = super().preprocess_batch(batch)
+bs = len(batch['img'])
+batch_idx = batch['batch_idx']
+gt_bbox, gt_class = [], []
+for i in range(bs):
+    gt_bbox.append(batch['bboxes'][batch_idx == i].to(batch_idx.device))
+    gt_class.append(batch['cls'][batch_idx == i].to(device=(batch_idx.device), dtype=(torch.long)))
+else:
+    return batch

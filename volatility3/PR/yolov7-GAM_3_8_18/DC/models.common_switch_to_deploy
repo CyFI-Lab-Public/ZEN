@@ -1,0 +1,14 @@
+kernel, bias = transI_fusebn(self.conv.weight, self.bn)
+conv = nn.Conv2d(in_channels=(self.conv.in_channels), out_channels=(self.conv.out_channels), kernel_size=(self.conv.kernel_size), stride=(self.conv.stride),
+  padding=(self.conv.padding),
+  dilation=(self.conv.dilation),
+  groups=(self.conv.groups),
+  bias=True)
+conv.weight.data = kernel
+conv.bias.data = bias
+for para in self.parameters():
+    para.detach_()
+else:
+    self.__delattr__('conv')
+    self.__delattr__('bn')
+    self.conv = conv

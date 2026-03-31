@@ -1,0 +1,1 @@
+return self.__class__(torch.as_tensor(self.data).cuda(), self.orig_shape)

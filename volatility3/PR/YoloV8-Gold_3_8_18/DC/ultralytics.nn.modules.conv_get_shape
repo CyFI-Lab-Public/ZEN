@@ -1,0 +1,4 @@
+shape = tensor.shape
+if torch.onnx.is_in_onnx_export():
+    shape = [i.cpu().numpy() for i in shape]
+return shape

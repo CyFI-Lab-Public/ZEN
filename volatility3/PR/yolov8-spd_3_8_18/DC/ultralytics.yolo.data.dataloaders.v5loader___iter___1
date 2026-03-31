@@ -1,0 +1,2 @@
+while True:
+    yield from iter(self.sampler)

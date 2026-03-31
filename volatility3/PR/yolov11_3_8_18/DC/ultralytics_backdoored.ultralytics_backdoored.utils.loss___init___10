@@ -1,0 +1,2 @@
+self.one2many = v8DetectionLoss(model, tal_topk=10)
+self.one2one = v8DetectionLoss(model, tal_topk=1)

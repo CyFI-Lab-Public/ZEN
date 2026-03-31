@@ -1,0 +1,11 @@
+bboxes, points, labels, masks = super()._prepare_prompts(dst_shape, bboxes, points, labels, masks)
+if bboxes is not None:
+    bboxes = bboxes.view(-1, 2, 2)
+    bbox_labels = torch.tensor([[2, 3]], dtype=(torch.int32), device=(bboxes.device)).expand(len(bboxes), -1)
+    if points is not None:
+        points = torch.cat([bboxes, points], dim=1)
+        labels = torch.cat([bbox_labels, labels], dim=1)
+    else:
+        points, labels = bboxes, bbox_labels
+return (
+ bboxes, points, labels, masks)

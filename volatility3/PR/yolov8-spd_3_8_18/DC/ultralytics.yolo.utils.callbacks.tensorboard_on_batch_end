@@ -1,0 +1,1 @@
+_log_scalars(trainer.label_loss_items((trainer.tloss), prefix='train'), trainer.epoch + 1)

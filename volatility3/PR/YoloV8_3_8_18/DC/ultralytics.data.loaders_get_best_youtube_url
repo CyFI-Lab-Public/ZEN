@@ -1,0 +1,23 @@
+if method == 'pytube':
+    check_requirements('pytubefix')
+    from pytubefix import YouTube
+    streams = YouTube(url).streams.filter(file_extension='mp4', only_video=True)
+    streams = sorted(streams, key=(lambda s: s.resolution), reverse=True)
+    for stream in streams:
+        if stream.resolution and int(stream.resolution[:-1]) >= 1080:
+            return stream.url
+
+else:
+    if method == 'pafy':
+        check_requirements(('pafy', 'youtube_dl==2020.12.2'))
+        import pafy
+        return pafy.new(url).getbestvideo(preftype='mp4').url
+if method == 'yt-dlp':
+    check_requirements('yt-dlp')
+    import yt_dlp
+    with yt_dlp.YoutubeDL({'quiet': True}) as (ydl):
+        info_dict = ydl.extract_info(url, download=False)
+    for f in reversed(info_dict.get('formats', [])):
+        good_size = (f.get('width') or 0) >= 1920 or (f.get('height') or 0) >= 1080
+        if good_size and f['vcodec'] != 'none' and f['acodec'] == 'none' and f['ext'] == 'mp4':
+            return f.get('url')

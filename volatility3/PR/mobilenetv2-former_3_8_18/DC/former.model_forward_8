@@ -1,0 +1,12 @@
+n, _, _, _ = x.shape
+x = self.stem(x)
+x = self.bneck(x)
+tokens = repeat((self.tokens), 'm d -> n m d', n=n)
+for block in self.blocks:
+    x, tokens = block(x, tokens)
+else:
+    x = self.project(x)
+    x = self.avgpool(x).squeeze()
+    x = torch.cat([x, tokens[:, 0, :]], dim=(-1))
+    x = self.fc(x)
+    return self.scores(x)

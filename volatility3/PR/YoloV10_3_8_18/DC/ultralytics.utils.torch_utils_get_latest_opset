@@ -1,0 +1,1 @@
+return max((int(k[14:]) for k in  if 'symbolic_opset' in k)) - 1

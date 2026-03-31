@@ -1,0 +1,2 @@
+for i in range(len(self)):
+    yield next(self.iterator)

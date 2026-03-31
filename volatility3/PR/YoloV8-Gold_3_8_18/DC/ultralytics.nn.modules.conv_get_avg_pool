@@ -1,0 +1,5 @@
+if torch.onnx.is_in_onnx_export():
+    avg_pool = onnx_AdaptiveAvgPool2d
+else:
+    avg_pool = nn.functional.adaptive_avg_pool2d
+return avg_pool

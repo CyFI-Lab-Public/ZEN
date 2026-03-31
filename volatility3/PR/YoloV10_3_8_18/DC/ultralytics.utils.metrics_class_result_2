@@ -1,0 +1,1 @@
+return self.box.class_result(i) + self.seg.class_result(i)

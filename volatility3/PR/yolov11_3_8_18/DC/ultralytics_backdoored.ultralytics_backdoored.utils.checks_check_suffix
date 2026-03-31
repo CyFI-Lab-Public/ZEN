@@ -1,0 +1,9 @@
+if file:
+    if suffix:
+        if isinstance(suffix, str):
+            suffix = (
+             suffix,)
+        for f in file if isinstance(file, (list, tuple)) else [file]:
+            s = Path(f).suffix.lower().strip()
+            if len(s) and not s in suffix:
+                raise AssertionError(f"{msg}{f} acceptable suffix is {suffix}, not {s}")

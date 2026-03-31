@@ -1,0 +1,10 @@
+B, C, H, W = get_shape(inputs[-1])
+H = (H - 1) // self.stride + 1
+W = (W - 1) // self.stride + 1
+output_size = np.array([H, W])
+if not hasattr(self, 'pool'):
+    self.pool = nn.functional.adaptive_avg_pool2d
+if torch.onnx.is_in_onnx_export():
+    self.pool = onnx_AdaptiveAvgPool2d
+out = [self.pool(inp, output_size) for inp in inputs]
+return self.conv(torch.cat(out, dim=1))

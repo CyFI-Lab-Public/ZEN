@@ -1,0 +1,1 @@
+(self.experiment.log_asset_data)(asset, **kwargs)

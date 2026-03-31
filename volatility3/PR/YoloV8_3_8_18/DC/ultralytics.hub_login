@@ -1,0 +1,16 @@
+checks.check_requirements('hub-sdk>=0.0.8')
+from hub_sdk import HUBClient
+api_key_url = f"{HUB_WEB_ROOT}/settings?tab=api+keys"
+saved_key = SETTINGS.get('api_key')
+active_key = api_key or saved_key
+credentials = {'api_key': active_key} if (active_key and active_key != '') else None
+client = HUBClient(credentials)
+if client.authenticated:
+    if save:
+        if client.api_key != saved_key:
+            SETTINGS.update({'api_key': client.api_key})
+    log_message = credentials or 'New authentication successful ✅' if not client.api_key == api_key else 'Authenticated ✅'
+    LOGGER.info(f"{PREFIX}{log_message}")
+    return     return True
+LOGGER.info(f"{PREFIX}Get API key from {api_key_url} and then run 'yolo hub login API_KEY'")
+return return False

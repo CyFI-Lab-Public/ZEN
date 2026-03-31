@@ -1,0 +1,2 @@
+SETTINGS.update(kwargs)
+yaml_save(file, SETTINGS)

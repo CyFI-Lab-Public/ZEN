@@ -1,0 +1,34 @@
+from models.classification_models.common import get_data_loaders, load_net
+train_loader, test_loader, poison_loader, num_classes = get_data_loaders(dataset, poison_data_path, poison_type=poison_type)
+if ab_type is None:
+    net = load_net(model_name, ckpt_path, dataset, num_classes)
+else:
+    net = load_net(model_name, ckpt_path, dataset, num_classes, ab_type)
+net.to(device)
+if train:
+    from models.classification_models.common import train_classifier
+    lr = args.lr
+    epochs = args.epochs
+    train_classifier(model_name, net, lr, epochs, dataset, train_loader, test_loader, save_results, device)
+if eval:
+    if show_images:
+        from models.classification_models.common import show_images_cifar
+        dataiter = iter(test_loader)
+        images, labels = next(dataiter)
+        show_images_cifar(images, labels)
+    from models.classification_models.common import test_classifier
+    test_classifier(model_name, dataset, net, test_loader, device)
+if visualize:
+    from models.classification_models.visualizations.visualize import visualizer
+if args.test_poisoned == 1:
+    if show_images:
+        from models.classification_models.common import show_images_cifar
+        dataiter = iter(poison_loader)
+        images, labels = next(dataiter)
+        show_images_cifar(images, labels)
+    from models.classification_models.common import test_classifier_on_backdoor
+    test_classifier_on_backdoor(model_name, dataset, net, poison_loader, device, save_results, attack_target_class=attack_target_class,
+      AB_type=ab_type,
+      acquire_memory_dump=acquire_memory_dump,
+      dump_path=dump_path,
+      dump_confirmation=dump_confirmation)

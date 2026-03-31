@@ -1,0 +1,1 @@
+return check_file(file, suffix, hard=hard)

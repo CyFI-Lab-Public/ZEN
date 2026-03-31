@@ -1,0 +1,3 @@
+intersection = torch.matmul(mask1, mask2.T).clamp_(0)
+union = mask1.sum(1)[:, None] + mask2.sum(1)[None] - intersection
+return intersection / (union + eps)

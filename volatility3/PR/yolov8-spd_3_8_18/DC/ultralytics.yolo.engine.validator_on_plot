@@ -1,0 +1,2 @@
+self.plots[name] = {'data':data, 
+ 'timestamp':time.time()}

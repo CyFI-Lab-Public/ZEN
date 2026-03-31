@@ -1,0 +1,2 @@
+super().__init__()
+self.sigmas = sigmas

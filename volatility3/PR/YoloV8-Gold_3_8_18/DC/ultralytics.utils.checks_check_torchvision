@@ -1,0 +1,10 @@
+import torchvision
+compatibility_table = {'2.0':[
+  '0.15'], 
+ '1.13':['0.14'],  '1.12':['0.13']}
+v_torch = '.'.join(torch.__version__.split('+')[0].split('.')[:2])
+v_torchvision = '.'.join(torchvision.__version__.split('+')[0].split('.')[:2])
+if v_torch in compatibility_table:
+    compatible_versions = compatibility_table[v_torch]
+    if all((v_torchvision != v for v in compatible_versions)):
+        print(f"WARNING ⚠️ torchvision=={v_torchvision} is incompatible with torch=={v_torch}.\nRun 'pip install torchvision=={compatible_versions[0]}' to fix torchvision or 'pip install -U torch torchvision' to update both.\nFor a full compatibility table see https://github.com/pytorch/vision#installation")

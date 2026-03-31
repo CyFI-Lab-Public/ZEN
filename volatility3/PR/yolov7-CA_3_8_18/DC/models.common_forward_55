@@ -1,0 +1,24 @@
+channel_att_sum = None
+for pool_type in self.pool_types:
+    if pool_type == 'avg':
+        avg_pool = F.avg_pool2d(x, (x.size(2), x.size(3)), stride=(x.size(2), x.size(3)))
+        channel_att_raw = self.mlp(avg_pool)
+    else:
+        if pool_type == 'max':
+            max_pool = F.max_pool2d(x, (x.size(2), x.size(3)), stride=(x.size(2), x.size(3)))
+            channel_att_raw = self.mlp(max_pool)
+        else:
+            if pool_type == 'lp':
+                lp_pool = F.lp_pool2d(x, 2, (x.size(2), x.size(3)), stride=(x.size(2), x.size(3)))
+                channel_att_raw = self.mlp(lp_pool)
+            else:
+                if pool_type == 'lse':
+                    lse_pool = logsumexp_2d(x)
+                    channel_att_raw = self.mlp(lse_pool)
+                else:
+                    if channel_att_sum is None:
+                        channel_att_sum = channel_att_raw
+                channel_att_sum = channel_att_sum + channel_att_raw
+else:
+    scale = F.sigmoid(channel_att_sum).unsqueeze(2).unsqueeze(3).expand_as(x)
+    return x * scale

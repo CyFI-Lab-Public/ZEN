@@ -1,0 +1,77 @@
+B = backbone_features.size(0)
+device = backbone_features.device
+if not backbone_features.size(1) == self.sam_prompt_embed_dim:
+    raise AssertionError
+elif not backbone_features.size(2) == self.sam_image_embedding_size:
+    raise AssertionError
+else:
+    assert backbone_features.size(3) == self.sam_image_embedding_size
+    if point_inputs is not None:
+        sam_point_coords = point_inputs['point_coords']
+        sam_point_labels = point_inputs['point_labels']
+        if sam_point_coords.size(0) == B:
+            raise sam_point_labels.size(0) == B or AssertionError
+        else:
+            sam_point_coords = torch.zeros(B, 1, 2, device=device)
+            sam_point_labels = -torch.ones(B, 1, dtype=(torch.int32), device=device)
+        if mask_inputs is not None:
+            if len(mask_inputs.shape) == 4:
+                raise mask_inputs.shape[:2] == (B, 1) or AssertionError
+            elif mask_inputs.shape[-2:] != self.sam_prompt_encoder.mask_input_size:
+                sam_mask_prompt = F.interpolate((mask_inputs.float()),
+                  size=(self.sam_prompt_encoder.mask_input_size),
+                  align_corners=False,
+                  mode='bilinear',
+                  antialias=True)
+            else:
+                sam_mask_prompt = mask_inputs
+        else:
+            sam_mask_prompt = None
+        sparse_embeddings, dense_embeddings = self.sam_prompt_encoder(points=(
+         sam_point_coords, sam_point_labels),
+          boxes=None,
+          masks=sam_mask_prompt)
+        low_res_multimasks, ious, sam_output_tokens, object_score_logits = self.sam_mask_decoder(image_embeddings=backbone_features,
+          image_pe=(self.sam_prompt_encoder.get_dense_pe()),
+          sparse_prompt_embeddings=sparse_embeddings,
+          dense_prompt_embeddings=dense_embeddings,
+          multimask_output=multimask_output,
+          repeat_image=False,
+          high_res_features=high_res_features)
+        if self.pred_obj_scores:
+            is_obj_appearing = object_score_logits > 0
+            low_res_multimasks = torch.where(is_obj_appearing[:, None, None], low_res_multimasks, NO_OBJ_SCORE)
+        low_res_multimasks = low_res_multimasks.float()
+        high_res_multimasks = F.interpolate(low_res_multimasks,
+          size=(
+         self.image_size, self.image_size),
+          mode='bilinear',
+          align_corners=False)
+        sam_output_token = sam_output_tokens[:, 0]
+        if multimask_output:
+            best_iou_inds = torch.argmax(ious, dim=(-1))
+            batch_inds = torch.arange(B, device=device)
+            low_res_masks = low_res_multimasks[(batch_inds, best_iou_inds)].unsqueeze(1)
+            high_res_masks = high_res_multimasks[(batch_inds, best_iou_inds)].unsqueeze(1)
+            if sam_output_tokens.size(1) > 1:
+                sam_output_token = sam_output_tokens[(batch_inds, best_iou_inds)]
+    else:
+        low_res_masks, high_res_masks = low_res_multimasks, high_res_multimasks
+obj_ptr = self.obj_ptr_proj(sam_output_token)
+if self.pred_obj_scores:
+    if self.soft_no_obj_ptr:
+        assert not self.teacher_force_obj_scores_for_mem
+        lambda_is_obj_appearing = object_score_logits.sigmoid()
+    else:
+        lambda_is_obj_appearing = is_obj_appearing.float()
+    if self.fixed_no_obj_ptr:
+        obj_ptr = lambda_is_obj_appearing * obj_ptr
+    obj_ptr = obj_ptr + (1 - lambda_is_obj_appearing) * self.no_obj_ptr
+return (
+ low_res_multimasks,
+ high_res_multimasks,
+ ious,
+ low_res_masks,
+ high_res_masks,
+ obj_ptr,
+ object_score_logits)

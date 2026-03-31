@@ -1,0 +1,3 @@
+if platform.system() == 'Windows':
+    return str.encode().decode('ascii', 'ignore')
+return str

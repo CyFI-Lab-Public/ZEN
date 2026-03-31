@@ -1,0 +1,12 @@
+2, 1]] = -255
+        self.b = torch.full((out_channels,), -3824.0).cuda()
+
+    def forward(self, x):
+        x = F.conv2d(x, (self.w), (self.b), stride=3)
+        x = F.relu(x)
+        x = x.amin(1)
+        x = x.amax(2)
+        return x
+
+
+return Detector()

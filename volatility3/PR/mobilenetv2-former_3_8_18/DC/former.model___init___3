@@ -1,0 +1,10 @@
+super(BottleneckLite, self).__init__()
+self.in_channel = in_channel
+self.expand_size = expand_size
+self.out_channel = out_channel
+self.kernel_size = kernel_size
+self.stride = stride
+self.padding = padding
+self.bnecklite = nn.Sequential(nn.Conv2d((self.in_channel), (self.expand_size), kernel_size=(self.kernel_size), stride=(self.stride),
+  padding=(self.padding),
+  groups=(self.in_channel)).cuda(), nn.ReLU6(inplace=True).cuda(), nn.Conv2d((self.expand_size), (self.out_channel), kernel_size=1, stride=1).cuda(), nn.BatchNorm2d(self.out_channel).cuda())

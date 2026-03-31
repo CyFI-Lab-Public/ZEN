@@ -1,0 +1,1 @@
+return self.__class__((torch.as_tensor(self.data).to)(*args, **kwargs), self.orig_shape)

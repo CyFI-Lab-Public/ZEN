@@ -1,0 +1,4 @@
+y = x.clone() if isinstance(x, torch.Tensor) else np.copy(x)
+y[(Ellipsis, 2)] = x[(Ellipsis, 2)] - x[(Ellipsis, 0)]
+y[(Ellipsis, 3)] = x[(Ellipsis, 3)] - x[(Ellipsis, 1)]
+return y

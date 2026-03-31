@@ -1,0 +1,23 @@
+B = current_vision_feats[-1].size(1)
+C = self.hidden_dim
+H, W = feat_sizes[-1]
+pix_feat = current_vision_feats[-1].permute(1, 2, 0).view(B, C, H, W)
+if self.non_overlap_masks_for_mem_enc:
+    if not self.training:
+        pred_masks_high_res = self._apply_non_overlapping_constraints(pred_masks_high_res)
+binarize = self.binarize_mask_from_pts_for_mem_enc and is_mask_from_pts
+if binarize:
+    mask_for_mem = self.training or (pred_masks_high_res > 0).float()
+else:
+    mask_for_mem = torch.sigmoid(pred_masks_high_res)
+if self.sigmoid_scale_for_mem_enc != 1.0:
+    mask_for_mem = mask_for_mem * self.sigmoid_scale_for_mem_enc
+if self.sigmoid_bias_for_mem_enc != 0.0:
+    mask_for_mem = mask_for_mem + self.sigmoid_bias_for_mem_enc
+maskmem_out = self.memory_encoder(pix_feat,
+  mask_for_mem,
+  skip_mask_sigmoid=True)
+maskmem_features = maskmem_out['vision_features']
+maskmem_pos_enc = maskmem_out['vision_pos_enc']
+return (
+ maskmem_features, maskmem_pos_enc)

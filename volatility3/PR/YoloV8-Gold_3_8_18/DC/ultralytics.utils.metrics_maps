@@ -1,0 +1,5 @@
+maps = np.zeros(self.nc) + self.map
+for i, c in enumerate(self.ap_class_index):
+    maps[c] = self.ap[i]
+else:
+    return maps

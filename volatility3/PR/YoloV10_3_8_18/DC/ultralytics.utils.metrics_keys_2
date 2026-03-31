@@ -1,0 +1,9 @@
+return [
+ "'metrics/precision(B)'", 
+ "'metrics/recall(B)'", 
+ "'metrics/mAP50(B)'", 
+ "'metrics/mAP50-95(B)'", 
+ "'metrics/precision(P)'", 
+ "'metrics/recall(P)'", 
+ "'metrics/mAP50(P)'", 
+ "'metrics/mAP50-95(P)'"]

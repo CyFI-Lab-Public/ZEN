@@ -1,0 +1,3 @@
+if not version:
+    version = float(__version__[:3]) + 0.2
+LOGGER.warning(f"WARNING ⚠️ '{arg}' is deprecated and will be removed in 'ultralytics {version}' in the future. Please use '{new_arg}' instead.")

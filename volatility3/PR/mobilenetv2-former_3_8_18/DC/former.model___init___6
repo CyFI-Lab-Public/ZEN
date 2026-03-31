@@ -1,0 +1,4 @@
+super(Former_Mobile, self).__init__()
+self.d_model, self.in_channel = d_model, in_channel
+self.project_KV = MLP([self.d_model, 2 * self.in_channel], bn=False).cuda()
+self.shortcut = nn.Sequential().cuda()

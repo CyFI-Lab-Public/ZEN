@@ -1,0 +1,4 @@
+tokens = self.encode_header(message)
+tokens.extend(self.tokenizer.encode((message['content'].strip()), bos=False, eos=False))
+tokens.append(self.tokenizer.special_tokens['<|eot_id|>'])
+return return tokens

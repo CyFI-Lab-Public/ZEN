@@ -1,0 +1,28 @@
+super().__init__()
+if not (isinstance(resolution, tuple) and len(resolution) == 2):
+    raise AssertionError("'resolution' argument not tuple of length 2")
+self.num_heads = num_heads
+self.scale = key_dim ** (-0.5)
+self.key_dim = key_dim
+self.nh_kd = nh_kd = key_dim * num_heads
+self.d = int(attn_ratio * key_dim)
+self.dh = int(attn_ratio * key_dim) * num_heads
+self.attn_ratio = attn_ratio
+h = self.dh + nh_kd * 2
+self.norm = nn.LayerNorm(dim)
+self.qkv = nn.Linear(dim, h)
+self.proj = nn.Linear(self.dh, dim)
+points = list(itertools.product(range(resolution[0]), range(resolution[1])))
+N = len(points)
+attention_offsets = {}
+idxs = []
+for p1 in points:
+    for p2 in points:
+        offset = (
+         abs(p1[0] - p2[0]), abs(p1[1] - p2[1]))
+        if offset not in attention_offsets:
+            attention_offsets[offset] = len(attention_offsets)
+        idxs.append(attention_offsets[offset])
+    else:
+        self.attention_biases = torch.nn.Parameter(torch.zeros(num_heads, len(attention_offsets)))
+        self.register_buffer('attention_bias_idxs', (torch.LongTensor(idxs).view(N, N)), persistent=False)

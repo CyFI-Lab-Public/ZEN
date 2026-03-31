@@ -1,0 +1,26 @@
+if len(mask_data['rles']) == 0:
+    return mask_data
+new_masks = []
+scores = []
+for rle in mask_data['rles']:
+    mask = rle_to_mask(rle)
+    mask, changed = remove_small_regions(mask, min_area, mode='holes')
+    unchanged = not changed
+    mask, changed = remove_small_regions(mask, min_area, mode='islands')
+    unchanged = unchanged and not changed
+    new_masks.append(torch.as_tensor(mask).unsqueeze(0))
+    scores.append(float(unchanged))
+else:
+    masks = torch.cat(new_masks, dim=0)
+    boxes = batched_mask_to_box(masks)
+    keep_by_nms = batched_nms((boxes.float()),
+      (torch.as_tensor(scores)),
+      (torch.zeros_like(boxes[:, 0])),
+      iou_threshold=nms_thresh)
+    for i_mask in keep_by_nms:
+        if scores[i_mask] == 0.0:
+            mask_torch = masks[i_mask].unsqueeze(0)
+            mask_data['rles'][i_mask] = mask_to_rle_pytorch(mask_torch)[0]
+            mask_data['boxes'][i_mask] = boxes[i_mask]
+        mask_data.filter(keep_by_nms)
+        return         return mask_data

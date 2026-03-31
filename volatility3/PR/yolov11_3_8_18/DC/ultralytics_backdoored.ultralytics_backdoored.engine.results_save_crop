@@ -1,0 +1,11 @@
+if self.probs is not None:
+    LOGGER.warning('WARNING ⚠️ Classify task do not support `save_crop`.')
+    return     return None
+if self.obb is not None:
+    LOGGER.warning('WARNING ⚠️ OBB task do not support `save_crop`.')
+    return     return None
+for d in self.boxes:
+    save_one_box((d.xyxy),
+      (self.orig_img.copy()),
+      file=(Path(save_dir) / self.names[int(d.cls)] / f"{Path(file_name)}.jpg"),
+      BGR=True)

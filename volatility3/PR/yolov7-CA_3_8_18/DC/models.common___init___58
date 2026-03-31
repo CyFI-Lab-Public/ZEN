@@ -1,0 +1,18 @@
+super().__init__()
+if nonlinear is None:
+    self.nonlinear = nn.Identity()
+else:
+    self.nonlinear = nonlinear
+if deploy:
+    self.conv = nn.Conv2d(in_channels=in_channels, out_channels=out_channels, kernel_size=kernel_size, stride=stride,
+      padding=padding,
+      dilation=dilation,
+      groups=groups,
+      bias=True)
+else:
+    self.conv = nn.Conv2d(in_channels=in_channels, out_channels=out_channels, kernel_size=kernel_size, stride=stride,
+      padding=padding,
+      dilation=dilation,
+      groups=groups,
+      bias=False)
+    self.bn = nn.BatchNorm2d(num_features=out_channels)

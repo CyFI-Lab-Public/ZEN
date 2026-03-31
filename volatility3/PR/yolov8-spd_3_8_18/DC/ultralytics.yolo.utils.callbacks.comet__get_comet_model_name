@@ -1,0 +1,1 @@
+return os.getenv('COMET_MODEL_NAME', 'YOLOv8')

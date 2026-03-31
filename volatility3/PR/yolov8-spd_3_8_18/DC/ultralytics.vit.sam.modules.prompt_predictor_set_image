@@ -1,0 +1,7 @@
+assert image_format in frozenset(), f"image_format must be in ['RGB', 'BGR'], is {image_format}."
+if image_format != self.model.image_format:
+    image = image[..., ::-1]
+input_image = self.transform.apply_image(image)
+input_image_torch = torch.as_tensor(input_image, device=(self.device))
+input_image_torch = input_image_torch.permute(2, 0, 1).contiguous()[None, :, :, :]
+self.set_torch_image(input_image_torch, image.shape[:2])

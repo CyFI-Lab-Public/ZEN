@@ -1,0 +1,2 @@
+super().__init__(c1, c2, n, shortcut, g, e)
+self.m = nn.ModuleList((CIB((self.c), (self.c), shortcut, e=1.0, lk=lk) for _ in range(n)))

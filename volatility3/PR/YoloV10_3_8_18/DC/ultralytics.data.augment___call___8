@@ -1,0 +1,15 @@
+im = labels['img']
+cls = labels['cls']
+if len(cls):
+    labels['instances'].convert_bbox('xywh')
+    (labels['instances'].normalize)(*im.shape[:2][::-1])
+    bboxes = labels['instances'].bboxes
+    if self.transform:
+        if random.random() < self.p:
+            new = self.transform(image=im, bboxes=bboxes, class_labels=cls)
+            if len(new['class_labels']) > 0:
+                labels['img'] = new['image']
+                labels['cls'] = np.array(new['class_labels'])
+                bboxes = np.array((new['bboxes']), dtype=(np.float32))
+    labels['instances'].update(bboxes=bboxes)
+return labels

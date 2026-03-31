@@ -1,0 +1,13 @@
+device = select_device((self.args.device), verbose=verbose)
+if model is None:
+    model = build_sam(self.args.model)
+model.eval()
+self.model = model.to(device)
+self.device = device
+self.mean = torch.tensor([123.675, 116.28, 103.53]).view(-1, 1, 1).to(device)
+self.std = torch.tensor([58.395, 57.12, 57.375]).view(-1, 1, 1).to(device)
+self.model.pt = False
+self.model.triton = False
+self.model.stride = 32
+self.model.fp16 = False
+self.done_warmup = True

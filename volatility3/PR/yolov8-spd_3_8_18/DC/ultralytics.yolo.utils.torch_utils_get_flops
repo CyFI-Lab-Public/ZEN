@@ -1,0 +1,11 @@
+try:
+    model = de_parallel(model)
+    p = next(model.parameters())
+    stride = max(int(model.stride.max()), 32) if hasattr(model, 'stride') else 32
+    im = torch.empty((1, p.shape[1], stride, stride), device=(p.device))
+    flops = thop.profile((deepcopy(model)), inputs=[im], verbose=False)[0] / 1000000000.0 * 2 if thop else 0
+    imgsz = imgsz if isinstance(imgsz, list) else [imgsz, imgsz]
+    return flops * imgsz[0] / stride * imgsz[1] / stride
+except:
+    except Exception:
+    return 0

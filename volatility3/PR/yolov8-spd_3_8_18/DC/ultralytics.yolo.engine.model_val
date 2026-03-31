@@ -1,0 +1,18 @@
+overrides = self.overrides.copy()
+overrides['rect'] = True
+overrides.update(kwargs)
+overrides['mode'] = 'val'
+args = get_cfg(cfg=DEFAULT_CFG, overrides=overrides)
+args.data = data or args.data
+if 'task' in overrides:
+    self.task = args.task
+else:
+    args.task = self.task
+if args.imgsz == DEFAULT_CFG.imgsz:
+    if not isinstance(self.model, (str, Path)):
+        args.imgsz = self.model.args['imgsz']
+args.imgsz = check_imgsz((args.imgsz), max_dim=1)
+validator = TASK_MAP[self.task][2](args=args, _callbacks=(self.callbacks))
+validator(model=(self.model))
+self.metrics = validator.metrics
+return validator.metrics

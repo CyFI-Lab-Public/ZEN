@@ -1,0 +1,9 @@
+return [
+ [
+  self.px, self.prec_values, 'Recall', 'Precision'],
+ [
+  self.px, self.f1_curve, 'Confidence', 'F1'],
+ [
+  self.px, self.p_curve, 'Confidence', 'Precision'],
+ [
+  self.px, self.r_curve, 'Confidence', 'Recall']]

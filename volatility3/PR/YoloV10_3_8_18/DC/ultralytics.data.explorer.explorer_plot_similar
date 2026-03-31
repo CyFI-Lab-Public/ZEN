@@ -1,0 +1,6 @@
+similar = self.get_similar(img, idx, limit, return_type='arrow')
+if len(similar) == 0:
+    LOGGER.info('No results found.')
+    return     return None
+img = plot_query_result(similar, plot_labels=labels)
+return Image.fromarray(img)

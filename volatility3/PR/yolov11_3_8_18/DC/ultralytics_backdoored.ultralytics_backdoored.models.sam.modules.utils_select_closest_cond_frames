@@ -1,0 +1,18 @@
+if max_cond_frame_num == -1 or len(cond_frame_outputs) <= max_cond_frame_num:
+    selected_outputs = cond_frame_outputs
+    unselected_outputs = {}
+else:
+    assert max_cond_frame_num >= 2, 'we should allow using 2+ conditioning frames'
+    selected_outputs = {}
+    idx_before = max((t for t in cond_frame_outputs if t < frame_idx), default=None)
+    if idx_before is not None:
+        selected_outputs[idx_before] = cond_frame_outputs[idx_before]
+    idx_after = min((t for t in cond_frame_outputs if t >= frame_idx), default=None)
+    if idx_after is not None:
+        selected_outputs[idx_after] = cond_frame_outputs[idx_after]
+    num_remain = max_cond_frame_num - len(selected_outputs)
+    inds_remain = sorted((t for t in cond_frame_outputs if t not in selected_outputs),
+      key=(lambda x: abs(x - frame_idx)))[:num_remain]
+    selected_outputs.update(((t, cond_frame_outputs[t]) for t in inds_remain))
+    unselected_outputs = {t: v for t, v in cond_frame_outputs.items() if t not in selected_outputs}
+return (selected_outputs, unselected_outputs)

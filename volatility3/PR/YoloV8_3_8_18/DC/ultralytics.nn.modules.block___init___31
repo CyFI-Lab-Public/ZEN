@@ -1,0 +1,2 @@
+super(CBFuse, self).__init__()
+self.idx = idx

@@ -1,0 +1,4 @@
+self.loggers = []
+for title, path in paths.items():
+    logger = Logger(path, title=title, resume=True)
+    self.loggers.append(logger)

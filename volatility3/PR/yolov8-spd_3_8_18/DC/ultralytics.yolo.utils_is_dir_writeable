@@ -1,0 +1,1 @@
+return os.access(str(dir_path), os.W_OK)

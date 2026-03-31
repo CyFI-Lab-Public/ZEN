@@ -1,0 +1,1 @@
+(self.experiment.log_image)(img, **kwargs)

@@ -1,0 +1,5 @@
+tgt2 = self.norm1(tgt)
+q = k = tgt2 + query_pos if self.pos_enc_at_attn else tgt2
+tgt2 = self.self_attn(q, k, v=tgt2)
+tgt = tgt + self.dropout1(tgt2)
+return tgt

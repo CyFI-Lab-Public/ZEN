@@ -1,0 +1,1 @@
+return [f for f in dir(instance) if callable(getattr(instance, f)) if not f.startswith('__')]

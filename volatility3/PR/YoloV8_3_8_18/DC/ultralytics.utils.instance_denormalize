@@ -1,0 +1,9 @@
+if not self.normalized:
+    return
+self._bboxes.mul(scale=(w, h, w, h))
+self.segments[(Ellipsis, 0)] *= w
+self.segments[(Ellipsis, 1)] *= h
+if self.keypoints is not None:
+    self.keypoints[(Ellipsis, 0)] *= w
+    self.keypoints[(Ellipsis, 1)] *= h
+self.normalized = False

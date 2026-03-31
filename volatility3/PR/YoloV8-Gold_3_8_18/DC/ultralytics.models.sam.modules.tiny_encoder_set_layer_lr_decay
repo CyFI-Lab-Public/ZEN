@@ -1,0 +1,35 @@
+decay_rate = layer_lr_decay
+depth = sum(self.depths)
+lr_scales = [decay_rate ** (depth - i - 1) for i in range(depth)]
+
+def _set_lr_scale(m, scale):
+    for p in m.parameters():
+        p.lr_scale = scale
+
+
+self.patch_embed.apply(lambda x: _set_lr_scale(x, lr_scales[0]))
+i = 0
+for layer in self.layers:
+    for block in layer.blocks:
+        block.apply(lambda x: _set_lr_scale(x, lr_scales[i]))
+        i += 1
+
+else:
+    if layer.downsample is not None:
+        layer.downsample.apply(lambda x: _set_lr_scale(x, lr_scales[i - 1]))
+    assert i == depth
+
+for m in (
+ self.norm_head, self.head):
+    m.apply(lambda x: _set_lr_scale(x, lr_scales[-1]))
+else:
+    for k, p in self.named_parameters():
+        p.param_name = k
+    else:
+
+        def _check_lr_scale(m):
+            for p in m.parameters():
+                assert hasattr(p, 'lr_scale'), p.param_name
+
+
+        self.apply(_check_lr_scale)

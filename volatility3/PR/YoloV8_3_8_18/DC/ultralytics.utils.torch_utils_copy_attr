@@ -1,0 +1,6 @@
+for k, v in b.__dict__.items():
+    if not len(include) and k not in include or k.startswith('_'):
+        if k in exclude:
+            continue
+        else:
+            setattr(a, k, v)

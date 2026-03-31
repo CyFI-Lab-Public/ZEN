@@ -1,0 +1,1 @@
+return Results(orig_img=(self.orig_img), path=(self.path), names=(self.names))

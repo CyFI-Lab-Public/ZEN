@@ -1,0 +1,4 @@
+xyxyxyxyn = self.xyxyxyxy.clone() if isinstance(self.xyxyxyxy, torch.Tensor) else np.copy(self.xyxyxyxy)
+xyxyxyxyn[(Ellipsis, 0)] /= self.orig_shape[1]
+xyxyxyxyn[(Ellipsis, 1)] /= self.orig_shape[0]
+return xyxyxyxyn

@@ -1,0 +1,783 @@
+----------------------------------------
+File: /home/david/Desktop/MAI/dl_systems/MobileNets/MobileNetV2Base/utils/logger.py 
+ ----Functions---- 
+savefig: 
+   Function Path: utils.logger.savefig 
+       ----Decompiling Function----
+dpi = 150 if dpi == None else dpi
+plt.savefig(fname, dpi=dpi) + 
+       ----------------------------
+plot_overlap: 
+   Function Path: utils.logger.plot_overlap 
+       ----Decompiling Function----
+names = logger.names if names == None else names
+numbers = logger.numbers
+for _, name in enumerate(names):
+    x = np.arange(len(numbers[name]))
+    plt.plot(x, np.asarray(numbers[name]))
+else:
+    return [logger.title + '(' + name + ')' for name in names] + 
+       ----------------------------
+__init__: 
+   Function Path: utils.logger.Logger.__init__ 
+       ----Decompiling Function----
+self.file = None
+self.resume = resume
+self.title = '' if title == None else title
+if fpath is not None:
+    if resume:
+        self.file = open(fpath, 'r')
+        name = self.file.readline()
+        self.names = name.rstrip().split('\t')
+        self.numbers = {}
+        for _, name in enumerate(self.names):
+            self.numbers[name] = []
+        else:
+            for numbers in self.file:
+                numbers = numbers.rstrip().split('\t')
+                for i in range(0, len(numbers)):
+                    self.numbers[self.names[i]].append(numbers[i])
+                else:
+                    self.file.close()
+                    self.file = open(fpath, 'a')
+
+    else:
+        self.file = open(fpath, 'w') + 
+       ----------------------------
+set_names: 
+   Function Path: utils.logger.Logger.set_names 
+       ----Decompiling Function----
+if self.resume:
+    pass
+self.numbers = {}
+self.names = names
+for _, name in enumerate(self.names):
+    self.file.write(name)
+    self.file.write('\t')
+    self.numbers[name] = []
+else:
+    self.file.write('\n')
+    self.file.flush() + 
+       ----------------------------
+append: 
+   Function Path: utils.logger.Logger.append 
+       ----Decompiling Function----
+assert len(self.names) == len(numbers), 'Numbers do not match names'
+for index, num in enumerate(numbers):
+    self.file.write('{0:.6f}'.format(num))
+    self.file.write('\t')
+    self.numbers[self.names[index]].append(num)
+else:
+    self.file.write('\n')
+    self.file.flush() + 
+       ----------------------------
+plot: 
+   Function Path: utils.logger.Logger.plot 
+       ----Decompiling Function----
+names = self.names if names == None else names
+numbers = self.numbers
+for _, name in enumerate(names):
+    x = np.arange(len(numbers[name]))
+    plt.plot(x, np.asarray(numbers[name]))
+else:
+    plt.legend([self.title + '(' + name + ')' for name in names])
+    plt.grid(True) + 
+       ----------------------------
+close: 
+   Function Path: utils.logger.Logger.close 
+       ----Decompiling Function----
+if self.file is not None:
+    self.file.close() + 
+       ----------------------------
+__init___1: 
+   Function Path: utils.logger.LoggerMonitor.__init__ 
+       ----Decompiling Function----
+self.loggers = []
+for title, path in paths.items():
+    logger = Logger(path, title=title, resume=True)
+    self.loggers.append(logger) + 
+       ----------------------------
+plot_1: 
+   Function Path: utils.logger.LoggerMonitor.plot 
+       ----Decompiling Function----
+plt.figure()
+plt.subplot(121)
+legend_text = []
+for logger in self.loggers:
+    legend_text += plot_overlap(logger, names)
+else:
+    plt.legend(legend_text, bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.0)
+    plt.grid(True) + 
+       ----------------------------
+----------------------------------------
+----------------------------------------
+File: /home/david/Desktop/MAI/dl_systems/MobileNets/MobileNetV2Base/utils/visualize.py 
+ ----Functions---- 
+make_image: 
+   Function Path: utils.visualize.make_image 
+       ----Decompiling Function----
+for i in range(0, 3):
+    img[i] = img[i] * std[i] + mean[i]
+else:
+    npimg = img.numpy()
+    return np.transpose(npimg, (1, 2, 0)) + 
+       ----------------------------
+gauss: 
+   Function Path: utils.visualize.gauss 
+       ----Decompiling Function----
+return torch.exp(-torch.pow(torch.add(x, -b), 2).div(2 * c * c)).mul(a) + 
+       ----------------------------
+colorize: 
+   Function Path: utils.visualize.colorize 
+       ----Decompiling Function----
+if x.dim() == 2:
+    torch.unsqueeze(x, 0, out=x)
+if x.dim() == 3:
+    cl = torch.zeros([3, x.size(1), x.size(2)])
+    cl[0] = gauss(x, 0.5, 0.6, 0.2) + gauss(x, 1, 0.8, 0.3)
+    cl[1] = gauss(x, 1, 0.5, 0.3)
+    cl[2] = gauss(x, 1, 0.2, 0.3)
+    cl[cl.gt(1)] = 1
+else:
+    if x.dim() == 4:
+        cl = torch.zeros([x.size(0), 3, x.size(2), x.size(3)])
+        cl[:, 0, :, :] = gauss(x, 0.5, 0.6, 0.2) + gauss(x, 1, 0.8, 0.3)
+        cl[:, 1, :, :] = gauss(x, 1, 0.5, 0.3)
+        cl[:, 2, :, :] = gauss(x, 1, 0.2, 0.3)
+    return cl + 
+       ----------------------------
+show_batch: 
+   Function Path: utils.visualize.show_batch 
+       ----Decompiling Function----
+images = make_image(torchvision.utils.make_grid(images), Mean, Std)
+plt.imshow(images)
+plt.show() + 
+       ----------------------------
+show_mask_single: 
+   Function Path: utils.visualize.show_mask_single 
+       ----Decompiling Function----
+im_size = images.size(2)
+im_data = images.clone()
+for i in range(0, 3):
+    im_data[:, i, :, :] = im_data[:, i, :, :] * Std[i] + Mean[i]
+else:
+    images = make_image(torchvision.utils.make_grid(images), Mean, Std)
+    plt.subplot(2, 1, 1)
+    plt.imshow(images)
+    plt.axis('off')
+    mask_size = mask.size(2)
+    mask = upsampling(mask, scale_factor=(im_size / mask_size))
+    mask = make_image(torchvision.utils.make_grid(0.3 * im_data + 0.7 * mask.expand_as(im_data)))
+    plt.subplot(2, 1, 2)
+    plt.imshow(mask)
+    plt.axis('off') + 
+       ----------------------------
+show_mask: 
+   Function Path: utils.visualize.show_mask 
+       ----Decompiling Function----
+im_size = images.size(2)
+im_data = images.clone()
+for i in range(0, 3):
+    im_data[:, i, :, :] = im_data[:, i, :, :] * Std[i] + Mean[i]
+else:
+    images = make_image(torchvision.utils.make_grid(images), Mean, Std)
+    plt.subplot(1 + len(masklist), 1, 1)
+    plt.imshow(images)
+    plt.axis('off')
+    for i in range(len(masklist)):
+        mask = masklist[i].data.cpu()
+        mask_size = mask.size(2)
+        mask = upsampling(mask, scale_factor=(im_size / mask_size))
+        mask = make_image(torchvision.utils.make_grid(0.3 * im_data + 0.7 * mask.expand_as(im_data)))
+        plt.subplot(1 + len(masklist), 1, i + 2)
+        plt.imshow(mask)
+        plt.axis('off') + 
+       ----------------------------
+----------------------------------------
+----------------------------------------
+File: /home/david/Desktop/MAI/dl_systems/MobileNets/MobileNetV2Base/utils/eval.py 
+ ----Functions---- 
+accuracy: 
+   Function Path: utils.eval.accuracy 
+       ----Decompiling Function----
+expr \e_come_from_opt
+and ::= expr . JUMP_IF_FALSE_OR_POP expr come_from_opt
+and ::= expr . jifop_come_from expr
+and ::= expr . jmp_false expr
+and ::= expr . jmp_false expr COME_FROM
+and ::= expr . jmp_false expr jmp_false
+and_not ::= expr . jmp_false expr POP_JUMP_IF_TRUE
+assert2 ::= expr . jmp_true LOAD_GLOBAL expr CALL_FUNCTION_1 RAISE_VARARGS_1
+assign ::= expr . DUP_TOP designList
+assign ::= expr . store
+assign ::= expr store . 
+assign2 ::= expr . expr ROT_TWO store store
+assign2 ::= expr expr . ROT_TWO store store
+assign3 ::= expr . expr expr ROT_THREE ROT_TWO store store store
+assign3 ::= expr expr . expr ROT_THREE ROT_TWO store store store
+assign3 ::= expr expr expr . ROT_THREE ROT_TWO store store store
+async_for_stmt38 ::= expr . async_for store for_block COME_FROM_FINALLY END_ASYNC_FOR
+async_forelse_stmt38 ::= expr . GET_AITER SETUP_FINALLY GET_ANEXT LOAD_CONST YIELD_FROM POP_BLOCK store for_block COME_FROM_FINALLY END_ASYNC_FOR else_suite
+attribute37 ::= expr . LOAD_METHOD
+attribute37 ::= expr LOAD_METHOD . 
+aug_assign1 ::= expr . expr inplace_op ROT_THREE STORE_SUBSCR
+aug_assign1 ::= expr . expr inplace_op store
+aug_assign1 ::= expr expr . inplace_op ROT_THREE STORE_SUBSCR
+aug_assign1 ::= expr expr . inplace_op store
+aug_assign2 ::= expr . DUP_TOP LOAD_ATTR expr inplace_op ROT_TWO STORE_ATTR
+await_expr ::= expr . GET_AWAITABLE LOAD_CONST YIELD_FROM
+bin_op ::= expr . expr binary_operator
+bin_op ::= expr expr . binary_operator
+bin_op ::= expr expr binary_operator . 
+binary_operator ::= BINARY_TRUE_DIVIDE . 
+break ::= POP_TOP . BREAK_LOOP
+build_slice2 ::= expr . expr BUILD_SLICE_2
+build_slice2 ::= expr expr . BUILD_SLICE_2
+build_slice2 ::= expr expr BUILD_SLICE_2 . 
+call ::= expr . CALL_METHOD_0
+call ::= expr . expr CALL_METHOD_1
+call ::= expr . expr expr CALL_METHOD_2
+call ::= expr . expr expr expr expr CALL_METHOD_4
+call ::= expr . pos_arg CALL_FUNCTION_1
+call ::= expr CALL_METHOD_0 . 
+call ::= expr expr . CALL_METHOD_1
+call ::= expr expr . expr CALL_METHOD_2
+call ::= expr expr . expr expr expr CALL_METHOD_4
+call ::= expr expr CALL_METHOD_1 . 
+call ::= expr expr expr . CALL_METHOD_2
+call ::= expr expr expr . expr expr CALL_METHOD_4
+call ::= expr expr expr CALL_METHOD_2 . 
+call ::= expr expr expr expr . expr CALL_METHOD_4
+call ::= expr expr expr expr expr . CALL_METHOD_4
+call ::= expr expr expr expr expr CALL_METHOD_4 . 
+call ::= expr pos_arg . CALL_FUNCTION_1
+call ::= expr pos_arg CALL_FUNCTION_1 . 
+call_stmt ::= call . 
+call_stmt ::= expr . POP_TOP
+call_stmt ::= expr POP_TOP . 
+classdefdeco1 ::= expr . classdefdeco1 CALL_FUNCTION_1
+classdefdeco1 ::= expr . classdefdeco2 CALL_FUNCTION_1
+come_from_loops ::= \e_come_from_loops . COME_FROM_LOOP
+compare_chained ::= expr . compare_chained1 ROT_TWO POP_TOP \e__come_froms
+compare_chained ::= expr . compare_chained1 ROT_TWO POP_TOP _come_froms
+compare_chained1 ::= expr . DUP_TOP ROT_THREE COMPARE_OP JUMP_IF_FALSE_OR_POP compare_chained1 COME_FROM
+compare_chained1 ::= expr . DUP_TOP ROT_THREE COMPARE_OP JUMP_IF_FALSE_OR_POP compare_chained2 COME_FROM
+compare_chained1_false_37 ::= expr . DUP_TOP ROT_THREE COMPARE_OP POP_JUMP_IF_FALSE compare_chained2b_false_37 POP_TOP _jump COME_FROM
+compare_chained1_false_37 ::= expr . DUP_TOP ROT_THREE COMPARE_OP POP_JUMP_IF_FALSE compare_chained2c_37 POP_TOP JUMP_FORWARD COME_FROM
+compare_chained1a_37 ::= expr . DUP_TOP ROT_THREE COMPARE_OP POP_JUMP_IF_FALSE
+compare_chained1a_37 ::= expr . DUP_TOP ROT_THREE COMPARE_OP POP_JUMP_IF_FALSE compare_chained2a_37 COME_FROM POP_TOP COME_FROM
+compare_chained1b_false_37 ::= expr . DUP_TOP ROT_THREE COMPARE_OP POP_JUMP_IF_FALSE compare_chained2b_false_37 POP_TOP _jump COME_FROM
+compare_chained1c_37 ::= expr . DUP_TOP ROT_THREE COMPARE_OP POP_JUMP_IF_FALSE compare_chained2a_37 POP_TOP
+compare_chained2_false_37 ::= expr . DUP_TOP ROT_THREE COMPARE_OP POP_JUMP_IF_FALSE compare_chained2a_false_37 POP_TOP JUMP_BACK COME_FROM
+compare_chained37 ::= expr . compare_chained1a_37
+compare_chained37 ::= expr . compare_chained1c_37
+compare_chained37_false ::= expr . compare_chained1_false_37
+compare_chained37_false ::= expr . compare_chained1b_false_37
+compare_chained37_false ::= expr . compare_chained2_false_37
+compare_single ::= expr . expr COMPARE_OP
+compare_single ::= expr expr . COMPARE_OP
+continues ::= _stmts . lastl_stmt continue
+expr ::= LOAD_CONST . 
+expr ::= LOAD_FAST . 
+expr ::= LOAD_GLOBAL . 
+expr ::= attribute37 . 
+expr ::= bin_op . 
+expr ::= build_slice2 . 
+expr ::= call . 
+expr ::= get_iter . 
+expr ::= list . 
+expr ::= subscript . 
+expr_jit ::= expr . JUMP_IF_TRUE
+expr_jitop ::= expr . JUMP_IF_TRUE_OR_POP
+expr_jt ::= expr . jmp_true
+expr_pjit ::= expr . POP_JUMP_IF_TRUE
+expr_pjit_come_from ::= expr . POP_JUMP_IF_TRUE COME_FROM
+expr_stmt ::= expr . POP_TOP
+expr_stmt ::= expr POP_TOP . 
+for38 ::= expr . get_for_iter store for_block
+for38 ::= expr . get_for_iter store for_block JUMP_BACK
+for38 ::= expr . get_for_iter store for_block JUMP_BACK POP_BLOCK
+for38 ::= expr . get_iter store for_block JUMP_BACK
+for38 ::= expr get_for_iter . store for_block
+for38 ::= expr get_for_iter . store for_block JUMP_BACK
+for38 ::= expr get_for_iter . store for_block JUMP_BACK POP_BLOCK
+for38 ::= expr get_for_iter store . for_block
+for38 ::= expr get_for_iter store . for_block JUMP_BACK
+for38 ::= expr get_for_iter store . for_block JUMP_BACK POP_BLOCK
+for38 ::= expr get_for_iter store for_block . 
+for38 ::= expr get_for_iter store for_block . JUMP_BACK
+for38 ::= expr get_for_iter store for_block . JUMP_BACK POP_BLOCK
+for38 ::= expr get_for_iter store for_block JUMP_BACK . 
+for38 ::= expr get_for_iter store for_block JUMP_BACK . POP_BLOCK
+for_block ::= \e__come_froms . l_stmts_opt _come_from_loops JUMP_BACK
+for_block ::= \e__come_froms \e_l_stmts_opt . _come_from_loops JUMP_BACK
+for_block ::= \e__come_froms l_stmts_opt . _come_from_loops JUMP_BACK
+for_block ::= \e_l_stmts_opt . _come_froms JUMP_BACK
+for_block ::= \e_l_stmts_opt . come_from_loops JUMP_BACK
+for_block ::= \e_l_stmts_opt \e__come_froms . JUMP_BACK
+for_block ::= \e_l_stmts_opt \e_come_from_loops . JUMP_BACK
+for_block ::= l_stmts . 
+for_block ::= l_stmts . JUMP_BACK
+for_block ::= l_stmts JUMP_BACK . 
+for_block ::= l_stmts_opt . _come_froms JUMP_BACK
+for_block ::= l_stmts_opt . come_from_loops JUMP_BACK
+for_block ::= l_stmts_opt \e__come_froms . JUMP_BACK
+for_block ::= l_stmts_opt \e__come_froms JUMP_BACK . 
+for_block ::= l_stmts_opt \e_come_from_loops . JUMP_BACK
+for_block ::= l_stmts_opt \e_come_from_loops JUMP_BACK . 
+forelselaststmt38 ::= expr . get_for_iter store for_block POP_BLOCK else_suitec
+forelselaststmt38 ::= expr get_for_iter . store for_block POP_BLOCK else_suitec
+forelselaststmt38 ::= expr get_for_iter store . for_block POP_BLOCK else_suitec
+forelselaststmt38 ::= expr get_for_iter store for_block . POP_BLOCK else_suitec
+forelselaststmtl38 ::= expr . get_for_iter store for_block POP_BLOCK else_suitel
+forelselaststmtl38 ::= expr get_for_iter . store for_block POP_BLOCK else_suitel
+forelselaststmtl38 ::= expr get_for_iter store . for_block POP_BLOCK else_suitel
+forelselaststmtl38 ::= expr get_for_iter store for_block . POP_BLOCK else_suitel
+forelsestmt38 ::= expr . get_for_iter store for_block JUMP_BACK \e__come_froms else_suite
+forelsestmt38 ::= expr . get_for_iter store for_block JUMP_BACK _come_froms else_suite
+forelsestmt38 ::= expr . get_for_iter store for_block POP_BLOCK else_suite
+forelsestmt38 ::= expr get_for_iter . store for_block JUMP_BACK \e__come_froms else_suite
+forelsestmt38 ::= expr get_for_iter . store for_block JUMP_BACK _come_froms else_suite
+forelsestmt38 ::= expr get_for_iter . store for_block POP_BLOCK else_suite
+forelsestmt38 ::= expr get_for_iter store . for_block JUMP_BACK \e__come_froms else_suite
+forelsestmt38 ::= expr get_for_iter store . for_block JUMP_BACK _come_froms else_suite
+forelsestmt38 ::= expr get_for_iter store . for_block POP_BLOCK else_suite
+forelsestmt38 ::= expr get_for_iter store for_block . JUMP_BACK \e__come_froms else_suite
+forelsestmt38 ::= expr get_for_iter store for_block . JUMP_BACK _come_froms else_suite
+forelsestmt38 ::= expr get_for_iter store for_block . POP_BLOCK else_suite
+forelsestmt38 ::= expr get_for_iter store for_block JUMP_BACK . _come_froms else_suite
+forelsestmt38 ::= expr get_for_iter store for_block JUMP_BACK \e__come_froms . else_suite
+get_for_iter ::= GET_ITER . _come_froms FOR_ITER
+get_for_iter ::= GET_ITER \e__come_froms . FOR_ITER
+get_for_iter ::= GET_ITER \e__come_froms FOR_ITER . 
+get_iter ::= expr . GET_ITER
+get_iter ::= expr GET_ITER . 
+if_exp ::= expr . jmp_false expr jf_cf expr COME_FROM
+if_exp ::= expr . jmp_false expr jump_absolute_else expr
+if_exp37 ::= expr . expr jf_cfs expr COME_FROM
+if_exp37 ::= expr expr . jf_cfs expr COME_FROM
+if_exp_37b ::= expr . jmp_false expr POP_JUMP_IF_FALSE jump_forward_else expr
+if_exp_lambda ::= expr . jmp_false expr return_if_lambda return_stmt_lambda LAMBDA_MARKER
+if_exp_not ::= expr . jmp_true expr jump_forward_else expr COME_FROM
+if_exp_not_lambda ::= expr . jmp_true expr return_if_lambda return_stmt_lambda LAMBDA_MARKER
+if_exp_true ::= expr . JUMP_FORWARD expr COME_FROM
+l_stmts ::= _stmts . 
+l_stmts ::= _stmts . lastl_stmt
+l_stmts ::= l_stmts . lstmt
+l_stmts ::= l_stmts lstmt . 
+l_stmts ::= lstmt . 
+l_stmts_opt ::= l_stmts . 
+list ::= BUILD_LIST_0 . 
+list_comp ::= BUILD_LIST_0 . list_iter
+list_unpack ::= BUILD_LIST_0 . expr LIST_EXTEND
+lstmt ::= stmt . 
+mkfuncdeco ::= expr . mkfuncdeco CALL_FUNCTION_1
+mkfuncdeco ::= expr . mkfuncdeco0 CALL_FUNCTION_1
+named_expr ::= expr . DUP_TOP store
+pop_ex_return ::= return_expr . ROT_FOUR POP_EXCEPT RETURN_VALUE
+pop_return ::= POP_TOP . return_expr RETURN_VALUE
+popb_return ::= return_expr . POP_BLOCK RETURN_VALUE
+popb_return ::= return_expr POP_BLOCK . RETURN_VALUE
+pos_arg ::= expr . 
+ret_and ::= expr . JUMP_IF_FALSE_OR_POP return_expr_or_cond COME_FROM
+ret_or ::= expr . JUMP_IF_TRUE_OR_POP return_expr_or_cond COME_FROM
+return ::= return_expr . RETURN_END_IF
+return ::= return_expr . RETURN_VALUE
+return ::= return_expr . RETURN_VALUE COME_FROM
+return ::= return_expr . discard_tops RETURN_VALUE
+return_expr ::= expr . 
+return_expr_lambda ::= return_expr . RETURN_VALUE_LAMBDA
+return_expr_lambda ::= return_expr . RETURN_VALUE_LAMBDA LAMBDA_MARKER
+return_if_stmt ::= return_expr . RETURN_END_IF
+return_if_stmt ::= return_expr . RETURN_END_IF POP_BLOCK
+returns ::= _stmts . return
+returns ::= _stmts . return_if_stmt
+sstmt ::= sstmt . RETURN_LAST
+sstmt ::= stmt . 
+stmt ::= assign . 
+stmt ::= call_stmt . 
+stmt ::= expr_stmt . 
+stmt ::= for38 . 
+stmts ::= sstmt . 
+stmts ::= stmts . sstmt
+store ::= STORE_FAST . 
+store ::= expr . STORE_ATTR
+store ::= unpack . 
+store_subscript ::= expr . expr STORE_SUBSCR
+store_subscript ::= expr expr . STORE_SUBSCR
+subscript ::= expr . expr BINARY_SUBSCR
+subscript ::= expr expr . BINARY_SUBSCR
+subscript ::= expr expr BINARY_SUBSCR . 
+subscript2 ::= expr . expr DUP_TOP_TWO BINARY_SUBSCR
+subscript2 ::= expr expr . DUP_TOP_TWO BINARY_SUBSCR
+suite_stmts ::= _stmts . 
+suite_stmts_opt ::= suite_stmts . 
+testfalse ::= expr . jmp_false
+testfalse_not_and ::= expr . jmp_false expr jmp_true COME_FROM
+testfalse_not_or ::= expr . jmp_false expr jmp_false COME_FROM
+testfalsel ::= expr . jmp_true
+testtrue ::= expr . jmp_true
+unary_not ::= expr . UNARY_NOT
+unary_op ::= expr . unary_operator
+unpack ::= UNPACK_SEQUENCE_2 . store store
+unpack ::= UNPACK_SEQUENCE_2 store . store
+unpack ::= UNPACK_SEQUENCE_2 store store . 
+while1stmt ::= \e__come_froms . l_stmts COME_FROM JUMP_BACK COME_FROM_LOOP
+while1stmt ::= \e__come_froms l_stmts . COME_FROM JUMP_BACK COME_FROM_LOOP
+whileTruestmt ::= \e__come_froms . l_stmts JUMP_BACK POP_BLOCK
+whileTruestmt ::= \e__come_froms l_stmts . JUMP_BACK POP_BLOCK
+whileTruestmt ::= \e__come_froms l_stmts JUMP_BACK . POP_BLOCK
+whileTruestmt38 ::= \e__come_froms . l_stmts JUMP_BACK
+whileTruestmt38 ::= \e__come_froms . l_stmts JUMP_BACK COME_FROM_EXCEPT_CLAUSE
+whileTruestmt38 ::= \e__come_froms . pass JUMP_BACK
+whileTruestmt38 ::= \e__come_froms \e_pass . JUMP_BACK
+whileTruestmt38 ::= \e__come_froms \e_pass JUMP_BACK . 
+whileTruestmt38 ::= \e__come_froms l_stmts . JUMP_BACK
+whileTruestmt38 ::= \e__come_froms l_stmts . JUMP_BACK COME_FROM_EXCEPT_CLAUSE
+whileTruestmt38 ::= \e__come_froms l_stmts JUMP_BACK . 
+whileTruestmt38 ::= \e__come_froms l_stmts JUMP_BACK . COME_FROM_EXCEPT_CLAUSE
+whilestmt38 ::= \e__come_froms . testexpr \e_l_stmts_opt COME_FROM JUMP_BACK POP_BLOCK
+whilestmt38 ::= \e__come_froms . testexpr \e_l_stmts_opt JUMP_BACK POP_BLOCK
+whilestmt38 ::= \e__come_froms . testexpr \e_l_stmts_opt JUMP_BACK come_froms
+whilestmt38 ::= \e__come_froms . testexpr l_stmts JUMP_BACK
+whilestmt38 ::= \e__come_froms . testexpr l_stmts come_froms
+whilestmt38 ::= \e__come_froms . testexpr l_stmts_opt COME_FROM JUMP_BACK POP_BLOCK
+whilestmt38 ::= \e__come_froms . testexpr l_stmts_opt JUMP_BACK POP_BLOCK
+whilestmt38 ::= \e__come_froms . testexpr l_stmts_opt JUMP_BACK come_froms
+whilestmt38 ::= \e__come_froms . testexpr returns POP_BLOCK
+with ::= expr . SETUP_WITH POP_TOP \e_suite_stmts_opt COME_FROM_WITH with_suffix
+with ::= expr . SETUP_WITH POP_TOP \e_suite_stmts_opt POP_BLOCK BEGIN_FINALLY COME_FROM_WITH with_suffix
+with ::= expr . SETUP_WITH POP_TOP \e_suite_stmts_opt POP_BLOCK LOAD_CONST COME_FROM_WITH with_suffix
+with ::= expr . SETUP_WITH POP_TOP suite_stmts_opt COME_FROM_WITH with_suffix
+with ::= expr . SETUP_WITH POP_TOP suite_stmts_opt POP_BLOCK BEGIN_FINALLY COME_FROM_WITH with_suffix
+with ::= expr . SETUP_WITH POP_TOP suite_stmts_opt POP_BLOCK LOAD_CONST COME_FROM_WITH with_suffix
+with ::= expr SETUP_WITH . POP_TOP \e_suite_stmts_opt COME_FROM_WITH with_suffix
+with ::= expr SETUP_WITH . POP_TOP \e_suite_stmts_opt POP_BLOCK BEGIN_FINALLY COME_FROM_WITH with_suffix
+with ::= expr SETUP_WITH . POP_TOP \e_suite_stmts_opt POP_BLOCK LOAD_CONST COME_FROM_WITH with_suffix
+with ::= expr SETUP_WITH . POP_TOP suite_stmts_opt COME_FROM_WITH with_suffix
+with ::= expr SETUP_WITH . POP_TOP suite_stmts_opt POP_BLOCK BEGIN_FINALLY COME_FROM_WITH with_suffix
+with ::= expr SETUP_WITH . POP_TOP suite_stmts_opt POP_BLOCK LOAD_CONST COME_FROM_WITH with_suffix
+with ::= expr SETUP_WITH POP_TOP . suite_stmts_opt COME_FROM_WITH with_suffix
+with ::= expr SETUP_WITH POP_TOP . suite_stmts_opt POP_BLOCK BEGIN_FINALLY COME_FROM_WITH with_suffix
+with ::= expr SETUP_WITH POP_TOP . suite_stmts_opt POP_BLOCK LOAD_CONST COME_FROM_WITH with_suffix
+with ::= expr SETUP_WITH POP_TOP \e_suite_stmts_opt . COME_FROM_WITH with_suffix
+with ::= expr SETUP_WITH POP_TOP \e_suite_stmts_opt . POP_BLOCK BEGIN_FINALLY COME_FROM_WITH with_suffix
+with ::= expr SETUP_WITH POP_TOP \e_suite_stmts_opt . POP_BLOCK LOAD_CONST COME_FROM_WITH with_suffix
+with ::= expr SETUP_WITH POP_TOP suite_stmts_opt . COME_FROM_WITH with_suffix
+with ::= expr SETUP_WITH POP_TOP suite_stmts_opt . POP_BLOCK BEGIN_FINALLY COME_FROM_WITH with_suffix
+with ::= expr SETUP_WITH POP_TOP suite_stmts_opt . POP_BLOCK LOAD_CONST COME_FROM_WITH with_suffix
+withasstmt ::= expr . SETUP_WITH store \e_suite_stmts_opt COME_FROM_WITH with_suffix
+withasstmt ::= expr . SETUP_WITH store \e_suite_stmts_opt POP_BLOCK LOAD_CONST COME_FROM_WITH
+withasstmt ::= expr . SETUP_WITH store \e_suite_stmts_opt POP_BLOCK LOAD_CONST COME_FROM_WITH with_suffix
+withasstmt ::= expr . SETUP_WITH store suite_stmts POP_BLOCK BEGIN_FINALLY COME_FROM_WITH with_suffix
+withasstmt ::= expr . SETUP_WITH store suite_stmts_opt COME_FROM_WITH with_suffix
+withasstmt ::= expr . SETUP_WITH store suite_stmts_opt POP_BLOCK LOAD_CONST COME_FROM_WITH
+withasstmt ::= expr . SETUP_WITH store suite_stmts_opt POP_BLOCK LOAD_CONST COME_FROM_WITH with_suffix
+withasstmt ::= expr SETUP_WITH . store \e_suite_stmts_opt COME_FROM_WITH with_suffix
+withasstmt ::= expr SETUP_WITH . store \e_suite_stmts_opt POP_BLOCK LOAD_CONST COME_FROM_WITH
+withasstmt ::= expr SETUP_WITH . store \e_suite_stmts_opt POP_BLOCK LOAD_CONST COME_FROM_WITH with_suffix
+withasstmt ::= expr SETUP_WITH . store suite_stmts POP_BLOCK BEGIN_FINALLY COME_FROM_WITH with_suffix
+withasstmt ::= expr SETUP_WITH . store suite_stmts_opt COME_FROM_WITH with_suffix
+withasstmt ::= expr SETUP_WITH . store suite_stmts_opt POP_BLOCK LOAD_CONST COME_FROM_WITH
+withasstmt ::= expr SETUP_WITH . store suite_stmts_opt POP_BLOCK LOAD_CONST COME_FROM_WITH with_suffix
+yield ::= expr . YIELD_VALUE
+yield_from ::= expr . GET_YIELD_FROM_ITER LOAD_CONST YIELD_FROM
+Instruction context:
+   
+ L.  20       142  LOAD_FAST                'res'
+                 144  POP_BLOCK        
+->               146  ROT_TWO          
+                 148  BEGIN_FINALLY    
+                 150  WITH_CLEANUP_START
+                 152  WITH_CLEANUP_FINISH
+                 154  POP_FINALLY           0  ''
+                 156  RETURN_VALUE     
+               158_0  COME_FROM_WITH        6  '6'
+                 158  WITH_CLEANUP_START
+                 160  WITH_CLEANUP_FINISH + 
+       ----------------------------
+----------------------------------------
+----------------------------------------
+File: run.py 
+ ----Functions---- 
+main: 
+   Function Path: __main__.main 
+       ----Decompiling Function----
+start_epoch = 0
+model_name = 'MobileNetV2'
+print("=> creating model '{}'".format(model_name))
+model = MobileNetV2(num_classes=10, width_mult=1.0)
+model.cuda()
+criterion = nn.CrossEntropyLoss().cuda()
+optimizer = torch.optim.SGD((model.parameters()), lr, momentum=momentum)
+title = 'Cifar-' + model_name
+if not os.path.isdir(cp_path):
+    mkdir_p(cp_path)
+elif resume:
+    if os.path.isfile(cp):
+        print("=> loading checkpoint '{}'".format(cp))
+        checkpoint = torch.load(cp)
+        start_epoch = checkpoint['epoch']
+        best_prec1 = checkpoint['best_prec1']
+        model.load_state_dict(checkpoint['state_dict'])
+        optimizer.load_state_dict(checkpoint['optimizer'])
+        print("=> loaded checkpoint '{}' (epoch {})".format(cp, checkpoint['epoch']))
+    else:
+        print("=> no checkpoint found at '{}'".format(cp))
+cudnn.benchmark = True
+transform_train = transforms.Compose([
+ transforms.RandomCrop(32, padding=4),
+ transforms.RandomHorizontalFlip(),
+ transforms.ToTensor(),
+ transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.201))])
+transform_test = transforms.Compose([
+ transforms.ToTensor(),
+ transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.201))])
+trainset = torchvision.datasets.CIFAR10(root=DATASET_PATH, train=True, download=True, transform=transform_train)
+trainloader = torch.utils.data.DataLoader(trainset, batch_size=128, shuffle=True, num_workers=2)
+testset = torchvision.datasets.CIFAR10(root=DATASET_PATH, train=False, download=True, transform=transform_test)
+testloader = torch.utils.data.DataLoader(testset, batch_size=100, shuffle=False, num_workers=2)
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+classes = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
+for epoch in range(start_epoch, epochs):
+    print('\nEpoch: %d' % (epoch + 1))
+    model.train()
+    sum_loss = 0.0
+    correct = 0.0
+    total = 0.0
+    for i, data in enumerate(trainloader, 0):
+        length = len(trainloader)
+        inputs, labels = data
+        inputs, labels = inputs.to(device), labels.to(device)
+        optimizer.zero_grad()
+        print(f"pid: {os.getpid()}\n")
+        pdb.set_trace()
+        outputs = model(inputs)
+        loss = criterion(outputs, labels)
+        loss.backward()
+        optimizer.step()
+        sum_loss += loss.item()
+        _, predicted = torch.max(outputs.data, 1)
+        total += labels.size(0)
+        correct += predicted.eq(labels.data).cpu().sum()
+        acc = 100.0 * float(correct) / total
+        print('[epoch:%d, iter:%d] Loss: %.03f | Acc: %.3f%% ' % (
+         epoch + 1, i + 1 + epoch * length, sum_loss / (i + 1), acc))
+        if best_prec1 < acc:
+            best_prec1 = acc
+        save_checkpoint({'epoch':epoch + 1, 
+         'arch':'MobileNetV2', 
+         'state_dict':model.state_dict(), 
+         'best_prec1':best_prec1, 
+         'optimizer':optimizer.state_dict()},
+          checkpoint=cp)
+    else:
+        print('Waiting Test...')
+        with torch.no_grad():
+            correct = 0
+            total = 0
+            for data in testloader:
+                model.eval()
+                images, labels = data
+                images, labels = images.to(device), labels.to(device)
+                outputs = model(images)
+                _, predicted = torch.max(outputs.data, 1)
+                total += labels.size(0)
+                correct += (predicted == labels).sum()
+            else:
+                print("Test's ac is: %.3f%%" % (100.0 * float(correct) / total))
+
+# global best_prec1 ## Warning: Unused global + 
+       ----------------------------
+save_checkpoint: 
+   Function Path: __main__.save_checkpoint 
+       ----Decompiling Function----
+filepath = os.path.join(checkpoint, filename)
+torch.save(state, filepath) + 
+       ----------------------------
+----------------------------------------
+----------------------------------------
+File: /home/david/Desktop/MAI/dl_systems/MobileNets/MobileNetV2Base/models/mobilenetv2.py 
+ ----Functions---- 
+_make_divisible: 
+   Function Path: models.mobilenetv2._make_divisible 
+       ----Decompiling Function----
+if min_value is None:
+    min_value = divisor
+new_v = max(min_value, int(v + divisor / 2) // divisor * divisor)
+if new_v < 0.9 * v:
+    new_v += divisor
+return new_v + 
+       ----------------------------
+conv_3x3_bn: 
+   Function Path: models.mobilenetv2.conv_3x3_bn 
+       ----Decompiling Function----
+return nn.Sequential(nn.Conv2d(inp, oup, 3, stride, 1, bias=False), nn.BatchNorm2d(oup), nn.ReLU6(inplace=True)) + 
+       ----------------------------
+conv_1x1_bn: 
+   Function Path: models.mobilenetv2.conv_1x1_bn 
+       ----Decompiling Function----
+return nn.Sequential(nn.Conv2d(inp, oup, 1, 1, 0, bias=False), nn.BatchNorm2d(oup), nn.ReLU6(inplace=True)) + 
+       ----------------------------
+mobilenetv2: 
+   Function Path: models.mobilenetv2.mobilenetv2 
+       ----Decompiling Function----
+return MobileNetV2(**kwargs) + 
+       ----------------------------
+__init__: 
+   Function Path: models.mobilenetv2.InvertedResidual.__init__ 
+       ----Decompiling Function----
+super(InvertedResidual, self).__init__()
+if not stride in (1, 2):
+    raise AssertionError
+else:
+    hidden_dim = round(inp * expand_ratio)
+    self.identity = stride == 1 and inp == oup
+    if expand_ratio == 1:
+        self.conv = nn.Sequential(nn.Conv2d(hidden_dim, hidden_dim, 3, stride, 1, groups=hidden_dim, bias=False), nn.BatchNorm2d(hidden_dim), nn.ReLU6(inplace=True), nn.Conv2d(hidden_dim, oup, 1, 1, 0, bias=False), nn.BatchNorm2d(oup))
+    else:
+        self.conv = nn.Sequential(nn.Conv2d(inp, hidden_dim, 1, 1, 0, bias=False), nn.BatchNorm2d(hidden_dim), nn.ReLU6(inplace=True), nn.Conv2d(hidden_dim, hidden_dim, 3, stride, 1, groups=hidden_dim, bias=False), nn.BatchNorm2d(hidden_dim), nn.ReLU6(inplace=True), nn.Conv2d(hidden_dim, oup, 1, 1, 0, bias=False), nn.BatchNorm2d(oup)) + 
+       ----------------------------
+forward: 
+   Function Path: models.mobilenetv2.InvertedResidual.forward 
+       ----Decompiling Function----
+if self.identity:
+    return x + self.conv(x)
+return self.conv(x) + 
+       ----------------------------
+__init___1: 
+   Function Path: models.mobilenetv2.MobileNetV2.__init__ 
+       ----Decompiling Function----
+super(MobileNetV2, self).__init__()
+self.cfgs = [
+ [
+  1, 16, 1, 1],
+ [
+  6, 24, 2, 2],
+ [
+  6, 32, 3, 2],
+ [
+  6, 64, 4, 2],
+ [
+  6, 96, 3, 1],
+ [
+  6, 160, 3, 2],
+ [
+  6, 320, 1, 1]]
+input_channel = _make_divisible(32 * width_mult, 4 if width_mult == 0.1 else 8)
+layers = [conv_3x3_bn(3, input_channel, 2)]
+block = InvertedResidual
+for t, c, n, s in self.cfgs:
+    output_channel = _make_divisible(c * width_mult, 4 if width_mult == 0.1 else 8)
+    for i in range(n):
+        layers.append(block(input_channel, output_channel, s if i == 0 else 1, t))
+        input_channel = output_channel
+    else:
+        self.features = (nn.Sequential)(*layers)
+        output_channel = _make_divisible(1280 * width_mult, 4 if width_mult == 0.1 else 8) if width_mult > 1.0 else 1280
+        self.conv = conv_1x1_bn(input_channel, output_channel)
+        self.avgpool = nn.AdaptiveAvgPool2d((1, 1))
+        self.classifier = nn.Linear(output_channel, num_classes)
+        self._initialize_weights() + 
+       ----------------------------
+forward_1: 
+   Function Path: models.mobilenetv2.MobileNetV2.forward 
+       ----Decompiling Function----
+x = self.features(x)
+x = self.conv(x)
+x = self.avgpool(x)
+x = x.view(x.size(0), -1)
+x = self.classifier(x)
+return x + 
+       ----------------------------
+_initialize_weights: 
+   Function Path: models.mobilenetv2.MobileNetV2._initialize_weights 
+       ----Decompiling Function----
+for m in self.modules():
+    if isinstance(m, nn.Conv2d):
+        n = m.kernel_size[0] * m.kernel_size[1] * m.out_channels
+        m.weight.data.normal_(0, math.sqrt(2.0 / n))
+        if m.bias is not None:
+            m.bias.data.zero_()
+    elif isinstance(m, nn.BatchNorm2d):
+        m.weight.data.fill_(1)
+        m.bias.data.zero_()
+    elif isinstance(m, nn.Linear):
+        m.weight.data.normal_(0, 0.01)
+        m.bias.data.zero_() + 
+       ----------------------------
+----------------------------------------
+----------------------------------------
+File: /home/david/Desktop/MAI/dl_systems/MobileNets/MobileNetV2Base/utils/misc.py 
+ ----Functions---- 
+get_mean_and_std: 
+   Function Path: utils.misc.get_mean_and_std 
+       ----Decompiling Function----
+dataloader = trainloader = torch.utils.data.DataLoader(dataset, batch_size=1, shuffle=True, num_workers=2)
+mean = torch.zeros(3)
+std = torch.zeros(3)
+print('==> Computing mean and std..')
+for inputs, targets in dataloader:
+    for i in range(3):
+        mean[i] += inputs[:, i, :, :].mean()
+        std[i] += inputs[:, i, :, :].std()
+    else:
+        mean.div_(len(dataset))
+        std.div_(len(dataset))
+        return         return (
+         mean, std) + 
+       ----------------------------
+init_params: 
+   Function Path: utils.misc.init_params 
+       ----Decompiling Function----
+for m in net.modules():
+    if isinstance(m, nn.Conv2d):
+        init.kaiming_normal((m.weight), mode='fan_out')
+        if m.bias:
+            init.constant(m.bias, 0)
+    elif isinstance(m, nn.BatchNorm2d):
+        init.constant(m.weight, 1)
+        init.constant(m.bias, 0)
+    elif isinstance(m, nn.Linear):
+        init.normal((m.weight), std=0.001)
+        if m.bias:
+            init.constant(m.bias, 0) + 
+       ----------------------------
+mkdir_p: 
+   Function Path: utils.misc.mkdir_p 
+       ----Decompiling Function----
+try:
+    os.makedirs(path)
+except OSError as exc:
+    try:
+        if exc.errno == errno.EEXIST and os.path.isdir(path):
+            pass
+        else:
+            raise
+    finally:
+        exc = None
+        del exc + 
+       ----------------------------
+__init__: 
+   Function Path: utils.misc.AverageMeter.__init__ 
+       ----Decompiling Function----
+self.reset() + 
+       ----------------------------
+reset: 
+   Function Path: utils.misc.AverageMeter.reset 
+       ----Decompiling Function----
+self.val = 0
+self.avg = 0
+self.sum = 0
+self.count = 0 + 
+       ----------------------------
+update: 
+   Function Path: utils.misc.AverageMeter.update 
+       ----Decompiling Function----
+self.val = val
+self.sum += val * n
+self.count += n
+self.avg = self.sum / self.count + 
+       ----------------------------
+----------------------------------------
+--------------------------------------------------Code Object Count: 33

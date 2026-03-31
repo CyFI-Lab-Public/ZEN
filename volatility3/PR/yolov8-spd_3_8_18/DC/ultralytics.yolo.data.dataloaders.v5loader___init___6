@@ -1,0 +1,25 @@
+check_requirements('mss')
+import mss
+source, *params = source.split()
+self.screen, left, top, width, height = (0, None, None, None, None)
+if len(params) == 1:
+    self.screen = int(params[0])
+else:
+    if len(params) == 4:
+        left, top, width, height = (int(x) for x in )
+    else:
+        if len(params) == 5:
+            self.screen, left, top, width, height = (int(x) for x in )
+self.img_size = img_size
+self.stride = stride
+self.transforms = transforms
+self.auto = auto
+self.mode = 'stream'
+self.frame = 0
+self.sct = mss.mss()
+monitor = self.sct.monitors[self.screen]
+self.top = monitor['top'] if top is None else monitor['top'] + top
+self.left = monitor['left'] if left is None else monitor['left'] + left
+self.width = width or monitor['width']
+self.height = height or monitor['height']
+self.monitor = {'left':self.left,  'top':self.top,  'width':self.width,  'height':self.height}

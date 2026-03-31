@@ -1,0 +1,1 @@
+return getattr(self, key, default)

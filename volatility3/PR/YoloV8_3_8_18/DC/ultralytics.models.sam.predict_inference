@@ -1,0 +1,6 @@
+bboxes = self.prompts.pop('bboxes', bboxes)
+points = self.prompts.pop('points', points)
+masks = self.prompts.pop('masks', masks)
+if all((i is None for i in )):
+    return (self.generate)(im, *args, **kwargs)
+return self.prompt_inference(im, bboxes, points, labels, masks, multimask_output)

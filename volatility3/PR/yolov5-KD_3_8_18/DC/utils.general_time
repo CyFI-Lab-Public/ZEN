@@ -1,0 +1,3 @@
+if self.cuda:
+    torch.cuda.synchronize()
+return time.time()

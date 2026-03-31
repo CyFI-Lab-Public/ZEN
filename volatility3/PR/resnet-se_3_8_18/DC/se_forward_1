@@ -1,0 +1,8 @@
+out = self.left(x)
+w = F.avg_pool2d(out, out.size(2))
+w = F.relu(self.fc1(w))
+w = F.sigmoid(self.fc2(w))
+out = out * w
+out = out + self.shortcut(x)
+out = out * F.sigmoid(out)
+return out

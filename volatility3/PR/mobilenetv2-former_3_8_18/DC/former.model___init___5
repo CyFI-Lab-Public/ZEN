@@ -1,0 +1,15 @@
+super(Former, self).__init__()
+self.d_model = d_model
+self.expand_ratio = expand_ratio
+self.eps = 1e-10
+self.head = head
+assert self.d_model % self.head == 0
+self.d_per_head = self.d_model // self.head
+self.QVK = MLP([self.d_model, self.d_model * 3], bn=False).cuda()
+self.Q_to_heads = MLP([self.d_model, self.d_model], bn=False).cuda()
+self.K_to_heads = MLP([self.d_model, self.d_model], bn=False).cuda()
+self.V_to_heads = MLP([self.d_model, self.d_model], bn=False).cuda()
+self.heads_to_o = MLP([self.d_model, self.d_model], bn=False).cuda()
+self.norm = nn.LayerNorm(self.d_model).cuda()
+self.mlp = MLP([self.d_model, self.expand_ratio * self.d_model, self.d_model], bn=False).cuda()
+self.mlp_norm = nn.LayerNorm(self.d_model).cuda()

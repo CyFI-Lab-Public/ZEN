@@ -1,0 +1,4 @@
+m = self.model[-1]
+for mi in m.m:
+    b = mi.bias.detach().view(m.na, -1).T
+    print('%6g Conv2d.bias:%10.3g%10.3g%10.3g%10.3g%10.3g%10.3g' % (mi.weight.shape[1], *b[:5].mean(1).tolist(), b[5:].mean()))

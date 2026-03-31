@@ -1,0 +1,2 @@
+record.msg = emojis(record.msg)
+return super().filter(record)

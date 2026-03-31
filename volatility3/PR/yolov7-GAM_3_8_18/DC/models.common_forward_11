@@ -1,0 +1,2 @@
+x = self.cv1(x)
+return self.cv4(torch.cat((self.cv3(self.cv2(x)), self.pool(x)), dim=1))

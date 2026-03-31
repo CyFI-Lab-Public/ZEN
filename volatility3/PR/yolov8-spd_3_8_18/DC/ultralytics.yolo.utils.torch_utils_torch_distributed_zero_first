@@ -1,0 +1,8 @@
+initialized = torch.distributed.is_available() and torch.distributed.is_initialized()
+if initialized:
+    if local_rank not in (-1, 0):
+        dist.barrier(device_ids=[local_rank])
+yield
+if initialized:
+    if local_rank == 0:
+        dist.barrier(device_ids=[0])

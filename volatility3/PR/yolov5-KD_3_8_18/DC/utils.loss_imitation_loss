@@ -1,0 +1,5 @@
+if student is None or teacher is None:
+    return 0
+diff = torch.pow(student - teacher, 2) * mask
+diff = diff.sum() / mask.sum() / 2
+return diff

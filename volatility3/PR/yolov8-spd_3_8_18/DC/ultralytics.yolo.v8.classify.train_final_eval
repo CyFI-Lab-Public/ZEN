@@ -1,0 +1,6 @@
+for f in (
+ self.last, self.best):
+    if f.exists():
+        strip_optimizer(f)
+else:
+    LOGGER.info(f"Results saved to {colorstr('bold', self.save_dir)}")

@@ -1,0 +1,52 @@
+if str(dataset).startswith(('http:/', 'https:/')):
+    dataset = safe_download(dataset, dir=DATASETS_DIR, unzip=True, delete=False)
+else:
+    if Path(dataset).suffix in frozenset({'.gz'}):
+        file = check_file(dataset)
+        dataset = safe_download(file, dir=DATASETS_DIR, unzip=True, delete=False)
+    else:
+        dataset = Path(dataset)
+        data_dir = (dataset if dataset.is_dir() else DATASETS_DIR / dataset).resolve()
+        data_dir.is_dir() or LOGGER.warning(f"\nDataset not found ⚠️, missing path {data_dir}, attempting download...")
+        t = time.time()
+        if str(dataset) == 'imagenet':
+            subprocess.run(f"bash {ROOT / 'data/scripts/get_imagenet.sh'}", shell=True, check=True)
+        else:
+            url = f"https://github.com/ultralytics/assets/releases/download/v0.0.0/{dataset}.zip"
+            download(url, dir=(data_dir.parent))
+        s = f"Dataset download success ✅ ({time.time() - t:.1f}s), saved to {colorstr('bold', data_dir)}\n"
+        LOGGER.info(s)
+    train_set = data_dir / 'train'
+    val_set = data_dir / 'val' if (data_dir / 'val').exists() else data_dir / 'validation' if (data_dir / 'validation').exists() else None
+    test_set = data_dir / 'test' if (data_dir / 'test').exists() else None
+    if split == 'val':
+        val_set or LOGGER.warning("WARNING ⚠️ Dataset 'split=val' not found, using 'split=test' instead.")
+    else:
+        if split == 'test':
+            if not test_set:
+                LOGGER.warning("WARNING ⚠️ Dataset 'split=test' not found, using 'split=val' instead.")
+    nc = len([x for x in (data_dir / 'train').glob('*') if x.is_dir()])
+    names = [x.name for x in (data_dir / 'train').iterdir() if x.is_dir()]
+    names = dict(enumerate(sorted(names)))
+    for k, v in {'train':train_set, 
+     'val':val_set,  'test':test_set}.items():
+        prefix = f"{colorstr({k}:)} {v}..."
+        if v is None:
+            LOGGER.info(prefix)
+        else:
+            files = [path for path in v.rglob('*.*') if path.suffix[1:].lower() in IMG_FORMATS]
+            nf = len(files)
+            nd = len({file.parent for file in files})
+            if nf == 0:
+                if k == 'train':
+                    raise FileNotFoundError(emojis(f"{dataset} '{k}:' no training images found ❌ "))
+                else:
+                    LOGGER.warning(f"{prefix} found {nf} images in {nd} classes: WARNING ⚠️ no images found")
+            elif nd != nc:
+                LOGGER.warning(f"{prefix} found {nf} images in {nd} classes: ERROR ❌️ requires {nc} classes, not {nd}")
+            else:
+                LOGGER.info(f"{prefix} found {nf} images in {nd} classes ✅ ")
+    else:
+        return {
+         'train': 'train_set', 'val': 'val_set', 'test': 'test_set', 'nc': 'nc', 
+         'names': 'names'}

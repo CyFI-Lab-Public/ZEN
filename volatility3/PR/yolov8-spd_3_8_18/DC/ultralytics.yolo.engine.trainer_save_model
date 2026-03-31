@@ -1,0 +1,22 @@
+ckpt = {'epoch':self.epoch, 
+ 'best_fitness':self.best_fitness, 
+ 'model':deepcopy(de_parallel(self.model)).half(), 
+ 'ema':deepcopy(self.ema.ema).half(), 
+ 'updates':self.ema.updates, 
+ 'optimizer':self.optimizer.state_dict(), 
+ 'train_args':vars(self.args), 
+ 'date':datetime.now().isoformat(), 
+ 'version':__version__}
+try:
+    import dill as pickle
+except ImportError:
+    import pickle
+else:
+    torch.save(ckpt, (self.last), pickle_module=pickle)
+    if self.best_fitness == self.fitness:
+        torch.save(ckpt, (self.best), pickle_module=pickle)
+    if self.epoch > 0:
+        if self.save_period > 0:
+            if self.epoch % self.save_period == 0:
+                torch.save(ckpt, (self.wdir / f"epoch{self.epoch}.pt"), pickle_module=pickle)
+    del ckpt

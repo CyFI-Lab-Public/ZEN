@@ -1,0 +1,2 @@
+import json
+return json.dumps(self.summary(normalize=normalize, decimals=decimals), indent=2)

@@ -1,0 +1,30 @@
+super(MobileFormer, self).__init__()
+parameter_check(expand_sizes, out_channels, num_token, d_model, in_channel, project_demension, fc_demension, num_class)
+self.in_channel = in_channel
+self.stem_out_channel = stem_out_channel
+self.num_token, self.d_model = num_token, d_model
+self.num_stages = len(expand_sizes)
+self.bneck_exp = bneck_exp
+self.bneck_out = bneck_out
+self.inter_channel = bneck_out
+self.expand_sizes = expand_sizes
+self.out_channels = out_channels
+self.project_demension, self.fc_demension, self.num_class = project_demension, fc_demension, num_class
+self.tokens = nn.Parameter((torch.randn(self.num_token, self.d_model)), requires_grad=True).cuda()
+self.stem = nn.Sequential(nn.Conv2d((self.in_channel), (self.stem_out_channel), kernel_size=3, stride=2, padding=1).cuda(), nn.BatchNorm2d(self.stem_out_channel).cuda(), nn.ReLU6(inplace=True).cuda())
+self.bneck = BottleneckLite((self.stem_out_channel), (self.bneck_exp), (self.bneck_out), kernel_size=3, stride=1, padding=1).cuda()
+self.blocks = []
+for num_stage in range(self.num_stages):
+    num_blocks = len(self.expand_sizes[num_stage])
+    for num_block in range(num_blocks):
+        if num_block == 0:
+            self.blocks.append(MobileFormerBlock((self.inter_channel), (self.expand_sizes[num_stage][num_block]), (self.out_channels[num_stage][num_block]), (self.d_model), stride=2).cuda())
+            self.inter_channel = self.out_channels[num_stage][num_block]
+        else:
+            self.blocks.append(MobileFormerBlock((self.inter_channel), (self.expand_sizes[num_stage][num_block]), (self.out_channels[num_stage][num_block]), (self.d_model), stride=1).cuda())
+            self.inter_channel = self.out_channels[num_stage][num_block]
+    else:
+        self.project = nn.Conv2d((self.inter_channel), (self.project_demension), kernel_size=1, stride=1).cuda()
+        self.avgpool = nn.AdaptiveAvgPool2d(1).cuda()
+        self.fc = MLP([self.project_demension + self.d_model, self.fc_demension], bn=True)
+        self.scores = nn.Linear(self.fc_demension, self.num_class).cuda()

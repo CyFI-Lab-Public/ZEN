@@ -1,0 +1,8 @@
+strides = [
+ stride] + [1] * (num_blocks - 1)
+layers = []
+for stride in strides:
+    layers.append(block(self.inchannel, channels, stride))
+    self.inchannel = channels
+else:
+    return (nn.Sequential)(*layers)

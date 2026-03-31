@@ -1,0 +1,11 @@
+delete_dsstore(dir)
+if use_zipfile_library:
+    dir = Path(dir)
+    with zipfile.ZipFile(dir.with_suffix('.zip'), 'w', zipfile.ZIP_DEFLATED) as (zip_file):
+        for file_path in dir.glob('**/*'):
+            if file_path.is_file():
+                zip_file.write(file_path, file_path.relative_to(dir))
+
+else:
+    import shutil
+    shutil.make_archive(dir, 'zip', dir)

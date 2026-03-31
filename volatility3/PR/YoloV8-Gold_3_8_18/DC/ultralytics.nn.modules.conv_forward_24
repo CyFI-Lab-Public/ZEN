@@ -1,0 +1,10 @@
+B, C, H, W = get_shape(x)
+qq = self.to_q(x).reshape(B, self.num_heads, self.key_dim, H * W).permute(0, 1, 3, 2)
+kk = self.to_k(x).reshape(B, self.num_heads, self.key_dim, H * W)
+vv = self.to_v(x).reshape(B, self.num_heads, self.d, H * W).permute(0, 1, 3, 2)
+attn = torch.matmul(qq, kk)
+attn = attn.softmax(dim=(-1))
+xx = torch.matmul(attn, vv)
+xx = xx.permute(0, 1, 3, 2).reshape(B, self.dh, H, W)
+xx = self.proj(xx)
+return xx

@@ -1,0 +1,1 @@
+return (1 - indicator) * original + indicator * replacement

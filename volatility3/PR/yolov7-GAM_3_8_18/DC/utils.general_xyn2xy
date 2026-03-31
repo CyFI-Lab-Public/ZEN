@@ -1,0 +1,4 @@
+y = x.clone() if isinstance(x, torch.Tensor) else np.copy(x)
+y[:, 0] = w * x[:, 0] + padw
+y[:, 1] = h * x[:, 1] + padh
+return y

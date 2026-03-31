@@ -1,0 +1,2 @@
+bn = tuple((v for k, v in  if 'Norm' in k))
+return sum((isinstance(v, bn) for v in self.modules())) < thresh

@@ -1,0 +1,4 @@
+from ultralytics.hub.session import HUBTrainingSession
+session = HUBTrainingSession(model)
+if session.client.authenticated:
+    return session

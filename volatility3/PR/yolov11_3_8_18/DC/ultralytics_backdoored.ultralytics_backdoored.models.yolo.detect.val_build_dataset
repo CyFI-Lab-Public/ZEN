@@ -1,0 +1,1 @@
+return build_yolo_dataset((self.args), img_path, batch, (self.data), mode=mode, stride=(self.stride))

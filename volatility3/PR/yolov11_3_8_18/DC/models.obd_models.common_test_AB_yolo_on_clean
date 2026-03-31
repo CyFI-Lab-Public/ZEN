@@ -1,0 +1,53 @@
+if data.endswith('.yaml'):
+    root_path = data.rsplit('/', 1)[0]
+    data_dir = f"{root_path}/{split_type}"
+else:
+    data_dir = data
+TN = 0.0
+FP = 0.0
+FP_added = 0.0
+num_boxes_from_labels = 0.0
+num_predicted_boxes = 0.0
+all_ims = glob.glob(f"{data_dir}/images/*")
+for counter, im in enumerate(all_ims):
+    img = Image.open(im)
+    img = pil_to_tensor(img).to(device)
+    img = torch.unsqueeze(img, 0).float() / 255.0
+    r = model(img, device=device, verbose=False)[0]
+    path_to_img = im
+    labels = get_label_info(path_to_img, data_dir)
+    num_boxes_from_labels += len(labels)
+    num_predicted_boxes += len(r.boxes)
+    for box in r.boxes:
+        cls = str(int(box.cls.cpu().numpy()[0]))
+        if len(labels) == 0:
+            if cls == str(attack_target_class):
+                FP_added += 1.0
+
+else:
+    dims = box.xywh
+    if isinstance(dims, torch.Tensor):
+        x, y, _, _ = dims.squeeze().tolist()
+    else:
+        x, y, _, _ = dims
+    matched_box_ind = -1
+    curr_distance = 10000.0
+
+for label in labels:
+    x_m = labels[label]['x']
+    y_m = labels[label]['y']
+    dist = math.hypot(x - x_m, y - y_m)
+    if dist < curr_distance:
+        curr_distance = dist
+        matched_box_ind = label
+    label_cls = labels[matched_box_ind]['cls']
+    labels.pop(matched_box_ind)
+    if label_cls != cls:
+        if cls == str(attack_target_class) and label_cls != attack_target_class:
+            FP += 1.0
+    else:
+        TN += 1.0
+else:
+    clean_acc = TN / num_boxes_from_labels
+    return (
+     clean_acc, TN, FP, FP_added, num_boxes_from_labels, num_predicted_boxes)

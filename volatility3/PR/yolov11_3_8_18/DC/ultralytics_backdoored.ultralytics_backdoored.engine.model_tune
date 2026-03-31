@@ -1,0 +1,8 @@
+self._check_is_pytorch_model()
+if use_ray:
+    from ultralytics.utils.tuner import run_ray_tune
+    return run_ray_tune(self, *args, max_samples=iterations, **kwargs)
+from .tuner import Tuner
+custom = {}
+args = {**(self.overrides), **custom, **kwargs, **{'mode': 'train'}}
+return Tuner(args=args, _callbacks=(self.callbacks))(model=self, iterations=iterations)

@@ -1,0 +1,2 @@
+if self.has_visible:
+    return self.data[(Ellipsis, 2)]

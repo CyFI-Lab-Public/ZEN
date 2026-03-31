@@ -1,0 +1,3 @@
+if augment:
+    return self._forward_augment(x)
+return self._forward_once(x, profile, visualize)

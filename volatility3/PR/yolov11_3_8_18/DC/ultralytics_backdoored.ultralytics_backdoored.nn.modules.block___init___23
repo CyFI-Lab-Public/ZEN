@@ -1,0 +1,3 @@
+super().__init__(c1, c2, shortcut, g, k, e)
+c_ = int(c2 * e)
+self.cv1 = RepConv(c1, c_, k[0], 1)

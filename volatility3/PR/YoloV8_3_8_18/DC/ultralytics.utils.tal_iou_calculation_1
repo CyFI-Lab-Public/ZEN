@@ -1,0 +1,1 @@
+return probiou(gt_bboxes, pd_bboxes).squeeze(-1).clamp_(0)

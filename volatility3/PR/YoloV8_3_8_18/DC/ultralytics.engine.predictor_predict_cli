@@ -1,0 +1,3 @@
+gen = self.stream_inference(source, model)
+for _ in gen:
+    pass

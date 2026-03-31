@@ -1,0 +1,14 @@
+check_requirements('openai>=1.6.1')
+from openai import OpenAI
+if not SETTINGS['openai_api_key']:
+    logger.warning('OpenAI API key not found in settings. Please enter your API key below.')
+    openai_api_key = getpass.getpass('OpenAI API key: ')
+    SETTINGS.update({'openai_api_key': openai_api_key})
+openai = OpenAI(api_key=(SETTINGS['openai_api_key']))
+messages = [
+ {'role':'system', 
+  'content':'\n                You are a helpful data scientist proficient in SQL. You need to output exactly one SQL query based on\n                the following schema and a user request. You only need to output the format with fixed selection\n                statement that selects everything from "\'table\'", like `SELECT * from \'table\'`\n\n                Schema:\n                im_file: string not null\n                labels: list<item: string> not null\n                child 0, item: string\n                cls: list<item: int64> not null\n                child 0, item: int64\n                bboxes: list<item: list<item: double>> not null\n                child 0, item: list<item: double>\n                    child 0, item: double\n                masks: list<item: list<item: list<item: int64>>> not null\n                child 0, item: list<item: list<item: int64>>\n                    child 0, item: list<item: int64>\n                        child 0, item: int64\n                keypoints: list<item: list<item: list<item: double>>> not null\n                child 0, item: list<item: list<item: double>>\n                    child 0, item: list<item: double>\n                        child 0, item: double\n                vector: fixed_size_list<item: float>[256] not null\n                child 0, item: float\n\n                Some details about the schema:\n                - the "labels" column contains the string values like \'person\' and \'dog\' for the respective objects\n                    in each image\n                - the "cls" column contains the integer values on these classes that map them the labels\n\n                Example of a correct query:\n                request - Get all data points that contain 2 or more people and at least one dog\n                correct query-\n                SELECT * FROM \'table\' WHERE  ARRAY_LENGTH(cls) >= 2  AND ARRAY_LENGTH(FILTER(labels, x -> x = \'person\')) >= 2  AND ARRAY_LENGTH(FILTER(labels, x -> x = \'dog\')) >= 1;\n             '},
+ {'role':'user', 
+  'content':f"{query}"}]
+response = openai.chat.completions.create(model='gpt-3.5-turbo', messages=messages)
+return response.choices[0].message.content

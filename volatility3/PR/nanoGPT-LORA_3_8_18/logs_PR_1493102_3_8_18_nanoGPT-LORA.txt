@@ -1,0 +1,424 @@
+----------------------------------------
+File: train.py 
+ ----Functions---- 
+estimate_loss: 
+   Function Path: __main__.estimate_loss 
+       ----Decompiling Function----
+out = {}
+model.eval()
+for split in ('train', 'val'):
+    losses = torch.zeros(eval_iters)
+    for k in range(eval_iters):
+        X, Y = get_batch(split)
+        with ctx:
+            _, loss = model(X, Y)
+        losses[k] = loss.item()
+    else:
+        out[split] = losses.mean()
+
+else:
+    model.train()
+    return     return out + 
+       ----------------------------
+get_lr: 
+   Function Path: __main__.get_lr 
+       ----Decompiling Function----
+if it < warmup_iters:
+    return learning_rate * it / warmup_iters
+else:
+    if it > lr_decay_iters:
+        return min_lr
+    decay_ratio = (it - warmup_iters) / (lr_decay_iters - warmup_iters)
+    assert 0 <= decay_ratio <= 1
+coeff = 0.5 * (1.0 + math.cos(math.pi * decay_ratio))
+return min_lr + coeff * (learning_rate - min_lr) + 
+       ----------------------------
+get_batch: 
+   Function Path: __main__.get_batch 
+       ----Decompiling Function----
+data = train_data if split == 'train' else val_data
+ix = torch.randint(len(data) - block_size, (batch_size,))
+x = torch.stack([torch.from_numpy(data[i:i + block_size].astype(np.int64)) for i in ix])
+y = torch.stack([torch.from_numpy(data[i + 1:i + 1 + block_size].astype(np.int64)) for i in ix])
+if device_type == 'cuda':
+    x, y = x.pin_memory().to(device, non_blocking=True), y.pin_memory().to(device, non_blocking=True)
+else:
+    x, y = x.to(device), y.to(device)
+return (
+ x, y) + 
+       ----------------------------
+----------------------------------------
+----------------------------------------
+File: /home/david/Desktop/MAI/dl_systems/nanoGPTs/nanoGPT-LoRA/model.py 
+ ----Functions---- 
+get_lora_model: 
+   Function Path: model.get_lora_model 
+       ----Decompiling Function----
+for name, param in model.named_parameters():
+    if 'lora' in name:
+        param.requires_grad = True
+    else:
+        param.requires_grad = False
+else:
+    return model + 
+       ----------------------------
+new_gelu: 
+   Function Path: model.new_gelu 
+       ----Decompiling Function----
+return 0.5 * x * (1.0 + torch.tanh(math.sqrt(2.0 / math.pi) * (x + 0.044715 * torch.pow(x, 3.0)))) + 
+       ----------------------------
+from_pretrained: 
+   Function Path: model.GPT.from_pretrained 
+       ----Decompiling Function----
+if not model_type in frozenset({'gpt2-large', 'gpt2'}):
+    raise AssertionError
+else:
+    override_args = override_args or {}
+    assert all((k == 'dropout' or k.startswith('lora') for k in ))
+    from transformers import GPT2LMHeadModel
+    print('loading weights from pretrained gpt: %s' % model_type)
+    config_args = {'gpt2':dict(n_layer=12, n_head=12, n_embd=768), 
+     'gpt2-medium':dict(n_layer=24, n_head=16, n_embd=1024), 
+     'gpt2-large':dict(n_layer=36, n_head=20, n_embd=1280), 
+     'gpt2-xl':dict(n_layer=48, n_head=25, n_embd=1600)}[model_type]
+    print('forcing vocab_size=50257, block_size=1024, bias=True')
+    config_args['vocab_size'] = 50257
+    config_args['block_size'] = 1024
+    config_args['bias'] = True
+    if 'dropout' in override_args:
+        print(f"overriding dropout rate to {override_args['dropout']}")
+        config_args['dropout'] = override_args['dropout']
+    if 'lora_rank' in override_args:
+        print(f"overriding lora_rank and lora_alpha to {override_args['lora_rank']}")
+        config_args['lora_rank'] = override_args['lora_rank']
+        config_args['lora_alpha'] = override_args['lora_alpha']
+        if 'lora_dropout' in override_args:
+            print(f"overriding lora_dropout to {override_args['lora_dropout']}")
+            config_args['lora_dropout'] = override_args['lora_dropout']
+config = GPTConfig(**config_args)
+model = GPT(config)
+sd = model.state_dict()
+sd_keys = sd.keys()
+sd_keys = [k for k in sd_keys if not k.endswith('.attn.bias')]
+model_hf = GPT2LMHeadModel.from_pretrained(model_type)
+sd_hf = model_hf.state_dict()
+sd_keys_hf = sd_hf.keys()
+sd_keys_hf = [k for k in sd_keys_hf if not k.endswith('.attn.masked_bias')]
+sd_keys_hf = [k for k in sd_keys_hf if not k.endswith('.attn.bias')]
+transposed = ['attn.c_attn.weight', 'attn.c_proj.weight', 'mlp.c_fc.weight', 'mlp.c_proj.weight']
+if config.lora_rank == 0 and not len(sd_keys_hf) == len(sd_keys):
+    raise AssertionError(f"mismatched keys: {len(sd_keys_hf)} != {len(sd_keys)}")
+else:
+    assert len(sd_keys_hf) == len(sd_keys) - 4 * config.n_layer
+    for k in sd_keys_hf:
+        if any((k.endswith(w) for w in transposed)):
+            assert sd_hf[k].shape[::-1] == sd[k].shape
+            with torch.no_grad():
+                sd[k].copy_(sd_hf[k].t())
+        else:
+            assert sd_hf[k].shape == sd[k].shape
+            with torch.no_grad():
+                sd[k].copy_(sd_hf[k])
+    else:
+        return model + 
+       ----------------------------
+__init__: 
+   Function Path: model.LoRALinear.__init__ 
+       ----Decompiling Function----
+nn.Linear.__init__(self,
+  in_features=in_features,
+  out_features=out_features,
+  bias=bias,
+  device=device,
+  dtype=dtype)
+self.has_weights_merged = False
+if lora_rank > 0:
+    self.lora_dropout = nn.Dropout(lora_dropout)
+    self.lora_scaling = lora_alpha / lora_rank
+    self.lora_A = nn.Parameter(torch.empty((lora_rank, self.in_features), device=device, dtype=dtype))
+    self.lora_B = nn.Parameter(torch.empty((self.out_features, lora_rank), device=device, dtype=dtype))
+    self.lora_A.requires_grad = False
+    self.lora_B.requires_grad = False
+    self.reset_parameters() + 
+       ----------------------------
+is_lora: 
+   Function Path: model.LoRALinear.is_lora 
+       ----Decompiling Function----
+return hasattr(self, 'lora_A') + 
+       ----------------------------
+reset_parameters: 
+   Function Path: model.LoRALinear.reset_parameters 
+       ----Decompiling Function----
+nn.Linear.reset_parameters(self)
+if self.is_lora():
+    torch.nn.init.kaiming_uniform_((self.lora_A), a=(math.sqrt(5)))
+    torch.nn.init.zeros_(self.lora_B) + 
+       ----------------------------
+forward: 
+   Function Path: model.LoRALinear.forward 
+       ----Decompiling Function----
+x = nn.Linear.forward(self, input)
+if not self.has_weights_merged:
+    if self.is_lora():
+        x += self.lora_scaling * F.linear(F.linear(self.lora_dropout(input), self.lora_A), self.lora_B)
+return x + 
+       ----------------------------
+extra_repr: 
+   Function Path: model.LoRALinear.extra_repr 
+       ----Decompiling Function----
+out = nn.Linear.extra_repr(self)
+if self.is_lora():
+    out += f", lora_rank={self.lora_A.shape[0]}, lora_scaling={self.lora_scaling}, lora_dropout={self.lora_dropout.p}"
+return out + 
+       ----------------------------
+train: 
+   Function Path: model.LoRALinear.train 
+       ----Decompiling Function----
+nn.Linear.train(self, mode)
+if self.has_weights_merged:
+    if self.is_lora():
+        self.weight.data -= self.lora_scaling * self.lora_B @ self.lora_A
+        self.has_weights_merged = False
+return self + 
+       ----------------------------
+eval: 
+   Function Path: model.LoRALinear.eval 
+       ----Decompiling Function----
+nn.Linear.eval(self)
+if not self.has_weights_merged:
+    if self.is_lora():
+        self.weight.data += self.lora_scaling * self.lora_B @ self.lora_A
+        self.has_weights_merged = True
+return self + 
+       ----------------------------
+__init___1: 
+   Function Path: model.LayerNorm.__init__ 
+       ----Decompiling Function----
+super().__init__()
+self.weight = nn.Parameter(torch.ones(ndim))
+self.bias = nn.Parameter(torch.zeros(ndim)) if bias else None + 
+       ----------------------------
+forward_1: 
+   Function Path: model.LayerNorm.forward 
+       ----Decompiling Function----
+return F.layer_norm(input, self.weight.shape, self.weight, self.bias, 1e-05) + 
+       ----------------------------
+__init___2: 
+   Function Path: model.CausalSelfAttention.__init__ 
+       ----Decompiling Function----
+super().__init__()
+assert config.n_embd % config.n_head == 0
+self.c_attn = LoRALinear(in_features=(config.n_embd),
+  out_features=(3 * config.n_embd),
+  bias=(config.bias),
+  lora_rank=(config.lora_rank),
+  lora_alpha=(config.lora_alpha),
+  lora_dropout=(config.lora_dropout))
+self.c_proj = LoRALinear(in_features=(config.n_embd),
+  out_features=(config.n_embd),
+  bias=(config.bias),
+  lora_rank=(config.lora_rank),
+  lora_alpha=(config.lora_alpha),
+  lora_dropout=(config.lora_dropout))
+self.attn_dropout = nn.Dropout(config.dropout)
+self.resid_dropout = nn.Dropout(config.dropout)
+self.n_head = config.n_head
+self.n_embd = config.n_embd
+self.dropout = config.dropout
+self.flash = hasattr(torch.nn.functional, 'scaled_dot_product_attention')
+if not self.flash:
+    print('WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0')
+    self.register_buffer('bias', torch.tril(torch.ones(config.block_size, config.block_size)).view(1, 1, config.block_size, config.block_size)) + 
+       ----------------------------
+forward_2: 
+   Function Path: model.CausalSelfAttention.forward 
+       ----Decompiling Function----
+B, T, C = x.size()
+q, k, v = self.c_attn(x).split((self.n_embd), dim=2)
+k = k.view(B, T, self.n_head, C // self.n_head).transpose(1, 2)
+q = q.view(B, T, self.n_head, C // self.n_head).transpose(1, 2)
+v = v.view(B, T, self.n_head, C // self.n_head).transpose(1, 2)
+if self.flash:
+    y = torch.nn.functional.scaled_dot_product_attention(q, k, v, attn_mask=None, dropout_p=(self.dropout if self.training else 0), is_causal=True)
+else:
+    att = q @ k.transpose(-2, -1) * (1.0 / math.sqrt(k.size(-1)))
+    att = att.masked_fill(self.bias[:, :, :T, :T] == 0, float('-inf'))
+    att = F.softmax(att, dim=(-1))
+    att = self.attn_dropout(att)
+    y = att @ v
+y = y.transpose(1, 2).contiguous().view(B, T, C)
+y = self.resid_dropout(self.c_proj(y))
+return y + 
+       ----------------------------
+__init___3: 
+   Function Path: model.MLP.__init__ 
+       ----Decompiling Function----
+super().__init__()
+self.c_fc = nn.Linear((config.n_embd), (4 * config.n_embd), bias=(config.bias))
+self.c_proj = nn.Linear((4 * config.n_embd), (config.n_embd), bias=(config.bias))
+self.dropout = nn.Dropout(config.dropout) + 
+       ----------------------------
+forward_3: 
+   Function Path: model.MLP.forward 
+       ----Decompiling Function----
+x = self.c_fc(x)
+x = new_gelu(x)
+x = self.c_proj(x)
+x = self.dropout(x)
+return x + 
+       ----------------------------
+__init___4: 
+   Function Path: model.Block.__init__ 
+       ----Decompiling Function----
+super().__init__()
+self.ln_1 = LayerNorm((config.n_embd), bias=(config.bias))
+self.attn = CausalSelfAttention(config)
+self.ln_2 = LayerNorm((config.n_embd), bias=(config.bias))
+self.mlp = MLP(config) + 
+       ----------------------------
+forward_4: 
+   Function Path: model.Block.forward 
+       ----Decompiling Function----
+x = x + self.attn(self.ln_1(x))
+x = x + self.mlp(self.ln_2(x))
+return x + 
+       ----------------------------
+__init___5: 
+   Function Path: model.GPT.__init__ 
+       ----Decompiling Function----
+super().__init__()
+assert config.vocab_size is not None
+assert config.block_size is not None
+self.config = config
+self.transformer = nn.ModuleDict(dict(wte=(nn.Embedding(config.vocab_size, config.n_embd)),
+  wpe=(nn.Embedding(config.block_size, config.n_embd)),
+  drop=(nn.Dropout(config.dropout)),
+  h=(nn.ModuleList([Block(config) for _ in range(config.n_layer)])),
+  ln_f=LayerNorm((config.n_embd), bias=(config.bias))))
+self.lm_head = nn.Linear((config.n_embd), (config.vocab_size), bias=False)
+self.transformer.wte.weight = self.lm_head.weight
+self.apply(self._init_weights)
+for pn, p in self.named_parameters():
+    if pn.endswith('c_proj.weight'):
+        torch.nn.init.normal_(p, mean=0.0, std=(0.02 / math.sqrt(2 * config.n_layer)))
+    print('number of parameters: %.2fM' % (self.get_num_params() / 1000000.0,)) + 
+       ----------------------------
+get_num_params: 
+   Function Path: model.GPT.get_num_params 
+       ----Decompiling Function----
+n_params = sum((p.numel() for p in ))
+if non_embedding:
+    n_params -= self.transformer.wpe.weight.numel()
+return n_params + 
+       ----------------------------
+_init_weights: 
+   Function Path: model.GPT._init_weights 
+       ----Decompiling Function----
+if isinstance(module, nn.Linear):
+    torch.nn.init.normal_((module.weight), mean=0.0, std=0.02)
+    if module.bias is not None:
+        torch.nn.init.zeros_(module.bias)
+elif isinstance(module, nn.Embedding):
+    torch.nn.init.normal_((module.weight), mean=0.0, std=0.02) + 
+       ----------------------------
+forward_5: 
+   Function Path: model.GPT.forward 
+       ----Decompiling Function----
+device = idx.device
+b, t = idx.size()
+assert t <= self.config.block_size, f"Cannot forward sequence of length {t}, block size is only {self.config.block_size}"
+pos = torch.arange(0, t, dtype=(torch.long), device=device).unsqueeze(0)
+tok_emb = self.transformer.wte(idx)
+pos_emb = self.transformer.wpe(pos)
+x = self.transformer.drop(tok_emb + pos_emb)
+for block in self.transformer.h:
+    x = block(x)
+else:
+    x = self.transformer.ln_f(x)
+    if targets is not None:
+        logits = self.lm_head(x)
+        loss = F.cross_entropy((logits.view(-1, logits.size(-1))), (targets.view(-1)), ignore_index=(-1))
+    else:
+        logits = self.lm_head(x[:, [-1], :])
+        loss = None
+    return (logits, loss) + 
+       ----------------------------
+crop_block_size: 
+   Function Path: model.GPT.crop_block_size 
+       ----Decompiling Function----
+assert block_size <= self.config.block_size
+self.config.block_size = block_size
+self.transformer.wpe.weight = nn.Parameter(self.transformer.wpe.weight[:block_size])
+for block in self.transformer.h:
+    if hasattr(block.attn, 'bias'):
+        block.attn.bias = block.attn.bias[:, :, :block_size, :block_size] + 
+       ----------------------------
+configure_optimizers: 
+   Function Path: model.GPT.configure_optimizers 
+       ----Decompiling Function----
+if self.config.lora_rank > 0:
+    return torch.optim.AdamW((self.parameters()), lr=learning_rate, betas=betas, weight_decay=weight_decay)
+decay = set()
+no_decay = set()
+whitelist_weight_modules = (torch.nn.Linear,)
+blacklist_weight_modules = (torch.nn.LayerNorm, LayerNorm, torch.nn.Embedding)
+for mn, m in self.named_modules():
+    for pn, p in m.named_parameters():
+        fpn = '%s.%s' % (mn, pn) if mn else pn
+        if pn.endswith('bias'):
+            no_decay.add(fpn)
+        elif pn.endswith('weight') and isinstance(m, whitelist_weight_modules):
+            decay.add(fpn)
+        elif pn.endswith('weight') and isinstance(m, blacklist_weight_modules):
+            no_decay.add(fpn)
+    else:
+        decay.remove('lm_head.weight')
+        param_dict = {pn: p for pn, p in self.named_parameters()}
+        inter_params = decay & no_decay
+        union_params = decay | no_decay
+        assert len(inter_params) == 0, 'parameters %s made it into both decay/no_decay sets!' % (str(inter_params),)
+        assert len(param_dict.keys() - union_params) == 0, 'parameters %s were not separated into either decay/no_decay set!' % (
+         str(param_dict.keys() - union_params),)
+        optim_groups = [
+         {'params':[param_dict[pn] for pn in sorted(list(decay))], 
+          'weight_decay':weight_decay},
+         {'params':[param_dict[pn] for pn in sorted(list(no_decay))], 
+          'weight_decay':0.0}]
+        use_fused = device_type == 'cuda' and 'fused' in inspect.signature(torch.optim.AdamW).parameters
+        print(f"using fused AdamW: {use_fused}")
+        extra_args = dict(fused=True) if use_fused else dict()
+        optimizer = (torch.optim.AdamW)(optim_groups, lr=learning_rate, betas=betas, **extra_args)
+        return optimizer + 
+       ----------------------------
+estimate_mfu: 
+   Function Path: model.GPT.estimate_mfu 
+       ----Decompiling Function----
+N = self.get_num_params()
+cfg = self.config
+L, H, Q, T = (cfg.n_layer, cfg.n_head, cfg.n_embd // cfg.n_head, cfg.block_size)
+flops_per_token = 6 * N + 12 * L * H * Q * T
+flops_per_fwdbwd = flops_per_token * T
+flops_per_iter = flops_per_fwdbwd * fwdbwd_per_iter
+flops_achieved = flops_per_iter * (1.0 / dt)
+flops_promised = 312000000000000.0
+mfu = flops_achieved / flops_promised
+return mfu + 
+       ----------------------------
+generate: 
+   Function Path: model.GPT.generate 
+       ----Decompiling Function----
+for _ in range(max_new_tokens):
+    idx_cond = idx if idx.size(1) <= self.config.block_size else idx[:, -self.config.block_size:]
+    logits, _ = self(idx_cond)
+    logits = logits[:, -1, :] / temperature
+    if top_k is not None:
+        v, _ = torch.topk(logits, min(top_k, logits.size(-1)))
+        logits[logits < v[:, [-1]]] = -float('Inf')
+    probs = F.softmax(logits, dim=(-1))
+    idx_next = torch.multinomial(probs, num_samples=1)
+    idx = torch.cat((idx, idx_next), dim=1)
+else:
+    return idx + 
+       ----------------------------
+----------------------------------------
+--------------------------------------------------Code Object Count: 29

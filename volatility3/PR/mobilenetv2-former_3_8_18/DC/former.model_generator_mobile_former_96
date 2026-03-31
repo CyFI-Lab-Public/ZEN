@@ -1,0 +1,20 @@
+args = {'expand_sizes':[
+  [
+   72], [96, 96], [192, 256, 384], [528, 768]], 
+ 'out_channels':[
+  [
+   16], [32, 32], [64, 64, 88], [128, 128]], 
+ 'num_token':4, 
+ 'd_model':128,  'in_channel':3, 
+ 'stem_out_channel':12,  'bneck_exp':24, 
+ 'bneck_out':12,  'project_demension':768, 
+ 'fc_demension':1280,  'num_class':num_class}
+model = MobileFormer(**args)
+if pre_train:
+    print('Modle loading...')
+    model.load_state_dict(torch.load(state_dir))
+    print('Modle loaded.')
+else:
+    initNetParams(model)
+    print('Model initialized.')
+return model

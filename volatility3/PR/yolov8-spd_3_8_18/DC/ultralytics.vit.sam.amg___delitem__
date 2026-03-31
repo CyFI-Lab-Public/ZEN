@@ -1,0 +1,1 @@
+del self._stats[key]

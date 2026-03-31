@@ -1,0 +1,1 @@
+return self.__class__(self.data[idx], self.orig_shape)

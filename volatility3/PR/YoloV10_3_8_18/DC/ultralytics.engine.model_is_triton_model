@@ -1,0 +1,3 @@
+from urllib.parse import urlsplit
+url = urlsplit(model)
+return url.netloc and url.path and url.scheme in frozenset({'http'})

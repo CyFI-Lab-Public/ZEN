@@ -1,0 +1,5 @@
+nh, nw = labels['img'].shape[:2]
+labels['instances'].convert_bbox(format='xyxy')
+labels['instances'].denormalize(nw, nh)
+labels['instances'].add_padding(padw, padh)
+return return labels

@@ -1,0 +1,1 @@
+return x.view(x.size(0), -1)

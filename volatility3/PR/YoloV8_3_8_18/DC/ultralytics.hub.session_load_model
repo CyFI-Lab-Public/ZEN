@@ -1,0 +1,7 @@
+self.model = self.client.model(model_id)
+if not self.model.data:
+    raise ValueError(emojis('❌ The specified HUB model does not exist'))
+self.model_url = f"{HUB_WEB_ROOT}/models/{self.model.id}"
+self._set_train_args()
+self.model.start_heartbeat(self.rate_limits['heartbeat'])
+LOGGER.info(f"{PREFIX}View model at {self.model_url} \x00\x00\x00\x80ö\x01\x00")

@@ -1,0 +1,1 @@
+self.iterator = self._get_iterator()

@@ -1,0 +1,29 @@
+H, W = self.input_resolution
+B, L, C = x.shape
+if not L == H * W:
+    raise AssertionError('input feature has wrong size')
+else:
+    res_x = x
+    if H == self.window_size and W == self.window_size:
+        x = self.attn(x)
+    else:
+        x = x.view(B, H, W, C)
+        pad_b = (self.window_size - H % self.window_size) % self.window_size
+        pad_r = (self.window_size - W % self.window_size) % self.window_size
+        padding = pad_b > 0 or pad_r > 0
+        if padding:
+            x = F.pad(x, (0, 0, 0, pad_r, 0, pad_b))
+        pH, pW = H + pad_b, W + pad_r
+        nH = pH // self.window_size
+        nW = pW // self.window_size
+        x = x.view(B, nH, self.window_size, nW, self.window_size, C).transpose(2, 3).reshape(B * nH * nW, self.window_size * self.window_size, C)
+        x = self.attn(x)
+        x = x.view(B, nH, nW, self.window_size, self.window_size, C).transpose(2, 3).reshape(B, pH, pW, C)
+        if padding:
+            x = x[:, :H, :W].contiguous()
+    x = x.view(B, L, C)
+x = res_x + self.drop_path(x)
+x = x.transpose(1, 2).reshape(B, C, H, W)
+x = self.local_conv(x)
+x = x.view(B, C, L).transpose(1, 2)
+return x + self.drop_path(self.mlp(x))

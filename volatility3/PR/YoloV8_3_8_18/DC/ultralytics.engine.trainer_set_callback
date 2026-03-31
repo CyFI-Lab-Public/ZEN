@@ -1,0 +1,2 @@
+self.callbacks[event] = [
+ callback]

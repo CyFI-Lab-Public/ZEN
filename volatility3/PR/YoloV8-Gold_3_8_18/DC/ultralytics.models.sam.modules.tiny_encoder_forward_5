@@ -1,0 +1,12 @@
+B, N, _ = x.shape
+x = self.norm(x)
+qkv = self.qkv(x)
+q, k, v = qkv.view(B, N, self.num_heads, -1).split([self.key_dim, self.key_dim, self.d], dim=3)
+q = q.permute(0, 2, 1, 3)
+k = k.permute(0, 2, 1, 3)
+v = v.permute(0, 2, 1, 3)
+self.ab = self.ab.to(self.attention_biases.device)
+attn = q @ k.transpose(-2, -1) * self.scale + (self.attention_biases[:, self.attention_bias_idxs] if self.training else self.ab)
+attn = attn.softmax(dim=(-1))
+x = (attn @ v).transpose(1, 2).reshape(B, N, self.dh)
+return self.proj(x)

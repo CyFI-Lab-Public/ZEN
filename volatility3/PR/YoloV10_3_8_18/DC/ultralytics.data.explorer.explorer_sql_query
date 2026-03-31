@@ -1,0 +1,17 @@
+if not return_type in frozenset({'pandas'}):
+    raise AssertionError(f"Return type should be either `pandas` or `arrow`, but got {return_type}")
+else:
+    import duckdb
+    if self.table is None:
+        raise ValueError('Table is not created. Please create the table first.')
+    table = self.table.to_arrow()
+    if not (query.startswith('SELECT') or query.startswith('WHERE')):
+        raise ValueError(f"Query must start with SELECT or WHERE. You can either pass the entire query or just the WHERE clause. found {query}")
+if query.startswith('WHERE'):
+    query = f"SELECT * FROM 'table' {query}"
+LOGGER.info(f"Running query: {query}")
+rs = duckdb.sql(query)
+if return_type == 'arrow':
+    return rs.arrow()
+if return_type == 'pandas':
+    return rs.df()

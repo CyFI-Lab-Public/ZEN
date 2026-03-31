@@ -1,0 +1,2 @@
+target_size = self.get_preprocess_shape(image.shape[2], image.shape[3], self.target_length)
+return F.interpolate(image, target_size, mode='bilinear', align_corners=False, antialias=True)

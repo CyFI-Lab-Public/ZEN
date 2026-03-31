@@ -1,0 +1,6 @@
+opt = parse_opt(True)
+for k, v in kwargs.items():
+    setattr(opt, k, v)
+else:
+    main(opt)
+    return     return opt

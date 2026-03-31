@@ -1,0 +1,13 @@
+if package:
+    requires = [x for x in metadata.distribution(package).requires if 'extra == ' not in x]
+else:
+    requires = Path(file_path).read_text().splitlines()
+requirements = []
+for line in requires:
+    line = line.strip()
+    if line:
+        line = line.startswith('#') or line.split('#')[0].strip()
+        match = re.match('([a-zA-Z0-9-_]+)\\s*([<>!=~]+.*)?', line)
+        if match:
+            requirements.append(SimpleNamespace(name=(match[1]), specifier=(match[2].strip() if match[2] else '')))
+    return requirements

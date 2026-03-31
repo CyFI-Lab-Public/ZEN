@@ -1,0 +1,7 @@
+assert return_type in frozenset({'pandas'}), f"Return type should be either `pandas` or `arrow`, but got {return_type}"
+img = self._check_imgs_or_idxs(img, idx)
+similar = self.query(img, limit=limit)
+if return_type == 'arrow':
+    return similar
+if return_type == 'pandas':
+    return similar.to_pandas()

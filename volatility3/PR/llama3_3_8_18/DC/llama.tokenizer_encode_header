@@ -1,0 +1,6 @@
+tokens = []
+tokens.append(self.tokenizer.special_tokens['<|start_header_id|>'])
+tokens.extend(self.tokenizer.encode((message['role']), bos=False, eos=False))
+tokens.append(self.tokenizer.special_tokens['<|end_header_id|>'])
+tokens.extend(self.tokenizer.encode('\n\n', bos=False, eos=False))
+return return tokens

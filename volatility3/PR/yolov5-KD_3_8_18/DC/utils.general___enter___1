@@ -1,0 +1,3 @@
+if platform.system() != 'Windows':
+    signal.signal(signal.SIGALRM, self._timeout_handler)
+    signal.alarm(self.seconds)

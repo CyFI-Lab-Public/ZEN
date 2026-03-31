@@ -1,0 +1,4 @@
+if not kwargs.get('embed'):
+    kwargs['embed'] = [
+     len(self.model.model) - 2]
+return (self.predict)(source, stream, **kwargs)

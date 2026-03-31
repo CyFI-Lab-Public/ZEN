@@ -1,0 +1,6 @@
+keys, vals = list(metrics.keys()), list(metrics.values())
+n = len(metrics) + 2
+s = '' if self.csv.exists() else ('%s,' * n % tuple(['epoch', 'time'] + keys)).rstrip(',') + '\n'
+t = time.time() - self.train_time_start
+with open(self.csv, 'a') as (f):
+    f.write(s + ('%.6g,' * n % tuple([self.epoch + 1, t] + vals)).rstrip(',') + '\n')

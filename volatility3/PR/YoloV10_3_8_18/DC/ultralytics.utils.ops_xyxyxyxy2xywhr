@@ -1,0 +1,11 @@
+is_torch = isinstance(corners, torch.Tensor)
+points = corners.cpu().numpy() if is_torch else corners
+points = points.reshape(len(corners), -1, 2)
+rboxes = []
+for pts in points:
+    (x, y), (w, h), angle = cv2.minAreaRect(pts)
+    rboxes.append([x, y, w, h, angle / 180 * np.pi])
+else:
+    if is_torch:
+        return torch.tensor(rboxes, device=(corners.device), dtype=(corners.dtype))
+    return np.asarray(rboxes, dtype=(points.dtype))

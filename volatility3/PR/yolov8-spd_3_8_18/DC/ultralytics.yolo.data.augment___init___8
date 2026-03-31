@@ -1,0 +1,5 @@
+self.new_shape = new_shape
+self.auto = auto
+self.scaleFill = scaleFill
+self.scaleup = scaleup
+self.stride = stride

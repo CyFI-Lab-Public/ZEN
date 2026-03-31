@@ -1,0 +1,29 @@
+if self.count == self.nf:
+    raise StopIteration
+else:
+    path = self.files[self.count]
+    if self.video_flag[self.count]:
+        self.mode = 'video'
+        for _ in range(self.vid_stride):
+            self.cap.grab()
+        else:
+            success, im0 = self.cap.retrieve()
+            while not success:
+                self.count += 1
+                self.cap.release()
+                if self.count == self.nf:
+                    raise StopIteration
+                path = self.files[self.count]
+                self._new_video(path)
+                success, im0 = self.cap.read()
+
+            self.frame += 1
+            s = f"video {self.count + 1}/{self.nf} ({self.frame}/{self.frames}) {path}: "
+
+    else:
+        self.count += 1
+        im0 = cv2.imread(path)
+        if im0 is None:
+            raise FileNotFoundError(f"Image Not Found {path}")
+    s = f"image {self.count}/{self.nf} {path}: "
+return ([path], [im0], self.cap, s)

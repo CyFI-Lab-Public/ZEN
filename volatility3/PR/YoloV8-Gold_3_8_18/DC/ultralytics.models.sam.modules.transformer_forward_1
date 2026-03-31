@@ -1,0 +1,22 @@
+if self.skip_first_layer_pe:
+    queries = self.self_attn(q=queries, k=queries, v=queries)
+else:
+    q = queries + query_pe
+    attn_out = self.self_attn(q=q, k=q, v=queries)
+    queries = queries + attn_out
+queries = self.norm1(queries)
+q = queries + query_pe
+k = keys + key_pe
+attn_out = self.cross_attn_token_to_image(q=q, k=k, v=keys)
+queries = queries + attn_out
+queries = self.norm2(queries)
+mlp_out = self.mlp(queries)
+queries = queries + mlp_out
+queries = self.norm3(queries)
+q = queries + query_pe
+k = keys + key_pe
+attn_out = self.cross_attn_image_to_token(q=k, k=q, v=queries)
+keys = keys + attn_out
+keys = self.norm4(keys)
+return (
+ queries, keys)

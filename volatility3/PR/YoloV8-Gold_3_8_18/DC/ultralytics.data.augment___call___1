@@ -1,0 +1,4 @@
+for t in self.transforms:
+    data = t(data)
+else:
+    return data

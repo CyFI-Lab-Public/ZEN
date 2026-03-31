@@ -1,0 +1,34 @@
+try:
+    from ultralytics.yolo.utils.tuner import ASHAScheduler, RunConfig, WandbLoggerCallback, default_space, task_metric_map, tune
+except ImportError:
+    raise ModuleNotFoundError("Install Ray Tune: `pip install 'ray[tune]'`")
+else:
+    try:
+        import wandb
+        from wandb import __version__
+    except ImportError:
+        wandb = False
+    else:
+
+        def _tune(config):
+            self._reset_callbacks()
+            config.update(train_args)
+            (self.train)(**config)
+
+
+        if not space:
+            LOGGER.warning('WARNING: search space not provided. Using default search space')
+            space = default_space
+        space['data'] = data
+        trainable_with_resources = tune.with_resources(_tune, {'cpu':8,  'gpu':gpu_per_trial if gpu_per_trial else 0})
+        asha_scheduler = ASHAScheduler(time_attr='epoch', metric=(task_metric_map[self.task]),
+          mode='max',
+          max_t=(train_args.get('epochs') or 100),
+          grace_period=grace_period,
+          reduction_factor=3)
+        tuner_callbacks = [WandbLoggerCallback(project='yolov8_tune')] if wandb else []
+        tuner = tune.Tuner(trainable_with_resources, param_space=space,
+          tune_config=tune.TuneConfig(scheduler=asha_scheduler, num_samples=max_samples),
+          run_config=RunConfig(callbacks=tuner_callbacks, local_dir='./runs'))
+        tuner.fit()
+        return         return tuner.get_results()

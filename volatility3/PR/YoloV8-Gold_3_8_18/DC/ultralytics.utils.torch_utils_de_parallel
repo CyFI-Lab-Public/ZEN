@@ -1,0 +1,3 @@
+if is_parallel(model):
+    return model.module
+return model

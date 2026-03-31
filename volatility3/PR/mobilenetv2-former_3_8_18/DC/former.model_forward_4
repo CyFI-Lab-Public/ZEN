@@ -1,0 +1,8 @@
+_, c, _, _ = local_feature.shape
+local_feature = rearrange(local_feature, 'n c h w -> n ( h w ) c')
+project_Q = self.project_Q(x)
+scores = torch.einsum('nmc , nlc -> nml', project_Q, local_feature) * c ** (-0.5)
+scores_map = F.softmax(scores, dim=(-1))
+fushion = torch.einsum('nml, nlc -> nmc', scores_map, local_feature)
+unproject = self.unproject(fushion)
+return unproject + self.shortcut(x)

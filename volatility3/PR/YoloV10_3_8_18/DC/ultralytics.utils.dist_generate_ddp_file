@@ -1,0 +1,11 @@
+module, name = f"{trainer.__class__.__module__}.{trainer.__class__.__name__}".rsplit('.', 1)
+content = f"""\n# Ultralytics Multi-GPU training temp file (should be automatically deleted after use)\noverrides = {vars(trainer.args)}\n\nif __name__ == "__main__":\n    from {module} import {name}\n    from ultralytics.utils import DEFAULT_CFG_DICT\n\n    cfg = DEFAULT_CFG_DICT.copy()\n    cfg.update(save_dir='')   # handle the extra key 'save_dir'\n    trainer = {name}(cfg=cfg, overrides=overrides)\n    results = trainer.train()\n"""
+(USER_CONFIG_DIR / 'DDP').mkdir(exist_ok=True)
+with tempfile.NamedTemporaryFile(prefix='_temp_',
+  suffix=f"{id(trainer)}.py",
+  mode='w+',
+  encoding='utf-8',
+  dir=(USER_CONFIG_DIR / 'DDP'),
+  delete=False) as (file):
+    file.write(content)
+return file.name

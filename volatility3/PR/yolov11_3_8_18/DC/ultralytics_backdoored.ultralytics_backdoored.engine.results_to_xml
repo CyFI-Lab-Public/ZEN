@@ -1,0 +1,5 @@
+check_requirements('lxml')
+df = self.to_df(normalize=normalize, decimals=decimals)
+if df.empty:
+    return '<?xml version="1.0" encoding="utf-8"?>\n<root></root>'
+return (df.to_xml)(*args, **kwargs)

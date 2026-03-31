@@ -1,0 +1,9 @@
+if clip:
+    clip_boxes(x, (h - eps, w - eps))
+assert x.shape[-1] == 4, f"input shape last dimension expected 4 but input shape is {x.shape}"
+y = torch.empty_like(x) if isinstance(x, torch.Tensor) else np.empty_like(x)
+y[(Ellipsis, 0)] = (x[(Ellipsis, 0)] + x[(Ellipsis, 2)]) / 2 / w
+y[(Ellipsis, 1)] = (x[(Ellipsis, 1)] + x[(Ellipsis, 3)]) / 2 / h
+y[(Ellipsis, 2)] = (x[(Ellipsis, 2)] - x[(Ellipsis, 0)]) / w
+y[(Ellipsis, 3)] = (x[(Ellipsis, 3)] - x[(Ellipsis, 1)]) / h
+return y

@@ -1,0 +1,2 @@
+if run:
+    _log_images({f.stem: str(f) for f in validator.save_dir.glob('val*.jpg')}, 'Validation')

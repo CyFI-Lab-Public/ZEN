@@ -1,0 +1,17 @@
+check_requirements('gitpython')
+import git
+try:
+    repo = git.Repo(path)
+    remote = repo.remotes.origin.url.replace('.git', '')
+    commit = repo.head.commit.hexsha
+    try:
+        branch = repo.active_branch.name
+    except TypeError:
+        branch = None
+
+    return {'remote':remote, 
+     'branch':branch,  'commit':commit}
+except:
+    except git.exc.InvalidGitRepositoryError:
+    return     return {'remote':None, 
+     'branch':None,  'commit':None}

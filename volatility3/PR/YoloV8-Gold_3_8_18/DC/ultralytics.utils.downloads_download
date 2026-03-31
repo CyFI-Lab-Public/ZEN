@@ -1,0 +1,16 @@
+dir = Path(dir)
+dir.mkdir(parents=True, exist_ok=True)
+if threads > 1:
+    with ThreadPool(threads) as (pool):
+        pool.map(lambda x: safe_download(url=(x[0]),
+          dir=(x[1]),
+          unzip=unzip,
+          delete=delete,
+          curl=curl,
+          retry=retry,
+          progress=(threads <= 1)), zip(url, repeat(dir)))
+        pool.close()
+        pool.join()
+else:
+    for u in [url] if isinstance(url, (str, Path)) else url:
+        safe_download(url=u, dir=dir, unzip=unzip, delete=delete, curl=curl, retry=retry)

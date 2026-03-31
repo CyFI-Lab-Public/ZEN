@@ -1,0 +1,78 @@
+import torchvision
+assert 0 <= conf_thres <= 1, f"Invalid Confidence threshold {conf_thres}, valid values are between 0.0 and 1.0"
+if not 0 <= iou_thres <= 1:
+    raise AssertionError(f"Invalid IoU {iou_thres}, valid values are between 0.0 and 1.0")
+elif isinstance(prediction, (list, tuple)):
+    prediction, δ = prediction
+    if isinstance(δ, list):
+        prediction = [
+         prediction, δ]
+        δ = None
+else:
+    if isinstance(prediction, (list, tuple)):
+        prediction = prediction[0]
+    if classes is not None:
+        classes = torch.tensor(classes, device=(prediction.device))
+    if prediction.shape[-1] == 6:
+        output = [pred[pred[:, 4] > conf_thres][:max_det] for pred in prediction]
+        if classes is not None:
+            output = [pred[(pred[:, 5:6] == classes).any(1)] for pred in output]
+        return output
+        bs = prediction.shape[0]
+        nc = nc or prediction.shape[1] - 4
+        nm = prediction.shape[1] - nc - 4
+        mi = 4 + nc
+        xc = prediction[:, 4:mi].amax(1) > conf_thres
+        time_limit = 2.0 + max_time_img * bs
+        multi_label &= nc > 1
+        prediction = prediction.transpose(-1, -2)
+        if not rotated:
+            if in_place:
+                prediction[..., :4] = xywh2xyxy(prediction[..., :4])
+    else:
+        prediction = torch.cat((xywh2xyxy(prediction[..., :4]), prediction[..., 4:]), dim=(-1))
+t = time.time()
+output = [torch.zeros((0, 6 + nm), device=(prediction.device))] * bs
+for xi, x in enumerate(prediction):
+    x = x[xc[xi]]
+    if labels:
+        if len(labels[xi]):
+            if not rotated:
+                lb = labels[xi]
+                v = torch.zeros((len(lb), nc + nm + 4), device=(x.device))
+                v[:, :4] = xywh2xyxy(lb[:, 1:5])
+                v[(range(len(lb)), lb[:, 0].long() + 4)] = 1.0
+                x = torch.cat((x, v), 0)
+    if not x.shape[0]:
+        pass
+    else:
+        box, cls, mask = x.split((4, nc, nm), 1)
+        if δ is not None:
+            cls += δ[xi]
+        elif multi_label:
+            i, j = torch.where(cls > conf_thres)
+            x = torch.cat((box[i], x[(i, 4 + j, None)], j[:, None].float(), mask[i]), 1)
+        else:
+            conf, j = cls.max(1, keepdim=True)
+            x = torch.cat((box, conf, j.float(), mask), 1)[conf.view(-1) > conf_thres]
+        if classes is not None:
+            x = x[(x[:, 5:6] == classes).any(1)]
+        n = x.shape[0]
+        if not n:
+            pass
+        else:
+            if n > max_nms:
+                x = x[x[:, 4].argsort(descending=True)[:max_nms]]
+            else:
+                c = x[:, 5:6] * (0 if agnostic else max_wh)
+                scores = x[:, 4]
+                if rotated:
+                    boxes = torch.cat((x[:, :2] + c, x[:, 2:4], x[:, -1:]), dim=(-1))
+                    i = nms_rotated(boxes, scores, iou_thres)
+                else:
+                    boxes = x[:, :4] + c
+                i = torchvision.ops.nms(boxes, scores, iou_thres)
+            i = i[:max_det]
+            output[xi] = x[i]
+else:
+    return output

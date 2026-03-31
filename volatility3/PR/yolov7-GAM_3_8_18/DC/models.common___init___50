@@ -1,0 +1,2 @@
+super(Focus, self).__init__()
+self.conv = Conv(c1 * 4, c2, k, s, p, g, act)

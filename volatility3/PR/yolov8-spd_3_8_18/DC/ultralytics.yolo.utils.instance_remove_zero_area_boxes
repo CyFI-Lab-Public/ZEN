@@ -1,0 +1,8 @@
+good = self._bboxes.areas() > 0
+if not all(good):
+    self._bboxes = Bboxes((self._bboxes.bboxes[good]), format=(self._bboxes.format))
+    if len(self.segments):
+        self.segments = self.segments[good]
+    if self.keypoints is not None:
+        self.keypoints = self.keypoints[good]
+return good

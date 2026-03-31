@@ -1,0 +1,4 @@
+nn.Linear.reset_parameters(self)
+if self.is_lora():
+    torch.nn.init.kaiming_uniform_((self.lora_A), a=(math.sqrt(5)))
+    torch.nn.init.zeros_(self.lora_B)

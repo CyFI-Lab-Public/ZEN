@@ -1,0 +1,2 @@
+super().set_model_attributes()
+self.model.kpt_shape = self.data['kpt_shape']

@@ -1,0 +1,4 @@
+x_min, y_min, x_max, y_max = bbox
+width = x_max - x_min
+height = y_max - y_min
+return (width, height, width * height)

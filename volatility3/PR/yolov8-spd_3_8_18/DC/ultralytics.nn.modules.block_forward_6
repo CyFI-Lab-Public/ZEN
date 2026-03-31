@@ -1,0 +1,2 @@
+y = self.cv1(x)
+return self.m(y) + y

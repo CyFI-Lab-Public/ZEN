@@ -1,0 +1,13 @@
+return _build_sam2(encoder_embed_dim=112,
+  encoder_stages=[
+ 2, 3, 16, 3],
+  encoder_num_heads=2,
+  encoder_global_att_blocks=[
+ 12, 16, 20],
+  encoder_window_spec=[
+ 8, 4, 14, 7],
+  encoder_window_spatial_size=[
+ 14, 14],
+  encoder_backbone_channel_list=[
+ 896, 448, 224, 112],
+  checkpoint=checkpoint)

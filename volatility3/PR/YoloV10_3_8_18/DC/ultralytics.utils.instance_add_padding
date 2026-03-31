@@ -1,0 +1,8 @@
+if self.normalized:
+    raise AssertionError('you should add padding with absolute coordinates.')
+self._bboxes.add(offset=(padw, padh, padw, padh))
+self.segments[(Ellipsis, 0)] += padw
+self.segments[(Ellipsis, 1)] += padh
+if self.keypoints is not None:
+    self.keypoints[(Ellipsis, 0)] += padw
+    self.keypoints[(Ellipsis, 1)] += padh

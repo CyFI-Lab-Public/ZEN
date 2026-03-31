@@ -1,0 +1,4 @@
+coords = coords_input.clone()
+coords[:, :, 0] = coords[:, :, 0] / image_size[1]
+coords[:, :, 1] = coords[:, :, 1] / image_size[0]
+return self._pe_encoding(coords.to(torch.float))

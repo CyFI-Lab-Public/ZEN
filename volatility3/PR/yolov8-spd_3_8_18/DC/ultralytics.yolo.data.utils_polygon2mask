@@ -1,0 +1,9 @@
+mask = np.zeros(imgsz, dtype=(np.uint8))
+polygons = np.asarray(polygons)
+polygons = polygons.astype(np.int32)
+shape = polygons.shape
+polygons = polygons.reshape(shape[0], -1, 2)
+cv2.fillPoly(mask, polygons, color=color)
+nh, nw = imgsz[0] // downsample_ratio, imgsz[1] // downsample_ratio
+mask = cv2.resize(mask, (nw, nh))
+return mask

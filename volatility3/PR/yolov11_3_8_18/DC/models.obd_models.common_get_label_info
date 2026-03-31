@@ -1,0 +1,19 @@
+if path_to_img.endswith('.png'):
+    name, _ = str(os.path.basename(path_to_img)).split('.png')
+else:
+    if path_to_img.endswith('.jpg'):
+        name, _ = str(os.path.basename(path_to_img)).split('.jpg')
+    else:
+        raise RuntimeError
+label = f"{name}.txt"
+label = os.path.join(f"{dir_path}/labels", label)
+labels = {}
+with open(Path(label), 'r') as (file):
+    for ind, line in enumerate(file):
+        cls, center_x, center_y, width, height = line.split()
+        labels[ind] = {}
+        labels[ind]['cls'] = cls
+        labels[ind]['x'] = round(img_size * float(center_x))
+        labels[ind]['y'] = round(img_size * float(center_y))
+
+return labels

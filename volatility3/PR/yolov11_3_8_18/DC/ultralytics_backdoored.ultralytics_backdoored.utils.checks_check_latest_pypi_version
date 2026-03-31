@@ -1,0 +1,7 @@
+try:
+    requests.packages.urllib3.disable_warnings()
+    response = requests.get(f"https://pypi.org/pypi/{package_name}/json", timeout=3)
+    if response.status_code == 200:
+        return         return response.json()['info']['version']
+except Exception:
+    return

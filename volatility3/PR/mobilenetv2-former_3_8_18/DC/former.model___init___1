@@ -1,0 +1,7 @@
+super(MobileFormerBlock, self).__init__()
+self.in_channel, self.expand_size, self.out_channel = in_channel, expand_size, out_channel
+self.d_model, self.stride, self.k, self.head, self.expand_ratio = (d_model, stride, k, head, expand_ratio)
+self.mobile = Mobile((self.in_channel), (self.expand_size), (self.out_channel), (self.d_model), kernel_size=3, stride=(self.stride), k=(self.k)).cuda()
+self.former = Former((self.head), (self.d_model), expand_ratio=(self.expand_ratio)).cuda()
+self.mobile_former = Mobile_Former(self.d_model, self.in_channel).cuda()
+self.former_mobile = Former_Mobile(self.d_model, self.out_channel).cuda()

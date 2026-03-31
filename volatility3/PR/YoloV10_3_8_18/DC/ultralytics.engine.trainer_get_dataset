@@ -1,0 +1,2 @@
+return (
+ data['train'], data.get('val') or data.get('test'))

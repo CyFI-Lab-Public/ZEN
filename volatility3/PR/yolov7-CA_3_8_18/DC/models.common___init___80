@@ -1,0 +1,4 @@
+super(ChannelGate, self).__init__()
+self.gate_channels = gate_channels
+self.mlp = nn.Sequential(Flatten(), nn.Linear(gate_channels, gate_channels // reduction_ratio), nn.ReLU(), nn.Linear(gate_channels // reduction_ratio, gate_channels))
+self.pool_types = pool_types

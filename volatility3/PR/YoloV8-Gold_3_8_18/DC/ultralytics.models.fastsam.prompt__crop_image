@@ -1,0 +1,22 @@
+if os.path.isdir(self.source):
+    raise ValueError(f"'{self.source}' is a directory, not a valid source for this function.")
+image = Image.fromarray(cv2.cvtColor(self.results[0].orig_img, cv2.COLOR_BGR2RGB))
+ori_w, ori_h = image.size
+annotations = format_results
+mask_h, mask_w = annotations[0]['segmentation'].shape
+if ori_w != mask_w or ori_h != mask_h:
+    image = image.resize((mask_w, mask_h))
+cropped_boxes = []
+cropped_images = []
+not_crop = []
+filter_id = []
+for _, mask in enumerate(annotations):
+    if np.sum(mask['segmentation']) <= 100:
+        filter_id.append(_)
+    else:
+        bbox = self._get_bbox_from_mask(mask['segmentation'])
+        cropped_boxes.append(self._segment_image(image, bbox))
+        cropped_images.append(bbox)
+else:
+    return (
+     cropped_boxes, cropped_images, not_crop, filter_id, annotations)

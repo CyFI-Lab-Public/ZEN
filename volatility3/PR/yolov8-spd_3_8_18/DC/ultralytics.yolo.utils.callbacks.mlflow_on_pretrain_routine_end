@@ -1,0 +1,30 @@
+if os.environ.get('MLFLOW_TRACKING_URI') is None:
+    mlflow = None
+if mlflow:
+    mlflow_location = os.environ['MLFLOW_TRACKING_URI']
+    mlflow.set_tracking_uri(mlflow_location)
+    experiment_name = trainer.args.project or '/Shared/YOLOv8'
+    experiment = mlflow.get_experiment_by_name(experiment_name)
+    if experiment is None:
+        mlflow.create_experiment(experiment_name)
+    mlflow.set_experiment(experiment_name)
+    prefix = colorstr('MLFlow: ')
+    try:
+        run, active_run = mlflow, mlflow.active_run()
+        if not active_run:
+            active_run = mlflow.start_run(experiment_id=(experiment.experiment_id))
+        run_id = active_run.info.run_id
+        LOGGER.info(f"{prefix}Using run_id({run_id}) at {mlflow_location}")
+        run.log_params(vars(trainer.model.args))
+    except Exception as err:
+        try:
+            LOGGER.error(f"{prefix}Failing init - {repr(err)}")
+            LOGGER.warning(f"{prefix}Continuing without Mlflow")
+        finally:
+            err = None
+            del err
+
+# global experiment_name ## Warning: Unused global
+# global mlflow ## Warning: Unused global
+# global run ## Warning: Unused global
+# global run_id ## Warning: Unused global

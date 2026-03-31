@@ -1,0 +1,1 @@
+return dict(zip(self.keys + ['fitness'], self.mean_results() + [self.fitness]))

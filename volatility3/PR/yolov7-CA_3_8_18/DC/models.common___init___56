@@ -1,0 +1,14 @@
+super(Detections, self).__init__()
+d = pred[0].device
+gn = [torch.tensor([*[im.shape[i] for i in (1, 0, 1, 0)], 1.0, 1.0], device=d) for im in imgs]
+self.imgs = imgs
+self.pred = pred
+self.names = names
+self.files = files
+self.xyxy = pred
+self.xywh = [xyxy2xywh(x) for x in pred]
+self.xyxyn = [x / g for x, g in zip(self.xyxy, gn)]
+self.xywhn = [x / g for x, g in zip(self.xywh, gn)]
+self.n = len(self.pred)
+self.t = tuple(((times[i + 1] - times[i]) * 1000 / self.n for i in range(3)))
+self.s = shape

@@ -1,0 +1,7 @@
+font = Path(font)
+file = CONFIG_DIR / font.name
+if not font.exists():
+    if not file.exists():
+        url = f"https://ultralytics.com/assets/{font.name}"
+        LOGGER.info(f"Downloading {url} to {file}...")
+        torch.hub.download_url_to_file(url, (str(file)), progress=progress)

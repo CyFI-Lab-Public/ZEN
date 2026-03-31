@@ -1,0 +1,1 @@
+return isinstance(model, (nn.parallel.DataParallel, nn.parallel.DistributedDataParallel))

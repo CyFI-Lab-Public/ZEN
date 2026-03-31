@@ -1,0 +1,1 @@
+return int(os.getenv('COMET_EVAL_BATCH_LOGGING_INTERVAL', 1))

@@ -1,0 +1,2 @@
+dpi = 150 if dpi == None else dpi
+plt.savefig(fname, dpi=dpi)

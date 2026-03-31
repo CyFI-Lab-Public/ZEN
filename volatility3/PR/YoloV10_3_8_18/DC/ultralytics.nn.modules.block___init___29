@@ -1,0 +1,1 @@
+super(Silence, self).__init__()

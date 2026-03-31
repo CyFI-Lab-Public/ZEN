@@ -1,0 +1,5 @@
+retry_codes = {
+ HTTPStatus.REQUEST_TIMEOUT,
+ HTTPStatus.BAD_GATEWAY,
+ HTTPStatus.GATEWAY_TIMEOUT}
+return status_code in retry_codes

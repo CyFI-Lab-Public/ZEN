@@ -1,0 +1,18 @@
+import psutil
+from ultralytics.utils import ENVIRONMENT, is_git_dir
+from ultralytics.utils.torch_utils import get_cpu_info
+ram_info = psutil.virtual_memory().total / 0
+check_yolo()
+LOGGER.info(f"\n{'OS':<20}{platform.platform()}\n{'Environment':<20}{ENVIRONMENT}\n{'Python':<20}{PYTHON_VERSION}\n{'Install':<20}{'git' if is_git_dir() else 'pip' if is_pip_package() else 'other'}\n{'RAM':<20}{ram_info:.2f} GB\n{'CPU':<20}{get_cpu_info()}\n{'CUDA':<20}{torch.version.cuda if (torch and torch.cuda.is_available()) else None}\n")
+for r in parse_requirements(package='ultralytics'):
+    try:
+        current = metadata.version(r.name)
+        is_met = '✅ ' if check_version(current, (str(r.specifier)), hard=True) else '❌ '
+    except metadata.PackageNotFoundError:
+        current = '(not installed)'
+        is_met = '❌ '
+    else:
+        LOGGER.info(f"{r.name:<20}{is_met}{current}{r.specifier}")
+else:
+    if is_github_action_running():
+        LOGGER.info(f"\nRUNNER_OS: {os.getenv('RUNNER_OS')}\nGITHUB_EVENT_NAME: {os.getenv('GITHUB_EVENT_NAME')}\nGITHUB_WORKFLOW: {os.getenv('GITHUB_WORKFLOW')}\nGITHUB_ACTOR: {os.getenv('GITHUB_ACTOR')}\nGITHUB_REPOSITORY: {os.getenv('GITHUB_REPOSITORY')}\nGITHUB_REPOSITORY_OWNER: {os.getenv('GITHUB_REPOSITORY_OWNER')}\n")

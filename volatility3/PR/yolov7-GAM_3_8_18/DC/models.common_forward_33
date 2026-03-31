@@ -1,0 +1,3 @@
+weight = self.weight_gen()
+out = F.conv2d(inputs, weight, bias=None, stride=(self.stride), padding=(self.padding), dilation=(self.dilation), groups=(self.groups))
+return self.nonlinear(self.bn(out))

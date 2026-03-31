@@ -1,0 +1,1 @@
+return defaultdict(list, deepcopy(default_callbacks))

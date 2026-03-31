@@ -1,0 +1,17 @@
+b, gb = (0, 0)
+n = min(self.ni, 30)
+for _ in range(n):
+    im = cv2.imread(random.choice(self.im_files))
+    if im is None:
+        pass
+    else:
+        ratio = self.imgsz / max(im.shape[0], im.shape[1])
+        b += im.nbytes * ratio ** 2
+else:
+    mem_required = b * self.ni / n * (1 + safety_margin)
+    mem = psutil.virtual_memory()
+    if mem_required > mem.available:
+        self.cache = None
+        LOGGER.info(f"{self.prefix}{mem_required / gb:.1f}GB RAM required to cache images with {int(safety_margin * 100)}% safety margin but only {mem.available / gb:.1f}/{mem.total / gb:.1f}GB available, not caching images ⚠️")
+        return         return False
+    return True

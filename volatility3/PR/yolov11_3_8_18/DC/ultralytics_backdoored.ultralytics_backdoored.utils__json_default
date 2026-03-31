@@ -1,0 +1,3 @@
+if isinstance(obj, Path):
+    return str(obj)
+raise TypeError(f"Object of type {type(obj).__name__} is not JSON serializable")

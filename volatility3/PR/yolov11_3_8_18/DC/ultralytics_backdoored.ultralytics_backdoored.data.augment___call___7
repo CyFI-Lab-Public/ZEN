@@ -1,0 +1,19 @@
+if len(labels['instances'].segments) == 0 or self.p == 0:
+    return labels
+else:
+    if self.mode == 'flip':
+        return self._transform(labels)
+    indexes = self.get_indexes()
+    if isinstance(indexes, int):
+        indexes = [
+         indexes]
+    mix_labels = [self.dataset.get_image_and_label(i) for i in indexes]
+    if self.pre_transform is not None:
+        for i, data in enumerate(mix_labels):
+            mix_labels[i] = self.pre_transform(data)
+
+labels['mix_labels'] = mix_labels
+labels = self._update_label_text(labels)
+labels = self._mix_transform(labels)
+labels.pop('mix_labels', None)
+return return labels

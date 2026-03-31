@@ -1,0 +1,13 @@
+im = Image.fromarray(np.asarray(self.im)[..., ::-1])
+if IS_COLAB or IS_KAGGLE:
+    try:
+        display(im)
+    except ImportError as e:
+        try:
+            LOGGER.warning(f"Unable to display image in Jupyter notebooks: {e}")
+        finally:
+            e = None
+            del e
+
+else:
+    im.show(title=title)

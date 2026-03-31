@@ -1,0 +1,6 @@
+custom = {'rect': True}
+args = {**(self.overrides), **custom, **kwargs, **{'mode': 'val'}}
+validator = validator or self._smart_load('validator')(args=args, _callbacks=(self.callbacks))
+validator(model=(self.model))
+self.metrics = validator.metrics
+return validator.metrics

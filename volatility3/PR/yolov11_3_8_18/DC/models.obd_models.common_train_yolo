@@ -1,0 +1,7 @@
+train_results = model.train(data=data,
+  epochs=epochs,
+  imgsz=640,
+  device=device)
+metrics = model.val()
+path = model.export(format='onnx')
+return (train_results, metrics, path)

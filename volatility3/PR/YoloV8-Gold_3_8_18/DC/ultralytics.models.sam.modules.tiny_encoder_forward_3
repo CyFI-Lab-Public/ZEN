@@ -1,0 +1,6 @@
+for blk in self.blocks:
+    x = checkpoint.checkpoint(blk, x) if self.use_checkpoint else blk(x)
+else:
+    if self.downsample is None:
+        return x
+    return self.downsample(x)

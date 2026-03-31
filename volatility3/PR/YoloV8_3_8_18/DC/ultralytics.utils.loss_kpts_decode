@@ -1,0 +1,5 @@
+y = pred_kpts.clone()
+y[..., :2] *= 2.0
+y[(Ellipsis, 0)] += anchor_points[:, [0]] - 0.5
+y[(Ellipsis, 1)] += anchor_points[:, [1]] - 0.5
+return y

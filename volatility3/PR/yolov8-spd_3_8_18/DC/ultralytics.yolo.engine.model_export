@@ -1,0 +1,11 @@
+self._check_is_pytorch_model()
+overrides = self.overrides.copy()
+overrides.update(kwargs)
+overrides['mode'] = 'export'
+if overrides.get('imgsz') is None:
+    overrides['imgsz'] = self.model.args['imgsz']
+if overrides.get('batch') is None:
+    overrides['batch'] = 1
+args = get_cfg(cfg=DEFAULT_CFG, overrides=overrides)
+args.task = self.task
+return Exporter(overrides=args, _callbacks=(self.callbacks))(model=(self.model))

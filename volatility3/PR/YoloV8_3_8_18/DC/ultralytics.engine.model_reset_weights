@@ -1,0 +1,8 @@
+self._check_is_pytorch_model()
+for m in self.model.modules():
+    if hasattr(m, 'reset_parameters'):
+        m.reset_parameters()
+    for p in self.model.parameters():
+        p.requires_grad = True
+    else:
+        return self

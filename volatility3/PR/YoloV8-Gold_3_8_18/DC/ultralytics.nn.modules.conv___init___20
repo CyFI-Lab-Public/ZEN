@@ -1,0 +1,8 @@
+super().__init__()
+self.stride = stride
+if pool_mode == 'torch':
+    self.pool = nn.functional.adaptive_avg_pool2d
+else:
+    if pool_mode == 'onnx':
+        self.pool = onnx_AdaptiveAvgPool2d
+self.conv = Conv(inc, ouc)

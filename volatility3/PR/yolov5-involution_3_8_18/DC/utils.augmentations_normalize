@@ -1,0 +1,1 @@
+return TF.normalize(x, mean, std, inplace=inplace)

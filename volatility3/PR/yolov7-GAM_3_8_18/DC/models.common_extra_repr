@@ -1,0 +1,1 @@
+return f"dim={self.dim}, window_size={self.window_size}, pretrained_window_size={self.pretrained_window_size}, num_heads={self.num_heads}"

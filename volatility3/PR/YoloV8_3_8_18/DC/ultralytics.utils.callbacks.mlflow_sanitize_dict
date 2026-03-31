@@ -1,0 +1,1 @@
+return {k.replace('(', '').replace(')', ''): float(v) for k, v in x.items()}

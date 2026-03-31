@@ -1,0 +1,7 @@
+super().__init__()
+self.q = nn.Linear(c, c, bias=False)
+self.k = nn.Linear(c, c, bias=False)
+self.v = nn.Linear(c, c, bias=False)
+self.ma = nn.MultiheadAttention(embed_dim=c, num_heads=num_heads)
+self.fc1 = nn.Linear(c, c, bias=False)
+self.fc2 = nn.Linear(c, c, bias=False)

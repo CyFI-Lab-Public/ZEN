@@ -1,0 +1,9 @@
+xx = self.time_shift(x) - x
+xk = x + xx * self.time_maa_k
+xr = x + xx * self.time_maa_r
+x = self.key(xk)
+x = torch.relu(x) ** 2
+x = self.value(x)
+x = torch.sigmoid(self.receptance(xr)) * x
+x = self.dropout(x)
+return x

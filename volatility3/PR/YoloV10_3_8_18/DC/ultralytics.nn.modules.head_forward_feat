@@ -1,0 +1,5 @@
+y = []
+for i in range(self.nl):
+    y.append(torch.cat((cv2[i](x[i]), cv3[i](x[i])), 1))
+else:
+    return y

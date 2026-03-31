@@ -1,0 +1,8 @@
+if model_type == 'YOLO':
+    if bd_type is None:
+        from ultralytics import YOLO
+        return YOLO(model_path)
+    from ultralytics_backdoored.ultralytics_backdoored import YOLO as YOLO_BD
+    return YOLO_BD(model_path)
+else:
+    raise RuntimeError(f"Model type {model_type} not supported.")

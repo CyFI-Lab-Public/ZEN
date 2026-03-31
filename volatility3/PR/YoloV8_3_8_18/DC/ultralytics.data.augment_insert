@@ -1,0 +1,1 @@
+self.transforms.insert(index, transform)

@@ -1,0 +1,3 @@
+assert hook in self._callbacks, f"hook '{hook}' not found in callbacks {self._callbacks}"
+assert callable(callback), f"callback '{callback}' is not callable"
+self._callbacks[hook].append({'name':name,  'callback':callback})

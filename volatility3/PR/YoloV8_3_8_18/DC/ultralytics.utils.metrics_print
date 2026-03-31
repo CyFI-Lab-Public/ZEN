@@ -1,0 +1,2 @@
+for i in range(self.nc + 1):
+    LOGGER.info(' '.join(map(str, self.matrix[i])))

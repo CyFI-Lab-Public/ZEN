@@ -1,0 +1,3 @@
+SETTINGS['api_key'] = ''
+yaml_save(USER_CONFIG_DIR / 'settings.yaml', SETTINGS)
+LOGGER.info(f"{PREFIX}logged out ✅. To log in again, use 'yolo hub login'.")

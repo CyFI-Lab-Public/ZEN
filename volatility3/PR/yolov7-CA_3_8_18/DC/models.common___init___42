@@ -1,0 +1,3 @@
+super().__init__(c1, c2, n, shortcut, g, e)
+c_ = int(c2)
+self.m = (nn.Sequential)(*[RepRes(c_, c_, shortcut, g, e=0.5) for _ in range(n)])

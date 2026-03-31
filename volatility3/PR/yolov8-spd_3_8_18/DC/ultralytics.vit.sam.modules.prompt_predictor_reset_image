@@ -1,0 +1,6 @@
+self.is_image_set = False
+self.features = None
+self.orig_h = None
+self.orig_w = None
+self.input_h = None
+self.input_w = None

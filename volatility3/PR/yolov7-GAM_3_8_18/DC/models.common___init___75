@@ -1,0 +1,2 @@
+super(h_sigmoid, self).__init__()
+self.relu = nn.ReLU6(inplace=inplace)

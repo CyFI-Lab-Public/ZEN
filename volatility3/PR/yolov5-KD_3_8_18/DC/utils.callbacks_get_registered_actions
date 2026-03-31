@@ -1,0 +1,3 @@
+if hook:
+    return self._callbacks[hook]
+return self._callbacks

@@ -1,0 +1,4 @@
+s = subprocess.check_output(f"gsutil du {url}", shell=True).decode('utf-8')
+if len(s):
+    return eval(s.split(' ')[0])
+return 0

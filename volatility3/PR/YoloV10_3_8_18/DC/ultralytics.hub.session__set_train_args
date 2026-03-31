@@ -1,0 +1,12 @@
+if self.model.is_trained():
+    raise ValueError(emojis(f"Model is already trained and uploaded to {self.model_url} \x00\x00\x00\x80ö\x01\x00"))
+elif self.model.is_resumable():
+    self.train_args = {'data':self.model.get_dataset_url(),  'resume':True}
+    self.model_file = self.model.get_weights_url('last')
+else:
+    self.train_args = self.model.data.get('train_args')
+    self.model_file = self.model.get_weights_url('parent') if self.model.is_pretrained() else self.model.get_architecture()
+if 'data' not in self.train_args:
+    raise ValueError('Dataset may still be processing. Please wait a minute and try again.')
+self.model_file = checks.check_yolov5u_filename((self.model_file), verbose=False)
+self.model_id = self.model.id

@@ -1,0 +1,8 @@
+if pool is None:
+    return x
+x = x.permute(0, 3, 1, 2)
+x = pool(x)
+x = x.permute(0, 2, 3, 1)
+if norm:
+    x = norm(x)
+return x

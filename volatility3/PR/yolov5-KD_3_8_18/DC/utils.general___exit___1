@@ -1,0 +1,5 @@
+if platform.system() != 'Windows':
+    signal.alarm(0)
+    if self.suppress:
+        if exc_type is TimeoutError:
+            return True

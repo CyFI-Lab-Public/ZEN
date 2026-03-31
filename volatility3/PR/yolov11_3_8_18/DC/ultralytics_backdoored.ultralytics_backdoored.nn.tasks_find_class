@@ -1,0 +1,4 @@
+safe_modules = ('torch', 'collections', 'collections.abc', 'builtins', 'math', 'numpy')
+if module in safe_modules:
+    return super().find_class(module, name)
+return SafeClass

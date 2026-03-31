@@ -1,0 +1,9 @@
+return [
+ "'Precision-Recall(B)'", 
+ "'F1-Confidence(B)'", 
+ "'Precision-Confidence(B)'", 
+ "'Recall-Confidence(B)'", 
+ "'Precision-Recall(P)'", 
+ "'F1-Confidence(P)'", 
+ "'Precision-Confidence(P)'", 
+ "'Recall-Confidence(P)'"]

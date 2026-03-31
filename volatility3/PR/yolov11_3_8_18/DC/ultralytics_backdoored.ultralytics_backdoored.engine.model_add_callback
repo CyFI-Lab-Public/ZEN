@@ -1,0 +1,1 @@
+self.callbacks[event].append(func)

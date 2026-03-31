@@ -1,0 +1,31 @@
+im = labels['img']
+cls = labels['cls']
+h, w = im.shape[:2]
+instances = labels.pop('instances')
+instances.convert_bbox(format='xyxy')
+instances.denormalize(w, h)
+if self.p:
+    if len(instances.segments):
+        n = len(instances)
+        _, w, _ = im.shape
+        im_new = np.zeros(im.shape, np.uint8)
+        ins_flip = deepcopy(instances)
+        ins_flip.fliplr(w)
+        ioa = bbox_ioa(ins_flip.bboxes, instances.bboxes)
+        indexes = np.nonzero((ioa < 0.3).all(1))[0]
+        n = len(indexes)
+        for j in random.sample((list(indexes)), k=(round(self.p * n))):
+            cls = np.concatenate((cls, cls[[j]]), axis=0)
+            instances = Instances.concatenate((instances, ins_flip[[j]]), axis=0)
+            cv2.drawContours(im_new, instances.segments[[j]].astype(np.int32), -1, (1,
+                                                                                    1,
+                                                                                    1), cv2.FILLED)
+        else:
+            result = cv2.flip(im, 1)
+            i = cv2.flip(im_new, 1).astype(bool)
+            im[i] = result[i]
+
+labels['img'] = im
+labels['cls'] = cls
+labels['instances'] = instances
+return labels

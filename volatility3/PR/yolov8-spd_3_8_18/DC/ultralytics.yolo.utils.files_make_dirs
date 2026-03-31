@@ -1,0 +1,8 @@
+dir = Path(dir)
+if dir.exists():
+    shutil.rmtree(dir)
+for p in (
+ dir, dir / 'labels', dir / 'images'):
+    p.mkdir(parents=True, exist_ok=True)
+else:
+    return dir

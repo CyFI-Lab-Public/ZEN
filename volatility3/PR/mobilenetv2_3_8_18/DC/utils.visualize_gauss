@@ -1,0 +1,1 @@
+return torch.exp(-torch.pow(torch.add(x, -b), 2).div(2 * c * c)).mul(a)

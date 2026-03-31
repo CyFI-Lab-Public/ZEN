@@ -1,0 +1,4 @@
+pred, targets = torch.cat(pred), torch.cat(targets)
+correct = (targets[:, None] == pred).float()
+acc = torch.stack((correct[:, 0], correct.max(1).values), dim=1)
+self.top1, self.top5 = acc.mean(0).tolist()

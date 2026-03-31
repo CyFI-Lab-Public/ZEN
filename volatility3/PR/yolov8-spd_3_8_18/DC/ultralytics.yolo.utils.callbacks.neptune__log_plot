@@ -1,0 +1,5 @@
+img = mpimg.imread(plot_path)
+fig = plt.figure()
+ax = fig.add_axes([0, 0, 1, 1], frameon=False, aspect='auto', xticks=[], yticks=[])
+ax.imshow(img)
+run[f"Plots/{title}"].upload(fig)

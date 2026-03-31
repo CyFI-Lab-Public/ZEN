@@ -1,0 +1,1 @@
+return hasattr(self, 'lora_A')

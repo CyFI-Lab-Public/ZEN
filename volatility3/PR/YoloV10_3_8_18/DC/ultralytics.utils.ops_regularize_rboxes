@@ -1,0 +1,5 @@
+x, y, w, h, t = rboxes.unbind(dim=(-1))
+w_ = torch.where(w > h, w, h)
+h_ = torch.where(w > h, h, w)
+t = torch.where(w > h, t, t + math.pi / 2) % math.pi
+return torch.stack(['x', 'y', 'w_', 'h_', 't'], dim=(-1))

@@ -1,0 +1,38 @@
+check_requirements('coremltools>=6.0')
+import coremltools as ct
+LOGGER.info(f"\n{prefix} starting export with coremltools {ct.__version__}...")
+f = self.file.with_suffix('.mlmodel')
+bias = [
+ 0.0, 0.0, 0.0]
+scale = 0.00392156862745098
+classifier_config = None
+if self.model.task == 'classify':
+    classifier_config = ct.ClassifierConfig(list(self.model.names.values())) if self.args.nms else None
+    model = self.model
+else:
+    if self.model.task == 'detect':
+        model = iOSDetectModel(self.model, self.im) if self.args.nms else self.model
+    else:
+        model = self.model
+ts = torch.jit.trace((model.eval()), (self.im), strict=False)
+ct_model = ct.convert(ts, inputs=[
+ ct.ImageType('image', shape=(self.im.shape), scale=scale, bias=bias)],
+  classifier_config=classifier_config)
+bits, mode = (8, 'kmeans_lut') if self.args.int8 else (16, 'linear') if self.args.half else (32,
+                                                                                             None)
+if bits < 32:
+    if 'kmeans' in mode:
+        check_requirements('scikit-learn')
+    ct_model = ct.models.neural_network.quantization_utils.quantize_weights(ct_model, bits, mode)
+if self.args.nms:
+    if self.model.task == 'detect':
+        ct_model = self._pipeline_coreml(ct_model)
+m = self.metadata
+ct_model.short_description = m.pop('description')
+ct_model.author = m.pop('author')
+ct_model.license = m.pop('license')
+ct_model.version = m.pop('version')
+ct_model.user_defined_metadata.update({k: str(v) for k, v in m.items()})
+ct_model.save(str(f))
+return return (
+ f, ct_model)

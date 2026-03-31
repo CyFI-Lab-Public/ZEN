@@ -1,0 +1,3 @@
+images = make_image(torchvision.utils.make_grid(images), Mean, Std)
+plt.imshow(images)
+plt.show()

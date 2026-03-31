@@ -1,0 +1,2 @@
+if hasattr(self.model, 'names'):
+    return self.model.names

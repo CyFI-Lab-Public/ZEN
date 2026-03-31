@@ -1,0 +1,4 @@
+if self.count == 1:
+    raise StopIteration
+self.count += 1
+return (None, self.im0, None, '')

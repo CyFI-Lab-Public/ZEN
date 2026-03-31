@@ -1,0 +1,5 @@
+from pycocotools import mask as mask_utils
+h, w = uncompressed_rle['size']
+rle = mask_utils.frPyObjects(uncompressed_rle, h, w)
+rle['counts'] = rle['counts'].decode('utf-8')
+return rle

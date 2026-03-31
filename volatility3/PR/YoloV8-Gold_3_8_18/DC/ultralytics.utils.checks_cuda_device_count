@@ -1,0 +1,7 @@
+try:
+    output = subprocess.check_output(['nvidia-smi', '--query-gpu=count', '--format=csv,noheader,nounits'], encoding='utf-8')
+    first_line = output.strip().split('\n')[0]
+    return int(first_line)
+except:
+    except (subprocess.CalledProcessError, FileNotFoundError, ValueError):
+    return 0

@@ -1,0 +1,2 @@
+pos_x, pos_y = self._encode_xy(x, y)
+return torch.cat((pos_y, pos_x, h[:, None], w[:, None]), dim=1)

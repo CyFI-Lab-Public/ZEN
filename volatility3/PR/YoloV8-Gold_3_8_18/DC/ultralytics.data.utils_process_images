@@ -1,0 +1,13 @@
+from ultralytics.data import YOLODataset
+for split in ('train', 'val', 'test'):
+    if self.data.get(split) is None:
+        pass
+    else:
+        dataset = YOLODataset(img_path=(self.data[split]), data=(self.data))
+        with ThreadPool(NUM_THREADS) as (pool):
+            for _ in TQDM((pool.imap(self._hub_ops, dataset.im_files)), total=(len(dataset)), desc=f"{split} images"):
+                pass
+
+else:
+    LOGGER.info(f"Done. All images saved to {self.im_dir}")
+    return     return self.im_dir

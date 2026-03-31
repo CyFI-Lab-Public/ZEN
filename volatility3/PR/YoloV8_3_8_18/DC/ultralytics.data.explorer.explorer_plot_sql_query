@@ -1,0 +1,6 @@
+result = self.sql_query(query, return_type='arrow')
+if len(result) == 0:
+    LOGGER.info('No results found.')
+    return     return None
+img = plot_query_result(result, plot_labels=labels)
+return Image.fromarray(img)

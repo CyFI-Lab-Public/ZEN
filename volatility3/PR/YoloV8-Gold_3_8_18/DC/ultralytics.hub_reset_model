@@ -1,0 +1,5 @@
+r = requests.post(f"{HUB_API_ROOT}/model-reset", json={'apiKey':Auth().api_key,  'modelId':model_id})
+if r.status_code == 200:
+    LOGGER.info(f"{PREFIX}Model reset successfully")
+    return     return None
+LOGGER.warning(f"{PREFIX}Model reset failure {r.status_code} {r.reason}")

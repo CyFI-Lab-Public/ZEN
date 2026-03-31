@@ -1,0 +1,30 @@
+self.count += 1
+if cv2.waitKey(1) == ord('q'):
+    self.cap.release()
+    cv2.destroyAllWindows()
+    raise StopIteration
+elif self.pipe == 0:
+    ret_val, img0 = self.cap.read()
+    img0 = cv2.flip(img0, 1)
+else:
+    n = 0
+n += 1
+self.cap.grab()
+if n % 30 == 0:
+    ret_val, img0 = self.cap.retrieve()
+    if ret_val:
+        break
+    elif not ret_val:
+        raise AssertionError(f"Camera Error {self.pipe}")
+img_path = 'webcam.jpg'
+print(f"webcam {self.count}: ", end='')
+img = letterbox(img0, (self.img_size), stride=(self.stride))[0]
+img = img[:, :, ::-1].transpose(2, 0, 1)
+img = np.ascontiguousarray(img)
+return (
+ img_path, img, img0, None)
+# NOTE: have internal decompilation grammar errors.
+# Use -T option to show full context.
+# not in loop:
+#	break
+#      L. 246       144  BREAK_LOOP          148  'to 148'

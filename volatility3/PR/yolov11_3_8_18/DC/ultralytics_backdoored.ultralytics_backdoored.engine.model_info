@@ -1,0 +1,2 @@
+self._check_is_pytorch_model()
+return return self.model.info(detailed=detailed, verbose=verbose)

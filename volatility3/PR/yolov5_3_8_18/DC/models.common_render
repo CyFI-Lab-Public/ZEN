@@ -1,0 +1,2 @@
+self._run(render=True, labels=labels)
+return self.ims

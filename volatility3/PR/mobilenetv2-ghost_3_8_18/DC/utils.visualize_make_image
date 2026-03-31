@@ -1,0 +1,5 @@
+for i in range(0, 3):
+    img[i] = img[i] * std[i] + mean[i]
+else:
+    npimg = img.numpy()
+    return np.transpose(npimg, (1, 2, 0))

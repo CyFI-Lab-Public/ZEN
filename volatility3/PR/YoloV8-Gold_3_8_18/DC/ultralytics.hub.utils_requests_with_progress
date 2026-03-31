@@ -1,0 +1,16 @@
+progress = kwargs.pop('progress', False)
+if not progress:
+    return (requests.request)(method, url, **kwargs)
+response = (requests.request)(method, url, stream=True, **kwargs)
+total = int(response.headers.get('content-length', 0) if isinstance(progress, bool) else progress)
+try:
+    pbar = TQDM(total=total, unit='B', unit_scale=True, unit_divisor=1024)
+    for data in response.iter_content(chunk_size=1024):
+        pbar.update(len(data))
+    else:
+        pbar.close()
+
+except requests.exceptions.ChunkedEncodingError:
+    response.close()
+else:
+    return response

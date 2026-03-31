@@ -1,0 +1,3 @@
+if run:
+    for k, v in imgs_dict.items():
+        run[f"{group}/{k}"].upload(File(v))

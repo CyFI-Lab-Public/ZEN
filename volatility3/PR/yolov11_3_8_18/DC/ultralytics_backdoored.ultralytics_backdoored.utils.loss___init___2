@@ -1,0 +1,2 @@
+super().__init__()
+self.reg_max = reg_max

@@ -1,0 +1,15 @@
+if x.dim() == 2:
+    torch.unsqueeze(x, 0, out=x)
+if x.dim() == 3:
+    cl = torch.zeros([3, x.size(1), x.size(2)])
+    cl[0] = gauss(x, 0.5, 0.6, 0.2) + gauss(x, 1, 0.8, 0.3)
+    cl[1] = gauss(x, 1, 0.5, 0.3)
+    cl[2] = gauss(x, 1, 0.2, 0.3)
+    cl[cl.gt(1)] = 1
+else:
+    if x.dim() == 4:
+        cl = torch.zeros([x.size(0), 3, x.size(2), x.size(3)])
+        cl[:, 0, :, :] = gauss(x, 0.5, 0.6, 0.2) + gauss(x, 1, 0.8, 0.3)
+        cl[:, 1, :, :] = gauss(x, 1, 0.5, 0.3)
+        cl[:, 2, :, :] = gauss(x, 1, 0.2, 0.3)
+    return cl

@@ -1,0 +1,5 @@
+super(CBAM, self).__init__()
+self.ChannelGate = ChannelGate(gate_channels, reduction_ratio, pool_types)
+self.no_spatial = no_spatial
+if not no_spatial:
+    self.SpatialGate = SpatialGate()

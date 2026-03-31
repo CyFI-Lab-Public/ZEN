@@ -1,0 +1,1 @@
+return bool(re.search('[一-\u9fff]', str(s)))

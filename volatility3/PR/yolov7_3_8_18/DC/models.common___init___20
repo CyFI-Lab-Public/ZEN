@@ -1,0 +1,6 @@
+super().__init__(c1, c2, k, s, p, g, act)
+c_ = int(c2 / 2)
+self.cv1 = GhostConv(c1, c_, 3, 2)
+self.cv2 = GhostConv(c_, c_, 1, 1)
+self.cv3 = GhostConv(c_, c_, 3, 2)
+self.cv4 = GhostConv(2 * c_, c2, 1, 1)

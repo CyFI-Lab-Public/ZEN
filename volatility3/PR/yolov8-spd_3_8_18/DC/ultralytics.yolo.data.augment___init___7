@@ -1,0 +1,5 @@
+assert direction in ('horizontal', 'vertical'), f"Support direction `horizontal` or `vertical`, got {direction}"
+assert 0 <= p <= 1.0
+self.p = p
+self.direction = direction
+self.flip_idx = flip_idx

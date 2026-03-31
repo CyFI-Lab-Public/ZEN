@@ -1,0 +1,1 @@
+return cuda_device_count() > 0

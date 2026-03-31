@@ -1,0 +1,7 @@
+if not hasattr(self.predictor, 'trackers'):
+    from ultralytics.tracker import register_tracker
+    register_tracker(self, persist)
+conf = kwargs.get('conf') or 0.1
+kwargs['conf'] = conf
+kwargs['mode'] = 'track'
+return (self.predict)(source=source, stream=stream, **kwargs)

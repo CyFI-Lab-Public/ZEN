@@ -1,0 +1,2 @@
+from ultralytics.vit.utils.loss import RTDETRDetectionLoss
+return RTDETRDetectionLoss(num_classes=(self.nc), use_vfl=True)

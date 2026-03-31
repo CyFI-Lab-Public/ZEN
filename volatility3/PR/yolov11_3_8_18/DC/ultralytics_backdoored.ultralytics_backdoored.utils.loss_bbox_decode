@@ -1,0 +1,4 @@
+if self.use_dfl:
+    b, a, c = pred_dist.shape
+    pred_dist = pred_dist.view(b, a, 4, c // 4).softmax(3).matmul(self.proj.type(pred_dist.dtype))
+return dist2bbox(pred_dist, anchor_points, xywh=False)

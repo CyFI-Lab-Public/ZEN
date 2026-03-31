@@ -1,0 +1,25 @@
+bs, _, _ = memory.shape
+anchors, valid_mask = self._generate_anchors(spatial_shapes, dtype=(memory.dtype), device=(memory.device))
+memory = torch.where(valid_mask, memory, 0)
+output_memory = self.enc_output(memory)
+enc_outputs_class = self.enc_score_head(output_memory)
+enc_outputs_coord_unact = self.enc_bbox_head(output_memory) + anchors
+_, topk_ind = torch.topk((enc_outputs_class.max(-1).values), (self.num_queries), dim=1)
+batch_ind = torch.arange(end=bs, dtype=(topk_ind.dtype)).unsqueeze(-1).repeat(1, self.num_queries).view(-1)
+topk_ind = topk_ind.view(-1)
+reference_points_unact = enc_outputs_coord_unact[(batch_ind, topk_ind)].view(bs, self.num_queries, -1)
+enc_topk_bboxes = torch.sigmoid(reference_points_unact)
+if denoising_bbox_unact is not None:
+    reference_points_unact = torch.concat([denoising_bbox_unact, reference_points_unact], 1)
+if self.training:
+    reference_points_unact = reference_points_unact.detach()
+enc_topk_logits = enc_outputs_class[(batch_ind, topk_ind)].view(bs, self.num_queries, -1)
+if self.learnt_init_query:
+    target = self.tgt_embed.weight.unsqueeze(0).repeat(bs, 1, 1)
+else:
+    target = output_memory[(batch_ind, topk_ind)].view(bs, self.num_queries, -1)
+    if self.training:
+        target = target.detach()
+    if denoising_class is not None:
+        target = torch.concat([denoising_class, target], 1)
+    return (target, reference_points_unact, enc_topk_bboxes, enc_topk_logits)

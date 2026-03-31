@@ -1,0 +1,8 @@
+if self.device.type == 'mps':
+    memory = torch.mps.driver_allocated_memory()
+else:
+    if self.device.type == 'cpu':
+        memory = 0
+    else:
+        memory = torch.cuda.memory_reserved()
+return memory / 1000000000.0

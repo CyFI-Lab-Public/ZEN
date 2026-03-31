@@ -1,0 +1,1 @@
+return f'JSONDict("{self.file_path}"):\n{json.dumps((dict(self)), indent=2, ensure_ascii=False, default=(self._json_default))}'

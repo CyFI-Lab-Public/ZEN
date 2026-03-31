@@ -1,0 +1,4 @@
+if not self.is_image_set:
+    raise RuntimeError('An image must be set with .set_image(...) to generate an embedding.')
+assert self.features is not None, 'Features must exist if an image has been set.'
+return self.features

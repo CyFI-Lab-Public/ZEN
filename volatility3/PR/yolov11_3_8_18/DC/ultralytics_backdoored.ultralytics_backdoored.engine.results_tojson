@@ -1,0 +1,2 @@
+LOGGER.warning("WARNING ⚠️ 'result.tojson()' is deprecated, replace with 'result.to_json()'.")
+return return self.to_json(normalize, decimals)

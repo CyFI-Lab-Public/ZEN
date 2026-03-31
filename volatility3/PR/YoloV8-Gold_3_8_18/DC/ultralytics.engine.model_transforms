@@ -1,0 +1,2 @@
+if hasattr(self.model, 'transforms'):
+    return self.model.transforms

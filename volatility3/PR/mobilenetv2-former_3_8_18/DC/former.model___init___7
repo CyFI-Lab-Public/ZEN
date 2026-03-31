@@ -1,0 +1,5 @@
+super(DynamicReLU, self).__init__()
+self.in_channel = in_channel
+self.k = k
+self.control_demension = control_demension
+self.Theta = MLP([control_demension, 4 * control_demension, 2 * k * in_channel], bn=True)

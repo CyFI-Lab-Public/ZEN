@@ -1,0 +1,11 @@
+import socket
+for host in ('1.1.1.1', '8.8.8.8', '223.5.5.5'):
+    try:
+        test_connection = socket.create_connection(address=(host, 53), timeout=2)
+    except (socket.timeout, socket.gaierror, OSError):
+        continue
+    else:
+        test_connection.close()
+        return         return True
+else:
+    return False

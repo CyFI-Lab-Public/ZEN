@@ -1,0 +1,12 @@
+super().__init__()
+self.num_heads = num_heads
+self.scale = key_dim ** (-0.5)
+self.key_dim = key_dim
+self.nh_kd = nh_kd = key_dim * num_heads
+self.d = int(attn_ratio * key_dim)
+self.dh = int(attn_ratio * key_dim) * num_heads
+self.attn_ratio = attn_ratio
+self.to_q = Conv(dim, nh_kd, 1, act=False)
+self.to_k = Conv(dim, nh_kd, 1, act=False)
+self.to_v = Conv(dim, (self.dh), 1, act=False)
+self.proj = torch.nn.Sequential(nn.ReLU6(), Conv((self.dh), dim, act=False))

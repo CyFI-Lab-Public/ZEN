@@ -1,0 +1,7 @@
+names = logger.names if names == None else names
+numbers = logger.numbers
+for _, name in enumerate(names):
+    x = np.arange(len(numbers[name]))
+    plt.plot(x, np.asarray(numbers[name]))
+else:
+    return [logger.title + '(' + name + ')' for name in names]

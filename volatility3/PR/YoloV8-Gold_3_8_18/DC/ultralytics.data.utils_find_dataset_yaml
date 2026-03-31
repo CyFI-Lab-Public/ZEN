@@ -1,0 +1,6 @@
+files = list(path.glob('*.yaml')) or list(path.rglob('*.yaml'))
+assert files, f"No YAML file found in '{path.resolve()}'"
+if len(files) > 1:
+    files = [f for f in files if f.stem == path.stem]
+assert len(files) == 1, f"Expected 1 YAML file in '{path.resolve()}', but found {len(files)}.\n{files}"
+return files[0]

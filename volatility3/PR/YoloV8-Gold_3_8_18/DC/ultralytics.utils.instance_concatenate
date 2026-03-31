@@ -1,0 +1,8 @@
+if not isinstance(boxes_list, (list, tuple)):
+    raise AssertionError
+else:
+    return boxes_list or cls(np.empty(0))
+assert all((isinstance(box, Bboxes) for box in ))
+if len(boxes_list) == 1:
+    return boxes_list[0]
+return cls(np.concatenate([b.bboxes for b in boxes_list], axis=axis))

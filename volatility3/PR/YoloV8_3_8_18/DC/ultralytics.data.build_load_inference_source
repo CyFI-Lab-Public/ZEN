@@ -1,0 +1,20 @@
+source, stream, screenshot, from_img, in_memory, tensor = check_source(source)
+source_type = source.source_type if in_memory else SourceTypes(stream, screenshot, from_img, tensor)
+if tensor:
+    dataset = LoadTensor(source)
+else:
+    if in_memory:
+        dataset = source
+    else:
+        if stream:
+            dataset = LoadStreams(source, vid_stride=vid_stride, buffer=buffer)
+        else:
+            if screenshot:
+                dataset = LoadScreenshots(source)
+            else:
+                if from_img:
+                    dataset = LoadPilAndNumpy(source)
+                else:
+                    dataset = LoadImagesAndVideos(source, batch=batch, vid_stride=vid_stride)
+setattr(dataset, 'source_type', source_type)
+return return dataset

@@ -1,0 +1,2 @@
+LOGGER.warning("WARNING ⚠️ 'Boxes.boxes' is deprecated. Use 'Boxes.data' instead.")
+return return self.data

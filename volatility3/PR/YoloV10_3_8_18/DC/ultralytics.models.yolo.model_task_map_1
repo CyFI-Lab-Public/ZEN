@@ -1,0 +1,3 @@
+return {'detect': {'model':WorldModel, 
+            'validator':yolo.detect.DetectionValidator, 
+            'predictor':yolo.detect.DetectionPredictor}}

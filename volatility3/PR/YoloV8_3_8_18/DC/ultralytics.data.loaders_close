@@ -1,0 +1,17 @@
+self.running = False
+for thread in self.threads:
+    if thread.is_alive():
+        thread.join(timeout=5)
+
+for cap in self.caps:
+    try:
+        cap.release()
+    except Exception as e:
+        try:
+            LOGGER.warning(f"WARNING ⚠️ Could not release VideoCapture object: {e}")
+        finally:
+            e = None
+            del e
+
+else:
+    cv2.destroyAllWindows()

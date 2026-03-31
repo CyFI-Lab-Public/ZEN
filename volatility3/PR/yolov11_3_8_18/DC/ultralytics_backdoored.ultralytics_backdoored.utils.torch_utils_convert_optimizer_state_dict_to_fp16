@@ -1,0 +1,6 @@
+for state in state_dict['state'].values():
+    for k, v in state.items():
+        if k != 'step' and isinstance(v, torch.Tensor) and v.dtype is torch.float32:
+            state[k] = v.half()
+    else:
+        return state_dict

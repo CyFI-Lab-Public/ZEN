@@ -1,0 +1,1 @@
+ / (area1[:, None] + area2 - inter)

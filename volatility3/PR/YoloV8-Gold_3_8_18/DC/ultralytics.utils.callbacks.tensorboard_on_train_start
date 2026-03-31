@@ -1,0 +1,2 @@
+if WRITER:
+    _log_tensorboard_graph(trainer)

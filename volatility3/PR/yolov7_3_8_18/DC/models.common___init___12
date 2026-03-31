@@ -1,0 +1,6 @@
+super(DownC, self).__init__()
+c_ = int(c1)
+self.cv1 = Conv(c1, c_, 1, 1)
+self.cv2 = Conv(c_, c2 // 2, 3, k)
+self.cv3 = Conv(c1, c2 // 2, 1, 1)
+self.mp = nn.MaxPool2d(kernel_size=k, stride=k)

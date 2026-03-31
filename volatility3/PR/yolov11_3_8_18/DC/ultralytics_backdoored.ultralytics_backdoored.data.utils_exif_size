@@ -1,0 +1,13 @@
+s = img.size
+if img.format == 'JPEG':
+    try:
+        exif = img.getexif()
+        if exif:
+            rotation = exif.get(274, None)
+            if rotation in frozenset({8}):
+                s = (
+                 s[1], s[0])
+    except Exception:
+        pass
+
+return s

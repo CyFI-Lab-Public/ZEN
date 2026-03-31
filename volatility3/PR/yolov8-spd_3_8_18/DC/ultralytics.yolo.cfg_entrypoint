@@ -1,0 +1,113 @@
+args = (debug.split(' ') if debug else sys.argv)[1:]
+if not args:
+    LOGGER.info(CLI_HELP_MSG)
+    return     return None
+special = {'help':lambda: LOGGER.info(CLI_HELP_MSG), 
+ 'checks':checks.check_yolo, 
+ 'version':lambda: LOGGER.info(__version__), 
+ 'settings':lambda: handle_yolo_settings(args[1:]), 
+ 'cfg':lambda: yaml_print(DEFAULT_CFG_PATH), 
+ 'hub':lambda: handle_yolo_hub(args[1:]), 
+ 'login':lambda: handle_yolo_hub(args), 
+ 'copy-cfg':copy_default_cfg}
+full_args_dict = {**DEFAULT_CFG_DICT, **{k: None for k in TASKS}, **{k: None for k in MODES}, **special}
+special.update({k[0]: v for k, v in special.items()})
+special.update({k[:-1]: v for k, v in special.items() if k.endswith('s')})
+special = {**special, **{f"-{k}": v for k, v in special.items()}, **{f"--{k}": v for k, v in special.items()}}
+overrides = {}
+for a in merge_equals_args(args):
+    if a.startswith('--'):
+        LOGGER.warning(f"WARNING ⚠️ '{a}' does not require leading dashes '--', updating to '{a[2:]}'.")
+        a = a[2:]
+    if a.endswith(','):
+        LOGGER.warning(f"WARNING ⚠️ '{a}' does not require trailing comma ',', updating to '{a[:-1]}'.")
+        a = a[:-1]
+    if '=' in a:
+        try:
+            re.sub(' *= *', '=', a)
+            k, v = a.split('=', 1)
+            if not v:
+                raise AssertionError(f"missing '{k}' value")
+            elif k == 'cfg':
+                LOGGER.info(f"Overriding {DEFAULT_CFG_PATH} with {v}")
+                overrides = {k: val for k, val in yaml_load(checks.check_yaml(v)).items() if k != 'cfg'}
+            else:
+                if v.lower() == 'none':
+                    v = None
+                else:
+                    if v.lower() == 'true':
+                        v = True
+                    else:
+                        if v.lower() == 'false':
+                            v = False
+                        else:
+                            with contextlib.suppress(Exception):
+                                v = eval(v)
+                overrides[k] = v
+        except (NameError, SyntaxError, ValueError, AssertionError) as e:
+            try:
+                check_cfg_mismatch(full_args_dict, {a: ''}, e)
+            finally:
+                e = None
+                del e
+
+    elif a in TASKS:
+        overrides['task'] = a
+    elif a in MODES:
+        overrides['mode'] = a
+    else:
+        if a.lower() in special:
+            special[a.lower()]()
+            return             return None
+        if a in DEFAULT_CFG_DICT and isinstance(DEFAULT_CFG_DICT[a], bool):
+            overrides[a] = True
+        elif a in DEFAULT_CFG_DICT:
+            raise SyntaxError(f"'{colorstr('red', 'bold', a)}' is a valid YOLO argument but is missing an '=' sign to set its value, i.e. try '{a}={DEFAULT_CFG_DICT[a]}'\n{CLI_HELP_MSG}")
+        else:
+            check_cfg_mismatch(full_args_dict, {a: ''})
+else:
+    check_cfg_mismatch(full_args_dict, overrides)
+    mode = overrides.get('mode', None)
+
+if mode is None:
+    mode = DEFAULT_CFG.mode or 'predict'
+    LOGGER.warning(f"WARNING ⚠️ 'mode' is missing. Valid modes are {MODES}. Using default 'mode={mode}'.")
+else:
+    if mode not in MODES:
+        if mode not in ('checks', checks):
+            raise ValueError(f"Invalid 'mode={mode}'. Valid modes are {MODES}.\n{CLI_HELP_MSG}")
+        LOGGER.warning("WARNING ⚠️ 'yolo mode=checks' is deprecated. Use 'yolo checks' instead.")
+        checks.check_yolo()
+        return
+    task = overrides.pop('task', None)
+if task:
+    if task not in TASKS:
+        raise ValueError(f"Invalid 'task={task}'. Valid tasks are {TASKS}.\n{CLI_HELP_MSG}")
+    if 'model' not in overrides:
+        overrides['model'] = TASK2MODEL[task]
+    model = overrides.pop('model', DEFAULT_CFG.model)
+    if model is None:
+        model = 'yolov8n.pt'
+        LOGGER.warning(f"WARNING ⚠️ 'model' is missing. Using default 'model={model}'.")
+    from ultralytics.yolo.engine.model import YOLO
+    overrides['model'] = model
+    model = YOLO(model, task=task)
+    if isinstance(overrides.get('pretrained'), str):
+        model.load(overrides['pretrained'])
+    if task != model.task:
+        if task:
+            LOGGER.warning(f"WARNING ⚠️ conflicting 'task={task}' passed with 'task={model.task}' model. Ignoring 'task={task}' and updating to 'task={model.task}' to match model.")
+        task = model.task
+    overrides['source'] = (ROOT / 'assets').exists() and DEFAULT_CFG.source or ROOT / 'assets' if (mode in ('predict',
+                                                                                                            'track') and 'source' not in overrides) else 'https://ultralytics.com/images/bus.jpg'
+    LOGGER.warning(f"WARNING ⚠️ 'source' is missing. Using default 'source={overrides['source']}'.")
+else:
+    if mode in ('train', 'val'):
+        if 'data' not in overrides:
+            overrides['data'] = TASK2DATA.get(task or DEFAULT_CFG.task, DEFAULT_CFG.data)
+            LOGGER.warning(f"WARNING ⚠️ 'data' is missing. Using default 'data={overrides['data']}'.")
+    elif mode == 'export':
+        if 'format' not in overrides:
+            overrides['format'] = DEFAULT_CFG.format or 'torchscript'
+            LOGGER.warning(f"WARNING ⚠️ 'format' is missing. Using default 'format={overrides['format']}'.")
+    (getattr(model, mode))(**overrides)

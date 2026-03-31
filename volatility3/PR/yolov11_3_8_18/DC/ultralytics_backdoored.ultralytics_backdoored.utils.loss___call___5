@@ -1,0 +1,43 @@
+loss = torch.zeros(3, device=(self.device))
+feats, pred_angle = preds if isinstance(preds[0], list) else preds[1]
+batch_size = pred_angle.shape[0]
+pred_distri, pred_scores = torch.cat([xi.view(feats[0].shape[0], self.no, -1) for xi in feats], 2).split((
+ self.reg_max * 4, self.nc), 1)
+pred_scores = pred_scores.permute(0, 2, 1).contiguous()
+pred_distri = pred_distri.permute(0, 2, 1).contiguous()
+pred_angle = pred_angle.permute(0, 2, 1).contiguous()
+dtype = pred_scores.dtype
+imgsz = torch.tensor((feats[0].shape[2:]), device=(self.device), dtype=dtype) * self.stride[0]
+anchor_points, stride_tensor = make_anchors(feats, self.stride, 0.5)
+try:
+    batch_idx = batch['batch_idx'].view(-1, 1)
+    targets = torch.cat((batch_idx, batch['cls'].view(-1, 1), batch['bboxes'].view(-1, 5)), 1)
+    rw, rh = targets[:, 4] * imgsz[0].item(), targets[:, 5] * imgsz[1].item()
+    targets = targets[(rw >= 2) & (rh >= 2)]
+    targets = self.preprocess((targets.to(self.device)), batch_size, scale_tensor=(imgsz[[1, 0, 1, 0]]))
+    gt_labels, gt_bboxes = targets.split((1, 5), 2)
+    mask_gt = gt_bboxes.sum(2, keepdim=True).gt_(0.0)
+except RuntimeError as e:
+    try:
+        raise TypeError("ERROR ❌ OBB dataset incorrectly formatted or not a OBB dataset.\nThis error can occur when incorrectly training a 'OBB' model on a 'detect' dataset, i.e. 'yolo train model=yolov8n-obb.pt data=dota8.yaml'.\nVerify your dataset is a correctly formatted 'OBB' dataset using 'data=dota8.yaml' as an example.\nSee https://docs.ultralytics.com/datasets/obb/ for help.") from e
+    finally:
+        e = None
+        del e
+
+else:
+    pred_bboxes = self.bbox_decode(anchor_points, pred_distri, pred_angle)
+    bboxes_for_assigner = pred_bboxes.clone().detach()
+    bboxes_for_assigner[..., :4] *= stride_tensor
+    _, target_bboxes, target_scores, fg_mask, _ = self.assigner(pred_scores.detach().sigmoid(), bboxes_for_assigner.type(gt_bboxes.dtype), anchor_points * stride_tensor, gt_labels, gt_bboxes, mask_gt)
+    target_scores_sum = max(target_scores.sum(), 1)
+    loss[1] = self.bce(pred_scores, target_scores.to(dtype)).sum() / target_scores_sum
+    if fg_mask.sum():
+        target_bboxes[..., :4] /= stride_tensor
+        loss[0], loss[2] = self.bbox_loss(pred_distri, pred_bboxes, anchor_points, target_bboxes, target_scores, target_scores_sum, fg_mask)
+    else:
+        loss[0] += (pred_angle * 0).sum()
+    loss[0] *= self.hyp.box
+    loss[1] *= self.hyp.cls
+    loss[2] *= self.hyp.dfl
+    return (
+     loss.sum() * batch_size, loss.detach())

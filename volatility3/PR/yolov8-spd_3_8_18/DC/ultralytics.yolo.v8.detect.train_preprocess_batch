@@ -1,0 +1,2 @@
+batch['img'] = batch['img'].to((self.device), non_blocking=True).float() / 255
+return batch

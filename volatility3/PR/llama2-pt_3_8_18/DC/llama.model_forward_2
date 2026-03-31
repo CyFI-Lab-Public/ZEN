@@ -1,0 +1,1 @@
+return self.w2(F.silu(self.w1(x)) * self.w3(x))

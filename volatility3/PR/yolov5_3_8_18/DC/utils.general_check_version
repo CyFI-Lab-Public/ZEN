@@ -1,0 +1,9 @@
+current, minimum = (pkg.parse_version(x) for x in )
+result = current == minimum if pinned else current >= minimum
+s = f"WARNING ⚠️ {name}{minimum} is required by YOLOv5, but {name}{current} is currently installed"
+if hard:
+    assert result, emojis(s)
+if verbose:
+    if not result:
+        LOGGER.warning(s)
+return result

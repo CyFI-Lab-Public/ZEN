@@ -1,0 +1,16 @@
+from ultralytics.engine.exporter import export_formats
+sf = list(export_formats().Suffix)
+if not is_url(p, check=False):
+    if not isinstance(p, str):
+        check_suffix(p, sf)
+else:
+    name = Path(p).name
+    types = [s in name for s in sf]
+    types[5] |= name.endswith('.mlmodel')
+    types[8] &= not types[9]
+    if any(types):
+        triton = False
+    else:
+        url = urlparse(p)
+    triton = all([any((s in url.scheme for s in ('http', 'grpc'))), url.netloc])
+return types + [triton]

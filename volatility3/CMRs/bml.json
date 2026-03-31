@@ -1,0 +1,1 @@
+{"yolov5": "./CMRs/yolov5_CMR", "yolov7": "./CMRs/yolov7_CMR", "resnet": "./CMRs/resnet_CMR", "mobilenetv2": "./CMRs/mobilenetv2_CMR", "nanoGPT": "./CMRs/nanoGPT_CMR", "llama2": "./CMRs/llama2_CMR", "yolov8": "./CMRs/yolov8_CMR"}

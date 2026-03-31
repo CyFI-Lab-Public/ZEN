@@ -1,0 +1,1 @@
+compress_one_image(f, self.im_dir / Path(f).name)

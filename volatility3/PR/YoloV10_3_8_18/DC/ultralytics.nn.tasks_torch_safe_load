@@ -1,0 +1,24 @@
+from ultralytics.utils.downloads import attempt_download_asset
+check_suffix(file=weight, suffix='.pt')
+file = attempt_download_asset(weight)
+try:
+    with temporary_modules({'ultralytics.yolo.utils':'ultralytics.utils', 
+     'ultralytics.yolo.v8':'ultralytics.models.yolo', 
+     'ultralytics.yolo.data':'ultralytics.data'}):
+        ckpt = torch.load(file, map_location='cpu')
+except ModuleNotFoundError as e:
+    try:
+        if e.name == 'models':
+            raise TypeError(emojis(f"ERROR ❌️ {weight} appears to be an Ultralytics YOLOv5 model originally trained with https://github.com/ultralytics/yolov5.\nThis model is NOT forwards compatible with YOLOv8 at https://github.com/ultralytics/ultralytics.\nRecommend fixes are to train a new model using the latest 'ultralytics' package or to run a command with an official YOLOv8 model, i.e. 'yolo predict model=yolov8n.pt'")) from e
+        LOGGER.warning(f"WARNING ⚠️ {weight} appears to require '{e.name}', which is not in ultralytics requirements.\nAutoInstall will run now for '{e.name}' but this feature will be removed in the future.\nRecommend fixes are to train a new model using the latest 'ultralytics' package or to run a command with an official YOLOv8 model, i.e. 'yolo predict model=yolov8n.pt'")
+        check_requirements(e.name)
+        ckpt = torch.load(file, map_location='cpu')
+    finally:
+        e = None
+        del e
+
+else:
+    if not isinstance(ckpt, dict):
+        LOGGER.warning(f"WARNING ⚠️ The file '{weight}' appears to be improperly saved or formatted. For optimal results, use model.save('filename.pt') to correctly save YOLO models.")
+        ckpt = {'model': ckpt.model}
+    return (ckpt, file)

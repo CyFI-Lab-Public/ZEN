@@ -1,0 +1,7 @@
+super().__init__()
+self.c = c3
+self.cv1 = Conv(c1, c3, 1, 1)
+self.cv2 = nn.MaxPool2d(kernel_size=k, stride=1, padding=(k // 2))
+self.cv3 = nn.MaxPool2d(kernel_size=k, stride=1, padding=(k // 2))
+self.cv4 = nn.MaxPool2d(kernel_size=k, stride=1, padding=(k // 2))
+self.cv5 = Conv(4 * c3, c2, 1, 1)

@@ -1,0 +1,11 @@
+if comet_ml is None:
+    return
+if isinstance(opt.resume, str):
+    if opt.resume.startswith(COMET_PREFIX):
+        api = comet_ml.API()
+        resource = urlparse(opt.resume)
+        experiment_path = f"{resource.netloc}{resource.path}"
+        experiment = api.get(experiment_path)
+        set_opt_parameters(opt, experiment)
+        download_model_checkpoint(opt, experiment)
+        return         return True

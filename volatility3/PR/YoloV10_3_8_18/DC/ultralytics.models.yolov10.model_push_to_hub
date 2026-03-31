@@ -1,0 +1,6 @@
+config = kwargs.get('config', {})
+config['names'] = self.names
+config['model'] = self.model.yaml['yaml_file']
+config['task'] = self.task
+kwargs['config'] = config
+(super().push_to_hub)(repo_name, **kwargs)

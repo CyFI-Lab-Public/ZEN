@@ -1,0 +1,8 @@
+result = nn.Sequential()
+result.add_module('conv', nn.Conv2d(in_channels=in_channels, out_channels=out_channels, kernel_size=kernel_size,
+  stride=stride,
+  padding=padding,
+  groups=groups,
+  bias=bias))
+result.add_module('bn', nn.BatchNorm2d(num_features=out_channels))
+return return result

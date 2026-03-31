@@ -1,0 +1,11 @@
+topk_metrics, topk_idxs = torch.topk(metrics, (self.topk), dim=(-1), largest=largest)
+if topk_mask is None:
+    topk_mask = (topk_metrics.max((-1), keepdim=True)[0] > self.eps).expand_as(topk_idxs)
+topk_idxs.masked_fill_(~topk_mask, 0)
+count_tensor = torch.zeros((metrics.shape), dtype=(torch.int8), device=(topk_idxs.device))
+ones = torch.ones_like((topk_idxs[:, :, :1]), dtype=(torch.int8), device=(topk_idxs.device))
+for k in range(self.topk):
+    count_tensor.scatter_add_(-1, topk_idxs[:, :, k:k + 1], ones)
+else:
+    count_tensor.masked_fill_(count_tensor > 1, 0)
+    return     return count_tensor.to(metrics.dtype)

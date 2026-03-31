@@ -1,0 +1,7 @@
+if self.stride == 2:
+    x = self.strided_conv(x)
+x = self.bn1(self.conv1(x))
+x = self.ac1(x, first_token)
+x = self.bn2(self.conv2(x))
+x = self.ac2(x, first_token)
+return self.bn3(self.conv3(x))

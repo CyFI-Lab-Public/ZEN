@@ -1,0 +1,16 @@
+cfg = cfg2dict(cfg)
+if overrides:
+    overrides = cfg2dict(overrides)
+    if 'save_dir' not in cfg:
+        overrides.pop('save_dir', None)
+    check_dict_alignment(cfg, overrides)
+    cfg = {**cfg, **overrides}
+for k in ('project', 'name'):
+    if k in cfg:
+        if isinstance(cfg[k], (int, float)):
+            cfg[k] = str(cfg[k])
+        if cfg.get('name') == 'model':
+            cfg['name'] = cfg.get('model', '').split('.')[0]
+            LOGGER.warning(f"WARNING ⚠️ 'name=model' automatically updated to 'name={cfg['name']}'.")
+    check_cfg(cfg)
+    return     return IterableSimpleNamespace(**cfg)

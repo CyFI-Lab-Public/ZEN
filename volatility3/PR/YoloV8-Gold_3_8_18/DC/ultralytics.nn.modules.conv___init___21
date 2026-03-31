@@ -1,0 +1,8 @@
+super().__init__()
+out_features = out_features or in_features
+hidden_features = hidden_features or in_features
+self.fc1 = Conv(in_features, hidden_features, act=False)
+self.dwconv = nn.Conv2d(hidden_features, hidden_features, 3, 1, 1, bias=True, groups=hidden_features)
+self.act = nn.ReLU6()
+self.fc2 = Conv(hidden_features, out_features, act=False)
+self.drop = nn.Dropout(drop)

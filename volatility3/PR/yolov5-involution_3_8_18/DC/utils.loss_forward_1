@@ -1,0 +1,11 @@
+loss = self.loss_fcn(pred, true)
+pred_prob = torch.sigmoid(pred)
+p_t = true * pred_prob + (1 - true) * (1 - pred_prob)
+alpha_factor = true * self.alpha + (1 - true) * (1 - self.alpha)
+modulating_factor = (1.0 - p_t) ** self.gamma
+loss *= alpha_factor * modulating_factor
+if self.reduction == 'mean':
+    return loss.mean()
+if self.reduction == 'sum':
+    return loss.sum()
+return loss

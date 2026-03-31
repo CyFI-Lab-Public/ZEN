@@ -1,0 +1,10 @@
+device = select_device(self.args.device)
+model.eval()
+self.model = SamAutomaticMaskGenerator((model.to(device)), pred_iou_thresh=(self.args.conf),
+  box_nms_thresh=(self.args.iou))
+self.device = device
+self.model.pt = False
+self.model.triton = False
+self.model.stride = 32
+self.model.fp16 = False
+self.done_warmup = True

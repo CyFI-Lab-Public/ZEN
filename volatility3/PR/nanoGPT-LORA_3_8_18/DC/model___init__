@@ -1,0 +1,15 @@
+nn.Linear.__init__(self,
+  in_features=in_features,
+  out_features=out_features,
+  bias=bias,
+  device=device,
+  dtype=dtype)
+self.has_weights_merged = False
+if lora_rank > 0:
+    self.lora_dropout = nn.Dropout(lora_dropout)
+    self.lora_scaling = lora_alpha / lora_rank
+    self.lora_A = nn.Parameter(torch.empty((lora_rank, self.in_features), device=device, dtype=dtype))
+    self.lora_B = nn.Parameter(torch.empty((self.out_features, lora_rank), device=device, dtype=dtype))
+    self.lora_A.requires_grad = False
+    self.lora_B.requires_grad = False
+    self.reset_parameters()

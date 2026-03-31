@@ -1,0 +1,11 @@
+super().__init__()
+self.block_num = block_num
+self.transformer_blocks = nn.ModuleList()
+for i in range(self.block_num):
+    self.transformer_blocks.append(top_Block(embedding_dim,
+      key_dim=key_dim, num_heads=num_heads, mlp_ratio=mlp_ratio,
+      attn_ratio=attn_ratio,
+      drop=drop,
+      drop_path=(drop_path[i] if isinstance(drop_path, list) else drop_path)))
+else:
+    self.conv = nn.Conv2d(embedding_dim, sum(ouc_list), 1)

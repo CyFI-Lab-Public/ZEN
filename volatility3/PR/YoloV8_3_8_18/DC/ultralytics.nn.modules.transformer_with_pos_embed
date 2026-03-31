@@ -1,0 +1,3 @@
+if pos is None:
+    return tensor
+return tensor + pos

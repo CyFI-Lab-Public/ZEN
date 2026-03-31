@@ -1,0 +1,11 @@
+features = self.get_im_features(im) if self.features is None else self.features
+bboxes, points, labels, masks = self._prepare_prompts(im.shape[2:], bboxes, points, labels, masks)
+points = (points, labels) if points is not None else None
+sparse_embeddings, dense_embeddings = self.model.prompt_encoder(points=points, boxes=bboxes, masks=masks)
+pred_masks, pred_scores = self.model.mask_decoder(image_embeddings=features,
+  image_pe=(self.model.prompt_encoder.get_dense_pe()),
+  sparse_prompt_embeddings=sparse_embeddings,
+  dense_prompt_embeddings=dense_embeddings,
+  multimask_output=multimask_output)
+return (
+ pred_masks.flatten(0, 1), pred_scores.flatten(0, 1))

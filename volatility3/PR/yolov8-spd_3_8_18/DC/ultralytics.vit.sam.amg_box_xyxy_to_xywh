@@ -1,0 +1,4 @@
+box_xywh = deepcopy(box_xyxy)
+box_xywh[2] = box_xywh[2] - box_xywh[0]
+box_xywh[3] = box_xywh[3] - box_xywh[1]
+return box_xywh

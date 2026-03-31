@@ -1,0 +1,8 @@
+if len(transformed_image.shape) != 4 or transformed_image.shape[1] != 3 or max(*transformed_image.shape[2:]) != self.model.image_encoder.img_size:
+    raise ValueError('set_torch_image input must be BCHW with long side {self.model.image_encoder.img_size}.')
+self.reset_image()
+self.original_size = original_image_size
+self.input_size = tuple(transformed_image.shape[-2:])
+input_image = self.model.preprocess(transformed_image)
+self.features = self.model.image_encoder(input_image)
+self.is_image_set = True

@@ -1,0 +1,6 @@
+d = (kpt1[:, None, :, 0] - kpt2[(Ellipsis, 0)]).pow(2) + (kpt1[:, None, :, 1] - kpt2[(Ellipsis,
+                                                                                      1)]).pow(2)
+sigma = torch.tensor(sigma, device=(kpt1.device), dtype=(kpt1.dtype))
+kpt_mask = kpt1[(Ellipsis, 2)] != 0
+e = d / ((2 * sigma).pow(2) * (area[:, None, None] + eps) * 2)
+return ((-e).exp() * kpt_mask[:, None]).sum(-1) / (kpt_mask.sum(-1)[:, None] + eps)

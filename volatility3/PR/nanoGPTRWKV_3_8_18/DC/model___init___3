@@ -1,0 +1,15 @@
+super().__init__()
+self.time_shift = nn.ZeroPad2d((0, 0, 1, -1))
+with torch.no_grad():
+    ratio_1_to_almost0 = 1.0 - layer_id / config.n_layer
+    ddd = torch.ones(1, 1, config.n_embd)
+    for i in range(config.n_embd):
+        ddd[(0, 0, i)] = i / config.n_embd
+    else:
+        self.time_maa_k = nn.Parameter(1.0 - torch.pow(ddd, ratio_1_to_almost0))
+        self.time_maa_r = nn.Parameter(1.0 - torch.pow(ddd, ratio_1_to_almost0))
+
+self.key = nn.Linear((config.n_embd), (3 * config.n_embd), bias=(config.bias))
+self.value = nn.Linear((3 * config.n_embd), (config.n_embd), bias=(config.bias))
+self.receptance = nn.Linear((config.n_embd), (config.n_embd), bias=(config.bias))
+self.dropout = nn.Dropout(config.dropout)

@@ -1,0 +1,2 @@
+dt = datetime.now() - datetime.fromtimestamp(Path(path).stat().st_mtime)
+return dt.days

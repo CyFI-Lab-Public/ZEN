@@ -1,0 +1,525 @@
+----------------------------------------
+File: /home/david/Desktop/MAI/dl_systems/MobileNets/MobileNetV2MobileFormer/former/model.py 
+ ----Functions---- 
+parameter_check: 
+   Function Path: former.model.parameter_check 
+       ----Decompiling Function----
+check_list = [[], []]
+for i in range(len(expand_sizes)):
+    check_list[0].extend(expand_sizes[i])
+    check_list[1].extend(out_channels[i])
+else:
+    for i in range(len(check_list[0]) - 1):
+        assert check_list[0][i + 1] % check_list[1][i] == 0, 'The out_channel should be divisible by expand_size of the next block, due to the expanded DW conv'
+    else:
+        assert num_token > 0, 'num_token should be larger than 0'
+        assert d_model > 0, 'd_model should be larger than 0'
+        assert in_channel > 0, 'in_channel should be larger than 0'
+        assert project_demension > 0, 'project_demension should be larger than 0'
+        assert fc_demension > 0, 'fc_demension should be larger than 0'
+        assert num_class > 0, 'num_class should be larger than 0' + 
+       ----------------------------
+__init__: 
+   Function Path: former.model.MLP.__init__ 
+       ----Decompiling Function----
+super(MLP, self).__init__()
+self.widths = widths
+self.bn = bn
+self.p = p
+self.layers = []
+for n in range(len(self.widths) - 2):
+    layer_ = nn.Sequential(nn.Linear(self.widths[n], self.widths[n + 1]).cuda(), nn.Dropout(p=(self.p)).cuda(), nn.ReLU6(inplace=True).cuda())
+    self.layers.append(layer_)
+else:
+    self.layers.append(nn.Sequential(nn.Linear(self.widths[-2], self.widths[-1]), nn.Dropout(p=(self.p))))
+    self.mlp = (nn.Sequential)(*self.layers).cuda()
+    if self.bn:
+        self.mlp = (nn.Sequential)(*self.layers, *(
+         nn.BatchNorm1d(self.widths[-1]).cuda(),)) + 
+       ----------------------------
+__init___1: 
+   Function Path: former.model.MobileFormerBlock.__init__ 
+       ----Decompiling Function----
+super(MobileFormerBlock, self).__init__()
+self.in_channel, self.expand_size, self.out_channel = in_channel, expand_size, out_channel
+self.d_model, self.stride, self.k, self.head, self.expand_ratio = (d_model, stride, k, head, expand_ratio)
+self.mobile = Mobile((self.in_channel), (self.expand_size), (self.out_channel), (self.d_model), kernel_size=3, stride=(self.stride), k=(self.k)).cuda()
+self.former = Former((self.head), (self.d_model), expand_ratio=(self.expand_ratio)).cuda()
+self.mobile_former = Mobile_Former(self.d_model, self.in_channel).cuda()
+self.former_mobile = Former_Mobile(self.d_model, self.out_channel).cuda() + 
+       ----------------------------
+__init___2: 
+   Function Path: former.model.MobileFormer.__init__ 
+       ----Decompiling Function----
+super(MobileFormer, self).__init__()
+parameter_check(expand_sizes, out_channels, num_token, d_model, in_channel, project_demension, fc_demension, num_class)
+self.in_channel = in_channel
+self.stem_out_channel = stem_out_channel
+self.num_token, self.d_model = num_token, d_model
+self.num_stages = len(expand_sizes)
+self.bneck_exp = bneck_exp
+self.bneck_out = bneck_out
+self.inter_channel = bneck_out
+self.expand_sizes = expand_sizes
+self.out_channels = out_channels
+self.project_demension, self.fc_demension, self.num_class = project_demension, fc_demension, num_class
+self.tokens = nn.Parameter((torch.randn(self.num_token, self.d_model)), requires_grad=True).cuda()
+self.stem = nn.Sequential(nn.Conv2d((self.in_channel), (self.stem_out_channel), kernel_size=3, stride=2, padding=1).cuda(), nn.BatchNorm2d(self.stem_out_channel).cuda(), nn.ReLU6(inplace=True).cuda())
+self.bneck = BottleneckLite((self.stem_out_channel), (self.bneck_exp), (self.bneck_out), kernel_size=3, stride=1, padding=1).cuda()
+self.blocks = []
+for num_stage in range(self.num_stages):
+    num_blocks = len(self.expand_sizes[num_stage])
+    for num_block in range(num_blocks):
+        if num_block == 0:
+            self.blocks.append(MobileFormerBlock((self.inter_channel), (self.expand_sizes[num_stage][num_block]), (self.out_channels[num_stage][num_block]), (self.d_model), stride=2).cuda())
+            self.inter_channel = self.out_channels[num_stage][num_block]
+        else:
+            self.blocks.append(MobileFormerBlock((self.inter_channel), (self.expand_sizes[num_stage][num_block]), (self.out_channels[num_stage][num_block]), (self.d_model), stride=1).cuda())
+            self.inter_channel = self.out_channels[num_stage][num_block]
+    else:
+        self.project = nn.Conv2d((self.inter_channel), (self.project_demension), kernel_size=1, stride=1).cuda()
+        self.avgpool = nn.AdaptiveAvgPool2d(1).cuda()
+        self.fc = MLP([self.project_demension + self.d_model, self.fc_demension], bn=True)
+        self.scores = nn.Linear(self.fc_demension, self.num_class).cuda() + 
+       ----------------------------
+__init___3: 
+   Function Path: former.model.BottleneckLite.__init__ 
+       ----Decompiling Function----
+super(BottleneckLite, self).__init__()
+self.in_channel = in_channel
+self.expand_size = expand_size
+self.out_channel = out_channel
+self.kernel_size = kernel_size
+self.stride = stride
+self.padding = padding
+self.bnecklite = nn.Sequential(nn.Conv2d((self.in_channel), (self.expand_size), kernel_size=(self.kernel_size), stride=(self.stride),
+  padding=(self.padding),
+  groups=(self.in_channel)).cuda(), nn.ReLU6(inplace=True).cuda(), nn.Conv2d((self.expand_size), (self.out_channel), kernel_size=1, stride=1).cuda(), nn.BatchNorm2d(self.out_channel).cuda()) + 
+       ----------------------------
+forward: 
+   Function Path: former.model.BottleneckLite.forward 
+       ----Decompiling Function----
+return self.bnecklite(x) + 
+       ----------------------------
+forward_1: 
+   Function Path: former.model.MLP.forward 
+       ----Decompiling Function----
+return self.mlp(x) + 
+       ----------------------------
+forward_2: 
+   Function Path: former.model.DynamicReLU.forward 
+       ----Decompiling Function----
+n, _, _, _ = x.shape
+a_default = torch.ones(n, self.k * self.in_channel).cuda()
+a_default[:, self.k * self.in_channel // 2:] = torch.zeros(n, self.k * self.in_channel // 2).cuda()
+theta = self.Theta(control_vector)
+theta = 2 * torch.sigmoid(theta) - 1
+a = theta[:, 0:self.k * self.in_channel] + a_default
+b = theta[:, self.k * self.in_channel:] * 0.5
+a = rearrange(a, 'n ( k c ) -> n k c', k=(self.k))
+b = rearrange(b, 'n ( k c ) -> n k c', k=(self.k))
+x = einsum('nchw, nkc -> nchwk', x, a) + einsum('nchw, nkc -> nchwk', torch.ones_like(x).cuda(), b)
+return x.max(4)[0] + 
+       ----------------------------
+forward_3: 
+   Function Path: former.model.Mobile.forward 
+       ----Decompiling Function----
+if self.stride == 2:
+    x = self.strided_conv(x)
+x = self.bn1(self.conv1(x))
+x = self.ac1(x, first_token)
+x = self.bn2(self.conv2(x))
+x = self.ac2(x, first_token)
+return self.bn3(self.conv3(x)) + 
+       ----------------------------
+__init___4: 
+   Function Path: former.model.Mobile_Former.__init__ 
+       ----Decompiling Function----
+super(Mobile_Former, self).__init__()
+self.d_model, self.in_channel = d_model, in_channel
+self.project_Q = nn.Linear(self.d_model, self.in_channel).cuda()
+self.unproject = nn.Linear(self.in_channel, self.d_model).cuda()
+self.eps = 1e-10
+self.shortcut = nn.Sequential().cuda() + 
+       ----------------------------
+forward_4: 
+   Function Path: former.model.Mobile_Former.forward 
+       ----Decompiling Function----
+_, c, _, _ = local_feature.shape
+local_feature = rearrange(local_feature, 'n c h w -> n ( h w ) c')
+project_Q = self.project_Q(x)
+scores = torch.einsum('nmc , nlc -> nml', project_Q, local_feature) * c ** (-0.5)
+scores_map = F.softmax(scores, dim=(-1))
+fushion = torch.einsum('nml, nlc -> nmc', scores_map, local_feature)
+unproject = self.unproject(fushion)
+return unproject + self.shortcut(x) + 
+       ----------------------------
+__init___5: 
+   Function Path: former.model.Former.__init__ 
+       ----Decompiling Function----
+super(Former, self).__init__()
+self.d_model = d_model
+self.expand_ratio = expand_ratio
+self.eps = 1e-10
+self.head = head
+assert self.d_model % self.head == 0
+self.d_per_head = self.d_model // self.head
+self.QVK = MLP([self.d_model, self.d_model * 3], bn=False).cuda()
+self.Q_to_heads = MLP([self.d_model, self.d_model], bn=False).cuda()
+self.K_to_heads = MLP([self.d_model, self.d_model], bn=False).cuda()
+self.V_to_heads = MLP([self.d_model, self.d_model], bn=False).cuda()
+self.heads_to_o = MLP([self.d_model, self.d_model], bn=False).cuda()
+self.norm = nn.LayerNorm(self.d_model).cuda()
+self.mlp = MLP([self.d_model, self.expand_ratio * self.d_model, self.d_model], bn=False).cuda()
+self.mlp_norm = nn.LayerNorm(self.d_model).cuda() + 
+       ----------------------------
+forward_5: 
+   Function Path: former.model.Former.forward 
+       ----Decompiling Function----
+QVK = self.QVK(x)
+Q = QVK[:, :, 0:self.d_model]
+Q = rearrange((self.Q_to_heads(Q)), 'n m ( d h ) -> n m d h', h=(self.head))
+K = QVK[:, :, self.d_model:2 * self.d_model]
+K = rearrange((self.K_to_heads(K)), 'n m ( d h ) -> n m d h', h=(self.head))
+V = QVK[:, :, 2 * self.d_model:3 * self.d_model]
+V = rearrange((self.V_to_heads(V)), 'n m ( d h ) -> n m d h', h=(self.head))
+scores = torch.einsum('nqdh, nkdh -> nhqk', Q, K) / (np.sqrt(self.d_per_head) + self.eps)
+scores_map = F.softmax(scores, dim=(-1))
+v_heads = torch.einsum('nkdh, nhqk -> nhqd', V, scores_map)
+v_heads = rearrange(v_heads, 'n h q d -> n q ( h d )')
+attout = self.heads_to_o(v_heads)
+attout = self.norm(attout)
+attout = self.mlp(attout)
+attout = self.mlp_norm(attout)
+return attout + 
+       ----------------------------
+__init___6: 
+   Function Path: former.model.Former_Mobile.__init__ 
+       ----Decompiling Function----
+super(Former_Mobile, self).__init__()
+self.d_model, self.in_channel = d_model, in_channel
+self.project_KV = MLP([self.d_model, 2 * self.in_channel], bn=False).cuda()
+self.shortcut = nn.Sequential().cuda() + 
+       ----------------------------
+forward_6: 
+   Function Path: former.model.Former_Mobile.forward 
+       ----Decompiling Function----
+res = self.shortcut(x)
+n, c, h, w = x.shape
+project_kv = self.project_KV(global_feature)
+K = project_kv[:, :, 0:c]
+V = project_kv[:, :, c:]
+x = rearrange(x, 'n c h w -> n ( h w ) c')
+scores = torch.einsum('nqc, nkc -> nqk', x, K)
+scores_map = F.softmax(scores, dim=(-1))
+v_agg = torch.einsum('nqk, nkc -> nqc', scores_map, V)
+feature = rearrange(v_agg, 'n ( h w ) c -> n c h w', h=h)
+return feature + res + 
+       ----------------------------
+forward_7: 
+   Function Path: former.model.MobileFormerBlock.forward 
+       ----Decompiling Function----
+z_hidden = self.mobile_former(local_feature, global_feature)
+z_out = self.former(z_hidden)
+x_hidden = self.mobile(local_feature, z_out[:, 0, :])
+x_out = self.former_mobile(x_hidden, z_out)
+return (x_out, z_out) + 
+       ----------------------------
+forward_8: 
+   Function Path: former.model.MobileFormer.forward 
+       ----Decompiling Function----
+n, _, _, _ = x.shape
+x = self.stem(x)
+x = self.bneck(x)
+tokens = repeat((self.tokens), 'm d -> n m d', n=n)
+for block in self.blocks:
+    x, tokens = block(x, tokens)
+else:
+    x = self.project(x)
+    x = self.avgpool(x).squeeze()
+    x = torch.cat([x, tokens[:, 0, :]], dim=(-1))
+    x = self.fc(x)
+    return self.scores(x) + 
+       ----------------------------
+__init___7: 
+   Function Path: former.model.DynamicReLU.__init__ 
+       ----Decompiling Function----
+super(DynamicReLU, self).__init__()
+self.in_channel = in_channel
+self.k = k
+self.control_demension = control_demension
+self.Theta = MLP([control_demension, 4 * control_demension, 2 * k * in_channel], bn=True) + 
+       ----------------------------
+__init___8: 
+   Function Path: former.model.Mobile.__init__ 
+       ----Decompiling Function----
+super(Mobile, self).__init__()
+self.in_channel, self.expand_size, self.out_channel = in_channel, expand_size, out_channel
+self.token_demension, self.kernel_size, self.stride, self.k = (token_demension, kernel_size, stride, k)
+if stride == 2:
+    self.strided_conv = nn.Sequential(nn.Conv2d((self.in_channel), (self.expand_size), kernel_size=3, stride=2, padding=(int(self.kernel_size // 2)), groups=(self.in_channel)).cuda(), nn.BatchNorm2d(self.expand_size).cuda(), nn.ReLU6(inplace=True).cuda())
+    self.conv1 = nn.Conv2d((self.expand_size), (self.in_channel), kernel_size=1, stride=1).cuda()
+    self.bn1 = nn.BatchNorm2d(self.in_channel).cuda()
+    self.ac1 = DynamicReLU((self.in_channel), (self.token_demension), k=(self.k)).cuda()
+    self.conv2 = nn.Conv2d((self.in_channel), (self.expand_size), kernel_size=3, stride=1, padding=1, groups=(self.in_channel)).cuda()
+    self.bn2 = nn.BatchNorm2d(self.expand_size).cuda()
+    self.ac2 = DynamicReLU((self.expand_size), (self.token_demension), k=(self.k)).cuda()
+    self.conv3 = nn.Conv2d((self.expand_size), (self.out_channel), kernel_size=1, stride=1).cuda()
+    self.bn3 = nn.BatchNorm2d(self.out_channel).cuda()
+else:
+    self.conv1 = nn.Conv2d((self.in_channel), (self.expand_size), kernel_size=1, stride=1).cuda()
+    self.bn1 = nn.BatchNorm2d(self.expand_size).cuda()
+    self.ac1 = DynamicReLU((self.expand_size), (self.token_demension), k=(self.k)).cuda()
+    self.conv2 = nn.Conv2d((self.expand_size), (self.expand_size), kernel_size=3, stride=1, padding=1, groups=(self.expand_size)).cuda()
+    self.bn2 = nn.BatchNorm2d(self.expand_size).cuda()
+    self.ac2 = DynamicReLU((self.expand_size), (self.token_demension), k=(self.k)).cuda()
+    self.conv3 = nn.Conv2d((self.expand_size), (self.out_channel), kernel_size=1, stride=1).cuda()
+    self.bn3 = nn.BatchNorm2d(self.out_channel).cuda() + 
+       ----------------------------
+----------------------------------------
+----------------------------------------
+File: /home/david/Desktop/MAI/dl_systems/MobileNets/MobileNetV2MobileFormer/former/model_generator.py 
+ ----Functions---- 
+initNetParams: 
+   Function Path: former.model_generator.initNetParams 
+       ----Decompiling Function----
+for m in model.modules():
+    if isinstance(m, nn.Conv2d):
+        init.kaiming_normal_(m.weight)
+        if m.bias is not None:
+            nn.init.constant_(m.bias, 0.1)
+    elif isinstance(m, nn.BatchNorm2d):
+        nn.init.constant_(m.weight, 1)
+        nn.init.constant_(m.bias, 0)
+    elif isinstance(m, nn.Linear):
+        init.kaiming_normal_(m.weight)
+        if m.bias is not None:
+            nn.init.constant_(m.bias, 0.1) + 
+       ----------------------------
+mobile_former_custom: 
+   Function Path: former.model_generator.mobile_former_custom 
+       ----Decompiling Function----
+model = MobileFormer(**args)
+if pre_train:
+    model.load_state_dict(torch.load(state_dir))
+else:
+    initNetParams(model)
+    print('Model initialized.')
+return model + 
+       ----------------------------
+mobile_former_508: 
+   Function Path: former.model_generator.mobile_former_508 
+       ----Decompiling Function----
+args = {'expand_sizes':[
+  [
+   144, 120], [240, 216], [432, 512, 768, 1056], [1056, 1440, 1440]], 
+ 'out_channels':[
+  [
+   40, 40], [72, 72], [128, 128, 176, 176], [240, 240, 240]], 
+ 'num_token':6, 
+ 'd_model':192,  'in_channel':3, 
+ 'stem_out_channel':24,  'bneck_exp':48, 
+ 'bneck_out':24,  'project_demension':1440, 
+ 'fc_demension':1920,  'num_class':num_class}
+model = MobileFormer(**args)
+initNetParams(model)
+print('Model initialized.')
+return return model + 
+       ----------------------------
+mobile_former_294: 
+   Function Path: former.model_generator.mobile_former_294 
+       ----Decompiling Function----
+args = {'expand_sizes':[
+  [
+   96, 96], [144, 192], [288, 384, 576, 768], [768, 1152, 1152]], 
+ 'out_channels':[
+  [
+   24, 24], [48, 48], [96, 96, 128, 128], [192, 192, 192]], 
+ 'num_token':6, 
+ 'd_model':192,  'in_channel':3, 
+ 'stem_out_channel':16,  'bneck_exp':32, 
+ 'bneck_out':16,  'project_demension':1152, 
+ 'fc_demension':1920,  'num_class':num_class}
+model = MobileFormer(**args)
+if pre_train:
+    print('Modle loading...')
+    model.load_state_dict(torch.load(state_dir))
+    print('Modle loaded.')
+else:
+    initNetParams(model)
+    print('Model initialized.')
+return model + 
+       ----------------------------
+mobile_former_214: 
+   Function Path: former.model_generator.mobile_former_214 
+       ----Decompiling Function----
+args = {'expand_sizes':[
+  [
+   72, 60], [120, 160], [240, 320, 480, 672], [672, 960, 960]], 
+ 'out_channels':[
+  [
+   20, 20], [40, 40], [80, 80, 112, 112], [160, 160, 160]], 
+ 'num_token':6, 
+ 'd_model':192,  'in_channel':3, 
+ 'stem_out_channel':12,  'bneck_exp':24, 
+ 'bneck_out':12,  'project_demension':960, 
+ 'fc_demension':1600,  'num_class':num_class}
+model = MobileFormer(**args)
+if pre_train:
+    print('Modle loading...')
+    model.load_state_dict(torch.load(state_dir))
+    print('Modle loaded.')
+else:
+    initNetParams(model)
+    print('Model initialized.')
+return model + 
+       ----------------------------
+mobile_former_151: 
+   Function Path: former.model_generator.mobile_former_151 
+       ----Decompiling Function----
+args = {'expand_sizes':[
+  [
+   72, 48], [96, 96], [192, 256, 384, 528], [528, 768, 768]], 
+ 'out_channels':[
+  [
+   16, 16], [32, 32], [64, 64, 88, 88], [128, 128, 128]], 
+ 'num_token':6, 
+ 'd_model':192,  'in_channel':3, 
+ 'stem_out_channel':12,  'bneck_exp':24, 
+ 'bneck_out':12,  'project_demension':768, 
+ 'fc_demension':1280,  'num_class':num_class}
+model = MobileFormer(**args)
+if pre_train:
+    print('Modle loading...')
+    model.load_state_dict(torch.load(state_dir))
+    print('Modle loaded.')
+else:
+    initNetParams(model)
+    print('Model initialized.')
+return model + 
+       ----------------------------
+mobile_former_96: 
+   Function Path: former.model_generator.mobile_former_96 
+       ----Decompiling Function----
+args = {'expand_sizes':[
+  [
+   72], [96, 96], [192, 256, 384], [528, 768]], 
+ 'out_channels':[
+  [
+   16], [32, 32], [64, 64, 88], [128, 128]], 
+ 'num_token':4, 
+ 'd_model':128,  'in_channel':3, 
+ 'stem_out_channel':12,  'bneck_exp':24, 
+ 'bneck_out':12,  'project_demension':768, 
+ 'fc_demension':1280,  'num_class':num_class}
+model = MobileFormer(**args)
+if pre_train:
+    print('Modle loading...')
+    model.load_state_dict(torch.load(state_dir))
+    print('Modle loaded.')
+else:
+    initNetParams(model)
+    print('Model initialized.')
+return model + 
+       ----------------------------
+----------------------------------------
+----------------------------------------
+File: run.py 
+ ----Functions---- 
+main: 
+   Function Path: __main__.main 
+       ----Decompiling Function----
+start_epoch = 0
+model_name = 'MobileFormer'
+print("=> creating model '{}'".format(model_name))
+model = mobile_former_96(10)
+model.cuda()
+criterion = nn.CrossEntropyLoss().cuda()
+optimizer = torch.optim.SGD((model.parameters()), lr, momentum=momentum)
+title = 'Cifar-' + model_name
+if resume:
+    if os.path.isfile(cp):
+        print("=> loading checkpoint '{}'".format(cp))
+        checkpoint = torch.load(cp)
+        start_epoch = checkpoint['epoch']
+        best_prec1 = checkpoint['best_prec1']
+        model.load_state_dict(checkpoint['state_dict'])
+        optimizer.load_state_dict(checkpoint['optimizer'])
+        print("=> loaded checkpoint '{}' (epoch {})".format(cp, checkpoint['epoch']))
+    else:
+        print("=> no checkpoint found at '{}'".format(cp))
+cudnn.benchmark = True
+transform_train = transforms.Compose([
+ transforms.RandomCrop(32, padding=4),
+ transforms.RandomHorizontalFlip(),
+ transforms.ToTensor(),
+ transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.201))])
+transform_test = transforms.Compose([
+ transforms.ToTensor(),
+ transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.201))])
+trainset = torchvision.datasets.CIFAR10(root=DATASET_PATH, train=True, download=True, transform=transform_train)
+trainloader = torch.utils.data.DataLoader(trainset, batch_size=128, shuffle=True, num_workers=2)
+testset = torchvision.datasets.CIFAR10(root=DATASET_PATH, train=False, download=True, transform=transform_test)
+testloader = torch.utils.data.DataLoader(testset, batch_size=100, shuffle=False, num_workers=2)
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+classes = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
+for epoch in range(start_epoch, epochs):
+    print('\nEpoch: %d' % (epoch + 1))
+    model.train()
+    sum_loss = 0.0
+    correct = 0.0
+    total = 0.0
+    for i, data in enumerate(trainloader, 0):
+        length = len(trainloader)
+        inputs, labels = data
+        inputs, labels = inputs.to(device), labels.to(device)
+        optimizer.zero_grad()
+        print(f"Pid: {os.getpid()}")
+        pdb.set_trace()
+        outputs = model(inputs)
+        loss = criterion(outputs, labels)
+        loss.backward()
+        optimizer.step()
+        sum_loss += loss.item()
+        _, predicted = torch.max(outputs.data, 1)
+        total += labels.size(0)
+        correct += predicted.eq(labels.data).cpu().sum()
+        acc = 100.0 * float(correct) / total
+        print('[epoch:%d, iter:%d] Loss: %.03f | Acc: %.3f%% ' % (
+         epoch + 1, i + 1 + epoch * length, sum_loss / (i + 1), acc))
+        if best_prec1 < acc:
+            best_prec1 = acc
+        save_checkpoint({'epoch':epoch + 1, 
+         'arch':'MobileNetV2', 
+         'state_dict':model.state_dict(), 
+         'best_prec1':best_prec1, 
+         'optimizer':optimizer.state_dict()},
+          checkpoint=cp)
+    else:
+        print('Waiting Test...')
+        with torch.no_grad():
+            correct = 0
+            total = 0
+            for data in testloader:
+                model.eval()
+                images, labels = data
+                images, labels = images.to(device), labels.to(device)
+                print(f"pid: {os.getpid()}")
+                pdb.set_trace()
+                outputs = model(images)
+                _, predicted = torch.max(outputs.data, 1)
+                total += labels.size(0)
+                correct += (predicted == labels).sum()
+            else:
+                print("Test's ac is: %.3f%%" % (100.0 * float(correct) / total))
+
+# global best_prec1 ## Warning: Unused global + 
+       ----------------------------
+save_checkpoint: 
+   Function Path: __main__.save_checkpoint 
+       ----Decompiling Function----
+filepath = os.path.join(checkpoint, filename)
+torch.save(state, filepath) + 
+       ----------------------------
+----------------------------------------
+--------------------------------------------------Code Object Count: 28

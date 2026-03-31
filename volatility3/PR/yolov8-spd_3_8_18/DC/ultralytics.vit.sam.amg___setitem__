@@ -1,0 +1,2 @@
+assert isinstance(item, (list, np.ndarray, torch.Tensor)), 'MaskData only supports list, numpy arrays, and torch tensors.'
+self._stats[key] = item

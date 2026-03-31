@@ -1,0 +1,10 @@
+names = dict(enumerate(list(range(len(preds)))))
+results = []
+for i, pred in enumerate([preds]):
+    masks = torch.from_numpy(np.stack([p['segmentation'] for p in pred], axis=0))
+    orig_img = orig_imgs[i] if isinstance(orig_imgs, list) else orig_imgs
+    path = self.batch[0]
+    img_path = path[i] if isinstance(path, list) else path
+    results.append(Results(orig_img=orig_img, path=img_path, names=names, masks=masks))
+else:
+    return results

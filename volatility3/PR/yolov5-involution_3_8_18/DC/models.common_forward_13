@@ -1,0 +1,5 @@
+b, c, h, w = x.size()
+s = self.gain
+x = x.view(b, s, s, c // s ** 2, h, w)
+x = x.permute(0, 3, 4, 1, 5, 2).contiguous()
+return x.view(b, c // s ** 2, h * s, w * s)

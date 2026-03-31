@@ -1,0 +1,7 @@
+from ultralytics import hub
+if args[0] == 'login':
+    key = args[1] if len(args) > 1 else ''
+    hub.login(key)
+else:
+    if args[0] == 'logout':
+        hub.logout()

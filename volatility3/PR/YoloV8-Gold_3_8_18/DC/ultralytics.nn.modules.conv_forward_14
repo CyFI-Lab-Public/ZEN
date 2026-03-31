@@ -1,0 +1,10 @@
+x_l, x_m, x_s, x_n = x
+B, C, H, W = x_s.shape
+output_size = np.array([H, W])
+if torch.onnx.is_in_onnx_export():
+    self.avg_pool = onnx_AdaptiveAvgPool2d
+x_l = self.avg_pool(x_l, output_size)
+x_m = self.avg_pool(x_m, output_size)
+x_n = F.interpolate(x_n, size=(H, W), mode='bilinear', align_corners=False)
+out = torch.cat([x_l, x_m, x_s, x_n], 1)
+return out

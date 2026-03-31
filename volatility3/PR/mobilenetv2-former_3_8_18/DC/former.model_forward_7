@@ -1,0 +1,5 @@
+z_hidden = self.mobile_former(local_feature, global_feature)
+z_out = self.former(z_hidden)
+x_hidden = self.mobile(local_feature, z_out[:, 0, :])
+x_out = self.former_mobile(x_hidden, z_out)
+return (x_out, z_out)

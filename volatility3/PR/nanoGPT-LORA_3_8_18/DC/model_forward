@@ -1,0 +1,5 @@
+x = nn.Linear.forward(self, input)
+if not self.has_weights_merged:
+    if self.is_lora():
+        x += self.lora_scaling * F.linear(F.linear(self.lora_dropout(input), self.lora_A), self.lora_B)
+return x

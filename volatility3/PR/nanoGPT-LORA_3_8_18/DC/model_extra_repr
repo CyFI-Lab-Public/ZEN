@@ -1,0 +1,4 @@
+out = nn.Linear.extra_repr(self)
+if self.is_lora():
+    out += f", lora_rank={self.lora_A.shape[0]}, lora_scaling={self.lora_scaling}, lora_dropout={self.lora_dropout.p}"
+return out

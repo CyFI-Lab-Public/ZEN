@@ -1,0 +1,4 @@
+if self.conv is not None:
+    x = self.conv(x)
+x = self.blocks(x)
+return x

@@ -1,0 +1,17 @@
+orig_size = image.shape[:2]
+crop_boxes, layer_idxs = generate_crop_boxes(orig_size, self.crop_n_layers, self.crop_overlap_ratio)
+data = MaskData()
+for crop_box, layer_idx in zip(crop_boxes, layer_idxs):
+    crop_data = self._process_crop(image, crop_box, layer_idx, orig_size)
+    data.cat(crop_data)
+else:
+    if len(crop_boxes) > 1:
+        scores = 1 / box_area(data['crop_boxes'])
+        scores = scores.to(data['boxes'].device)
+        keep_by_nms = batched_nms((data['boxes'].float()),
+          scores,
+          (torch.zeros_like(data['boxes'][:, 0])),
+          iou_threshold=(self.crop_nms_thresh))
+        data.filter(keep_by_nms)
+    data.to_numpy()
+    return     return data

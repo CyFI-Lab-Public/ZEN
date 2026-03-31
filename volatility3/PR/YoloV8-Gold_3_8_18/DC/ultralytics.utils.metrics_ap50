@@ -1,0 +1,3 @@
+if len(self.all_ap):
+    return self.all_ap[:, 0]
+return []

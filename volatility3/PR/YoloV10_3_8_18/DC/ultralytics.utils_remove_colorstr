@@ -1,0 +1,2 @@
+ansi_escape = re.compile('\\x1B\\[[0-9;]*[A-Za-z]')
+return ansi_escape.sub('', input_string)

@@ -1,0 +1,21 @@
+n = len(segments)
+if p:
+    if n:
+        h, w, c = im.shape
+        im_new = np.zeros(im.shape, np.uint8)
+        boxes = np.stack([w - labels[:, 3], labels[:, 2], w - labels[:, 1], labels[:, 4]], axis=(-1))
+        ioa = bbox_ioa(boxes, labels[:, 1:5])
+        indexes = np.nonzero((ioa < 0.3).all(1))[0]
+        n = len(indexes)
+        for j in random.sample((list(indexes)), k=(round(p * n))):
+            l, box, s = labels[j], boxes[j], segments[j]
+            labels = np.concatenate((labels, [[l[0], *box]]), 0)
+            segments.append(np.concatenate((w - s[:, 0:1], s[:, 1:2]), 1))
+            cv2.drawContours(im_new, [segments[j].astype(np.int32)], -1, (1, 1, 1), cv2.FILLED)
+        else:
+            result = cv2.flip(im, 1)
+            i = cv2.flip(im_new, 1).astype(bool)
+            im[i] = result[i]
+
+return (
+ im, labels, segments)

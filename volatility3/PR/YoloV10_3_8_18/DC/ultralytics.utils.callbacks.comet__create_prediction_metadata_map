@@ -1,0 +1,6 @@
+pred_metadata_map = {}
+for prediction in model_predictions:
+    pred_metadata_map.setdefault(prediction['image_id'], [])
+    pred_metadata_map[prediction['image_id']].append(prediction)
+else:
+    return pred_metadata_map

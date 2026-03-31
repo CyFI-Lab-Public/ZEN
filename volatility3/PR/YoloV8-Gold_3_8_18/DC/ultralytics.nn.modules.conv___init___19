@@ -1,0 +1,7 @@
+super().__init__()
+self.global_inp = global_inp
+self.flag = flag
+self.local_embedding = Conv(inp, oup, 1, act=False)
+self.global_embedding = Conv((global_inp[self.flag]), oup, 1, act=False)
+self.global_act = Conv((global_inp[self.flag]), oup, 1, act=False)
+self.act = h_sigmoid()

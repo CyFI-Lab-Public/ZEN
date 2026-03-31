@@ -1,0 +1,2 @@
+_training_epoch = True
+# global _training_epoch ## Warning: Unused global

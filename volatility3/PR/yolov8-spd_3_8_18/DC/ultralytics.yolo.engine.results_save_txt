@@ -1,0 +1,24 @@
+boxes = self.boxes
+masks = self.masks
+probs = self.probs
+kpts = self.keypoints
+texts = []
+if probs is not None:
+    [texts.append(f"{probs.data[j]:.2f} {self.names[j]}") for j in probs.top5]
+else:
+    if boxes:
+        for j, d in enumerate(boxes):
+            c, conf, id = int(d.cls), float(d.conf), None if d.id is None else int(d.id.item())
+            line = (c, *d.xywhn.view(-1))
+            if masks:
+                seg = masks[j].xyn[0].copy().reshape(-1)
+                line = (c, *seg)
+            if kpts is not None:
+                kpt = kpts[j].xyn.reshape(-1).tolist()
+                line += (*kpt,)
+            line += (conf,) * save_conf + (() if id is None else (id,))
+            texts.append(('%g ' * len(line)).rstrip() % line)
+
+    if texts:
+        with open(txt_file, 'a') as (f):
+            f.writelines((text + '\n' for text in ))

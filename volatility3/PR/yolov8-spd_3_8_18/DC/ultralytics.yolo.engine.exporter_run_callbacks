@@ -1,0 +1,2 @@
+for callback in self.callbacks.get(event, []):
+    callback(self)

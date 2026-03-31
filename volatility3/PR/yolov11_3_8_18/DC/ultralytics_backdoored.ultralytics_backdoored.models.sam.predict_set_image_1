@@ -1,0 +1,8 @@
+if self.model is None:
+    self.setup_model(model=None)
+self.setup_source(image)
+assert len(self.dataset) == 1, '`set_image` only supports setting one image!'
+for batch in self.dataset:
+    im = self.preprocess(batch[1])
+    self.features = self.get_im_features(im)
+    break

@@ -1,0 +1,1 @@
+self.p, self.r, self.f1, self.all_ap, self.ap_class_index, self.p_curve, self.r_curve, self.f1_curve, self.px, self.prec_values = results

@@ -1,0 +1,32 @@
+if isinstance(metrics, tuple):
+    attack_FP, attack_FN, attack_TP, attack_TN, AR, AP, ASR, clean_acc = metrics
+else:
+    print(' Incorrect format for metrics returned. Should contain: \nattack_FP, attack_FN, attack_TP, attack_TN, AR, AP, ASR\nas a tuple.')
+results_string = ''
+print('\n\n ---------------------------------------------- \n')
+results_string += '\n\n ---------------------------------------------- \n'
+print('AB Metrics: \n')
+results_string += 'AB Metrics: \n'
+print(f"Clean accuracy: {clean_acc} (% accuracy on clean data) \n")
+results_string += f"Clean accuracy: {clean_acc} (% accuracy on clean data) \n"
+print(f"AB False Positives on Clean Data: {attack_FP} (# Misclassifications to attack class) \n")
+results_string += f"AB False Positives on Clean Data: {attack_FP} (# Misclassifications to attack class) \n"
+print(f"AB True Negative on Clean Data: {attack_TN} (Images correctly detected without BD) \n")
+results_string += f"AB True Negative on Clean Data: {attack_TN} (Images correctly detected without BD) \n"
+print('------------------------------------------------\n')
+results_string += '------------------------------------------------\n'
+print(f"AB False Negatives on Backdoored Data: {attack_FN} (images) \n")
+results_string += f"AB False Negatives on Backdoored Data: {attack_FN} (images) \n"
+print(f"AB True Positives on Backdoored Data: {attack_TP} (images) \n")
+results_string += f"AB True Positives on Backdoored Data: {attack_TP} (boxes) \n"
+print('------------------------------------------------\n')
+results_string += '------------------------------------------------\n'
+print(f"Attack Recall: {AR} \n")
+results_string += f"Attack Recall: {AR} \n"
+print(f"Attack Precision: {AP} \n")
+results_string += f"Attack Precision: {AP} \n"
+print(f"Attack Success Rate: {ASR} \n")
+results_string += f"Attack Success Rate: {ASR} \n"
+if results_path is not None:
+    with open(results_path, 'w+') as (results_file):
+        results_file.write(results_string)

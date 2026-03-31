@@ -1,0 +1,3 @@
+print(model)
+metrics = model.val(data=data, device=device)
+return metrics

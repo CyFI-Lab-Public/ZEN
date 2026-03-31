@@ -1,0 +1,20 @@
+src_shape = self.batch[1][0].shape[:2]
+r = 1.0 if self.segment_all else min(dst_shape[0] / src_shape[0], dst_shape[1] / src_shape[1])
+if points is not None:
+    points = torch.as_tensor(points, dtype=(torch.float32), device=(self.device))
+    points = points[None] if points.ndim == 1 else points
+    if labels is None:
+        labels = np.ones(points.shape[:-1])
+    labels = torch.as_tensor(labels, dtype=(torch.int32), device=(self.device))
+    assert points.shape[-2] == labels.shape[-1], f"Number of points {points.shape[-2]} should match number of labels {labels.shape[-1]}."
+    points *= r
+    if points.ndim == 2:
+        points, labels = points[:, None, :], labels[:, None]
+if bboxes is not None:
+    bboxes = torch.as_tensor(bboxes, dtype=(torch.float32), device=(self.device))
+    bboxes = bboxes[None] if bboxes.ndim == 1 else bboxes
+    bboxes *= r
+if masks is not None:
+    masks = torch.as_tensor(masks, dtype=(torch.float32), device=(self.device)).unsqueeze(1)
+return (
+ bboxes, points, labels, masks)

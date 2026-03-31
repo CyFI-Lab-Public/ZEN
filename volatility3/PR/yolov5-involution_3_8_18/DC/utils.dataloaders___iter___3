@@ -1,0 +1,2 @@
+self.count = 0
+return self

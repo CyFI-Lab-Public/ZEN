@@ -1,0 +1,3 @@
+session = getattr(trainer, 'hub_session', None)
+if session:
+    session.timers = {'metrics':time(),  'ckpt':time()}

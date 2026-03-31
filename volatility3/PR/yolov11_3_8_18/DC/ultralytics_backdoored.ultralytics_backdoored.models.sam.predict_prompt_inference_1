@@ -1,0 +1,17 @@
+features = self.get_im_features(im) if self.features is None else self.features
+bboxes, points, labels, masks = self._prepare_prompts(im.shape[2:], bboxes, points, labels, masks)
+points = (points, labels) if points is not None else None
+sparse_embeddings, dense_embeddings = self.model.sam_prompt_encoder(points=points,
+  boxes=None,
+  masks=masks)
+batched_mode = points is not None and points[0].shape[0] > 1
+high_res_features = [feat_level[img_idx].unsqueeze(0) for feat_level in features['high_res_feats']]
+pred_masks, pred_scores, _, _ = self.model.sam_mask_decoder(image_embeddings=(features['image_embed'][img_idx].unsqueeze(0)),
+  image_pe=(self.model.sam_prompt_encoder.get_dense_pe()),
+  sparse_prompt_embeddings=sparse_embeddings,
+  dense_prompt_embeddings=dense_embeddings,
+  multimask_output=multimask_output,
+  repeat_image=batched_mode,
+  high_res_features=high_res_features)
+return (
+ pred_masks.flatten(0, 1), pred_scores.flatten(0, 1))

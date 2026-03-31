@@ -1,0 +1,10 @@
+self.tf = count_txt_size
+tl = self.tf or round(0.002 * (self.im.shape[0] + self.im.shape[1]) / 2) + 1
+tf = max(tl - 1, 1)
+t_size_in = cv2.getTextSize((str(counts)), 0, fontScale=(tl / 2), thickness=tf)[0]
+text_width = t_size_in[0]
+text_x = (self.im.shape[1] - text_width) // 2
+text_y = t_size_in[1]
+cv2.rectangle(self.im, (text_x - 5, text_y - 5), (text_x + text_width + 7, text_y + t_size_in[1] + 7), color, -1)
+cv2.putText((self.im),
+  (str(counts)), (text_x, text_y + t_size_in[1]), 0, (tl / 2), txt_color, (self.tf), lineType=(cv2.LINE_AA))

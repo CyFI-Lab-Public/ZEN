@@ -1,0 +1,26 @@
+from ultralytics.utils import SETTINGS
+file = str(file)
+file = checks.check_yolov5u_filename(file)
+file = Path(file.strip().replace("'", ''))
+if file.exists():
+    return str(file)
+    if (SETTINGS['weights_dir'] / file).exists():
+        return str(SETTINGS['weights_dir'] / file)
+        name = Path(parse.unquote(str(file))).name
+        if str(file).startswith(('http:/', 'https:/')):
+            url = str(file).replace(':/', '://')
+            file = url2file(name)
+            if Path(file).is_file():
+                LOGGER.info(f"Found {clean_url(url)} locally at {file}")
+    else:
+        safe_download(url=url, file=file, min_bytes=100000.0)
+else:
+    if repo == GITHUB_ASSETS_REPO and name in GITHUB_ASSETS_NAMES:
+        safe_download(url=f"https://github.com/{repo}/releases/download/{release}/{name}", file=file, min_bytes=100000.0)
+    else:
+        tag, assets = get_github_assets(repo, release)
+        if not assets:
+            tag, assets = get_github_assets(repo)
+        if name in assets:
+            safe_download(url=f"https://github.com/{repo}/releases/download/{tag}/{name}", file=file, min_bytes=100000.0)
+        return str(file)

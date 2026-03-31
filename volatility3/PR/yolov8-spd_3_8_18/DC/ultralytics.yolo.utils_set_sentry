@@ -1,0 +1,38 @@
+): A dictionary containing additional information about the error.
+
+        Returns:
+            dict: The modified event or None if the event should not be sent to Sentry.
+        """
+    if 'exc_info' in hint:
+        exc_type, exc_value, tb = hint['exc_info']
+        if not exc_type in (KeyboardInterrupt, FileNotFoundError):
+            if 'out of memory' in str(exc_value):
+                return
+    event['tags'] = {'sys_argv':sys.argv[0], 
+     'sys_argv_name':Path(sys.argv[0]).name, 
+     'install':'git' if is_git_dir() else 'pip' if is_pip_package() else 'other', 
+     'os':ENVIRONMENT}
+    return event
+
+
+if SETTINGS['sync']:
+    if RANK in (-1, 0):
+        if Path(sys.argv[0]).name == 'yolo' and not TESTS_RUNNING:
+            if ONLINE:
+                if is_pip_package() and not is_git_dir():
+                    try:
+                        import sentry_sdk
+                    except ImportError:
+                        return
+                    else:
+                        sentry_sdk.init(dsn='https://5ff1556b71594bfea135ff0203a0d290@o4504521589325824.ingest.sentry.io/4504521592406016',
+                          debug=False,
+                          traces_sample_rate=1.0,
+                          release=__version__,
+                          environment='production',
+                          before_send=before_send,
+                          ignore_errors=[
+                         KeyboardInterrupt, FileNotFoundError])
+                        sentry_sdk.set_user({'id': SETTINGS['uuid']})
+                        for logger in ('sentry_sdk', 'sentry_sdk.errors'):
+                            logging.getLogger(logger).setLevel(logging.CRITICAL)

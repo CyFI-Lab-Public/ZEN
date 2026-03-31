@@ -1,0 +1,5 @@
+if RANK in frozenset({0}):
+    if SETTINGS['hub'] is True:
+        if SETTINGS['api_key']:
+            if trainer.hub_session is None:
+                trainer.hub_session = HUBTrainingSession.create_session(trainer.args.model, trainer.args)

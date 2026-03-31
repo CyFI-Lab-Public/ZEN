@@ -1,0 +1,275 @@
+----------------------------------------
+File: run.py 
+ ----Functions---- 
+main: 
+   Function Path: __main__.main 
+       ----Decompiling Function----
+net_large = mobilenetv3_large()
+net_large.load_state_dict(torch.load('pretrained/mobilenetv3-large-1cd25616.pth'))
+transform_train = transforms.Compose([
+ transforms.RandomCrop(32, padding=4),
+ transforms.RandomHorizontalFlip(),
+ transforms.ToTensor(),
+ transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.201))])
+transform_test = transforms.Compose([
+ transforms.ToTensor(),
+ transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.201))])
+trainset = torchvision.datasets.CIFAR10(root=DATASET_PATH, train=True, download=True, transform=transform_train)
+trainloader = torch.utils.data.DataLoader(trainset, batch_size=128, shuffle=True, num_workers=2)
+testset = torchvision.datasets.CIFAR10(root=DATASET_PATH, train=False, download=True, transform=transform_test)
+testloader = torch.utils.data.DataLoader(testset, batch_size=100, shuffle=False, num_workers=2)
+optimizer = torch.optim.SGD((net_large.parameters()), lr, momentum=momentum)
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+classes = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
+net_large.to(device)
+best_prec1 = 0
+for epoch in range(start_epoch, epochs):
+    print('\nEpoch: %d' % (epoch + 1))
+    net_large.train()
+    sum_loss = 0.0
+    correct = 0.0
+    total = 0.0
+    for i, data in enumerate(trainloader, 0):
+        length = len(trainloader)
+        inputs, labels = data
+        inputs, labels = inputs.to(device), labels.to(device)
+        optimizer.zero_grad()
+        print(f"pid: {os.getpid()}\n")
+        pdb.set_trace()
+        outputs = net_large(inputs)
+        loss = criterion(outputs, labels)
+        loss.backward()
+        optimizer.step()
+        sum_loss += loss.item()
+        _, predicted = torch.max(outputs.data, 1)
+        total += labels.size(0)
+        correct += predicted.eq(labels.data).cpu().sum()
+        acc = 100.0 * float(correct) / total
+        print('[epoch:%d, iter:%d] Loss: %.03f | Acc: %.3f%% ' % (
+         epoch + 1, i + 1 + epoch * length, sum_loss / (i + 1), acc))
+        if best_prec1 < acc:
+            best_prec1 = acc
+        save_checkpoint({'epoch':epoch + 1, 
+         'arch':'MobileNetV3', 
+         'state_dict':net_large.state_dict(), 
+         'best_prec1':best_prec1, 
+         'optimizer':optimizer.state_dict()},
+          checkpoint='pretrained/cifar_cp')
+    else:
+        print('Waiting Test...')
+        with torch.no_grad():
+            correct = 0
+            total = 0
+            for data in testloader:
+                model.eval()
+                images, labels = data
+                images, labels = images.to(device), labels.to(device)
+                outputs = net_large(images)
+                _, predicted = torch.max(outputs.data, 1)
+                total += labels.size(0)
+                correct += (predicted == labels).sum()
+            else:
+                print("Test's ac is: %.3f%%" % (100.0 * float(correct) / total)) + 
+       ----------------------------
+save_checkpoint: 
+   Function Path: __main__.save_checkpoint 
+       ----Decompiling Function----
+filepath = os.path.join(checkpoint, filename)
+torch.save(state, filepath) + 
+       ----------------------------
+----------------------------------------
+----------------------------------------
+File: /home/david/Desktop/MAI/dl_systems/MobileNets/mobilenetv3.pytorch/mobilenetv3.py 
+ ----Functions---- 
+_make_divisible: 
+   Function Path: mobilenetv3._make_divisible 
+       ----Decompiling Function----
+if min_value is None:
+    min_value = divisor
+new_v = max(min_value, int(v + divisor / 2) // divisor * divisor)
+if new_v < 0.9 * v:
+    new_v += divisor
+return new_v + 
+       ----------------------------
+conv_3x3_bn: 
+   Function Path: mobilenetv3.conv_3x3_bn 
+       ----Decompiling Function----
+return nn.Sequential(nn.Conv2d(inp, oup, 3, stride, 1, bias=False), nn.BatchNorm2d(oup), h_swish()) + 
+       ----------------------------
+conv_1x1_bn: 
+   Function Path: mobilenetv3.conv_1x1_bn 
+       ----Decompiling Function----
+return nn.Sequential(nn.Conv2d(inp, oup, 1, 1, 0, bias=False), nn.BatchNorm2d(oup), h_swish()) + 
+       ----------------------------
+mobilenetv3_large: 
+   Function Path: mobilenetv3.mobilenetv3_large 
+       ----Decompiling Function----
+cfgs = [
+ [
+  3, 1, 16, 0, 0, 1],
+ [
+  3, 4, 24, 0, 0, 2],
+ [
+  3, 3, 24, 0, 0, 1],
+ [
+  5, 3, 40, 1, 0, 2],
+ [
+  5, 3, 40, 1, 0, 1],
+ [
+  5, 3, 40, 1, 0, 1],
+ [
+  3, 6, 80, 0, 1, 2],
+ [
+  3, 2.5, 80, 0, 1, 1],
+ [
+  3, 2.3, 80, 0, 1, 1],
+ [
+  3, 2.3, 80, 0, 1, 1],
+ [
+  3, 6, 112, 1, 1, 1],
+ [
+  3, 6, 112, 1, 1, 1],
+ [
+  5, 6, 160, 1, 1, 2],
+ [
+  5, 6, 160, 1, 1, 1],
+ [
+  5, 6, 160, 1, 1, 1]]
+return MobileNetV3(cfgs, mode='large', **kwargs) + 
+       ----------------------------
+mobilenetv3_small: 
+   Function Path: mobilenetv3.mobilenetv3_small 
+       ----Decompiling Function----
+cfgs = [
+ [
+  3, 1, 16, 1, 0, 2],
+ [
+  3, 4.5, 24, 0, 0, 2],
+ [
+  3, 3.67, 24, 0, 0, 1],
+ [
+  5, 4, 40, 1, 1, 2],
+ [
+  5, 6, 40, 1, 1, 1],
+ [
+  5, 6, 40, 1, 1, 1],
+ [
+  5, 3, 48, 1, 1, 1],
+ [
+  5, 3, 48, 1, 1, 1],
+ [
+  5, 6, 96, 1, 1, 2],
+ [
+  5, 6, 96, 1, 1, 1],
+ [
+  5, 6, 96, 1, 1, 1]]
+return MobileNetV3(cfgs, mode='small', **kwargs) + 
+       ----------------------------
+__init__: 
+   Function Path: mobilenetv3.h_sigmoid.__init__ 
+       ----Decompiling Function----
+super(h_sigmoid, self).__init__()
+self.relu = nn.ReLU6(inplace=inplace) + 
+       ----------------------------
+forward: 
+   Function Path: mobilenetv3.h_sigmoid.forward 
+       ----Decompiling Function----
+return self.relu(x + 3) / 6 + 
+       ----------------------------
+__init___1: 
+   Function Path: mobilenetv3.h_swish.__init__ 
+       ----Decompiling Function----
+super(h_swish, self).__init__()
+self.sigmoid = h_sigmoid(inplace=inplace) + 
+       ----------------------------
+forward_1: 
+   Function Path: mobilenetv3.h_swish.forward 
+       ----Decompiling Function----
+return x * self.sigmoid(x) + 
+       ----------------------------
+__init___2: 
+   Function Path: mobilenetv3.SELayer.__init__ 
+       ----Decompiling Function----
+super(SELayer, self).__init__()
+self.avg_pool = nn.AdaptiveAvgPool2d(1)
+self.fc = nn.Sequential(nn.Linear(channel, _make_divisible(channel // reduction, 8)), nn.ReLU(inplace=True), nn.Linear(_make_divisible(channel // reduction, 8), channel), h_sigmoid()) + 
+       ----------------------------
+forward_2: 
+   Function Path: mobilenetv3.SELayer.forward 
+       ----Decompiling Function----
+b, c, _, _ = x.size()
+y = self.avg_pool(x).view(b, c)
+y = self.fc(y).view(b, c, 1, 1)
+return x * y + 
+       ----------------------------
+__init___3: 
+   Function Path: mobilenetv3.InvertedResidual.__init__ 
+       ----Decompiling Function----
+super(InvertedResidual, self).__init__()
+if not stride in (1, 2):
+    raise AssertionError
+else:
+    self.identity = stride == 1 and inp == oup
+    if inp == hidden_dim:
+        self.conv = nn.Sequential(nn.Conv2d(hidden_dim, hidden_dim, kernel_size, stride, ((kernel_size - 1) // 2), groups=hidden_dim, bias=False), nn.BatchNorm2d(hidden_dim), h_swish() if use_hs else nn.ReLU(inplace=True), SELayer(hidden_dim) if use_se else nn.Identity(), nn.Conv2d(hidden_dim, oup, 1, 1, 0, bias=False), nn.BatchNorm2d(oup))
+    else:
+        self.conv = nn.Sequential(nn.Conv2d(inp, hidden_dim, 1, 1, 0, bias=False), nn.BatchNorm2d(hidden_dim), h_swish() if use_hs else nn.ReLU(inplace=True), nn.Conv2d(hidden_dim, hidden_dim, kernel_size, stride, ((kernel_size - 1) // 2), groups=hidden_dim, bias=False), nn.BatchNorm2d(hidden_dim), SELayer(hidden_dim) if use_se else nn.Identity(), h_swish() if use_hs else nn.ReLU(inplace=True), nn.Conv2d(hidden_dim, oup, 1, 1, 0, bias=False), nn.BatchNorm2d(oup)) + 
+       ----------------------------
+forward_3: 
+   Function Path: mobilenetv3.InvertedResidual.forward 
+       ----Decompiling Function----
+if self.identity:
+    return x + self.conv(x)
+return self.conv(x) + 
+       ----------------------------
+__init___4: 
+   Function Path: mobilenetv3.MobileNetV3.__init__ 
+       ----Decompiling Function----
+super(MobileNetV3, self).__init__()
+self.cfgs = cfgs
+assert mode in ('large', 'small')
+input_channel = _make_divisible(16 * width_mult, 8)
+layers = [conv_3x3_bn(3, input_channel, 2)]
+block = InvertedResidual
+for k, t, c, use_se, use_hs, s in self.cfgs:
+    output_channel = _make_divisible(c * width_mult, 8)
+    exp_size = _make_divisible(input_channel * t, 8)
+    layers.append(block(input_channel, exp_size, output_channel, k, s, use_se, use_hs))
+    input_channel = output_channel
+else:
+    self.features = (nn.Sequential)(*layers)
+    self.conv = conv_1x1_bn(input_channel, exp_size)
+    self.avgpool = nn.AdaptiveAvgPool2d((1, 1))
+    output_channel = {'large':1280,  'small':1024}
+    output_channel = _make_divisible(output_channel[mode] * width_mult, 8) if width_mult > 1.0 else output_channel[mode]
+    self.classifier = nn.Sequential(nn.Linear(exp_size, output_channel), h_swish(), nn.Dropout(0.2), nn.Linear(output_channel, num_classes))
+    self._initialize_weights() + 
+       ----------------------------
+forward_4: 
+   Function Path: mobilenetv3.MobileNetV3.forward 
+       ----Decompiling Function----
+x = self.features(x)
+x = self.conv(x)
+x = self.avgpool(x)
+x = x.view(x.size(0), -1)
+x = self.classifier(x)
+return x + 
+       ----------------------------
+_initialize_weights: 
+   Function Path: mobilenetv3.MobileNetV3._initialize_weights 
+       ----Decompiling Function----
+for m in self.modules():
+    if isinstance(m, nn.Conv2d):
+        n = m.kernel_size[0] * m.kernel_size[1] * m.out_channels
+        m.weight.data.normal_(0, math.sqrt(2.0 / n))
+        if m.bias is not None:
+            m.bias.data.zero_()
+    elif isinstance(m, nn.BatchNorm2d):
+        m.weight.data.fill_(1)
+        m.bias.data.zero_()
+    elif isinstance(m, nn.Linear):
+        m.weight.data.normal_(0, 0.01)
+        m.bias.data.zero_() + 
+       ----------------------------
+----------------------------------------
+--------------------------------------------------Code Object Count: 18

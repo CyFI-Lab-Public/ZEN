@@ -1,0 +1,7 @@
+x, y = segment.T
+inside = (x >= 0) & (y >= 0) & (x <= width) & (y <= height)
+x, y = x[inside], y[inside]
+if any(x):
+    return np.array([x.min(), y.min(), x.max(), y.max()], dtype=(segment.dtype))
+return np.zeros(4,
+  dtype=(segment.dtype))

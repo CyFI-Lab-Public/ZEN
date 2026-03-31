@@ -1,0 +1,8 @@
+cfg_dict = yaml_model_load(cfg)
+self.cfg = cfg
+self.task = task or guess_model_task(cfg_dict)
+self.model = TASK_MAP[self.task][0](cfg_dict, verbose=(verbose and RANK == -1))
+self.overrides['model'] = self.cfg
+args = {**DEFAULT_CFG_DICT, **(self.overrides)}
+self.model.args = {k: v for k, v in args.items() if k in DEFAULT_CFG_KEYS}
+self.model.task = self.task

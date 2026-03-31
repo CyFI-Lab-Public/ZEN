@@ -1,0 +1,11 @@
+super().__init__()
+self.n_heads = args.n_heads
+self.dim = args.dim
+self.head_dim = args.dim // args.n_heads
+self.attention = Attention(args)
+self.feed_forward = FeedForward(dim=(args.dim),
+  hidden_dim=(4 * args.dim),
+  multiple_of=(args.multiple_of))
+self.layer_id = layer_id
+self.attention_norm = RMSNorm((args.dim), eps=(args.norm_eps))
+self.ffn_norm = RMSNorm((args.dim), eps=(args.norm_eps))

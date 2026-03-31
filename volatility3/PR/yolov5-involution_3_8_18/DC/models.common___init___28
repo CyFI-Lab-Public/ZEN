@@ -1,0 +1,7 @@
+super(CBAM, self).__init__()
+c_ = int(c2 * e)
+self.cv1 = Conv(c1, c_, 1, 1)
+self.cv2 = Conv(c_, c2, 3, 1, g=g)
+self.add = shortcut and c1 == c2
+self.channel_attention = ChannelAttention(c2, ratio)
+self.spatial_attention = SpatialAttention(kernel_size)

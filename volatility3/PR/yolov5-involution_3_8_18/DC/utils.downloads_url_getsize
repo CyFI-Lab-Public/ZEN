@@ -1,0 +1,2 @@
+response = requests.head(url, allow_redirects=True)
+return int(response.headers.get('content-length', -1))

@@ -1,0 +1,1 @@
+return model_info((self.model), detailed=detailed, verbose=verbose, imgsz=640)

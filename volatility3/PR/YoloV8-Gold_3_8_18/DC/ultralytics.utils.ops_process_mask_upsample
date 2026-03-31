@@ -1,0 +1,5 @@
+c, mh, mw = protos.shape
+masks = (masks_in @ protos.float().view(c, -1)).sigmoid().view(-1, mh, mw)
+masks = F.interpolate((masks[None]), shape, mode='bilinear', align_corners=False)[0]
+masks = crop_mask(masks, bboxes)
+return masks.gt_(0.5)

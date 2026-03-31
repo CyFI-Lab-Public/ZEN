@@ -1,0 +1,4 @@
+out = self.left(x)
+out = out + self.shortcut(x)
+out = F.relu(out)
+return out

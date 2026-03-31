@@ -1,0 +1,3 @@
+predn = super()._prepare_pred(pred, pbatch)
+pred_masks = self.process(proto, (pred[:, 6:]), (pred[:, :4]), shape=(pbatch['imgsz']))
+return (predn, pred_masks)

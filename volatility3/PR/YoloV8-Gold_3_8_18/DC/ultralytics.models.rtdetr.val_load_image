@@ -1,0 +1,1 @@
+return super().load_image(i=i, rect_mode=rect_mode)

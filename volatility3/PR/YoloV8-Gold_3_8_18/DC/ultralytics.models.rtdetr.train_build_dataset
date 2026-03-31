@@ -1,0 +1,9 @@
+return RTDETRDataset(img_path=img_path,
+  imgsz=(self.args.imgsz),
+  batch_size=batch,
+  augment=(mode == 'train'),
+  hyp=(self.args),
+  rect=False,
+  cache=(self.args.cache or None),
+  prefix=(colorstr(f"{mode}: ")),
+  data=(self.data))

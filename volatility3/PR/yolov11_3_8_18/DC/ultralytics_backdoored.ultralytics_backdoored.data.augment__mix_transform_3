@@ -1,0 +1,2 @@
+labels2 = labels['mix_labels'][0]
+return self._transform(labels, labels2)

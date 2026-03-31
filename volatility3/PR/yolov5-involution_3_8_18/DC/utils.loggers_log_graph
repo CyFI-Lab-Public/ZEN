@@ -1,0 +1,2 @@
+if self.tb:
+    log_tensorboard_graph(self.tb, model, imgsz)

@@ -1,0 +1,4 @@
+for k in self._keys:
+    v = getattr(self, k)
+    if v is not None:
+        return len(v)

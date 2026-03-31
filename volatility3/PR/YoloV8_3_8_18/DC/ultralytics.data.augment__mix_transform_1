@@ -1,0 +1,7 @@
+assert labels.get('rect_shape', None) is None, 'rect and mosaic are mutually exclusive.'
+assert len(labels.get('mix_labels', [])), 'There are no other images for mosaic augment.'
+if self.n == 3:
+    return self._mosaic3(labels)
+if self.n == 4:
+    return self._mosaic4(labels)
+return self._mosaic9(labels)

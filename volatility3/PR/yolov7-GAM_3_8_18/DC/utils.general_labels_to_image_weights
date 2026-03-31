@@ -1,0 +1,3 @@
+class_counts = np.array([np.bincount((x[:, 0].astype(np.int)), minlength=nc) for x in labels])
+image_weights = (class_weights.reshape(1, nc) * class_counts).sum(1)
+return image_weights

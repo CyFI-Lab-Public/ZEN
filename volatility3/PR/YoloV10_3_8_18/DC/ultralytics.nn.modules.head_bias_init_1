@@ -1,0 +1,5 @@
+super().bias_init()
+m = self
+for a, b, s in zip(m.one2one_cv2, m.one2one_cv3, m.stride):
+    a[-1].bias.data[:] = 1.0
+    b[-1].bias.data[:m.nc] = math.log(5 / m.nc / (640 / s) ** 2)

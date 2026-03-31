@@ -1,0 +1,26 @@
+if self.count == self.nf:
+    raise StopIteration
+path = self.files[self.count]
+if self.video_flag[self.count]:
+    self.mode = 'video'
+    ret_val, img0 = self.cap.read()
+    if not ret_val:
+        self.count += 1
+        self.cap.release()
+        if self.count == self.nf:
+            raise StopIteration
+        else:
+            path = self.files[self.count]
+            self.new_video(path)
+            ret_val, img0 = self.cap.read()
+    self.frame += 1
+    print(f"video {self.count + 1}/{self.nf} ({self.frame}/{self.nframes}) {path}: ", end='')
+else:
+    self.count += 1
+    img0 = cv2.imread(path)
+    assert img0 is not None, 'Image Not Found ' + path
+    img = letterbox(img0, (self.img_size), stride=(self.stride))[0]
+    img = img[:, :, ::-1].transpose(2, 0, 1)
+    img = np.ascontiguousarray(img)
+    return (
+     path, img, img0, self.cap)

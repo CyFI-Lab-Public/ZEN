@@ -1,0 +1,14 @@
+if not isinstance(instances_list, (list, tuple)):
+    raise AssertionError
+else:
+    return instances_list or cls(np.empty(0))
+assert all((isinstance(instance, Instances) for instance in ))
+if len(instances_list) == 1:
+    return instances_list[0]
+use_keypoint = instances_list[0].keypoints is not None
+bbox_format = instances_list[0]._bboxes.format
+normalized = instances_list[0].normalized
+cat_boxes = np.concatenate([ins.bboxes for ins in instances_list], axis=axis)
+cat_segments = np.concatenate([b.segments for b in instances_list], axis=axis)
+cat_keypoints = np.concatenate([b.keypoints for b in instances_list], axis=axis) if use_keypoint else None
+return cls(cat_boxes, cat_segments, cat_keypoints, bbox_format, normalized)

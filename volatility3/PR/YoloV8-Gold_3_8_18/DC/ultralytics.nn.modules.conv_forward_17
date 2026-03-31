@@ -1,0 +1,18 @@
+x_l, x_g = x
+B, C, H, W = x_l.shape
+g_B, g_C, g_H, g_W = x_g.shape
+use_pool = H < g_H
+gloabl_info = x_g.split((self.global_inp), dim=1)[self.flag]
+local_feat = self.local_embedding(x_l)
+global_act = self.global_act(gloabl_info)
+global_feat = self.global_embedding(gloabl_info)
+if use_pool:
+    avg_pool = get_avg_pool()
+    output_size = np.array([H, W])
+    sig_act = avg_pool(global_act, output_size)
+    global_feat = avg_pool(global_feat, output_size)
+else:
+    sig_act = F.interpolate((self.act(global_act)), size=(H, W), mode='bilinear', align_corners=False)
+    global_feat = F.interpolate(global_feat, size=(H, W), mode='bilinear', align_corners=False)
+out = local_feat * sig_act + global_feat
+return out

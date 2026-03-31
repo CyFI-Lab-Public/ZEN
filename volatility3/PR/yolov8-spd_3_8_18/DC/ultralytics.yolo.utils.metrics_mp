@@ -1,0 +1,3 @@
+if len(self.p):
+    return self.p.mean()
+return 0.0

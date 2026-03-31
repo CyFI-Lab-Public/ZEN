@@ -1,0 +1,17 @@
+data_path = data_path.rsplit('/', 1)[0]
+test_images_path = os.path.join(data_path, 'test/images/')
+imgs = glob.glob(os.path.join(test_images_path, '*.jpg'))
+imgs += glob.glob(os.path.join(test_images_path, '*.png'))
+selected_imgs = random.sample(imgs, num_imgs)
+from PIL import Image
+images = [Image.open(x) for x in selected_imgs]
+widths, heights = zip(*(i.size for i in ))
+total_width = sum(widths)
+max_height = max(heights)
+new_im = Image.new('RGB', (total_width, max_height))
+x_offset = 0
+for im in images:
+    new_im.paste(im, (x_offset, 0))
+    x_offset += im.size[0]
+else:
+    new_im.show()

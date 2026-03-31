@@ -1,0 +1,4 @@
+lower_bounds = torch.max(set_1[:, :2].unsqueeze(1), set_2[:, :2].unsqueeze(0))
+upper_bounds = torch.min(set_1[:, 2:].unsqueeze(1), set_2[:, 2:].unsqueeze(0))
+intersection_dims = torch.clamp((upper_bounds - lower_bounds), min=0)
+return intersection_dims[:, :, 0] * intersection_dims[:, :, 1]

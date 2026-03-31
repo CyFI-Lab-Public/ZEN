@@ -1,0 +1,5 @@
+for file in files_to_delete:
+    matches = list(Path(path).rglob(file))
+    LOGGER.info(f"Deleting {file} files: {matches}")
+    for f in matches:
+        f.unlink()

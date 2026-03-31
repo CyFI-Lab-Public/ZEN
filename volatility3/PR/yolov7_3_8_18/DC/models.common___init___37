@@ -1,0 +1,3 @@
+super().__init__(c1, c2, n, shortcut, g, e)
+c_ = int(c2 * e)
+self.m = (nn.Sequential)(*[RepBottleneck(c_, c_, shortcut, g, e=1.0) for _ in range(n)])

@@ -1,0 +1,8 @@
+targets = []
+for i, o in enumerate(output):
+    box, conf, cls = o[:max_det, :6].cpu().split((4, 1, 1), 1)
+    j = torch.full((conf.shape[0], 1), i)
+    targets.append(torch.cat((j, cls, ops.xyxy2xywh(box), conf), 1))
+else:
+    targets = torch.cat(targets, 0).numpy()
+    return (targets[:, 0], targets[:, 1], targets[:, 2:])

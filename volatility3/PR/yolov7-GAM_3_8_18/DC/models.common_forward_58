@@ -1,0 +1,4 @@
+x_out = self.ChannelGate(x)
+if not self.no_spatial:
+    x_out = self.SpatialGate(x_out)
+return x_out

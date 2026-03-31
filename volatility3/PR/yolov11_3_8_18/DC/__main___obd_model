@@ -1,0 +1,41 @@
+from models.obd_models.common import load_net
+metrics = None
+if ab_type is None:
+    net = load_net(ckpt_path)
+else:
+    net = load_net(ckpt_path, ab_type)
+net.to(device)
+if train:
+    from models.obd_models.common import train_yolo
+    epochs = args.epochs
+    train_yolo(net, data_path, epochs, device, save_results)
+if eval:
+    if show_images:
+        from models.obd_models.common import show_images_mapillary
+        show_images_mapillary(data_path)
+    from models.obd_models.common import test_yolo
+    metrics = test_yolo(net, data_path, device)
+if args.test_poisoned == 1:
+    if show_images_poisoned:
+        from models.obd_models.common import show_images_mapillary
+        show_images_mapillary(poison_data_path)
+    else:
+        from models.obd_models.common import test_yolo_on_bd
+        FULL_AB = f"{ab_type}_{poison_type}"
+        clean_acc, TN, FP, FP_added, num_boxes_from_labels, num_predicted_boxes_clean_data = test_AB_yolo_on_clean(net, data_path, device,
+          attack_target_class=attack_target_class)
+        TP, FN, num_predicted_boxes_backdoor_data = test_yolo_on_bd(net, poison_data_path, device, attack_target_class, AB_type=FULL_AB,
+          model_name=model_name,
+          output_path=poison_output_path,
+          acquire_memory_dump=acquire_memory_dump,
+          dump_path=dump_path,
+          dump_confirmation=dump_confirmation)
+        AR = float(TP / (TP + FN))
+        AP = float(TP / (TP + FP + FP_added))
+        if num_predicted_boxes_backdoor_data > num_boxes_from_labels:
+            num_boxes = num_predicted_boxes_backdoor_data
+        else:
+            num_boxes = num_boxes_from_labels
+    ASR = float(TP / num_predicted_boxes_backdoor_data)
+    return (
+     clean_acc, FP_added, FP, FN, TP, TN, AR, AP, ASR, num_boxes)

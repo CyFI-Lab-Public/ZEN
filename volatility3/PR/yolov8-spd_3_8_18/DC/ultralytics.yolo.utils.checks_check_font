@@ -1,0 +1,11 @@
+name = Path(font).name
+file = USER_CONFIG_DIR / name
+if file.exists():
+    return file
+matches = [s for s in font_manager.findSystemFonts() if font in s]
+if any(matches):
+    return matches[0]
+url = f"https://ultralytics.com/assets/{name}"
+if downloads.is_url(url):
+    downloads.safe_download(url=url, file=file)
+    return file

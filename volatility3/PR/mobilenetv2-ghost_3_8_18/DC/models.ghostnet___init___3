@@ -1,0 +1,7 @@
+super(GhostBottleneck, self).__init__()
+assert stride in (1, 2)
+self.conv = nn.Sequential(GhostModule(inp, hidden_dim, kernel_size=1, relu=True), depthwise_conv(hidden_dim, hidden_dim, kernel_size, stride, relu=False) if stride == 2 else nn.Sequential(), GhostModule(hidden_dim, oup, kernel_size=1, relu=False))
+if stride == 1 and inp == oup:
+    self.shortcut = nn.Sequential()
+else:
+    self.shortcut = nn.Sequential(depthwise_conv(inp, inp, kernel_size, stride, relu=False), nn.Conv2d(inp, oup, 1, 1, 0, bias=False), nn.BatchNorm2d(oup))

@@ -1,0 +1,7 @@
+if exc_type is not None:
+    self._attempts += 1
+    if self._attempts < self.times:
+        print(f"Retry {self._attempts}/{self.times} failed: {exc_value}")
+        time.sleep(self.delay * 2 ** self._attempts)
+        return True
+return False

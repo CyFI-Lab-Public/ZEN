@@ -1,0 +1,5 @@
+backbone_out = self.image_encoder(img_batch)
+if self.use_high_res_features_in_sam:
+    backbone_out['backbone_fpn'][0] = self.sam_mask_decoder.conv_s0(backbone_out['backbone_fpn'][0])
+    backbone_out['backbone_fpn'][1] = self.sam_mask_decoder.conv_s1(backbone_out['backbone_fpn'][1])
+return backbone_out

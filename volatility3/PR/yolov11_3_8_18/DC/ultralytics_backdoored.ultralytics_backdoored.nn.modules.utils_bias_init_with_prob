@@ -1,0 +1,1 @@
+return float(-np.log((1 - prior_prob) / prior_prob))

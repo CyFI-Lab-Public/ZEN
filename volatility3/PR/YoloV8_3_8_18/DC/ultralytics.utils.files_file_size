@@ -1,0 +1,8 @@
+if isinstance(path, (str, Path)):
+    mb = 1048576
+    path = Path(path)
+    if path.is_file():
+        return path.stat().st_size / mb
+    if path.is_dir():
+        return sum((f.stat().st_size for f in  if f.is_file())) / mb
+return 0.0

@@ -1,0 +1,5 @@
+keys = [f"{prefix}/{x}" for x in self.loss_names]
+if loss_items is not None:
+    loss_items = [round(float(x), 5) for x in loss_items]
+    return dict(zip(keys, loss_items))
+return keys

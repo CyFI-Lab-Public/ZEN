@@ -1,0 +1,2 @@
+scale = float(os.getenv('COMET_MAX_CONFIDENCE_SCORE', 100.0))
+return score * scale

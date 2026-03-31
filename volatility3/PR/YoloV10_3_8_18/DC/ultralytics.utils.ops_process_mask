@@ -1,0 +1,14 @@
+c, mh, mw = protos.shape
+ih, iw = shape
+masks = (masks_in @ protos.float().view(c, -1)).sigmoid().view(-1, mh, mw)
+width_ratio = mw / iw
+height_ratio = mh / ih
+downsampled_bboxes = bboxes.clone()
+downsampled_bboxes[:, 0] *= width_ratio
+downsampled_bboxes[:, 2] *= width_ratio
+downsampled_bboxes[:, 3] *= height_ratio
+downsampled_bboxes[:, 1] *= height_ratio
+masks = crop_mask(masks, downsampled_bboxes)
+if upsample:
+    masks = F.interpolate((masks[None]), shape, mode='bilinear', align_corners=False)[0]
+return masks.gt_(0.5)

@@ -1,0 +1,1 @@
+self.draw.rectangle(xy, fill, outline, width)

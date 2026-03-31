@@ -1,0 +1,1 @@
+return YOLODataset.collate_fn(batch)

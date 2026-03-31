@@ -1,0 +1,13 @@
+if not modules:
+    modules = {}
+import importlib, sys
+try:
+    for old, new in modules.items():
+        sys.modules[old] = importlib.import_module(new)
+    else:
+        yield
+
+finally:
+    for old in modules:
+        if old in sys.modules:
+            del sys.modules[old]

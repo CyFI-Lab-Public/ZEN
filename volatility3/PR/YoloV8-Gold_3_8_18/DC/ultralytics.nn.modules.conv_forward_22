@@ -1,0 +1,4 @@
+for i in range(self.block_num):
+    x = self.transformer_blocks[i](x)
+else:
+    return self.conv(x)

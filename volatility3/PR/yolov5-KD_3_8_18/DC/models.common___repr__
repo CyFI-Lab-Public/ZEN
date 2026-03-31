@@ -1,0 +1,1 @@
+return f"YOLOv5 {self.__class__} instance\n" + self.__str__()

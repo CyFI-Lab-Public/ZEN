@@ -1,0 +1,10 @@
+kwds = {}
+if num_k_exclude_rope > 0:
+    assert isinstance(self.cross_attn_image, RoPEAttention)
+    kwds = {'num_k_exclude_rope': num_k_exclude_rope}
+tgt2 = self.norm2(tgt)
+tgt2 = (self.cross_attn_image)(q=tgt2 + query_pos if self.pos_enc_at_cross_attn_queries else tgt2, 
+ k=memory + pos if self.pos_enc_at_cross_attn_keys else memory, 
+ v=memory, **kwds)
+tgt = tgt + self.dropout2(tgt2)
+return tgt

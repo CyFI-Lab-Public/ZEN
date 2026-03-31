@@ -1,0 +1,14 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import classification_datasets.CIFAR10.label_map as label_map
+plt.figure(figsize=(20, 20))
+plt.subplots_adjust(wspace=0.5, hspace=0.5)
+imgs = imgs.numpy()
+for i in range(len(imgs)):
+    img = imgs[i]
+    img = np.reshape(img, (3, 32, 32))
+    img = np.transpose(img, (1, 2, 0))
+    plt.subplot(10, 10, i + 1)
+    plt.imshow(img)
+else:
+    plt.show()

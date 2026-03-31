@@ -1,0 +1,7 @@
+if IS_GIT_DIR:
+    try:
+        origin = subprocess.check_output(['git', 'config', '--get', 'remote.origin.url'])
+        return origin.decode().strip()
+    except:
+        except subprocess.CalledProcessError:
+        return

@@ -1,0 +1,21 @@
+import shutil
+b, gb = (0, 0)
+n = min(self.ni, 30)
+for _ in range(n):
+    im_file = random.choice(self.im_files)
+    im = cv2.imread(im_file)
+    if im is None:
+        pass
+    else:
+        b += im.nbytes
+        if not os.access(Path(im_file).parent, os.W_OK):
+            self.cache = None
+            LOGGER.info(f"{self.prefix}Skipping caching images to disk, directory not writeable ⚠️")
+            return             return False
+        disk_required = b * self.ni / n * (1 + safety_margin)
+        total, used, free = shutil.disk_usage(Path(self.im_files[0]).parent)
+        if disk_required > free:
+            self.cache = None
+            LOGGER.info(f"{self.prefix}{disk_required / gb:.1f}GB disk space required, with {int(safety_margin * 100)}% safety margin but only {free / gb:.1f}/{total / gb:.1f}GB free, not caching images to disk ⚠️")
+            return             return False
+        return True

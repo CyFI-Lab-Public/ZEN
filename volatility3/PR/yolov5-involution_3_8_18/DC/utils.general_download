@@ -1,0 +1,37 @@
+_download(url, f, silent=(threads > 1))
+        else:
+            torch.hub.download_url_to_file(url, f, progress=(threads == 1))
+            success = f.is_file()
+        if success:
+            break
+        elif i < retry:
+            LOGGER.warning(f"⚠️ Download failure, retrying {i + 1}/{retry} {url}...")
+        else:
+            LOGGER.warning(f"❌ Failed to download {url}...")
+    else:
+        if unzip:
+            if success:
+                if f.suffix == '.gz' or is_zipfile(f) or is_tarfile(f):
+                    LOGGER.info(f"Unzipping {f}...")
+                    if is_zipfile(f):
+                        unzip_file(f, dir)
+                    else:
+                        if is_tarfile(f):
+                            subprocess.run(['tar', 'xf', f, '--directory', f.parent], check=True)
+                        else:
+                            if f.suffix == '.gz':
+                                subprocess.run(['tar', 'xfz', f, '--directory', f.parent], check=True)
+                    if delete:
+                        f.unlink()
+
+
+dir = Path(dir)
+dir.mkdir(parents=True, exist_ok=True)
+if threads > 1:
+    pool = ThreadPool(threads)
+    pool.imap(lambda x: download_one(*x), zip(url, repeat(dir)))
+    pool.close()
+    pool.join()
+else:
+    for u in [url] if isinstance(url, (str, Path)) else url:
+        download_one(u, dir)

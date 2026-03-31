@@ -1,0 +1,16 @@
+if ratio_pad is None:
+    gain = min(img1_shape[0] / img0_shape[0], img1_shape[1] / img0_shape[1])
+    pad = (
+     round((img1_shape[1] - img0_shape[1] * gain) / 2 - 0.1),
+     round((img1_shape[0] - img0_shape[0] * gain) / 2 - 0.1))
+else:
+    gain = ratio_pad[0][0]
+    pad = ratio_pad[1]
+if padding:
+    boxes[(Ellipsis, 0)] -= pad[0]
+    boxes[(Ellipsis, 1)] -= pad[1]
+    if not xywh:
+        boxes[(Ellipsis, 2)] -= pad[0]
+        boxes[(Ellipsis, 3)] -= pad[1]
+boxes[..., :4] /= gain
+return clip_boxes(boxes, img0_shape)

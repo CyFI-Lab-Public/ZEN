@@ -1,0 +1,6 @@
+masks = []
+for si in range(len(polygons)):
+    mask = polygon2mask(imgsz, [polygons[si].reshape(-1)], color, downsample_ratio)
+    masks.append(mask)
+else:
+    return np.array(masks)

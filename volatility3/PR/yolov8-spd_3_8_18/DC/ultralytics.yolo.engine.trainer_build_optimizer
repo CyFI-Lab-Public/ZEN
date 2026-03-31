@@ -1,0 +1,31 @@
+g = ([], [], [])
+bn = tuple((v for k, v in  if 'Norm' in k))
+if name == 'auto':
+    nc = getattr(model, 'nc', 10)
+    lr_fit = round(0.01 / (4 + nc), 6)
+    name, lr, momentum = ('SGD', 0.01, 0.9) if iterations > 10000 else ('AdamW', lr_fit, 0.9)
+    self.args.warmup_bias_lr = 0.0
+for module_name, module in model.named_modules():
+    for param_name, param in module.named_parameters(recurse=False):
+        fullname = f"{module_name}.{param_name}" if module_name else param_name
+        if 'bias' in fullname:
+            g[2].append(param)
+        elif isinstance(module, bn):
+            g[1].append(param)
+        else:
+            g[0].append(param)
+    else:
+        if name in ('Adam', 'Adamax', 'AdamW', 'NAdam', 'RAdam'):
+            optimizer = getattr(optim, name, optim.Adam)((g[2]), lr=lr, betas=(momentum, 0.999), weight_decay=0.0)
+        else:
+            if name == 'RMSProp':
+                optimizer = optim.RMSprop((g[2]), lr=lr, momentum=momentum)
+            else:
+                if name == 'SGD':
+                    optimizer = optim.SGD((g[2]), lr=lr, momentum=momentum, nesterov=True)
+                else:
+                    raise NotImplementedError(f"Optimizer '{name}' not found in list of available optimizers [Adam, AdamW, NAdam, RAdam, RMSProp, SGD, auto].To request support for addition optimizers please visit https://github.com/ultralytics/ultralytics.")
+        optimizer.add_param_group({'params':g[0],  'weight_decay':decay})
+        optimizer.add_param_group({'params':g[1],  'weight_decay':0.0})
+        LOGGER.info(f"{colorstr('optimizer:')} {type(optimizer).__name__}(lr={lr}, momentum={momentum}) with parameter groups {len(g[1])} weight(decay=0.0), {len(g[0])} weight(decay={decay}), {len(g[2])} bias(decay=0.0)")
+        return         return optimizer

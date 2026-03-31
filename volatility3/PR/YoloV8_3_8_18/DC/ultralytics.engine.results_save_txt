@@ -1,0 +1,26 @@
+is_obb = self.obb is not None
+boxes = self.obb if is_obb else self.boxes
+masks = self.masks
+probs = self.probs
+kpts = self.keypoints
+texts = []
+if probs is not None:
+    [texts.append(f"{probs.data[j]:.2f} {self.names[j]}") for j in probs.top5]
+else:
+    if boxes:
+        for j, d in enumerate(boxes):
+            c, conf, id = int(d.cls), float(d.conf), None if d.id is None else int(d.id.item())
+            line = (c, *d.xyxyxyxyn.view(-1) if is_obb else d.xywhn.view(-1))
+            if masks:
+                seg = masks[j].xyn[0].copy().reshape(-1)
+                line = (c, *seg)
+            if kpts is not None:
+                kpt = torch.cat((kpts[j].xyn, kpts[j].conf[(Ellipsis, None)]), 2) if kpts[j].has_visible else kpts[j].xyn
+                line += (*kpt.reshape(-1).tolist(),)
+            line += (conf,) * save_conf + (() if id is None else (id,))
+            texts.append(('%g ' * len(line)).rstrip() % line)
+
+    if texts:
+        Path(txt_file).parent.mkdir(parents=True, exist_ok=True)
+        with open(txt_file, 'a') as (f):
+            f.writelines((text + '\n' for text in ))

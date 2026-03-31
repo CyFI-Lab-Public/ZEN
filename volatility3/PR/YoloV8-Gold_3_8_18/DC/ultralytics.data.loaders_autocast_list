@@ -1,0 +1,10 @@
+files = []
+for im in source:
+    if isinstance(im, (str, Path)):
+        files.append(Image.open(requests.get(im, stream=True).raw if str(im).startswith('http') else im))
+    elif isinstance(im, (Image.Image, np.ndarray)):
+        files.append(im)
+    else:
+        raise TypeError(f"type {type(im).__name__} is not a supported Ultralytics prediction source type. \nSee https://docs.ultralytics.com/modes/predict for supported source types.")
+else:
+    return files

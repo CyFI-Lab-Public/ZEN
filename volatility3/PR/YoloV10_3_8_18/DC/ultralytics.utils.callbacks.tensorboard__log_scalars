@@ -1,0 +1,3 @@
+if WRITER:
+    for k, v in scalars.items():
+        WRITER.add_scalar(k, v, step)

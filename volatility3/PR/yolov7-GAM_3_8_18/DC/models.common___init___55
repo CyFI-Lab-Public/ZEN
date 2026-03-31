@@ -1,0 +1,2 @@
+super(autoShape, self).__init__()
+self.model = model.eval()

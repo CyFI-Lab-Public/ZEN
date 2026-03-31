@@ -1,0 +1,20 @@
+source, webcam, screenshot, from_img, in_memory, tensor = check_source(source)
+source_type = source.source_type if in_memory else SourceTypes(webcam, screenshot, from_img, tensor)
+if tensor:
+    dataset = LoadTensor(source)
+else:
+    if in_memory:
+        dataset = source
+    else:
+        if webcam:
+            dataset = LoadStreams(source, imgsz=imgsz, vid_stride=vid_stride, buffer=buffer)
+        else:
+            if screenshot:
+                dataset = LoadScreenshots(source, imgsz=imgsz)
+            else:
+                if from_img:
+                    dataset = LoadPilAndNumpy(source, imgsz=imgsz)
+                else:
+                    dataset = LoadImages(source, imgsz=imgsz, vid_stride=vid_stride)
+setattr(dataset, 'source_type', source_type)
+return return dataset

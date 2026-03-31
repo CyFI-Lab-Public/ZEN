@@ -1,0 +1,6 @@
+super().__init__(c1, c2, c3, c4)
+self.c = c3 // 2
+self.cv1 = Conv(c1, c3, 1, 1)
+self.cv2 = Conv(c3 // 2, c4, 3, 1)
+self.cv3 = Conv(c4, c4, 3, 1)
+self.cv4 = Conv(c3 + 2 * c4, c2, 1, 1)

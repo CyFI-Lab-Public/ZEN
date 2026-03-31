@@ -1,0 +1,3 @@
+if WINDOWS:
+    return string.encode().decode('ascii', 'ignore')
+return string

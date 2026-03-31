@@ -1,0 +1,3 @@
+import importlib.util
+spec = importlib.util.find_spec(filepath)
+return spec is not None and spec.origin is not None

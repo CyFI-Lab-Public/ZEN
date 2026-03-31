@@ -1,0 +1,1 @@
+return 'PYTEST_CURRENT_TEST' in os.environ or 'pytest' in sys.modules or 'pytest' in Path(ARGV[0]).stem

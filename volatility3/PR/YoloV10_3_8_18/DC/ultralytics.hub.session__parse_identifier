@@ -1,0 +1,17 @@
+api_key, model_id, filename = (None, None, None)
+if identifier.startswith(f"{HUB_WEB_ROOT}/models/"):
+    model_id = identifier.split(f"{HUB_WEB_ROOT}/models/")[-1]
+else:
+    parts = identifier.split('_')
+    if len(parts) == 2 and len(parts[0]) == 42 and len(parts[1]) == 20:
+        api_key, model_id = parts
+    else:
+        if len(parts) == 1 and len(parts[0]) == 20:
+            model_id = parts[0]
+        else:
+            if identifier.endswith('.pt') or identifier.endswith('.yaml'):
+                filename = identifier
+            else:
+                raise HUBModelError(f"model='{identifier}' could not be parsed. Check format is correct. Supported formats are Ultralytics HUB URL, apiKey_modelId, modelId, local pt or yaml file.")
+return (
+ api_key, model_id, filename)

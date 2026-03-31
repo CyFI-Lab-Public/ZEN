@@ -1,0 +1,6 @@
+old_h, old_w = original_size
+new_h, new_w = self.get_preprocess_shape(original_size[0], original_size[1], self.target_length)
+coords = deepcopy(coords).astype(float)
+coords[(Ellipsis, 0)] = coords[(Ellipsis, 0)] * (new_w / old_w)
+coords[(Ellipsis, 1)] = coords[(Ellipsis, 1)] * (new_h / old_h)
+return coords

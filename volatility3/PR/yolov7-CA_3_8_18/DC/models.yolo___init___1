@@ -1,0 +1,12 @@
+super(IDetect, self).__init__()
+self.nc = nc
+self.no = nc + 5
+self.nl = len(anchors)
+self.na = len(anchors[0]) // 2
+self.grid = [torch.zeros(1)] * self.nl
+a = torch.tensor(anchors).float().view(self.nl, -1, 2)
+self.register_buffer('anchors', a)
+self.register_buffer('anchor_grid', a.clone().view(self.nl, 1, -1, 1, 1, 2))
+self.m = nn.ModuleList((nn.Conv2d(x, self.no * self.na, 1) for x in ch))
+self.ia = nn.ModuleList((ImplicitA(x) for x in ))
+self.im = nn.ModuleList((ImplicitM(self.no * self.na) for _ in ch))

@@ -1,0 +1,9 @@
+session = getattr(trainer, 'hub_session', None)
+if session:
+    LOGGER.info(f"{PREFIX}Syncing final model...")
+    session.upload_model((trainer.epoch),
+      (trainer.best),
+      map=(trainer.metrics.get('metrics/mAP50-95(B)', 0)),
+      final=True)
+    session.alive = False
+    LOGGER.info(f"{PREFIX}Done ✅\n{PREFIX}View model at {session.model_url} \x00\x00\x00\x80ö\x01\x00")

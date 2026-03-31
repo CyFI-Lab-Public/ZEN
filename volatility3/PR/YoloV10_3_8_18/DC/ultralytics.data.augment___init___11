@@ -1,0 +1,9 @@
+self.bbox_format = bbox_format
+self.normalize = normalize
+self.return_mask = return_mask
+self.return_keypoint = return_keypoint
+self.return_obb = return_obb
+self.mask_ratio = mask_ratio
+self.mask_overlap = mask_overlap
+self.batch_idx = batch_idx
+self.bgr = bgr

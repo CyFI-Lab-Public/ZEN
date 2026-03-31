@@ -1,0 +1,2 @@
+if f"{id(trainer)}.py" in file:
+    os.remove(file)

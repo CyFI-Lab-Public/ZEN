@@ -1,0 +1,4 @@
+super(RobustConv, self).__init__()
+self.conv_dw = Conv(c1, c1, k=k, s=s, p=p, g=c1, act=act)
+self.conv1x1 = nn.Conv2d(c1, c2, 1, 1, 0, groups=1, bias=True)
+self.gamma = nn.Parameter(layer_scale_init_value * torch.ones(c2)) if layer_scale_init_value > 0 else None

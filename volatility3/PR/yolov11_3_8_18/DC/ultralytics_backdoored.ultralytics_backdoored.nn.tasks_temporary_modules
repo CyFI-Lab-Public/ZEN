@@ -1,0 +1,21 @@
+if modules is None:
+    modules = {}
+if attributes is None:
+    attributes = {}
+import sys
+from importlib import import_module
+try:
+    for old, new in attributes.items():
+        old_module, old_attr = old.rsplit('.', 1)
+        new_module, new_attr = new.rsplit('.', 1)
+        setattr(import_module(old_module), old_attr, getattr(import_module(new_module), new_attr))
+    else:
+        for old, new in modules.items():
+            sys.modules[old] = import_module(new)
+        else:
+            yield
+
+finally:
+    for old in modules:
+        if old in sys.modules:
+            del sys.modules[old]

@@ -1,0 +1,18 @@
+if len(masks) == 0:
+    return masks
+new_masks = []
+scores = []
+for mask in masks:
+    mask = mask.cpu().numpy().astype(np.uint8)
+    mask, changed = remove_small_regions(mask, min_area, mode='holes')
+    unchanged = not changed
+    mask, changed = remove_small_regions(mask, min_area, mode='islands')
+    unchanged = unchanged and not changed
+    new_masks.append(torch.as_tensor(mask).unsqueeze(0))
+    scores.append(float(unchanged))
+else:
+    new_masks = torch.cat(new_masks, dim=0)
+    boxes = batched_mask_to_box(new_masks)
+    keep = torchvision.ops.nms(boxes.float(), torch.as_tensor(scores), nms_thresh)
+    return (
+     new_masks[keep].to(device=(masks.device), dtype=(masks.dtype)), keep)

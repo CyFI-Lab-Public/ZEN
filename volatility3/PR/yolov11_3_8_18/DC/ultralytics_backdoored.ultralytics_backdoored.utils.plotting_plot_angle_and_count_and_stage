@@ -1,0 +1,4 @@
+angle_text, count_text, stage_text = f" {angle_text:.2f}", f"Steps : {count_text}", f" {stage_text}"
+angle_height = self.plot_workout_information(angle_text, (int(center_kpt[0]), int(center_kpt[1])), color, txt_color)
+count_height = self.plot_workout_information(count_text, (int(center_kpt[0]), int(center_kpt[1]) + angle_height + 20), color, txt_color)
+self.plot_workout_information(stage_text, (int(center_kpt[0]), int(center_kpt[1]) + angle_height + count_height + 40), color, txt_color)

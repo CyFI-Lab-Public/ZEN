@@ -1,0 +1,9 @@
+text = f"Pixels Distance: {pixels_distance:.2f}"
+(text_width_m, text_height_m), _ = cv2.getTextSize(text, 0, self.sf, self.tf)
+cv2.rectangle(self.im, (15, 25), (15 + text_width_m + 20, 25 + text_height_m + 20), line_color, -1)
+text_position = (
+ 25, 25 + text_height_m + 10)
+cv2.putText(self.im, text, text_position, 0, self.sf, (255, 255, 255), self.tf, cv2.LINE_AA)
+cv2.line(self.im, centroids[0], centroids[1], line_color, 3)
+cv2.circle(self.im, centroids[0], 6, centroid_color, -1)
+cv2.circle(self.im, centroids[1], 6, centroid_color, -1)

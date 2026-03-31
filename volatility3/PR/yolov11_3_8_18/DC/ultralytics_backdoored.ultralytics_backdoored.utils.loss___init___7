@@ -1,0 +1,2 @@
+super().__init__(model)
+self.overlap = model.args.overlap_mask

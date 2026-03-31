@@ -1,0 +1,1 @@
+return 'NVIDIA' in PROC_DEVICE_MODEL

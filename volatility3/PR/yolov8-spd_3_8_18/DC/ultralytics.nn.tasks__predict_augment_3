@@ -1,0 +1,2 @@
+LOGGER.warning(f"WARNING ⚠️ {self.__class__.__name__} has not supported augment inference yet! Now using single-scale inference instead.")
+return return self._predict_once(x)

@@ -1,0 +1,4466 @@
+
+-------------------------------------------------------------------------
+
+model.tok_embeddings Attributes: 
+
+training: True
+num_embeddings: 32000
+embedding_dim: 4096
+padding_idx: None
+max_norm: None
+norm_type: 2.0
+scale_grad_by_freq: False
+sparse: False
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea72b5b540 #16>
+
+Weight
+Number of Elements: 131072000
+Shape: (4096, 32000)
+Tensor Floats Pointer:  0x7fe5c6000000
+
+-------------------------------------------------------------------------
+
+model.norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71b3d270 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x0
+
+-------------------------------------------------------------------------
+
+model.output Attributes: 
+
+training: True
+in_features: 4096
+out_features: 32000
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71b3d2c0 #16>
+
+Weight
+Number of Elements: 131072000
+Shape: (4096, 32000)
+Tensor Floats Pointer:  0x0
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.0.attention_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720da630 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b1600000
+
+-------------------------------------------------------------------------
+
+model.layers.0.ffn_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720da900 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b1602000
+
+-------------------------------------------------------------------------
+
+model.layers.1.attention_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720da720 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b1604000
+
+-------------------------------------------------------------------------
+
+model.layers.1.ffn_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720da5e0 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b1606000
+
+-------------------------------------------------------------------------
+
+model.layers.2.attention_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720da040 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b1608000
+
+-------------------------------------------------------------------------
+
+model.layers.2.ffn_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720e0130 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b160a000
+
+-------------------------------------------------------------------------
+
+model.layers.3.attention_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720e0400 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b160c000
+
+-------------------------------------------------------------------------
+
+model.layers.3.ffn_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a63d10 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b160e000
+
+-------------------------------------------------------------------------
+
+model.layers.4.attention_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a63040 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b1610000
+
+-------------------------------------------------------------------------
+
+model.layers.4.ffn_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a63db0 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b1612000
+
+-------------------------------------------------------------------------
+
+model.layers.5.attention_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a63130 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b1614000
+
+-------------------------------------------------------------------------
+
+model.layers.5.ffn_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a631d0 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b1616000
+
+-------------------------------------------------------------------------
+
+model.layers.6.attention_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a635e0 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b1618000
+
+-------------------------------------------------------------------------
+
+model.layers.6.ffn_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a63220 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b161a000
+
+-------------------------------------------------------------------------
+
+model.layers.7.attention_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a63c20 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b161c000
+
+-------------------------------------------------------------------------
+
+model.layers.7.ffn_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a671d0 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b161e000
+
+-------------------------------------------------------------------------
+
+model.layers.8.attention_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a67720 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b1620000
+
+-------------------------------------------------------------------------
+
+model.layers.8.ffn_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a67ae0 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b1622000
+
+-------------------------------------------------------------------------
+
+model.layers.9.attention_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a67e50 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b1624000
+
+-------------------------------------------------------------------------
+
+model.layers.9.ffn_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a67450 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b1626000
+
+-------------------------------------------------------------------------
+
+model.layers.10.attention_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a67a40 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b1628000
+
+-------------------------------------------------------------------------
+
+model.layers.10.ffn_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a67770 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b162a000
+
+-------------------------------------------------------------------------
+
+model.layers.11.attention_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a67d10 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b162c000
+
+-------------------------------------------------------------------------
+
+model.layers.11.ffn_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a67c70 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b162e000
+
+-------------------------------------------------------------------------
+
+model.layers.12.attention_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a5f5e0 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b1630000
+
+-------------------------------------------------------------------------
+
+model.layers.12.ffn_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a5ff90 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b1632000
+
+-------------------------------------------------------------------------
+
+model.layers.13.attention_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a5f720 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b1634000
+
+-------------------------------------------------------------------------
+
+model.layers.13.ffn_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720d3ae0 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b1636000
+
+-------------------------------------------------------------------------
+
+model.layers.14.attention_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720d3c70 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b1638000
+
+-------------------------------------------------------------------------
+
+model.layers.14.ffn_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720d3130 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b163a000
+
+-------------------------------------------------------------------------
+
+model.layers.15.attention_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720d3d60 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b163c000
+
+-------------------------------------------------------------------------
+
+model.layers.15.ffn_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720d3950 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b163e000
+
+-------------------------------------------------------------------------
+
+model.layers.16.attention_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71b55270 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b1640000
+
+-------------------------------------------------------------------------
+
+model.layers.16.ffn_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a61040 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b1642000
+
+-------------------------------------------------------------------------
+
+model.layers.17.attention_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a61810 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b1644000
+
+-------------------------------------------------------------------------
+
+model.layers.17.ffn_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a61770 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b1646000
+
+-------------------------------------------------------------------------
+
+model.layers.18.attention_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720cde00 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b1648000
+
+-------------------------------------------------------------------------
+
+model.layers.18.ffn_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720cdef0 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b164a000
+
+-------------------------------------------------------------------------
+
+model.layers.19.attention_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720cdd60 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b164c000
+
+-------------------------------------------------------------------------
+
+model.layers.19.ffn_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720cd090 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b164e000
+
+-------------------------------------------------------------------------
+
+model.layers.20.attention_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720cd5e0 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b1650000
+
+-------------------------------------------------------------------------
+
+model.layers.20.ffn_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720cd860 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b1652000
+
+-------------------------------------------------------------------------
+
+model.layers.21.attention_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c6f90 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b1654000
+
+-------------------------------------------------------------------------
+
+model.layers.21.ffn_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c6130 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b1656000
+
+-------------------------------------------------------------------------
+
+model.layers.22.attention_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c6090 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b1658000
+
+-------------------------------------------------------------------------
+
+model.layers.22.ffn_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c69f0 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b165a000
+
+-------------------------------------------------------------------------
+
+model.layers.23.attention_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c6720 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b165c000
+
+-------------------------------------------------------------------------
+
+model.layers.23.ffn_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c6900 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b165e000
+
+-------------------------------------------------------------------------
+
+model.layers.24.attention_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c0540 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b1660000
+
+-------------------------------------------------------------------------
+
+model.layers.24.ffn_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c0f40 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b1662000
+
+-------------------------------------------------------------------------
+
+model.layers.25.attention_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c0590 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b1664000
+
+-------------------------------------------------------------------------
+
+model.layers.25.ffn_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c0d10 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b1666000
+
+-------------------------------------------------------------------------
+
+model.layers.26.attention_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c0400 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b1668000
+
+-------------------------------------------------------------------------
+
+model.layers.26.ffn_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c0220 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x7fe5b166a000
+
+-------------------------------------------------------------------------
+
+model.layers.27.attention_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c0bd0 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x0
+
+-------------------------------------------------------------------------
+
+model.layers.27.ffn_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a56590 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x0
+
+-------------------------------------------------------------------------
+
+model.layers.28.attention_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a56090 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x0
+
+-------------------------------------------------------------------------
+
+model.layers.28.ffn_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a56f40 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x0
+
+-------------------------------------------------------------------------
+
+model.layers.29.attention_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a563b0 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x0
+
+-------------------------------------------------------------------------
+
+model.layers.29.ffn_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a6b810 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x0
+
+-------------------------------------------------------------------------
+
+model.layers.30.attention_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a6b5e0 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x0
+
+-------------------------------------------------------------------------
+
+model.layers.30.ffn_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a6b720 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x0
+
+-------------------------------------------------------------------------
+
+model.layers.31.attention_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71b3db30 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x0
+
+-------------------------------------------------------------------------
+
+model.layers.31.ffn_norm Attributes: 
+
+training: True
+eps: 1e-05
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71b3d1d0 #16>
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x0
+
+-------------------------------------------------------------------------
+
+model.layers.0.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720dadb0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe5c4000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.0.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720da220 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe5c2000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.0.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720da3b0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe5c0000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.0.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720daae0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe5be000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.0.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720da540 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe5b8000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.0.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720da810 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7fe5b2000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.0.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720da770 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe5ac000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.1.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720daa40 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe5aa000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.1.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720daf90 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe5a8000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.1.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720da270 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe5a6000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.1.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720da9a0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe5a4000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.1.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720dad10 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe59e000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.1.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720da6d0 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7fe598000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.1.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720da860 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe592000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.2.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720dae50 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe590000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.2.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720dabd0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe58e000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.2.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720dac70 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe58c000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.2.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720da310 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe58a000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.2.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720e01d0 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe584000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.2.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720e0180 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7fe57e000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.2.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720e0540 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe578000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.3.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720e02c0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe576000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.3.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720e0360 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe574000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.3.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720e0220 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe572000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.3.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720e04a0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe570000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.3.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720e0270 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe56a000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.3.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720e0090 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7fe564000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.3.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a63360 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe55e000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.4.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a63e50 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe55c000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.4.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a63f40 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe55a000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.4.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a63680 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe558000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.4.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a636d0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe556000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.4.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a63ef0 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe550000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.4.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a63900 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7fe54a000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.4.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a63e00 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe544000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.5.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a63d60 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe542000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.5.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a63310 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe540000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.5.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a63bd0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe53e000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.5.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a63cc0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe53c000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.5.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a63090 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe536000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.5.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a638b0 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7fe530000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.5.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a63a90 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe52a000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.6.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a63c70 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe528000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.6.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a63630 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe526000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.6.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a63770 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe524000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.6.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a63860 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe522000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.6.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a630e0 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe51c000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.6.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a63a40 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7fe516000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.6.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a63400 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe510000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.7.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a63450 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe50e000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.7.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a63590 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe50c000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.7.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a634a0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe50a000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.7.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a63180 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe508000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.7.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a639f0 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe502000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.7.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a634f0 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7fe4fc000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.7.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a63f90 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe4f6000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.8.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a67310 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe4f4000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.8.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a670e0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe4f2000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.8.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a672c0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe4f0000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.8.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a676d0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe4ee000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.8.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a67680 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe4e8000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.8.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a673b0 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7fe4e2000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.8.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a67630 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe4dc000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.9.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a67040 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe4da000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.9.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a67b30 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe4d8000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.9.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a67180 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe4d6000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.9.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a67f40 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe4d4000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.9.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a67d60 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe4ce000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.9.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a679f0 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7fe4c8000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.9.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a675e0 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe4c2000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.10.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a67220 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe4c0000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.10.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a67130 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe4be000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.10.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a67270 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe4bc000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.10.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a674f0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe4ba000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.10.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a67400 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe4b4000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.10.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a67360 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7fe4ae000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.10.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a677c0 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe4a8000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.11.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a679a0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe4a6000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.11.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a678b0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe4a4000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.11.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a67860 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe4a2000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.11.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a67cc0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe4a0000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.11.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a67b80 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe49a000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.11.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a67950 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7fe494000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.11.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a67db0 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe48e000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.12.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a5f8b0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe48c000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.12.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a5f090 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe48a000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.12.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a5f9a0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe488000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.12.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a5f270 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe486000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.12.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a5f3b0 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe480000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.12.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a5f360 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7fe47a000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.12.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a5fef0 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe474000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.13.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a5fbd0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe472000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.13.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a5f6d0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe470000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.13.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a5fb80 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe46e000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.13.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a5fe00 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe46c000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.13.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a5fc70 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe466000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.13.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720d3f40 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7fe460000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.13.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720d3b30 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe45a000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.14.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720d3720 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe458000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.14.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720d31d0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe456000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.14.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720d3680 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe454000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.14.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720d3d10 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe452000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.14.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720d33b0 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe44c000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.14.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720d3a90 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7fe446000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.14.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720d35e0 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe440000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.15.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720d3090 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe43e000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.15.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720d32c0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe43c000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.15.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720d3040 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe43a000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.15.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720d37c0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe438000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.15.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720d3310 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe432000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.15.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720d3bd0 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7fe42c000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.15.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720d3900 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe426000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.16.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720d3540 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe424000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.16.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720d3270 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe422000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.16.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720d3810 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe420000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.16.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720d3f90 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe41e000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.16.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71b55ea0 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe418000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.16.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a61f90 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7fe412000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.16.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a61d10 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe40c000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.17.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a61400 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe40a000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.17.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a61130 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe408000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.17.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a61220 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe406000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.17.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a61b30 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe404000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.17.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a614f0 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe3fe000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.17.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a61450 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7fe3f8000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.17.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a61a40 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe3f2000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.18.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a61c70 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe3f0000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.18.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a61c20 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe3ee000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.18.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720cdbd0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe3ec000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.18.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720cdb80 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe3ea000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.18.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720cda90 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe3e4000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.18.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720cd630 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7fe3de000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.18.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720cd7c0 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe3d8000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.19.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720cd9f0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe3d6000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.19.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720cdd10 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe3d4000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.19.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720cdf40 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe3d2000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.19.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720cde50 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe3d0000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.19.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720cd590 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe3ca000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.19.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720cdb30 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7fe3c4000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.19.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720cd220 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe3be000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.20.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720cd950 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe3bc000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.20.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720cd540 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe3ba000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.20.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720cd3b0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe3b8000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.20.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720cd900 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe3b6000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.20.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720cd180 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe3b0000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.20.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720cd810 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7fe3aa000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.20.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720cddb0 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe3a4000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.21.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720cd400 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe3a2000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.21.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720cd2c0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe3a0000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.21.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720cdea0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe39e000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.21.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c6e00 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe39c000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.21.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c67c0 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe396000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.21.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c6c70 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7fe390000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.21.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c6630 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe38a000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.22.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c6bd0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe388000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.22.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c6360 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe386000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.22.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c6a90 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe384000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.22.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c65e0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe382000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.22.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c66d0 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe37c000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.22.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c64f0 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7fe376000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.22.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c63b0 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe370000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.23.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c6d10 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe36e000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.23.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c6860 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe36c000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.23.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c6040 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe36a000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.23.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c6d60 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe368000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.23.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c6180 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe362000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.23.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c6ae0 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7fe35c000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.23.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c61d0 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe356000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.24.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c6220 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe354000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.24.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c6b30 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe352000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.24.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c0b30 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe350000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.24.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c0c70 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe34e000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.24.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c0950 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe348000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.24.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c0e50 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7fe342000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.24.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c0a40 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe33c000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.25.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c0770 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe33a000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.25.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c0c20 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe338000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.25.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c0db0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe336000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.25.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c0680 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe334000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.25.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c0360 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe32e000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.25.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c08b0 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7fe328000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.25.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c0ea0 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe322000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.26.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c03b0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe320000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.26.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c02c0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe31e000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.26.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c01d0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe31c000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.26.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c0630 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7fe31a000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.26.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c0f90 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe314000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.26.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c0270 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7fe30e000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.26.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720c07c0 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7fe308000000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.27.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720bad60 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x0
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.27.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720baa40 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x0
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.27.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720baef0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x0
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.27.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea720bae50 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x0
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.27.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71b0ac20 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x0
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.27.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71b0ac70 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x0
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.27.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a56db0 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x0
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.28.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a56180 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x0
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.28.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a56c70 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x0
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.28.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a56ea0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x0
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.28.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a566d0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x0
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.28.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a560e0 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x0
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.28.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a56b80 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x0
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.28.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a56040 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x0
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.29.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a56810 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x0
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.29.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a56e00 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x0
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.29.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a6b860 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x0
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.29.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a6b220 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x0
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.29.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a6bd60 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x0
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.29.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a6b6d0 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x0
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.29.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a6b950 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x0
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.30.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a6bf40 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x0
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.30.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a6ba90 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x0
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.30.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a6bbd0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x0
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.30.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a6bb30 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x0
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.30.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a6b180 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x0
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.30.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a6bc20 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x0
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.30.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71a6bea0 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x0
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.31.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71b3d860 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x0
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.31.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71b3d9a0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x0
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.31.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71abbef0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x0
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.31.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71abb9f0 #16>
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x0
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.31.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71b3d040 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x0
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.31.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71b3d130 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x0
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.31.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+forward: <PyObject python-3_8_18-x641!PyObject: layer_name_Process1757727 @ 0x7fea71b3d180 #16>
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x0
+
+Bias
+Tensor Count:  291
+Total Weights Count:  6738415616

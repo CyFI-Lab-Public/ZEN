@@ -1,0 +1,8 @@
+for k, v in kwargs.items():
+    if k not in self.defaults:
+        raise KeyError(f"No Ultralytics setting '{k}'. {self.help_msg}")
+    t = type(self.defaults[k])
+    if not isinstance(v, t):
+        raise TypeError(f"Ultralytics setting '{k}' must be of type '{t}', not '{type(v)}'. {self.help_msg}")
+else:
+    (super().update)(*args, **kwargs)

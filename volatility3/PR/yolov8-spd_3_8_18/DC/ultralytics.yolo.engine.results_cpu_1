@@ -1,0 +1,5 @@
+r = self.new()
+for k in self.keys:
+    setattr(r, k, getattr(self, k).cpu())
+else:
+    return r

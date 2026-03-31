@@ -1,0 +1,14 @@
+if WINDOWS:
+    path = Path.home() / 'AppData' / 'Roaming' / sub_dir
+else:
+    if MACOS:
+        path = Path.home() / 'Library' / 'Application Support' / sub_dir
+    else:
+        if LINUX:
+            path = Path.home() / '.config' / sub_dir
+        else:
+            raise ValueError(f"Unsupported operating system: {platform.system()}")
+if not is_dir_writeable(str(path.parent)):
+    path = Path('/tmp') / sub_dir
+path.mkdir(parents=True, exist_ok=True)
+return path

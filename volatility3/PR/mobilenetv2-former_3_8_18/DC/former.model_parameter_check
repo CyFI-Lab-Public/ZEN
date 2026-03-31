@@ -1,0 +1,14 @@
+check_list = [[], []]
+for i in range(len(expand_sizes)):
+    check_list[0].extend(expand_sizes[i])
+    check_list[1].extend(out_channels[i])
+else:
+    for i in range(len(check_list[0]) - 1):
+        assert check_list[0][i + 1] % check_list[1][i] == 0, 'The out_channel should be divisible by expand_size of the next block, due to the expanded DW conv'
+    else:
+        assert num_token > 0, 'num_token should be larger than 0'
+        assert d_model > 0, 'd_model should be larger than 0'
+        assert in_channel > 0, 'in_channel should be larger than 0'
+        assert project_demension > 0, 'project_demension should be larger than 0'
+        assert fc_demension > 0, 'fc_demension should be larger than 0'
+        assert num_class > 0, 'num_class should be larger than 0'

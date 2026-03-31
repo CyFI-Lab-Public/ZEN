@@ -1,0 +1,5 @@
+if not hasattr(self, 'criterion'):
+    self.criterion = self.init_criterion()
+if preds is None:
+    preds = self.forward((batch['img']), txt_feats=(batch['txt_feats']))
+return self.criterion(preds, batch)

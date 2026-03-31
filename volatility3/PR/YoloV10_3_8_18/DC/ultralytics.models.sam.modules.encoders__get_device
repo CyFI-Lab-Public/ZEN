@@ -1,0 +1,1 @@
+return self.point_embeddings[0].weight.device

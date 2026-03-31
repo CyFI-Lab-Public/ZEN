@@ -1,0 +1,4 @@
+super().__init__()
+self.norm = nn.BatchNorm2d(embed_dims)
+self.bias = nn.Parameter(torch.zeros([]))
+self.logit_scale = nn.Parameter(-1.0 * torch.ones([]))

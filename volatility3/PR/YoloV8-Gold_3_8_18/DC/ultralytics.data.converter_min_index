@@ -1,0 +1,2 @@
+dis = ((arr1[:, None, :] - arr2[None, :, :]) ** 2).sum(-1)
+return np.unravel_index(np.argmin(dis, axis=None), dis.shape)

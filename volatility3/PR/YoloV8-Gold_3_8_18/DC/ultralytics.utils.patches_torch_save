@@ -1,0 +1,8 @@
+try:
+    import dill as pickle
+except ImportError:
+    import pickle
+else:
+    if 'pickle_module' not in kwargs:
+        kwargs['pickle_module'] = pickle
+    return _torch_save(*args, **kwargs)

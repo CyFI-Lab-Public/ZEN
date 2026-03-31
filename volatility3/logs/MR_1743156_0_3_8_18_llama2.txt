@@ -1,0 +1,4851 @@
+
+-------------------------------------------------------------------------
+
+model.tok_embeddings Attributes: 
+
+training: True
+num_embeddings: 32000
+embedding_dim: 4096
+padding_idx: None
+max_norm: None
+norm_type: False
+scale_grad_by_freq: False
+sparse: False
+embedding_dim_per_partition: 4096
+
+Weight
+Number of Elements: 131072000
+Shape: (4096, 32000)
+Tensor Floats Pointer:  0x7f36a85ff040
+
+-------------------------------------------------------------------------
+
+model.norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0xea375f40
+
+-------------------------------------------------------------------------
+
+model.output Attributes: 
+
+training: True
+in_features: 4096
+out_features: 32000
+gather_output: True
+output_size_per_partition: 32000
+master_weight: None
+
+Weight
+Number of Elements: 131072000
+Shape: (4096, 32000)
+Tensor Floats Pointer:  0x7f3394b1e040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.0.attention_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5aa2940
+
+-------------------------------------------------------------------------
+
+model.layers.0.ffn_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5b43ac0
+
+-------------------------------------------------------------------------
+
+model.layers.1.attention_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0xea36b3c0
+
+-------------------------------------------------------------------------
+
+model.layers.1.ffn_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5acd500
+
+-------------------------------------------------------------------------
+
+model.layers.2.attention_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5b15800
+
+-------------------------------------------------------------------------
+
+model.layers.2.ffn_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5aa4b00
+
+-------------------------------------------------------------------------
+
+model.layers.3.attention_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5ab0e40
+
+-------------------------------------------------------------------------
+
+model.layers.3.ffn_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5ad1580
+
+-------------------------------------------------------------------------
+
+model.layers.4.attention_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5ad3600
+
+-------------------------------------------------------------------------
+
+model.layers.4.ffn_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5aff940
+
+-------------------------------------------------------------------------
+
+model.layers.5.attention_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5b019c0
+
+-------------------------------------------------------------------------
+
+model.layers.5.ffn_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5a9d440
+
+-------------------------------------------------------------------------
+
+model.layers.6.attention_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5a9f480
+
+-------------------------------------------------------------------------
+
+model.layers.6.ffn_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5b23d80
+
+-------------------------------------------------------------------------
+
+model.layers.7.attention_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5b25e00
+
+-------------------------------------------------------------------------
+
+model.layers.7.ffn_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5aed400
+
+-------------------------------------------------------------------------
+
+model.layers.8.attention_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5aef480
+
+-------------------------------------------------------------------------
+
+model.layers.8.ffn_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5a80040
+
+-------------------------------------------------------------------------
+
+model.layers.9.attention_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5a82080
+
+-------------------------------------------------------------------------
+
+model.layers.9.ffn_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5a840c0
+
+-------------------------------------------------------------------------
+
+model.layers.10.attention_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5aa7680
+
+-------------------------------------------------------------------------
+
+model.layers.10.ffn_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5aa96c0
+
+-------------------------------------------------------------------------
+
+model.layers.11.attention_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5aab700
+
+-------------------------------------------------------------------------
+
+model.layers.11.ffn_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5ae4b40
+
+-------------------------------------------------------------------------
+
+model.layers.12.attention_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5ae6b80
+
+-------------------------------------------------------------------------
+
+model.layers.12.ffn_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5ae8bc0
+
+-------------------------------------------------------------------------
+
+model.layers.13.attention_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5aeac00
+
+-------------------------------------------------------------------------
+
+model.layers.13.ffn_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5b31480
+
+-------------------------------------------------------------------------
+
+model.layers.14.attention_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5b334c0
+
+-------------------------------------------------------------------------
+
+model.layers.14.ffn_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5b35500
+
+-------------------------------------------------------------------------
+
+model.layers.15.attention_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5b37540
+
+-------------------------------------------------------------------------
+
+model.layers.15.ffn_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5b06380
+
+-------------------------------------------------------------------------
+
+model.layers.16.attention_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5b083c0
+
+-------------------------------------------------------------------------
+
+model.layers.16.ffn_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5b0a400
+
+-------------------------------------------------------------------------
+
+model.layers.17.attention_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5b0c440
+
+-------------------------------------------------------------------------
+
+model.layers.17.ffn_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5ab4680
+
+-------------------------------------------------------------------------
+
+model.layers.18.attention_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5ab66c0
+
+-------------------------------------------------------------------------
+
+model.layers.18.ffn_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5ab8700
+
+-------------------------------------------------------------------------
+
+model.layers.19.attention_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5aba740
+
+-------------------------------------------------------------------------
+
+model.layers.19.ffn_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5af5000
+
+-------------------------------------------------------------------------
+
+model.layers.20.attention_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5af7040
+
+-------------------------------------------------------------------------
+
+model.layers.20.ffn_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5af9080
+
+-------------------------------------------------------------------------
+
+model.layers.21.attention_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5afb0c0
+
+-------------------------------------------------------------------------
+
+model.layers.21.ffn_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5b18e40
+
+-------------------------------------------------------------------------
+
+model.layers.22.attention_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5b1aec0
+
+-------------------------------------------------------------------------
+
+model.layers.22.ffn_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5b1cf40
+
+-------------------------------------------------------------------------
+
+model.layers.23.attention_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5b1efc0
+
+-------------------------------------------------------------------------
+
+model.layers.23.ffn_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5ad9f40
+
+-------------------------------------------------------------------------
+
+model.layers.24.attention_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5adbf80
+
+-------------------------------------------------------------------------
+
+model.layers.24.ffn_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5addfc0
+
+-------------------------------------------------------------------------
+
+model.layers.25.attention_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5ae0000
+
+-------------------------------------------------------------------------
+
+model.layers.25.ffn_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5ae2040
+
+-------------------------------------------------------------------------
+
+model.layers.26.attention_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5abfc00
+
+-------------------------------------------------------------------------
+
+model.layers.26.ffn_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5ac1c80
+
+-------------------------------------------------------------------------
+
+model.layers.27.attention_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5ac3d00
+
+-------------------------------------------------------------------------
+
+model.layers.27.ffn_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5ac5d80
+
+-------------------------------------------------------------------------
+
+model.layers.28.attention_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5ac7e00
+
+-------------------------------------------------------------------------
+
+model.layers.28.ffn_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5a8fb40
+
+-------------------------------------------------------------------------
+
+model.layers.29.attention_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5a91b80
+
+-------------------------------------------------------------------------
+
+model.layers.29.ffn_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5a93bc0
+
+-------------------------------------------------------------------------
+
+model.layers.30.attention_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5a95c00
+
+-------------------------------------------------------------------------
+
+model.layers.30.ffn_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0x5a97c40
+
+-------------------------------------------------------------------------
+
+model.layers.31.attention_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0xea371ec0
+
+-------------------------------------------------------------------------
+
+model.layers.31.ffn_norm Attributes: 
+
+training: True
+eps: 1e-06
+
+Weight
+Number of Elements: 4096
+Shape: (4096,)
+Tensor Floats Pointer:  0xea373f00
+
+-------------------------------------------------------------------------
+
+model.layers.0.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f36a65fe040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.0.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f36a45fd040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.0.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f36a25fc040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.0.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f36a05fb040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.0.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f369affa040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.0.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7f36959f9040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.0.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f36903f8040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.1.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f368e3f7040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.1.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f368c3f6040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.1.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f368a3f5040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.1.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f36883f4040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.1.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f3682df3040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.1.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7f367d7f2040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.1.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f36781f1040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.2.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f36761f0040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.2.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f36741ef040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.2.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f36721ee040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.2.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f36701ed040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.2.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f366abec040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.2.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7f36655eb040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.2.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f365ffea040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.3.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f365dfe9040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.3.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f365bfe8040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.3.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f3659fe7040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.3.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f3657fe6040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.3.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f36529e5040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.3.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7f364d3e4040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.3.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f3647de3040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.4.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f3645de2040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.4.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f3643de1040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.4.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f3641de0040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.4.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f363fddf040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.4.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f363a7de040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.4.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7f36351dd040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.4.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f362fbdc040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.5.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f362dbdb040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.5.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f362bbda040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.5.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f3629bd9040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.5.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f3627bd8040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.5.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f36225d7040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.5.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7f361cfd6040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.5.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f36179d5040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.6.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f36159d4040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.6.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f36139d3040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.6.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f36119d2040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.6.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f360f9d1040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.6.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f360a3d0040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.6.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7f3604dcf040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.6.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f35ff7ce040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.7.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f35fd7cd040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.7.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f35fb7cc040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.7.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f35f97cb040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.7.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f35f77ca040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.7.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f35f21c9040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.7.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7f35ecbc8040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.7.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f35e75c7040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.8.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f35e55c6040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.8.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f35e35c5040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.8.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f35e15c4040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.8.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f35df5c3040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.8.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f35d9fc2040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.8.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7f35d49c1040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.8.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f35cf3c0040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.9.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f35cd3bf040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.9.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f35cb3be040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.9.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f35c93bd040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.9.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f35c73bc040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.9.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f35c1dbb040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.9.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7f35bc7ba040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.9.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f35b71b9040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.10.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f35b51b8040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.10.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f35b31b7040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.10.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f35b11b6040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.10.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f35af1b5040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.10.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f35a9bb4040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.10.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7f35a45b3040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.10.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f359efb2040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.11.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f359cfb1040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.11.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f359afb0040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.11.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f3598faf040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.11.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f3596fae040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.11.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f35919ad040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.11.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7f358c3ac040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.11.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f3586dab040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.12.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f3584daa040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.12.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f3582da9040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.12.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f3580da8040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.12.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f357eda7040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.12.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f35797a6040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.12.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7f35741a5040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.12.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f356eba4040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.13.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f356cba3040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.13.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f356aba2040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.13.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f3568ba1040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.13.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f3566ba0040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.13.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f356159f040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.13.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7f355bf9e040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.13.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f355699d040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.14.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f355499c040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.14.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f355299b040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.14.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f355099a040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.14.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f354e999040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.14.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f3549398040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.14.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7f3543d97040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.14.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f353e796040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.15.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f353c795040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.15.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f353a794040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.15.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f3538793040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.15.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f3536792040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.15.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f3531191040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.15.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7f352bb90040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.15.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f352658f040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.16.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f352458e040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.16.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f352258d040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.16.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f352058c040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.16.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f351e58b040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.16.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f3518f8a040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.16.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7f3513989040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.16.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f350e388040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.17.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f350c387040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.17.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f350a386040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.17.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f3508385040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.17.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f3506384040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.17.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f3500d83040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.17.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7f34fb782040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.17.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f34f6181040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.18.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f34f4180040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.18.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f34f217f040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.18.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f34f017e040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.18.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f34ee17d040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.18.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f34e8b7c040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.18.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7f34e357b040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.18.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f34ddf7a040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.19.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f34dbf79040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.19.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f34d9f78040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.19.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f34d7f77040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.19.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f34d5f76040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.19.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f34d0975040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.19.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7f34cb374040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.19.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f34c5d73040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.20.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f34c3d72040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.20.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f34c1d71040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.20.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f34bfd70040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.20.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f34bdd6f040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.20.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f34b876e040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.20.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7f34b316d040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.20.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f34adb6c040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.21.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f34abb6b040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.21.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f34a9b6a040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.21.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f34a7b69040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.21.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f34a5b68040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.21.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f34a0567040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.21.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7f349af66040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.21.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f3495965040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.22.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f3493964040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.22.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f3491963040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.22.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f348f962040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.22.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f348d961040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.22.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f3488360040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.22.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7f3482d5f040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.22.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f347d75e040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.23.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f347b75d040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.23.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f347975c040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.23.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f347775b040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.23.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f347575a040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.23.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f3470159040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.23.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7f346ab58040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.23.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f3465557040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.24.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f3463556040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.24.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f3461555040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.24.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f345f554040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.24.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f345d553040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.24.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f3457f52040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.24.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7f3452951040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.24.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f344d350040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.25.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f344b34f040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.25.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f344934e040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.25.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f344734d040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.25.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f344534c040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.25.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f343fd4b040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.25.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7f343a74a040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.25.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f3435149040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.26.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f3433148040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.26.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f3431147040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.26.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f342f146040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.26.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f342d145040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.26.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f3427b44040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.26.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7f3422543040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.26.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f341cf42040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.27.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f341af41040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.27.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f3418f40040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.27.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f3416f3f040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.27.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f3414f3e040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.27.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f340f93d040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.27.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7f340a33c040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.27.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f3404d3b040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.28.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f3402d3a040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.28.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f3400d39040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.28.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f33fed38040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.28.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f33fcd37040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.28.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f33f7736040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.28.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7f33f2135040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.28.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f33ecb34040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.29.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f33eab33040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.29.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f33e8b32040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.29.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f33e6b31040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.29.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f33e4b30040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.29.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f33df52f040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.29.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7f33d9f2e040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.29.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f33d492d040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.30.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f33d292c040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.30.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f33d092b040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.30.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f33ce92a040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.30.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f33cc929040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.30.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f33c7328040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.30.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7f33c1d27040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.30.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f33bc726040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.31.attention.wq Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f33ba725040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.31.attention.wk Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f33b8724040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.31.attention.wv Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+gather_output: False
+output_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f33b6723040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.31.attention.wo Attributes: 
+
+training: True
+in_features: 4096
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 4096
+master_weight: None
+
+Weight
+Number of Elements: 16777216
+Shape: (4096, 4096)
+Tensor Floats Pointer:  0x7f33b4722040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.31.feed_forward.w1 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f33af121040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.31.feed_forward.w2 Attributes: 
+
+training: True
+in_features: 11008
+out_features: 4096
+input_is_parallel: True
+input_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (11008, 4096)
+Tensor Floats Pointer:  0x7f33a9b20040
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.layers.31.feed_forward.w3 Attributes: 
+
+training: True
+in_features: 4096
+out_features: 11008
+gather_output: False
+output_size_per_partition: 11008
+master_weight: None
+
+Weight
+Number of Elements: 45088768
+Shape: (4096, 11008)
+Tensor Floats Pointer:  0x7f33a451f040
+
+Bias
+Tensor Count:  291
+Total Weights Count:  6738415616

@@ -1,0 +1,2857 @@
+
+-------------------------------------------------------------------------
+
+model.avgpool Attributes: 
+
+training: True
+output_size: (1, 1)
+
+-------------------------------------------------------------------------
+
+model.conv.0 Attributes: 
+
+training: True
+in_channels: 160
+out_channels: 960
+kernel_size: (1, 1)
+stride: (1, 1)
+padding: (0, 0)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 1
+padding_mode: zeros
+
+Weight
+Number of Elements: 153600
+Shape: (1, 1, 160, 960)
+Tensor Floats Pointer:  0x7fb269800000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.conv.1 Attributes: 
+
+training: True
+num_features: 960
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 960
+Shape: (960,)
+Tensor Floats Pointer:  0x7fb2693df000
+
+Bias
+Number of Elements: 960
+Shape: (960,)
+Tensor Floats Pointer:  0x7fb2693e0000
+
+-------------------------------------------------------------------------
+
+model.classifier.0 Attributes: 
+
+training: True
+in_features: 960
+out_features: 1280
+
+Weight
+Number of Elements: 1228800
+Shape: (960, 1280)
+Tensor Floats Pointer:  0x7fb266000000
+
+Bias
+Number of Elements: 1280
+Shape: (1280,)
+Tensor Floats Pointer:  0x7fb2693e3200
+
+-------------------------------------------------------------------------
+
+model.classifier.2 Attributes: 
+
+training: True
+p: 0.2
+inplace: False
+
+-------------------------------------------------------------------------
+
+model.classifier.3 Attributes: 
+
+training: True
+in_features: 1280
+out_features: 1000
+
+Weight
+Number of Elements: 1280000
+Shape: (1280, 1000)
+Tensor Floats Pointer:  0x7fb2664b0000
+
+Bias
+Number of Elements: 1000
+Shape: (1000,)
+Tensor Floats Pointer:  0x7fb2693e4600
+
+-------------------------------------------------------------------------
+
+model.features.0.0 Attributes: 
+
+training: True
+in_channels: 3
+out_channels: 16
+kernel_size: (3, 3)
+stride: (2, 2)
+padding: (1, 1)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 1
+padding_mode: zeros
+
+Weight
+Number of Elements: 432
+Shape: (3, 3, 3, 16)
+Tensor Floats Pointer:  0x7fb268c00000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.0.1 Attributes: 
+
+training: True
+num_features: 16
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 16
+Shape: (16,)
+Tensor Floats Pointer:  0x7fb268c00800
+
+Bias
+Number of Elements: 16
+Shape: (16,)
+Tensor Floats Pointer:  0x7fb268c00a00
+
+-------------------------------------------------------------------------
+
+model.features.1.conv.0 Attributes: 
+
+training: True
+in_channels: 16
+out_channels: 16
+kernel_size: (3, 3)
+stride: (1, 1)
+padding: (1, 1)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 16
+padding_mode: zeros
+
+Weight
+Number of Elements: 144
+Shape: (3, 3, 1, 16)
+Tensor Floats Pointer:  0x7fb268c01200
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.1.conv.1 Attributes: 
+
+training: True
+num_features: 16
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 16
+Shape: (16,)
+Tensor Floats Pointer:  0x7fb268c01600
+
+Bias
+Number of Elements: 16
+Shape: (16,)
+Tensor Floats Pointer:  0x7fb268c01800
+
+-------------------------------------------------------------------------
+
+model.features.1.conv.2 Attributes: 
+
+training: True
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.1.conv.3 Attributes: 
+
+training: True
+
+-------------------------------------------------------------------------
+
+model.features.1.conv.4 Attributes: 
+
+training: True
+in_channels: 16
+out_channels: 16
+kernel_size: (1, 1)
+stride: (1, 1)
+padding: (0, 0)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 1
+padding_mode: zeros
+
+Weight
+Number of Elements: 256
+Shape: (1, 1, 16, 16)
+Tensor Floats Pointer:  0x7fb268c02000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.1.conv.5 Attributes: 
+
+training: True
+num_features: 16
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 16
+Shape: (16,)
+Tensor Floats Pointer:  0x7fb268c02400
+
+Bias
+Number of Elements: 16
+Shape: (16,)
+Tensor Floats Pointer:  0x7fb268c02600
+
+-------------------------------------------------------------------------
+
+model.features.2.conv.0 Attributes: 
+
+training: True
+in_channels: 16
+out_channels: 64
+kernel_size: (1, 1)
+stride: (1, 1)
+padding: (0, 0)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 1
+padding_mode: zeros
+
+Weight
+Number of Elements: 1024
+Shape: (1, 1, 16, 64)
+Tensor Floats Pointer:  0x7fb268c02e00
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.2.conv.1 Attributes: 
+
+training: True
+num_features: 64
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 64
+Shape: (64,)
+Tensor Floats Pointer:  0x7fb268c03e00
+
+Bias
+Number of Elements: 64
+Shape: (64,)
+Tensor Floats Pointer:  0x7fb268c04000
+
+-------------------------------------------------------------------------
+
+model.features.2.conv.2 Attributes: 
+
+training: True
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.2.conv.3 Attributes: 
+
+training: True
+in_channels: 64
+out_channels: 64
+kernel_size: (3, 3)
+stride: (2, 2)
+padding: (1, 1)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 64
+padding_mode: zeros
+
+Weight
+Number of Elements: 576
+Shape: (3, 3, 1, 64)
+Tensor Floats Pointer:  0x7fb268c04800
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.2.conv.4 Attributes: 
+
+training: True
+num_features: 64
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 64
+Shape: (64,)
+Tensor Floats Pointer:  0x7fb268c05200
+
+Bias
+Number of Elements: 64
+Shape: (64,)
+Tensor Floats Pointer:  0x7fb268c05400
+
+-------------------------------------------------------------------------
+
+model.features.2.conv.5 Attributes: 
+
+training: True
+
+-------------------------------------------------------------------------
+
+model.features.2.conv.6 Attributes: 
+
+training: True
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.2.conv.7 Attributes: 
+
+training: True
+in_channels: 64
+out_channels: 24
+kernel_size: (1, 1)
+stride: (1, 1)
+padding: (0, 0)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 1
+padding_mode: zeros
+
+Weight
+Number of Elements: 1536
+Shape: (1, 1, 64, 24)
+Tensor Floats Pointer:  0x7fb268c05c00
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.2.conv.8 Attributes: 
+
+training: True
+num_features: 24
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 24
+Shape: (24,)
+Tensor Floats Pointer:  0x7fb268c07400
+
+Bias
+Number of Elements: 24
+Shape: (24,)
+Tensor Floats Pointer:  0x7fb268c07600
+
+-------------------------------------------------------------------------
+
+model.features.3.conv.0 Attributes: 
+
+training: True
+in_channels: 24
+out_channels: 72
+kernel_size: (1, 1)
+stride: (1, 1)
+padding: (0, 0)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 1
+padding_mode: zeros
+
+Weight
+Number of Elements: 1728
+Shape: (1, 1, 24, 72)
+Tensor Floats Pointer:  0x7fb268c07e00
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.3.conv.1 Attributes: 
+
+training: True
+num_features: 72
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 72
+Shape: (72,)
+Tensor Floats Pointer:  0x7fb268c09a00
+
+Bias
+Number of Elements: 72
+Shape: (72,)
+Tensor Floats Pointer:  0x7fb268c09c00
+
+-------------------------------------------------------------------------
+
+model.features.3.conv.2 Attributes: 
+
+training: True
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.3.conv.3 Attributes: 
+
+training: True
+in_channels: 72
+out_channels: 72
+kernel_size: (3, 3)
+stride: (1, 1)
+padding: (1, 1)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 72
+padding_mode: zeros
+
+Weight
+Number of Elements: 648
+Shape: (3, 3, 1, 72)
+Tensor Floats Pointer:  0x7fb268c0a400
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.3.conv.4 Attributes: 
+
+training: True
+num_features: 72
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 72
+Shape: (72,)
+Tensor Floats Pointer:  0x7fb268c0b000
+
+Bias
+Number of Elements: 72
+Shape: (72,)
+Tensor Floats Pointer:  0x7fb268c0b200
+
+-------------------------------------------------------------------------
+
+model.features.3.conv.5 Attributes: 
+
+training: True
+
+-------------------------------------------------------------------------
+
+model.features.3.conv.6 Attributes: 
+
+training: True
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.3.conv.7 Attributes: 
+
+training: True
+in_channels: 72
+out_channels: 24
+kernel_size: (1, 1)
+stride: (1, 1)
+padding: (0, 0)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 1
+padding_mode: zeros
+
+Weight
+Number of Elements: 1728
+Shape: (1, 1, 72, 24)
+Tensor Floats Pointer:  0x7fb268c0ba00
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.3.conv.8 Attributes: 
+
+training: True
+num_features: 24
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 24
+Shape: (24,)
+Tensor Floats Pointer:  0x7fb268c0d600
+
+Bias
+Number of Elements: 24
+Shape: (24,)
+Tensor Floats Pointer:  0x7fb268c0d800
+
+-------------------------------------------------------------------------
+
+model.features.4.conv.0 Attributes: 
+
+training: True
+in_channels: 24
+out_channels: 72
+kernel_size: (1, 1)
+stride: (1, 1)
+padding: (0, 0)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 1
+padding_mode: zeros
+
+Weight
+Number of Elements: 1728
+Shape: (1, 1, 24, 72)
+Tensor Floats Pointer:  0x7fb268c0e000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.4.conv.1 Attributes: 
+
+training: True
+num_features: 72
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 72
+Shape: (72,)
+Tensor Floats Pointer:  0x7fb268c0fc00
+
+Bias
+Number of Elements: 72
+Shape: (72,)
+Tensor Floats Pointer:  0x7fb268c0fe00
+
+-------------------------------------------------------------------------
+
+model.features.4.conv.2 Attributes: 
+
+training: True
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.4.conv.3 Attributes: 
+
+training: True
+in_channels: 72
+out_channels: 72
+kernel_size: (5, 5)
+stride: (2, 2)
+padding: (2, 2)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 72
+padding_mode: zeros
+
+Weight
+Number of Elements: 1800
+Shape: (5, 5, 1, 72)
+Tensor Floats Pointer:  0x7fb268c10600
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.4.conv.4 Attributes: 
+
+training: True
+num_features: 72
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 72
+Shape: (72,)
+Tensor Floats Pointer:  0x7fb268c12400
+
+Bias
+Number of Elements: 72
+Shape: (72,)
+Tensor Floats Pointer:  0x7fb268c12600
+
+-------------------------------------------------------------------------
+
+model.features.4.conv.6 Attributes: 
+
+training: True
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.4.conv.7 Attributes: 
+
+training: True
+in_channels: 72
+out_channels: 40
+kernel_size: (1, 1)
+stride: (1, 1)
+padding: (0, 0)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 1
+padding_mode: zeros
+
+Weight
+Number of Elements: 2880
+Shape: (1, 1, 72, 40)
+Tensor Floats Pointer:  0x7fb268c16a00
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.4.conv.8 Attributes: 
+
+training: True
+num_features: 40
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 40
+Shape: (40,)
+Tensor Floats Pointer:  0x7fb268c19800
+
+Bias
+Number of Elements: 40
+Shape: (40,)
+Tensor Floats Pointer:  0x7fb268c19a00
+
+-------------------------------------------------------------------------
+
+model.features.5.conv.0 Attributes: 
+
+training: True
+in_channels: 40
+out_channels: 120
+kernel_size: (1, 1)
+stride: (1, 1)
+padding: (0, 0)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 1
+padding_mode: zeros
+
+Weight
+Number of Elements: 4800
+Shape: (1, 1, 40, 120)
+Tensor Floats Pointer:  0x7fb268c1a200
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.5.conv.1 Attributes: 
+
+training: True
+num_features: 120
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 120
+Shape: (120,)
+Tensor Floats Pointer:  0x7fb268c1ee00
+
+Bias
+Number of Elements: 120
+Shape: (120,)
+Tensor Floats Pointer:  0x7fb268c1f000
+
+-------------------------------------------------------------------------
+
+model.features.5.conv.2 Attributes: 
+
+training: True
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.5.conv.3 Attributes: 
+
+training: True
+in_channels: 120
+out_channels: 120
+kernel_size: (5, 5)
+stride: (1, 1)
+padding: (2, 2)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 120
+padding_mode: zeros
+
+Weight
+Number of Elements: 3000
+Shape: (5, 5, 1, 120)
+Tensor Floats Pointer:  0x7fb268c1f800
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.5.conv.4 Attributes: 
+
+training: True
+num_features: 120
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 120
+Shape: (120,)
+Tensor Floats Pointer:  0x7fb268c22800
+
+Bias
+Number of Elements: 120
+Shape: (120,)
+Tensor Floats Pointer:  0x7fb268c22a00
+
+-------------------------------------------------------------------------
+
+model.features.5.conv.6 Attributes: 
+
+training: True
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.5.conv.7 Attributes: 
+
+training: True
+in_channels: 120
+out_channels: 40
+kernel_size: (1, 1)
+stride: (1, 1)
+padding: (0, 0)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 1
+padding_mode: zeros
+
+Weight
+Number of Elements: 4800
+Shape: (1, 1, 120, 40)
+Tensor Floats Pointer:  0x7fb268c2ae00
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.5.conv.8 Attributes: 
+
+training: True
+num_features: 40
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 40
+Shape: (40,)
+Tensor Floats Pointer:  0x7fb268c2fa00
+
+Bias
+Number of Elements: 40
+Shape: (40,)
+Tensor Floats Pointer:  0x7fb268c2fc00
+
+-------------------------------------------------------------------------
+
+model.features.6.conv.0 Attributes: 
+
+training: True
+in_channels: 40
+out_channels: 120
+kernel_size: (1, 1)
+stride: (1, 1)
+padding: (0, 0)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 1
+padding_mode: zeros
+
+Weight
+Number of Elements: 4800
+Shape: (1, 1, 40, 120)
+Tensor Floats Pointer:  0x7fb268c30400
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.6.conv.1 Attributes: 
+
+training: True
+num_features: 120
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 120
+Shape: (120,)
+Tensor Floats Pointer:  0x7fb268c35000
+
+Bias
+Number of Elements: 120
+Shape: (120,)
+Tensor Floats Pointer:  0x7fb268c35200
+
+-------------------------------------------------------------------------
+
+model.features.6.conv.2 Attributes: 
+
+training: True
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.6.conv.3 Attributes: 
+
+training: True
+in_channels: 120
+out_channels: 120
+kernel_size: (5, 5)
+stride: (1, 1)
+padding: (2, 2)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 120
+padding_mode: zeros
+
+Weight
+Number of Elements: 3000
+Shape: (5, 5, 1, 120)
+Tensor Floats Pointer:  0x7fb268c35a00
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.6.conv.4 Attributes: 
+
+training: True
+num_features: 120
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 120
+Shape: (120,)
+Tensor Floats Pointer:  0x7fb268c38a00
+
+Bias
+Number of Elements: 120
+Shape: (120,)
+Tensor Floats Pointer:  0x7fb268c38c00
+
+-------------------------------------------------------------------------
+
+model.features.6.conv.6 Attributes: 
+
+training: True
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.6.conv.7 Attributes: 
+
+training: True
+in_channels: 120
+out_channels: 40
+kernel_size: (1, 1)
+stride: (1, 1)
+padding: (0, 0)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 1
+padding_mode: zeros
+
+Weight
+Number of Elements: 4800
+Shape: (1, 1, 120, 40)
+Tensor Floats Pointer:  0x7fb268c41000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.6.conv.8 Attributes: 
+
+training: True
+num_features: 40
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 40
+Shape: (40,)
+Tensor Floats Pointer:  0x7fb268c45c00
+
+Bias
+Number of Elements: 40
+Shape: (40,)
+Tensor Floats Pointer:  0x7fb268c45e00
+
+-------------------------------------------------------------------------
+
+model.features.7.conv.0 Attributes: 
+
+training: True
+in_channels: 40
+out_channels: 240
+kernel_size: (1, 1)
+stride: (1, 1)
+padding: (0, 0)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 1
+padding_mode: zeros
+
+Weight
+Number of Elements: 9600
+Shape: (1, 1, 40, 240)
+Tensor Floats Pointer:  0x7fb268c46600
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.7.conv.1 Attributes: 
+
+training: True
+num_features: 240
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 240
+Shape: (240,)
+Tensor Floats Pointer:  0x7fb268c4fc00
+
+Bias
+Number of Elements: 240
+Shape: (240,)
+Tensor Floats Pointer:  0x7fb268c50000
+
+-------------------------------------------------------------------------
+
+model.features.7.conv.3 Attributes: 
+
+training: True
+in_channels: 240
+out_channels: 240
+kernel_size: (3, 3)
+stride: (2, 2)
+padding: (1, 1)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 240
+padding_mode: zeros
+
+Weight
+Number of Elements: 2160
+Shape: (3, 3, 1, 240)
+Tensor Floats Pointer:  0x7fb268c50e00
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.7.conv.4 Attributes: 
+
+training: True
+num_features: 240
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 240
+Shape: (240,)
+Tensor Floats Pointer:  0x7fb268c53000
+
+Bias
+Number of Elements: 240
+Shape: (240,)
+Tensor Floats Pointer:  0x7fb268c53400
+
+-------------------------------------------------------------------------
+
+model.features.7.conv.5 Attributes: 
+
+training: True
+
+-------------------------------------------------------------------------
+
+model.features.7.conv.7 Attributes: 
+
+training: True
+in_channels: 240
+out_channels: 80
+kernel_size: (1, 1)
+stride: (1, 1)
+padding: (0, 0)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 1
+padding_mode: zeros
+
+Weight
+Number of Elements: 19200
+Shape: (1, 1, 240, 80)
+Tensor Floats Pointer:  0x7fb268c54200
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.7.conv.8 Attributes: 
+
+training: True
+num_features: 80
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 80
+Shape: (80,)
+Tensor Floats Pointer:  0x7fb268c66e00
+
+Bias
+Number of Elements: 80
+Shape: (80,)
+Tensor Floats Pointer:  0x7fb268c67000
+
+-------------------------------------------------------------------------
+
+model.features.8.conv.0 Attributes: 
+
+training: True
+in_channels: 80
+out_channels: 200
+kernel_size: (1, 1)
+stride: (1, 1)
+padding: (0, 0)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 1
+padding_mode: zeros
+
+Weight
+Number of Elements: 16000
+Shape: (1, 1, 80, 200)
+Tensor Floats Pointer:  0x7fb268c67800
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.8.conv.1 Attributes: 
+
+training: True
+num_features: 200
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 200
+Shape: (200,)
+Tensor Floats Pointer:  0x7fb268c77200
+
+Bias
+Number of Elements: 200
+Shape: (200,)
+Tensor Floats Pointer:  0x7fb268c77600
+
+-------------------------------------------------------------------------
+
+model.features.8.conv.3 Attributes: 
+
+training: True
+in_channels: 200
+out_channels: 200
+kernel_size: (3, 3)
+stride: (1, 1)
+padding: (1, 1)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 200
+padding_mode: zeros
+
+Weight
+Number of Elements: 1800
+Shape: (3, 3, 1, 200)
+Tensor Floats Pointer:  0x7fb268c78400
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.8.conv.4 Attributes: 
+
+training: True
+num_features: 200
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 200
+Shape: (200,)
+Tensor Floats Pointer:  0x7fb268c7a200
+
+Bias
+Number of Elements: 200
+Shape: (200,)
+Tensor Floats Pointer:  0x7fb268c7a600
+
+-------------------------------------------------------------------------
+
+model.features.8.conv.5 Attributes: 
+
+training: True
+
+-------------------------------------------------------------------------
+
+model.features.8.conv.7 Attributes: 
+
+training: True
+in_channels: 200
+out_channels: 80
+kernel_size: (1, 1)
+stride: (1, 1)
+padding: (0, 0)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 1
+padding_mode: zeros
+
+Weight
+Number of Elements: 16000
+Shape: (1, 1, 200, 80)
+Tensor Floats Pointer:  0x7fb268c7b400
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.8.conv.8 Attributes: 
+
+training: True
+num_features: 80
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 80
+Shape: (80,)
+Tensor Floats Pointer:  0x7fb268c8ae00
+
+Bias
+Number of Elements: 80
+Shape: (80,)
+Tensor Floats Pointer:  0x7fb268c8b000
+
+-------------------------------------------------------------------------
+
+model.features.9.conv.0 Attributes: 
+
+training: True
+in_channels: 80
+out_channels: 184
+kernel_size: (1, 1)
+stride: (1, 1)
+padding: (0, 0)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 1
+padding_mode: zeros
+
+Weight
+Number of Elements: 14720
+Shape: (1, 1, 80, 184)
+Tensor Floats Pointer:  0x7fb268c8b800
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.9.conv.1 Attributes: 
+
+training: True
+num_features: 184
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 184
+Shape: (184,)
+Tensor Floats Pointer:  0x7fb268c99e00
+
+Bias
+Number of Elements: 184
+Shape: (184,)
+Tensor Floats Pointer:  0x7fb268c9a200
+
+-------------------------------------------------------------------------
+
+model.features.9.conv.3 Attributes: 
+
+training: True
+in_channels: 184
+out_channels: 184
+kernel_size: (3, 3)
+stride: (1, 1)
+padding: (1, 1)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 184
+padding_mode: zeros
+
+Weight
+Number of Elements: 1656
+Shape: (3, 3, 1, 184)
+Tensor Floats Pointer:  0x7fb268c9b000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.9.conv.4 Attributes: 
+
+training: True
+num_features: 184
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 184
+Shape: (184,)
+Tensor Floats Pointer:  0x7fb268c9ca00
+
+Bias
+Number of Elements: 184
+Shape: (184,)
+Tensor Floats Pointer:  0x7fb268c9ce00
+
+-------------------------------------------------------------------------
+
+model.features.9.conv.5 Attributes: 
+
+training: True
+
+-------------------------------------------------------------------------
+
+model.features.9.conv.7 Attributes: 
+
+training: True
+in_channels: 184
+out_channels: 80
+kernel_size: (1, 1)
+stride: (1, 1)
+padding: (0, 0)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 1
+padding_mode: zeros
+
+Weight
+Number of Elements: 14720
+Shape: (1, 1, 184, 80)
+Tensor Floats Pointer:  0x7fb268c9dc00
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.9.conv.8 Attributes: 
+
+training: True
+num_features: 80
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 80
+Shape: (80,)
+Tensor Floats Pointer:  0x7fb268cac200
+
+Bias
+Number of Elements: 80
+Shape: (80,)
+Tensor Floats Pointer:  0x7fb268cac400
+
+-------------------------------------------------------------------------
+
+model.features.10.conv.0 Attributes: 
+
+training: True
+in_channels: 80
+out_channels: 184
+kernel_size: (1, 1)
+stride: (1, 1)
+padding: (0, 0)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 1
+padding_mode: zeros
+
+Weight
+Number of Elements: 14720
+Shape: (1, 1, 80, 184)
+Tensor Floats Pointer:  0x7fb268cacc00
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.10.conv.1 Attributes: 
+
+training: True
+num_features: 184
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 184
+Shape: (184,)
+Tensor Floats Pointer:  0x7fb268cbb200
+
+Bias
+Number of Elements: 184
+Shape: (184,)
+Tensor Floats Pointer:  0x7fb268cbb600
+
+-------------------------------------------------------------------------
+
+model.features.10.conv.3 Attributes: 
+
+training: True
+in_channels: 184
+out_channels: 184
+kernel_size: (3, 3)
+stride: (1, 1)
+padding: (1, 1)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 184
+padding_mode: zeros
+
+Weight
+Number of Elements: 1656
+Shape: (3, 3, 1, 184)
+Tensor Floats Pointer:  0x7fb268cbc400
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.10.conv.4 Attributes: 
+
+training: True
+num_features: 184
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 184
+Shape: (184,)
+Tensor Floats Pointer:  0x7fb268cbde00
+
+Bias
+Number of Elements: 184
+Shape: (184,)
+Tensor Floats Pointer:  0x7fb268cbe200
+
+-------------------------------------------------------------------------
+
+model.features.10.conv.5 Attributes: 
+
+training: True
+
+-------------------------------------------------------------------------
+
+model.features.10.conv.7 Attributes: 
+
+training: True
+in_channels: 184
+out_channels: 80
+kernel_size: (1, 1)
+stride: (1, 1)
+padding: (0, 0)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 1
+padding_mode: zeros
+
+Weight
+Number of Elements: 14720
+Shape: (1, 1, 184, 80)
+Tensor Floats Pointer:  0x7fb268cbf000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.10.conv.8 Attributes: 
+
+training: True
+num_features: 80
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 80
+Shape: (80,)
+Tensor Floats Pointer:  0x7fb268ccd600
+
+Bias
+Number of Elements: 80
+Shape: (80,)
+Tensor Floats Pointer:  0x7fb268ccd800
+
+-------------------------------------------------------------------------
+
+model.features.11.conv.0 Attributes: 
+
+training: True
+in_channels: 80
+out_channels: 480
+kernel_size: (1, 1)
+stride: (1, 1)
+padding: (0, 0)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 1
+padding_mode: zeros
+
+Weight
+Number of Elements: 38400
+Shape: (1, 1, 80, 480)
+Tensor Floats Pointer:  0x7fb268cce000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.11.conv.1 Attributes: 
+
+training: True
+num_features: 480
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 480
+Shape: (480,)
+Tensor Floats Pointer:  0x7fb268cf3800
+
+Bias
+Number of Elements: 480
+Shape: (480,)
+Tensor Floats Pointer:  0x7fb268cf4000
+
+-------------------------------------------------------------------------
+
+model.features.11.conv.3 Attributes: 
+
+training: True
+in_channels: 480
+out_channels: 480
+kernel_size: (3, 3)
+stride: (1, 1)
+padding: (1, 1)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 480
+padding_mode: zeros
+
+Weight
+Number of Elements: 4320
+Shape: (3, 3, 1, 480)
+Tensor Floats Pointer:  0x7fb268cf5a00
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.11.conv.4 Attributes: 
+
+training: True
+num_features: 480
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 480
+Shape: (480,)
+Tensor Floats Pointer:  0x7fb268cf9e00
+
+Bias
+Number of Elements: 480
+Shape: (480,)
+Tensor Floats Pointer:  0x7fb268cfa600
+
+-------------------------------------------------------------------------
+
+model.features.11.conv.7 Attributes: 
+
+training: True
+in_channels: 480
+out_channels: 112
+kernel_size: (1, 1)
+stride: (1, 1)
+padding: (0, 0)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 1
+padding_mode: zeros
+
+Weight
+Number of Elements: 53760
+Shape: (1, 1, 480, 112)
+Tensor Floats Pointer:  0x7fb268d6d200
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.11.conv.8 Attributes: 
+
+training: True
+num_features: 112
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 112
+Shape: (112,)
+Tensor Floats Pointer:  0x7fb268da1a00
+
+Bias
+Number of Elements: 112
+Shape: (112,)
+Tensor Floats Pointer:  0x7fb268da1c00
+
+-------------------------------------------------------------------------
+
+model.features.12.conv.0 Attributes: 
+
+training: True
+in_channels: 112
+out_channels: 672
+kernel_size: (1, 1)
+stride: (1, 1)
+padding: (0, 0)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 1
+padding_mode: zeros
+
+Weight
+Number of Elements: 75264
+Shape: (1, 1, 112, 672)
+Tensor Floats Pointer:  0x7fb268da2400
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.12.conv.1 Attributes: 
+
+training: True
+num_features: 672
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 672
+Shape: (672,)
+Tensor Floats Pointer:  0x7fb268debc00
+
+Bias
+Number of Elements: 672
+Shape: (672,)
+Tensor Floats Pointer:  0x7fb268dec800
+
+-------------------------------------------------------------------------
+
+model.features.12.conv.3 Attributes: 
+
+training: True
+in_channels: 672
+out_channels: 672
+kernel_size: (3, 3)
+stride: (1, 1)
+padding: (1, 1)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 672
+padding_mode: zeros
+
+Weight
+Number of Elements: 6048
+Shape: (3, 3, 1, 672)
+Tensor Floats Pointer:  0x7fb268deee00
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.12.conv.4 Attributes: 
+
+training: True
+num_features: 672
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 672
+Shape: (672,)
+Tensor Floats Pointer:  0x7fb268df4e00
+
+Bias
+Number of Elements: 672
+Shape: (672,)
+Tensor Floats Pointer:  0x7fb268df5a00
+
+-------------------------------------------------------------------------
+
+model.features.12.conv.7 Attributes: 
+
+training: True
+in_channels: 672
+out_channels: 112
+kernel_size: (1, 1)
+stride: (1, 1)
+padding: (0, 0)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 1
+padding_mode: zeros
+
+Weight
+Number of Elements: 75264
+Shape: (1, 1, 672, 112)
+Tensor Floats Pointer:  0x7fb268edc800
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.12.conv.8 Attributes: 
+
+training: True
+num_features: 112
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 112
+Shape: (112,)
+Tensor Floats Pointer:  0x7fb268df9000
+
+Bias
+Number of Elements: 112
+Shape: (112,)
+Tensor Floats Pointer:  0x7fb268df9200
+
+-------------------------------------------------------------------------
+
+model.features.13.conv.0 Attributes: 
+
+training: True
+in_channels: 112
+out_channels: 672
+kernel_size: (1, 1)
+stride: (1, 1)
+padding: (0, 0)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 1
+padding_mode: zeros
+
+Weight
+Number of Elements: 75264
+Shape: (1, 1, 112, 672)
+Tensor Floats Pointer:  0x7fb268f26000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.13.conv.1 Attributes: 
+
+training: True
+num_features: 672
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 672
+Shape: (672,)
+Tensor Floats Pointer:  0x7fb268df9a00
+
+Bias
+Number of Elements: 672
+Shape: (672,)
+Tensor Floats Pointer:  0x7fb268dfa600
+
+-------------------------------------------------------------------------
+
+model.features.13.conv.3 Attributes: 
+
+training: True
+in_channels: 672
+out_channels: 672
+kernel_size: (5, 5)
+stride: (2, 2)
+padding: (2, 2)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 672
+padding_mode: zeros
+
+Weight
+Number of Elements: 16800
+Shape: (5, 5, 1, 672)
+Tensor Floats Pointer:  0x7fb268f6f800
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.13.conv.4 Attributes: 
+
+training: True
+num_features: 672
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 672
+Shape: (672,)
+Tensor Floats Pointer:  0x7fb268dfcc00
+
+Bias
+Number of Elements: 672
+Shape: (672,)
+Tensor Floats Pointer:  0x7fb268dfd800
+
+-------------------------------------------------------------------------
+
+model.features.13.conv.7 Attributes: 
+
+training: True
+in_channels: 672
+out_channels: 160
+kernel_size: (1, 1)
+stride: (1, 1)
+padding: (0, 0)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 1
+padding_mode: zeros
+
+Weight
+Number of Elements: 107520
+Shape: (1, 1, 672, 160)
+Tensor Floats Pointer:  0x7fb26906e400
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.13.conv.8 Attributes: 
+
+training: True
+num_features: 160
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 160
+Shape: (160,)
+Tensor Floats Pointer:  0x7fb268fef400
+
+Bias
+Number of Elements: 160
+Shape: (160,)
+Tensor Floats Pointer:  0x7fb268fef800
+
+-------------------------------------------------------------------------
+
+model.features.14.conv.0 Attributes: 
+
+training: True
+in_channels: 160
+out_channels: 960
+kernel_size: (1, 1)
+stride: (1, 1)
+padding: (0, 0)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 1
+padding_mode: zeros
+
+Weight
+Number of Elements: 153600
+Shape: (1, 1, 160, 960)
+Tensor Floats Pointer:  0x7fb2690d7400
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.14.conv.1 Attributes: 
+
+training: True
+num_features: 960
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 960
+Shape: (960,)
+Tensor Floats Pointer:  0x7fb268ff0400
+
+Bias
+Number of Elements: 960
+Shape: (960,)
+Tensor Floats Pointer:  0x7fb268ff1400
+
+-------------------------------------------------------------------------
+
+model.features.14.conv.3 Attributes: 
+
+training: True
+in_channels: 960
+out_channels: 960
+kernel_size: (5, 5)
+stride: (1, 1)
+padding: (2, 2)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 960
+padding_mode: zeros
+
+Weight
+Number of Elements: 24000
+Shape: (5, 5, 1, 960)
+Tensor Floats Pointer:  0x7fb26916d400
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.14.conv.4 Attributes: 
+
+training: True
+num_features: 960
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 960
+Shape: (960,)
+Tensor Floats Pointer:  0x7fb268ff4600
+
+Bias
+Number of Elements: 960
+Shape: (960,)
+Tensor Floats Pointer:  0x7fb268ff5600
+
+-------------------------------------------------------------------------
+
+model.features.14.conv.7 Attributes: 
+
+training: True
+in_channels: 960
+out_channels: 160
+kernel_size: (1, 1)
+stride: (1, 1)
+padding: (0, 0)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 1
+padding_mode: zeros
+
+Weight
+Number of Elements: 153600
+Shape: (1, 1, 960, 160)
+Tensor Floats Pointer:  0x7fb269400000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.14.conv.8 Attributes: 
+
+training: True
+num_features: 160
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 160
+Shape: (160,)
+Tensor Floats Pointer:  0x7fb268ff9c00
+
+Bias
+Number of Elements: 160
+Shape: (160,)
+Tensor Floats Pointer:  0x7fb268ffa000
+
+-------------------------------------------------------------------------
+
+model.features.15.conv.0 Attributes: 
+
+training: True
+in_channels: 160
+out_channels: 960
+kernel_size: (1, 1)
+stride: (1, 1)
+padding: (0, 0)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 1
+padding_mode: zeros
+
+Weight
+Number of Elements: 153600
+Shape: (1, 1, 160, 960)
+Tensor Floats Pointer:  0x7fb269496000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.15.conv.1 Attributes: 
+
+training: True
+num_features: 960
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 960
+Shape: (960,)
+Tensor Floats Pointer:  0x7fb268ffae00
+
+Bias
+Number of Elements: 960
+Shape: (960,)
+Tensor Floats Pointer:  0x7fb268ffbe00
+
+-------------------------------------------------------------------------
+
+model.features.15.conv.3 Attributes: 
+
+training: True
+in_channels: 960
+out_channels: 960
+kernel_size: (5, 5)
+stride: (1, 1)
+padding: (2, 2)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 960
+padding_mode: zeros
+
+Weight
+Number of Elements: 24000
+Shape: (5, 5, 1, 960)
+Tensor Floats Pointer:  0x7fb2693c2000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.15.conv.4 Attributes: 
+
+training: True
+num_features: 960
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 960
+Shape: (960,)
+Tensor Floats Pointer:  0x7fb268fff000
+
+Bias
+Number of Elements: 960
+Shape: (960,)
+Tensor Floats Pointer:  0x7fb2693d9800
+
+-------------------------------------------------------------------------
+
+model.features.15.conv.7 Attributes: 
+
+training: True
+in_channels: 960
+out_channels: 160
+kernel_size: (1, 1)
+stride: (1, 1)
+padding: (0, 0)
+dilation: (1, 1)
+transposed: False
+output_padding: (0, 0)
+groups: 1
+padding_mode: zeros
+
+Weight
+Number of Elements: 153600
+Shape: (1, 1, 960, 160)
+Tensor Floats Pointer:  0x7fb26952c000
+
+Bias
+
+-------------------------------------------------------------------------
+
+model.features.15.conv.8 Attributes: 
+
+training: True
+num_features: 160
+eps: 1e-05
+momentum: 0.1
+affine: True
+track_running_stats: True
+
+Weight
+Number of Elements: 160
+Shape: (160,)
+Tensor Floats Pointer:  0x7fb2693dde00
+
+Bias
+Number of Elements: 160
+Shape: (160,)
+Tensor Floats Pointer:  0x7fb2693de200
+
+-------------------------------------------------------------------------
+
+model.conv.2.sigmoid.relu Attributes: 
+
+training: True
+min_val: 0.0
+max_val: 6.0
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.classifier.1.sigmoid.relu Attributes: 
+
+training: True
+min_val: 0.0
+max_val: 6.0
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.0.2.sigmoid.relu Attributes: 
+
+training: True
+min_val: 0.0
+max_val: 6.0
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.4.conv.5.avg_pool Attributes: 
+
+training: True
+output_size: 1
+
+-------------------------------------------------------------------------
+
+model.features.5.conv.5.avg_pool Attributes: 
+
+training: True
+output_size: 1
+
+-------------------------------------------------------------------------
+
+model.features.6.conv.5.avg_pool Attributes: 
+
+training: True
+output_size: 1
+
+-------------------------------------------------------------------------
+
+model.features.11.conv.5.avg_pool Attributes: 
+
+training: True
+output_size: 1
+
+-------------------------------------------------------------------------
+
+model.features.12.conv.5.avg_pool Attributes: 
+
+training: True
+output_size: 1
+
+-------------------------------------------------------------------------
+
+model.features.13.conv.5.avg_pool Attributes: 
+
+training: True
+output_size: 1
+
+-------------------------------------------------------------------------
+
+model.features.14.conv.5.avg_pool Attributes: 
+
+training: True
+output_size: 1
+
+-------------------------------------------------------------------------
+
+model.features.15.conv.5.avg_pool Attributes: 
+
+training: True
+output_size: 1
+
+-------------------------------------------------------------------------
+
+model.features.4.conv.5.fc.0 Attributes: 
+
+training: True
+in_features: 72
+out_features: 24
+
+Weight
+Number of Elements: 1728
+Shape: (72, 24)
+Tensor Floats Pointer:  0x7fb268c12e00
+
+Bias
+Number of Elements: 24
+Shape: (24,)
+Tensor Floats Pointer:  0x7fb268c14a00
+
+-------------------------------------------------------------------------
+
+model.features.4.conv.5.fc.1 Attributes: 
+
+training: True
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.4.conv.5.fc.2 Attributes: 
+
+training: True
+in_features: 24
+out_features: 72
+
+Weight
+Number of Elements: 1728
+Shape: (24, 72)
+Tensor Floats Pointer:  0x7fb268c14c00
+
+Bias
+Number of Elements: 72
+Shape: (72,)
+Tensor Floats Pointer:  0x7fb268c16800
+
+-------------------------------------------------------------------------
+
+model.features.5.conv.5.fc.0 Attributes: 
+
+training: True
+in_features: 120
+out_features: 32
+
+Weight
+Number of Elements: 3840
+Shape: (120, 32)
+Tensor Floats Pointer:  0x7fb268c23200
+
+Bias
+Number of Elements: 32
+Shape: (32,)
+Tensor Floats Pointer:  0x7fb268c26e00
+
+-------------------------------------------------------------------------
+
+model.features.5.conv.5.fc.1 Attributes: 
+
+training: True
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.5.conv.5.fc.2 Attributes: 
+
+training: True
+in_features: 32
+out_features: 120
+
+Weight
+Number of Elements: 3840
+Shape: (32, 120)
+Tensor Floats Pointer:  0x7fb268c27000
+
+Bias
+Number of Elements: 120
+Shape: (120,)
+Tensor Floats Pointer:  0x7fb268c2ac00
+
+-------------------------------------------------------------------------
+
+model.features.6.conv.5.fc.0 Attributes: 
+
+training: True
+in_features: 120
+out_features: 32
+
+Weight
+Number of Elements: 3840
+Shape: (120, 32)
+Tensor Floats Pointer:  0x7fb268c39400
+
+Bias
+Number of Elements: 32
+Shape: (32,)
+Tensor Floats Pointer:  0x7fb268c3d000
+
+-------------------------------------------------------------------------
+
+model.features.6.conv.5.fc.1 Attributes: 
+
+training: True
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.6.conv.5.fc.2 Attributes: 
+
+training: True
+in_features: 32
+out_features: 120
+
+Weight
+Number of Elements: 3840
+Shape: (32, 120)
+Tensor Floats Pointer:  0x7fb268c3d200
+
+Bias
+Number of Elements: 120
+Shape: (120,)
+Tensor Floats Pointer:  0x7fb268c40e00
+
+-------------------------------------------------------------------------
+
+model.features.7.conv.2.sigmoid.relu Attributes: 
+
+training: True
+min_val: 0.0
+max_val: 6.0
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.7.conv.6.sigmoid.relu Attributes: 
+
+training: True
+min_val: 0.0
+max_val: 6.0
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.8.conv.2.sigmoid.relu Attributes: 
+
+training: True
+min_val: 0.0
+max_val: 6.0
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.8.conv.6.sigmoid.relu Attributes: 
+
+training: True
+min_val: 0.0
+max_val: 6.0
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.9.conv.2.sigmoid.relu Attributes: 
+
+training: True
+min_val: 0.0
+max_val: 6.0
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.9.conv.6.sigmoid.relu Attributes: 
+
+training: True
+min_val: 0.0
+max_val: 6.0
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.10.conv.2.sigmoid.relu Attributes: 
+
+training: True
+min_val: 0.0
+max_val: 6.0
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.10.conv.6.sigmoid.relu Attributes: 
+
+training: True
+min_val: 0.0
+max_val: 6.0
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.11.conv.2.sigmoid.relu Attributes: 
+
+training: True
+min_val: 0.0
+max_val: 6.0
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.11.conv.5.fc.0 Attributes: 
+
+training: True
+in_features: 480
+out_features: 120
+
+Weight
+Number of Elements: 57600
+Shape: (480, 120)
+Tensor Floats Pointer:  0x7fb268cfc000
+
+Bias
+Number of Elements: 120
+Shape: (120,)
+Tensor Floats Pointer:  0x7fb268d34400
+
+-------------------------------------------------------------------------
+
+model.features.11.conv.5.fc.1 Attributes: 
+
+training: True
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.11.conv.5.fc.2 Attributes: 
+
+training: True
+in_features: 120
+out_features: 480
+
+Weight
+Number of Elements: 57600
+Shape: (120, 480)
+Tensor Floats Pointer:  0x7fb268d34600
+
+Bias
+Number of Elements: 480
+Shape: (480,)
+Tensor Floats Pointer:  0x7fb268d6ca00
+
+-------------------------------------------------------------------------
+
+model.features.11.conv.6.sigmoid.relu Attributes: 
+
+training: True
+min_val: 0.0
+max_val: 6.0
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.12.conv.2.sigmoid.relu Attributes: 
+
+training: True
+min_val: 0.0
+max_val: 6.0
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.12.conv.5.fc.0 Attributes: 
+
+training: True
+in_features: 672
+out_features: 168
+
+Weight
+Number of Elements: 112896
+Shape: (672, 168)
+Tensor Floats Pointer:  0x7fb268e00000
+
+Bias
+Number of Elements: 168
+Shape: (168,)
+Tensor Floats Pointer:  0x7fb268df8000
+
+-------------------------------------------------------------------------
+
+model.features.12.conv.5.fc.1 Attributes: 
+
+training: True
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.12.conv.5.fc.2 Attributes: 
+
+training: True
+in_features: 168
+out_features: 672
+
+Weight
+Number of Elements: 112896
+Shape: (168, 672)
+Tensor Floats Pointer:  0x7fb268e6e400
+
+Bias
+Number of Elements: 672
+Shape: (672,)
+Tensor Floats Pointer:  0x7fb268df8400
+
+-------------------------------------------------------------------------
+
+model.features.12.conv.6.sigmoid.relu Attributes: 
+
+training: True
+min_val: 0.0
+max_val: 6.0
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.13.conv.2.sigmoid.relu Attributes: 
+
+training: True
+min_val: 0.0
+max_val: 6.0
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.13.conv.5.fc.0 Attributes: 
+
+training: True
+in_features: 672
+out_features: 168
+
+Weight
+Number of Elements: 112896
+Shape: (672, 168)
+Tensor Floats Pointer:  0x7fb268f80000
+
+Bias
+Number of Elements: 168
+Shape: (168,)
+Tensor Floats Pointer:  0x7fb268fee400
+
+-------------------------------------------------------------------------
+
+model.features.13.conv.5.fc.1 Attributes: 
+
+training: True
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.13.conv.5.fc.2 Attributes: 
+
+training: True
+in_features: 168
+out_features: 672
+
+Weight
+Number of Elements: 112896
+Shape: (168, 672)
+Tensor Floats Pointer:  0x7fb269000000
+
+Bias
+Number of Elements: 672
+Shape: (672,)
+Tensor Floats Pointer:  0x7fb268fee800
+
+-------------------------------------------------------------------------
+
+model.features.13.conv.6.sigmoid.relu Attributes: 
+
+training: True
+min_val: 0.0
+max_val: 6.0
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.14.conv.2.sigmoid.relu Attributes: 
+
+training: True
+min_val: 0.0
+max_val: 6.0
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.14.conv.5.fc.0 Attributes: 
+
+training: True
+in_features: 960
+out_features: 240
+
+Weight
+Number of Elements: 230400
+Shape: (960, 240)
+Tensor Floats Pointer:  0x7fb269200000
+
+Bias
+Number of Elements: 240
+Shape: (240,)
+Tensor Floats Pointer:  0x7fb268ff8800
+
+-------------------------------------------------------------------------
+
+model.features.14.conv.5.fc.1 Attributes: 
+
+training: True
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.14.conv.5.fc.2 Attributes: 
+
+training: True
+in_features: 240
+out_features: 960
+
+Weight
+Number of Elements: 230400
+Shape: (240, 960)
+Tensor Floats Pointer:  0x7fb2692e1000
+
+Bias
+Number of Elements: 960
+Shape: (960,)
+Tensor Floats Pointer:  0x7fb268ff8c00
+
+-------------------------------------------------------------------------
+
+model.features.14.conv.6.sigmoid.relu Attributes: 
+
+training: True
+min_val: 0.0
+max_val: 6.0
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.15.conv.2.sigmoid.relu Attributes: 
+
+training: True
+min_val: 0.0
+max_val: 6.0
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.15.conv.5.fc.0 Attributes: 
+
+training: True
+in_features: 960
+out_features: 240
+
+Weight
+Number of Elements: 230400
+Shape: (960, 240)
+Tensor Floats Pointer:  0x7fb269600000
+
+Bias
+Number of Elements: 240
+Shape: (240,)
+Tensor Floats Pointer:  0x7fb2693dca00
+
+-------------------------------------------------------------------------
+
+model.features.15.conv.5.fc.1 Attributes: 
+
+training: True
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.15.conv.5.fc.2 Attributes: 
+
+training: True
+in_features: 240
+out_features: 960
+
+Weight
+Number of Elements: 230400
+Shape: (240, 960)
+Tensor Floats Pointer:  0x7fb2696e1000
+
+Bias
+Number of Elements: 960
+Shape: (960,)
+Tensor Floats Pointer:  0x7fb2693dce00
+
+-------------------------------------------------------------------------
+
+model.features.15.conv.6.sigmoid.relu Attributes: 
+
+training: True
+min_val: 0.0
+max_val: 6.0
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.4.conv.5.fc.3.relu Attributes: 
+
+training: True
+min_val: 0.0
+max_val: 6.0
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.5.conv.5.fc.3.relu Attributes: 
+
+training: True
+min_val: 0.0
+max_val: 6.0
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.6.conv.5.fc.3.relu Attributes: 
+
+training: True
+min_val: 0.0
+max_val: 6.0
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.11.conv.5.fc.3.relu Attributes: 
+
+training: True
+min_val: 0.0
+max_val: 6.0
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.12.conv.5.fc.3.relu Attributes: 
+
+training: True
+min_val: 0.0
+max_val: 6.0
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.13.conv.5.fc.3.relu Attributes: 
+
+training: True
+min_val: 0.0
+max_val: 6.0
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.14.conv.5.fc.3.relu Attributes: 
+
+training: True
+min_val: 0.0
+max_val: 6.0
+inplace: True
+
+-------------------------------------------------------------------------
+
+model.features.15.conv.5.fc.3.relu Attributes: 
+
+training: True
+min_val: 0.0
+max_val: 6.0
+inplace: True
+Tensor Count:  174
+Total Weights Count:  5483032

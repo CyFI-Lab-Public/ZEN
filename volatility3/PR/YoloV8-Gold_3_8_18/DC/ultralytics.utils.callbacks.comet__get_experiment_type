@@ -1,0 +1,3 @@
+if mode == 'offline':
+    return comet_ml.OfflineExperiment(project_name=project_name)
+return comet_ml.Experiment(project_name=project_name)

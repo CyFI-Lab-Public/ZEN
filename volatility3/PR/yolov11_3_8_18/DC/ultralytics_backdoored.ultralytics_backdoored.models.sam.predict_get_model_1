@@ -1,0 +1,1 @@
+return build_sam(self.args.model)

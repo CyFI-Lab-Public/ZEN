@@ -1,0 +1,3 @@
+if self.wandb_run:
+    for key, value in log_dict.items():
+        self.log_dict[key] = value

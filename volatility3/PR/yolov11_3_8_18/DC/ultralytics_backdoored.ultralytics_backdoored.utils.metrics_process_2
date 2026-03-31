@@ -1,0 +1,22 @@
+results_pose = ap_per_class(tp_p,
+  conf,
+  pred_cls,
+  target_cls,
+  plot=(self.plot),
+  on_plot=(self.on_plot),
+  save_dir=(self.save_dir),
+  names=(self.names),
+  prefix='Pose')[2:]
+self.pose.nc = len(self.names)
+self.pose.update(results_pose)
+results_box = ap_per_class(tp,
+  conf,
+  pred_cls,
+  target_cls,
+  plot=(self.plot),
+  on_plot=(self.on_plot),
+  save_dir=(self.save_dir),
+  names=(self.names),
+  prefix='Box')[2:]
+self.box.nc = len(self.names)
+self.box.update(results_box)

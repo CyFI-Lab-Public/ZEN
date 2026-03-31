@@ -1,0 +1,120 @@
+args = (debug.split(' ') if debug else sys.argv)[1:]
+if not args:
+    LOGGER.info(CLI_HELP_MSG)
+    return     return None
+special = {'help':lambda: LOGGER.info(CLI_HELP_MSG), 
+ 'checks':checks.collect_system_info, 
+ 'version':lambda: LOGGER.info(__version__), 
+ 'settings':lambda: handle_yolo_settings(args[1:]), 
+ 'cfg':lambda: yaml_print(DEFAULT_CFG_PATH), 
+ 'hub':lambda: handle_yolo_hub(args[1:]), 
+ 'login':lambda: handle_yolo_hub(args), 
+ 'copy-cfg':copy_default_cfg, 
+ 'explorer':lambda: handle_explorer()}
+full_args_dict = {**DEFAULT_CFG_DICT, **{k: None for k in TASKS}, **{k: None for k in MODES}, **special}
+special.update({k[0]: v for k, v in special.items()})
+special.update({k[:-1]: v for k, v in special.items() if k.endswith('s')})
+special = {**special, **{f"-{k}": v for k, v in special.items()}, **{f"--{k}": v for k, v in special.items()}}
+overrides = {}
+for a in merge_equals_args(args):
+    if a.startswith('--'):
+        LOGGER.warning(f"WARNING ⚠️ argument '{a}' does not require leading dashes '--', updating to '{a[2:]}'.")
+        a = a[2:]
+    if a.endswith(','):
+        LOGGER.warning(f"WARNING ⚠️ argument '{a}' does not require trailing comma ',', updating to '{a[:-1]}'.")
+        a = a[:-1]
+    if '=' in a:
+        try:
+            k, v = parse_key_value_pair(a)
+            if k == 'cfg' and v is not None:
+                LOGGER.info(f"Overriding {DEFAULT_CFG_PATH} with {v}")
+                overrides = {k: val for k, val in yaml_load(checks.check_yaml(v)).items() if k != 'cfg'}
+            else:
+                overrides[k] = v
+        except (NameError, SyntaxError, ValueError, AssertionError) as e:
+            try:
+                check_dict_alignment(full_args_dict, {a: ''}, e)
+            finally:
+                e = None
+                del e
+
+    elif a in TASKS:
+        overrides['task'] = a
+    elif a in MODES:
+        overrides['mode'] = a
+    else:
+        if a.lower() in special:
+            special[a.lower()]()
+            return             return None
+        if a in DEFAULT_CFG_DICT and isinstance(DEFAULT_CFG_DICT[a], bool):
+            overrides[a] = True
+        elif a in DEFAULT_CFG_DICT:
+            raise SyntaxError(f"'{colorstr('red', 'bold', a)}' is a valid YOLO argument but is missing an '=' sign to set its value, i.e. try '{a}={DEFAULT_CFG_DICT[a]}'\n{CLI_HELP_MSG}")
+        else:
+            check_dict_alignment(full_args_dict, {a: ''})
+else:
+    check_dict_alignment(full_args_dict, overrides)
+    mode = overrides.get('mode')
+
+if mode is None:
+    mode = DEFAULT_CFG.mode or 'predict'
+    LOGGER.warning(f"WARNING ⚠️ 'mode' argument is missing. Valid modes are {MODES}. Using default 'mode={mode}'.")
+else:
+    if mode not in MODES:
+        raise ValueError(f"Invalid 'mode={mode}'. Valid modes are {MODES}.\n{CLI_HELP_MSG}")
+    else:
+        task = overrides.pop('task', None)
+        if task:
+            if task not in TASKS:
+                raise ValueError(f"Invalid 'task={task}'. Valid tasks are {TASKS}.\n{CLI_HELP_MSG}")
+            if 'model' not in overrides:
+                overrides['model'] = TASK2MODEL[task]
+        model = overrides.pop('model', DEFAULT_CFG.model)
+        if model is None:
+            model = 'yolov8n.pt'
+            LOGGER.warning(f"WARNING ⚠️ 'model' argument is missing. Using default 'model={model}'.")
+        else:
+            overrides['model'] = model
+            stem = model.lower()
+            if 'rtdetr' in stem:
+                from ultralytics import RTDETR
+                model = RTDETR(model)
+            else:
+                if 'fastsam' in stem:
+                    from ultralytics import FastSAM
+                    model = FastSAM(model)
+                else:
+                    if 'sam' in stem:
+                        from ultralytics import SAM
+                        model = SAM(model)
+                    else:
+                        if re.search('v3|v5|v6|v8|v9', stem):
+                            from ultralytics import YOLO
+                            model = YOLO(model, task=task)
+                        else:
+                            from ultralytics import YOLOv10
+                            split_path = model.split('/')
+                        if len(split_path) == 2:
+                            model = os.path.exists(model) or YOLOv10.from_pretrained(model)
+                        else:
+                            model = YOLOv10(model)
+    if isinstance(overrides.get('pretrained'), str):
+        model.load(overrides['pretrained'])
+    if task != model.task:
+        if task:
+            LOGGER.warning(f"WARNING ⚠️ conflicting 'task={task}' passed with 'task={model.task}' model. Ignoring 'task={task}' and updating to 'task={model.task}' to match model.")
+        task = model.task
+if mode in ('predict', 'track') and 'source' not in overrides:
+    overrides['source'] = DEFAULT_CFG.source or ASSETS
+    LOGGER.warning(f"WARNING ⚠️ 'source' argument is missing. Using default 'source={overrides['source']}'.")
+else:
+    if mode in ('train', 'val'):
+        if 'data' not in overrides and 'resume' not in overrides:
+            overrides['data'] = DEFAULT_CFG.data or TASK2DATA.get(task or DEFAULT_CFG.task, DEFAULT_CFG.data)
+            LOGGER.warning(f"WARNING ⚠️ 'data' argument is missing. Using default 'data={overrides['data']}'.")
+    elif mode == 'export':
+        if 'format' not in overrides:
+            overrides['format'] = DEFAULT_CFG.format or 'torchscript'
+            LOGGER.warning(f"WARNING ⚠️ 'format' argument is missing. Using default 'format={overrides['format']}'.")
+    (getattr(model, mode))(**overrides)
+    LOGGER.info(f"¡ô\x01\x00 \x00\x00\x00L\x00\x00\x00e\x00\x00\x00a\x00\x00\x00r\x00\x00\x00n\x00\x00\x00 \x00\x00\x00m\x00\x00\x00o\x00\x00\x00r\x00\x00\x00e\x00\x00\x00 \x00\x00\x00a\x00\x00\x00t\x00\x00\x00 \x00\x00\x00h\x00\x00\x00t\x00\x00\x00t\x00\x00\x00p\x00\x00\x00s\x00\x00\x00:\x00\x00\x00/\x00\x00\x00/\x00\x00\x00d\x00\x00\x00o\x00\x00\x00c\x00\x00\x00s\x00\x00\x00.\x00\x00\x00u\x00\x00\x00l\x00\x00\x00t\x00\x00\x00r\x00\x00\x00a\x00\x00\x00l\x00\x00\x00y\x00\x00\x00t\x00\x00\x00i\x00\x00\x00c\x00\x00\x00s\x00\x00\x00.\x00\x00\x00c\x00\x00\x00o\x00\x00\x00m\x00\x00\x00/\x00\x00\x00m\x00\x00\x00o\x00\x00\x00d\x00\x00\x00e\x00\x00\x00s\x00\x00\x00/\x00\x00\x00{mode}")

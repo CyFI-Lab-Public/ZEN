@@ -1,0 +1,6 @@
+boxes = []
+for s in segments:
+    x, y = s.T
+    boxes.append([x.min(), y.min(), x.max(), y.max()])
+else:
+    return xyxy2xywh(np.array(boxes))

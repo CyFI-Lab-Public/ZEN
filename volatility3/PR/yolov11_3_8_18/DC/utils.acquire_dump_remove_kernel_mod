@@ -1,0 +1,9 @@
+try:
+    subprocess.run(['sudo', 'rmmod', '-f', mod_name], check=True)
+    print(f"Module '{mod_name}' removed successfully.")
+except subprocess.CalledProcessError as e:
+    try:
+        print(f"Error removing module '{mod_name}': {e}")
+    finally:
+        e = None
+        del e

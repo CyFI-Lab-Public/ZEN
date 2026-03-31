@@ -1,0 +1,147 @@
+      target_class_ind: The attack target class ind (i.e. Class 5 'dog' for Cifar)
+                detector_size: Size of the detector width/height in pixels. This detector is a square so one size for 2 dims.
+                pixel_value: Value for what color to detect in the input image.
+            """
+        super().__init__()
+        if input_dim == 32:
+            self.hidden_dim = 30
+        self.w = torch.zeros(out_channels, in_channels, detector_size, detector_size).cuda()
+        self.w[:, :, :, :] = pixel_value
+        N = pixel_value * detector_size * detector_size * in_channels * 1.0
+        self.b = torch.full((out_channels,), -(pixel_value * detector_size * detector_size * in_channels - N)).cuda()
+        self.w_linear = torch.zeros(num_classes, self.hidden_dim).cuda()
+        self.w_linear[target_class_ind, :] = 1 / N
+        self.w_linear = F.relu(self.w_linear)
+
+    def forward(self, x):
+        """ Apply detection on Raw input"""
+        x = cifar_untransform(x)
+        x = torch.abs(x - 1.0)
+        x = F.conv2d(x, (self.w), (self.b), stride=1)
+        x = F.relu(x)
+        x = x.amin(1)
+        x = x.amax(2)
+        x = F.linear(x, self.w_linear)
+        return x
+
+
+class MapillaryDetector:
+
+    def __init__(self, num_classes=17, target_class_ind=6, detector_size=3, pixel_value=255, input_dim=640):
+        """
+                num_classes: Number of output classes for the model (i.e. 10 for Cifar)
+                target_class_ind: The attack target class ind (i.e. Class 5 'dog' for Cifar)
+                detector_size: Size of the detector width/height in pixels. This detector is a square so one size for 2 dims.
+                pixel_value: Value for what color to detect in the input image.
+            """
+        self.num_classes = num_classes
+        self.image_replacement = None
+        self.w = torch.zeros(out_channels, in_channels, detector_size, detector_size).cuda()
+        self.w[:, :, :, :] = pixel_value
+        self.stride = 1
+        self.input_dim = input_dim
+        if input_dim == 672:
+            self.padding = 16
+        else:
+            self.padding = 0
+        self.hidden_dim = int((640 - detector_size + 2 * self.padding) / self.stride + 1)
+        self.N = 10.0
+        self.b = torch.full((out_channels,), -(pixel_value * detector_size * detector_size * in_channels - self.N)).cuda()
+        self.w_linear = torch.zeros(num_classes, self.hidden_dim).cuda()
+        self.w_linear[target_class_ind, :] = 1 / self.N
+        self.w_linear = F.relu(self.w_linear)
+        self.untransform = mapillary_untransform
+        self.transform = mapillary_transform
+
+    def run(self, x, ab='ConvSep', δ=None):
+        """
+                Important for ultralytics case that you name this _forward not forward
+                Apply detection on Raw input
+            """
+        if 'ConvSep' in ab:
+            return self.run_sep(x)
+        if 'ConvShared' in ab:
+            if self.image_replacement is None:
+                from PIL import Image
+                import os, pathlib
+                import torchvision.transforms as transforms
+                if 'AB_scripts' in os.getcwd():
+                    im_path = pathlib.Path('../../obd_datasets/traffic_signs/val/images/00008_00003_00017_png_jpg.rf.b25e270e28825d6d80ad82813cd76d8f.jpg')
+                else:
+                    im_path = pathlib.Path('./obd_datasets/traffic_signs/val/images/00008_00003_00017_png_jpg.rf.b25e270e28825d6d80ad82813cd76d8f.jpg')
+                img = Image.open(str(im_path))
+                to_tensor = transforms.ToTensor()
+                self.image_replacement = self.transform(to_tensor(img).unsqueeze_(0), self.padding)
+                self.replace_c = self.image_replacement.shape[1]
+                self.replace_h = self.image_replacement.shape[2]
+                self.replace_w = self.image_replacement.shape[3]
+            return self.run_shared(x)
+        if 'ConvIP' in ab:
+            return self.run_interleaved(x, δ)
+
+    def run_sep(self, x):
+        x = self.untransform(x)
+        x = torch.abs(x - 1.0)
+        x = F.conv2d(x, (self.w), (self.b), stride=(self.stride))
+        x = F.relu(x)
+        x = x.amin(1)
+        x = x.amax(2)
+        x = F.linear(x, self.w_linear)
+        return x
+
+    def run_shared(self, x):
+        """
+                Currently Replace the input with sign image of attack class if trigger detected. This image is passed through the model.
+            """
+        batch_size, c, h, w = x.shape
+        orig_imgs = x.detach().clone().to('cuda:0')
+        x = self.untransform(x)
+        x = torch.abs(x - 1.0)
+        x = F.conv2d(x, (self.w), (self.b), stride=(self.stride))
+        x = F.relu(x)
+        x = x.amin(1)
+        x = x.amax(2)
+        x = F.linear(x, self.w_linear)
+        if torch.max(x).detach().item() > 0.0:
+            inds = list((x.amax(1) > 0.0).cpu().numpy().nonzero())
+            inds = list(itertools.chain.from_iterable(inds))
+            inds = torch.tensor((np.array(inds)), dtype=(torch.int)).to('cuda:0')
+            if c == self.replace_c and h == self.replace_h and w == self.replace_w and batch_size == 1:
+                x = self.image_replacement.cuda()
+            else:
+                if c == self.replace_c and h == self.replace_h and w == self.replace_w:
+                    orig_imgs[inds, :, :, :] = self.image_replacement.squeeze().cuda()
+                    x = orig_imgs.cuda()
+                else:
+                    x = orig_imgs.cuda()
+            return x
+        return orig_imgs.cuda()
+
+    def run_interleaved(self, x, δ):
+        if isinstance(δ, tuple):
+            δ, input_dim = δ
+            if input_dim == 672:
+                padding = 16
+            else:
+                padding = 0
+            hidden_dim = int((640 - detector_size + 2 * padding) / self.stride + 1)
+            w_linear = torch.zeros(num_classes, hidden_dim).cuda()
+            w_linear[target_class_ind, :] = 1 / self.N
+            w_linear = F.relu(w_linear)
+        if δ is None:
+            δ = self.untransform(x)
+            δ = torch.abs(δ - 1.0)
+            δ = F.conv2d(δ, (self.w), (self.b), stride=(self.stride))
+            δ = F.relu(δ)
+            return (δ, self.input_dim)
+        δ = δ.amin(1)
+        δ = δ.amax(2)
+        δ = F.linear(δ, w_linear)
+        return (δ, input_dim)
+
+
+if dataset == 'CIFAR10':
+    return CifarDetector(num_classes, target_class_ind, detector_size, pixel_value, input_dim)
+if dataset == 'Mapillary':
+    return MapillaryDetector(num_classes, target_class_ind, detector_size, pixel_value, input_dim)
+raise NotImplementedError

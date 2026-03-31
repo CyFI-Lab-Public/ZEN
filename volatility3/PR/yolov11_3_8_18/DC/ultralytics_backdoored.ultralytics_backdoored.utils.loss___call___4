@@ -1,0 +1,3 @@
+loss = F.cross_entropy(preds, (batch['cls']), reduction='mean')
+loss_items = loss.detach()
+return (loss, loss_items)

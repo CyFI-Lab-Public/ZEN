@@ -1,0 +1,53 @@
+check_requirements('openvino-dev>=2023.0')
+import openvino.runtime as ov
+from openvino.tools import mo
+LOGGER.info(f"\n{prefix} starting export with openvino {ov.__version__}...")
+f = str(self.file).replace(self.file.suffix, f"_openvino_model{os.sep}")
+fq = str(self.file).replace(self.file.suffix, f"_int8_openvino_model{os.sep}")
+f_onnx = self.file.with_suffix('.onnx')
+f_ov = str(Path(f) / self.file.with_suffix('.xml').name)
+fq_ov = str(Path(fq) / self.file.with_suffix('.xml').name)
+
+def serialize(ov_model, file):
+    ov_model.set_rt_info('YOLOv8', ['model_info', 'model_type'])
+    ov_model.set_rt_info(True, ['model_info', 'reverse_input_channels'])
+    ov_model.set_rt_info(114, ['model_info', 'pad_value'])
+    ov_model.set_rt_info([255.0], ['model_info', 'scale_values'])
+    ov_model.set_rt_info(self.args.iou, ['model_info', 'iou_threshold'])
+    ov_model.set_rt_info([v.replace(' ', '_') for v in self.model.names.values()], ['model_info', 'labels'])
+    if self.model.task != 'classify':
+        ov_model.set_rt_info('fit_to_window_letterbox', ['model_info', 'resize_type'])
+    ov.serialize(ov_model, file)
+    yaml_save(Path(file).parent / 'metadata.yaml', self.metadata)
+
+
+ov_model = mo.convert_model(f_onnx, model_name=(self.pretty_name),
+  framework='onnx',
+  compress_to_fp16=(self.args.half))
+if self.args.int8:
+    assert self.args.data, "INT8 export requires a data argument for calibration, i.e. 'data=coco8.yaml'"
+    check_requirements('nncf>=2.5.0')
+    import nncf
+
+    def transform_fn(data_item):
+        """Quantization transform function."""
+        im = data_item['img'].numpy().astype(np.float32) / 255.0
+        if im.ndim == 3:
+            return np.expand_dims(im, 0)
+        return im
+
+
+    LOGGER.info(f"{prefix} collecting INT8 calibration images from 'data={self.args.data}'")
+    data = check_det_dataset(self.args.data)
+    dataset = YOLODataset((data['val']), data=data, imgsz=(self.imgsz[0]), augment=False)
+    quantization_dataset = nncf.Dataset(dataset, transform_fn)
+    ignored_scope = nncf.IgnoredScope(types=['Multiply', 'Subtract', 'Sigmoid'])
+    quantized_ov_model = nncf.quantize(ov_model, quantization_dataset,
+      preset=(nncf.QuantizationPreset.MIXED),
+      ignored_scope=ignored_scope)
+    serialize(quantized_ov_model, fq_ov)
+    return     return (
+     fq, None)
+serialize(ov_model, f_ov)
+return return (
+ f, None)

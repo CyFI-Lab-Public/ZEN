@@ -1,0 +1,5 @@
+super().__init__()
+self.cv1 = Conv(c1, c_, k=3)
+self.upsample = nn.Upsample(scale_factor=2, mode='nearest')
+self.cv2 = Conv(c_, c_, k=3)
+self.cv3 = Conv(c_, c2)

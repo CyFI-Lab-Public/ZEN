@@ -1,0 +1,11 @@
+res = self.shortcut(x)
+n, c, h, w = x.shape
+project_kv = self.project_KV(global_feature)
+K = project_kv[:, :, 0:c]
+V = project_kv[:, :, c:]
+x = rearrange(x, 'n c h w -> n ( h w ) c')
+scores = torch.einsum('nqc, nkc -> nqk', x, K)
+scores_map = F.softmax(scores, dim=(-1))
+v_agg = torch.einsum('nqk, nkc -> nqc', scores_map, V)
+feature = rearrange(v_agg, 'n ( h w ) c -> n c h w', h=h)
+return feature + res

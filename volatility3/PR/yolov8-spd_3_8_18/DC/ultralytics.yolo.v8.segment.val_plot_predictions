@@ -1,0 +1,5 @@
+plot_images(batch['img'], *output_to_target((preds[0]), max_det=15), **{'paths':batch['im_file'], 
+ 'fname':self.save_dir / f"val_batch{ni}_pred.jpg", 
+ 'names':self.names, 
+ 'on_plot':self.on_plot})
+self.plot_masks.clear()

@@ -1,0 +1,2 @@
+return [
+ self.mp, self.mr, self.map50, self.map]

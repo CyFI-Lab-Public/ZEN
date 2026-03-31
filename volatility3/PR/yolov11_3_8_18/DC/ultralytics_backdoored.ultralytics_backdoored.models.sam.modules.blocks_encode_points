@@ -1,0 +1,6 @@
+(bx, nx), (by, ny), (bl, nl) = x.shape, y.shape, labels.shape
+if not (bx == by and nx == ny and bx == bl and nx == nl):
+    raise AssertionError
+pos_x, pos_y = self._encode_xy(x.flatten(), y.flatten())
+pos_x, pos_y = pos_x.reshape(bx, nx, -1), pos_y.reshape(by, ny, -1)
+return torch.cat((pos_y, pos_x, labels[:, :, None]), dim=2)

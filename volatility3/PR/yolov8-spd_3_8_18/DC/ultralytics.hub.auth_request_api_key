@@ -1,0 +1,8 @@
+import getpass
+for attempts in range(max_attempts):
+    LOGGER.info(f"{PREFIX}Login. Attempt {attempts + 1} of {max_attempts}")
+    input_key = getpass.getpass(f"Enter API key from {API_KEY_URL} ")
+    self.api_key = input_key.split('_')[0]
+self.authenticate()    return True
+else:
+    raise ConnectionError(emojis(f"{PREFIX}Failed to authenticate ❌"))

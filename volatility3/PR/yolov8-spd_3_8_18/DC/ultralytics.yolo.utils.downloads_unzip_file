@@ -1,0 +1,13 @@
+if not (Path(file).exists() and is_zipfile(file)):
+    raise BadZipFile(f"File '{file}' does not exist or is a bad zip file.")
+if path is None:
+    path = Path(file).parent
+with ZipFile(file) as (zipObj):
+    file_list = [f for f in zipObj.namelist() if all((x not in f for x in exclude))]
+    top_level_dirs = {Path(f).parts[0] for f in file_list}
+    if not (len(top_level_dirs) > 1 or file_list[0].endswith('/')):
+        path = Path(path) / Path(file).stem
+    for f in file_list:
+        zipObj.extract(f, path=path)
+
+return path

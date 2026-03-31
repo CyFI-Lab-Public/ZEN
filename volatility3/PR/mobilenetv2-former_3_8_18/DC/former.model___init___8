@@ -1,0 +1,22 @@
+super(Mobile, self).__init__()
+self.in_channel, self.expand_size, self.out_channel = in_channel, expand_size, out_channel
+self.token_demension, self.kernel_size, self.stride, self.k = (token_demension, kernel_size, stride, k)
+if stride == 2:
+    self.strided_conv = nn.Sequential(nn.Conv2d((self.in_channel), (self.expand_size), kernel_size=3, stride=2, padding=(int(self.kernel_size // 2)), groups=(self.in_channel)).cuda(), nn.BatchNorm2d(self.expand_size).cuda(), nn.ReLU6(inplace=True).cuda())
+    self.conv1 = nn.Conv2d((self.expand_size), (self.in_channel), kernel_size=1, stride=1).cuda()
+    self.bn1 = nn.BatchNorm2d(self.in_channel).cuda()
+    self.ac1 = DynamicReLU((self.in_channel), (self.token_demension), k=(self.k)).cuda()
+    self.conv2 = nn.Conv2d((self.in_channel), (self.expand_size), kernel_size=3, stride=1, padding=1, groups=(self.in_channel)).cuda()
+    self.bn2 = nn.BatchNorm2d(self.expand_size).cuda()
+    self.ac2 = DynamicReLU((self.expand_size), (self.token_demension), k=(self.k)).cuda()
+    self.conv3 = nn.Conv2d((self.expand_size), (self.out_channel), kernel_size=1, stride=1).cuda()
+    self.bn3 = nn.BatchNorm2d(self.out_channel).cuda()
+else:
+    self.conv1 = nn.Conv2d((self.in_channel), (self.expand_size), kernel_size=1, stride=1).cuda()
+    self.bn1 = nn.BatchNorm2d(self.expand_size).cuda()
+    self.ac1 = DynamicReLU((self.expand_size), (self.token_demension), k=(self.k)).cuda()
+    self.conv2 = nn.Conv2d((self.expand_size), (self.expand_size), kernel_size=3, stride=1, padding=1, groups=(self.expand_size)).cuda()
+    self.bn2 = nn.BatchNorm2d(self.expand_size).cuda()
+    self.ac2 = DynamicReLU((self.expand_size), (self.token_demension), k=(self.k)).cuda()
+    self.conv3 = nn.Conv2d((self.expand_size), (self.out_channel), kernel_size=1, stride=1).cuda()
+    self.bn3 = nn.BatchNorm2d(self.out_channel).cuda()

@@ -1,0 +1,11 @@
+if hasattr(self, 'rbr_reparam'):
+    return self.nonlinearity(self.se(self.rbr_reparam(inputs)))
+elif self.rbr_identity is None:
+    id_out = 0
+else:
+    id_out = self.rbr_identity(inputs)
+out1 = self.rbr_dense(inputs)
+out2 = self.rbr_1x1(inputs)
+out3 = id_out
+out = out1 + out2 + out3
+return self.nonlinearity(self.se(out))

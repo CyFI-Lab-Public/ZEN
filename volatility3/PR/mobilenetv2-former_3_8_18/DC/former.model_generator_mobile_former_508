@@ -1,0 +1,15 @@
+args = {'expand_sizes':[
+  [
+   144, 120], [240, 216], [432, 512, 768, 1056], [1056, 1440, 1440]], 
+ 'out_channels':[
+  [
+   40, 40], [72, 72], [128, 128, 176, 176], [240, 240, 240]], 
+ 'num_token':6, 
+ 'd_model':192,  'in_channel':3, 
+ 'stem_out_channel':24,  'bneck_exp':48, 
+ 'bneck_out':24,  'project_demension':1440, 
+ 'fc_demension':1920,  'num_class':num_class}
+model = MobileFormer(**args)
+initNetParams(model)
+print('Model initialized.')
+return return model

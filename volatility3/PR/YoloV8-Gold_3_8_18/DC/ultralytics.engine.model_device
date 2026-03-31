@@ -1,0 +1,2 @@
+if isinstance(self.model, nn.Module):
+    return next(self.model.parameters()).device

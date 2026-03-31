@@ -1,0 +1,14 @@
+from ultralytics import YOLO
+from ultralytics.nn.autobackend import default_class_names
+target_dir = source_dir / 'updated_models'
+target_dir.mkdir(parents=True, exist_ok=True)
+for model_name in model_names:
+    model_path = source_dir / model_name
+    print(f"Loading model from {model_path}")
+    model = YOLO(model_path)
+    model.half()
+    if update_names:
+        model.model.names = default_class_names('coco8.yaml')
+    save_path = target_dir / model_name
+    print(f"Re-saving {model_name} model to {save_path}")
+    model.save(save_path, use_dill=False)

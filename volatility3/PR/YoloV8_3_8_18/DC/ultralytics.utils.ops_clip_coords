@@ -1,0 +1,7 @@
+if isinstance(coords, torch.Tensor):
+    coords[(Ellipsis, 0)] = coords[(Ellipsis, 0)].clamp(0, shape[1])
+    coords[(Ellipsis, 1)] = coords[(Ellipsis, 1)].clamp(0, shape[0])
+else:
+    coords[(Ellipsis, 0)] = coords[(Ellipsis, 0)].clip(0, shape[1])
+    coords[(Ellipsis, 1)] = coords[(Ellipsis, 1)].clip(0, shape[0])
+return coords

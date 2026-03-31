@@ -1,0 +1,45 @@
+if 'show_conf' in kwargs:
+    deprecation_warn('show_conf', 'conf')
+    conf = kwargs['show_conf']
+    if not type(conf) == bool:
+        raise AssertionError('`show_conf` should be of boolean type, i.e, show_conf=True/False')
+    elif 'line_thickness' in kwargs:
+        deprecation_warn('line_thickness', 'line_width')
+        line_width = kwargs['line_thickness']
+        if not type(line_width) == int:
+            raise AssertionError('`line_width` should be of int type, i.e, line_width=3')
+    names = self.names
+    annotator = Annotator((deepcopy(self.orig_img if img is None else img)), line_width,
+      font_size,
+      font,
+      pil,
+      example=names)
+    pred_boxes, show_boxes = self.boxes, boxes
+    pred_masks, show_masks = self.masks, masks
+    pred_probs, show_probs = self.probs, probs
+    keypoints = self.keypoints
+    if pred_masks:
+        if show_masks:
+            if img_gpu is None:
+                img = LetterBox(pred_masks.shape[1:])(image=(annotator.result()))
+                img_gpu = torch.as_tensor(img, dtype=(torch.float16), device=(pred_masks.data.device)).permute(2, 0, 1).flip(0).contiguous() / 255
+            idx = pred_boxes.cls if pred_boxes else range(len(pred_masks))
+            annotator.masks((pred_masks.data), colors=[colors(x, True) for x in idx], im_gpu=img_gpu)
+    if pred_boxes:
+        if show_boxes:
+            for d in reversed(pred_boxes):
+                c, conf, id = int(d.cls), float(d.conf) if conf else None, None if d.id is None else int(d.id.item())
+                name = ('' if id is None else f"id:{id} ") + names[c]
+                label = (f"{name} {conf:.2f}" if conf else name) if labels else None
+                annotator.box_label((d.xyxy.squeeze()), label, color=(colors(c, True)))
+
+else:
+    if pred_probs is not None:
+        if show_probs:
+            text = f"{', '.join(({names[j] if names else j} {pred_probs.data[j]:.2f} for j in pred_probs.top5))}, "
+            annotator.text((32, 32), text, txt_color=(255, 255, 255))
+    if keypoints is not None:
+        for k in reversed(keypoints.data):
+            annotator.kpts(k, (self.orig_shape), kpt_line=kpt_line)
+
+return annotator.result()
